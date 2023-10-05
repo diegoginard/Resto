@@ -14,7 +14,6 @@ public class Resto {
 //       System.out.println(pd.listarProductos()); //Funciona
 //       pd.guardarProducto(pro);  //Funciona
 //       pd.ModificarProducto(pro); //Funciona
-       pd.eliminarProducto(5);
+//       pd.eliminarProducto(5);  //Funciona
     }
-    
 }
