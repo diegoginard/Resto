@@ -3,7 +3,6 @@ package BaseDatos;
 
 import BaseDatos.Conexion;
 import Entidades.Producto;
-
 import java.sql.*;
 import java.util.*;
 import javax.swing.JOptionPane;
@@ -113,8 +112,6 @@ public class ProductoData {
             JOptionPane.showMessageDialog(null,"Error al acceder a la tabla"+ex.getMessage());
         
         }
-        
-        
     }
     
     public List<Producto> BuscarProductos(String buscar) {
