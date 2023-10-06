@@ -22,7 +22,7 @@ public class MesaData {
     
     public void crearMesa(Mesa mesa){
         
-    String sql="INSERT INTO mesa(numero, estadoMesa, capacidad) VALUES (?,?,?)"; 
+    String sql = "INSERT INTO mesa(numero, estadoMesa, capacidad) VALUES (?,?,?)"; 
     
         try {
             

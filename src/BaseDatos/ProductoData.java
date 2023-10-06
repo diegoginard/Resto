@@ -104,14 +104,11 @@ public class ProductoData {
            
             }
             
-            
         } catch (SQLException ex) {
             
             JOptionPane.showMessageDialog(null,"Error al acceder a la tabla"+ex.getMessage());
         
         }
-        
-        
     }
     
     public List<Producto> BuscarProductos(String buscar) {
@@ -177,4 +174,5 @@ public class ProductoData {
         return productos;
     
     }
+    
 }
