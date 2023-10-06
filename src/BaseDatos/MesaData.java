@@ -2,7 +2,6 @@
 package BaseDatos;
 
 import Entidades.Mesa;
-import Entidades.Producto;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -24,6 +23,7 @@ public class MesaData {
     public void crearMesa(Mesa mesa){
         
     String sql="INSERT INTO mesa(numero, estadoMesa, capacidad) VALUES (?,?,?)"; 
+    
         try {
             
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
@@ -49,10 +49,10 @@ public class MesaData {
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla mesa " + ex.getMessage());
             
         }
-    
-}
+    }
    
     public void eliminarMesa(int id){
+        
          String sql = "DELETE FROM mesa WHERE idMesa = ?";
 
         try {
@@ -79,6 +79,7 @@ public class MesaData {
 
         }
     }
+    
     public void modificarMesa(Mesa mesa){
    
         String sql = "UPDATE mesa SET idMesa= ?, numero = ?, estadoMesa = ?, capacidad = ? WHERE idMesa = ?";
@@ -107,7 +108,6 @@ public class MesaData {
             JOptionPane.showMessageDialog(null,"Error al acceder a la tabla"+ex.getMessage());
         
         }
-        
-        
     }
+    
 }

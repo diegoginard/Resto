@@ -19,10 +19,10 @@ public class Resto {
 //       pd.eliminarProducto(5);  //Funciona
 //       MesaData md = new MesaData();
 //       Mesa mesa= new Mesa(1,"",4);
-//       md.crearMesa(mesa);
-//       md.eliminarMesa(4);
-//        Mesa mesa= new Mesa(1,1,"Ocupado",6);
-//        md.modificarMesa(mesa);
+//       md.crearMesa(mesa);  //Funciona
+//       md.eliminarMesa(4);  //Funciona
+//       Mesa mesa= new Mesa(1,1,"Ocupado",6);
+//       md.modificarMesa(mesa);  //Funciona
 
         }
 
