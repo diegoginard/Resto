@@ -16,9 +16,7 @@ public class ProductoData {
         con = Conexion.getConexion();
         
     }
-     
-    List<Producto> productos = new ArrayList<>();
-    Producto prod = new Producto();
+  
     
     public void guardarProducto(Producto pro){
         
@@ -112,7 +110,7 @@ public class ProductoData {
     }
     
     public List<Producto> BuscarProductos(String buscar) {
-        
+      List<Producto> productos = new ArrayList<>();
         try {
             
             String sql = "SELECT * FROM Producto WHERE idProducto LIKE ? OR nombre LIKE ?";
@@ -145,7 +143,7 @@ public class ProductoData {
     }
     
     public List<Producto> listarProductos(){
-        
+        List<Producto> productos = new ArrayList<>();
         try {
             
             String sql = "SELECT * FROM producto WHERE estadoProducto = 1 ";
@@ -153,7 +151,7 @@ public class ProductoData {
             ResultSet rs = ps.executeQuery();
             
             while (rs.next()) {
-
+                Producto prod = new Producto();
                 prod.setIdProducto(rs.getInt("idProducto"));
                 prod.setNombre(rs.getString("nombreProducto"));
                 prod.setPrecio(rs.getDouble("precio"));
