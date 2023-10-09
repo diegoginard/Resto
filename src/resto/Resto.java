@@ -28,8 +28,8 @@ public class Resto {
 //       Mesa mesa= new Mesa(1,1,"Ocupado",6);
 //       md.modificarMesa(mesa);  //Funciona
 PedidoData pd = new PedidoData();
-Pedido pedido = new Pedido(1,"Carlos",new Date(),5000.00,true);
-pd.guardarPedido(pedido);
+Pedido p1 = new Pedido(1,"Carlos",new Date(16,20,01),5000.00,true);
+pd.guardarPedido(p1);
 
         }
 
