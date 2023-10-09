@@ -2,7 +2,6 @@
 package BaseDatos;
 
 import Entidades.Mesa;
-import Entidades.Producto;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

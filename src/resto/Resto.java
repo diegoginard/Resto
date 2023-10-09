@@ -13,8 +13,7 @@ import java.sql.Date;
 public class Resto {
 
     public static void main(String[] args) {
-//       ProductoData pd = new ProductoData();
-       
+//       ProductoData pd = new ProductoData();      
 //       Producto pro = new Producto("tacos" , 2800.000 ,5, true);
 //       System.out.println(pd.listarProductos()); //Funciona
 //       pd.guardarProducto(pro);  //Funciona
@@ -27,11 +26,10 @@ public class Resto {
 //       md.eliminarMesa(4);  //Funciona
 //       Mesa mesa= new Mesa(1,1,"Ocupado",6);
 //       md.modificarMesa(mesa);  //Funciona
-PedidoData pd = new PedidoData();
-Pedido p1 = new Pedido(1,"Carlos",new Date(16,20,01),5000.00,true);
-pd.guardarPedido(p1);
+//       PedidoData pd = new PedidoData();
+//       Pedido p1 = new Pedido(1,"Carlos",new Date(16,20,01),5000.00,true);
+//       pd.guardarPedido(p1);
 
         }
-
     }
 
