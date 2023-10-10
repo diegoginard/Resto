@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 public class Resto {
 
     public static void main(String[] args) {
-        
+
 //       ProductoData pd = new ProductoData();      
 //       Producto pro = new Producto(5,"empanadas salteñas" , 4000.000 ,5, true);
 //       System.out.println(pd.listarProductos()); //Funciona
@@ -28,9 +28,9 @@ public class Resto {
 //       Mesa mesa = new Mesa(1, 1, "Ocupado", 6);
 //       md.modificarMesa(mesa);  //Funciona
 //       Pedido p1 = new Pedido(mesa, "Carlos", LocalDateTime.of(2023, 10, 10, 11, 00), 5000, true);
-       PedidoData pd = new PedidoData();
+        PedidoData pd = new PedidoData();
 //       pd.guardarPedido(p1); //Funciona
-pd.eliminarPedido(4);
+        pd.eliminarPedido(4);
 
     }
 }

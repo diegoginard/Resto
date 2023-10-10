@@ -53,12 +53,12 @@ public class PedidoData {
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, idPedido);
-            
             ps.executeUpdate();
             JOptionPane.showMessageDialog(null, "Pedido eliminado ");
             ps.close();
             
         } catch (SQLException ex) {
+            
             ex.printStackTrace();
         }
     }
