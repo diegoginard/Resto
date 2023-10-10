@@ -26,7 +26,7 @@ public class PedidoData {
             
             ps.setInt(1, ped.getMesa().getIdMesa());
             ps.setString(2, ped.getNombreMesero());
-            ps.setTimestamp(3, new java.sql.Timestamp(ped.getFechaHora().getTime()));
+            ps.setTime(3, ped.getFechaHora());
             ps.setDouble(4, ped.getImporte());
             ps.setBoolean(5, ped.isCobrada());
             

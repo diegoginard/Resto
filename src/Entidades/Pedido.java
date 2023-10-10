@@ -2,21 +2,22 @@
 package Entidades;
 
 import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 
 public class Pedido {
-   private int idPedido;
+    private int idPedido;
     private Mesa mesa;
     private String nombreMesero;
-    private Date fechaHora;
+    private LocalDate fechaHora;
     private double importe;
     private boolean cobrada;
 
     public Pedido() {
     }
 
-    public Pedido(Mesa mesa, String nombreMesero, Date fechaHora, double importe, boolean cobrada) {
+    public Pedido(Mesa mesa, String nombreMesero, LocalDate fechaHora, double importe, boolean cobrada) {
         this.mesa = mesa;
         this.nombreMesero = nombreMesero;
         this.fechaHora = fechaHora;
@@ -24,7 +25,7 @@ public class Pedido {
         this.cobrada = cobrada;
     }
 
-    public Pedido(int idPedido, Mesa mesa, String nombreMesero, Date fechaHora, double importe, boolean cobrada) {
+    public Pedido(int idPedido, Mesa mesa, String nombreMesero, LocalDate fechaHora, double importe, boolean cobrada) {
         this.idPedido = idPedido;
         this.mesa = mesa;
         this.nombreMesero = nombreMesero;
@@ -57,11 +58,11 @@ public class Pedido {
         this.nombreMesero = nombreMesero;
     }
 
-    public Date getFechaHora() {
+    public LocalDate getFechaHora() {
         return fechaHora;
     }
 
-    public void setFechaHora(Date fechaHora) {
+    public void setFechaHora(LocalDate fechaHora) {
         this.fechaHora = fechaHora;
     }
 
@@ -86,5 +87,5 @@ public class Pedido {
         return "Pedido{" + "idPedido=" + idPedido + ", mesa=" + mesa + ", nombreMesero=" + nombreMesero + ", fechaHora=" + fechaHora + ", importe=" + importe + ", cobrada=" + cobrada + '}';
     }
 
-
+    
 }

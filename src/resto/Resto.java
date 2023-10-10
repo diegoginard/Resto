@@ -8,6 +8,8 @@ import Entidades.Mesa;
 import Entidades.Pedido;
 import Entidades.Producto;
 import java.sql.Date;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 
 public class Resto {
@@ -26,9 +28,11 @@ public class Resto {
 //       md.eliminarMesa(4);  //Funciona
 //       Mesa mesa= new Mesa(1,1,"Ocupado",6);
 //       md.modificarMesa(mesa);  //Funciona
-//       PedidoData pd = new PedidoData();
-//       Pedido p1 = new Pedido(1,"Carlos",new Date(16,20,01),5000.00,true);
-//       pd.guardarPedido(p1);
+       
+       Pedido p1 = new Pedido("Carlos",fechaHora, 5000.00,true);
+      
+       PedidoData pd = new PedidoData();
+       pd.guardarPedido(p1);
 
         }
     }
