@@ -45,5 +45,21 @@ public class PedidoData {
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla " + ex.getMessage());
             
         }
-    }   
+    }
+      public void eliminarPedido (int idPedido){
+        
+        String sql = "DELETE FROM pedido WHERE idPedido=?";
+        
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, idPedido);
+            
+            ps.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Pedido eliminado ");
+            ps.close();
+            
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
 }
