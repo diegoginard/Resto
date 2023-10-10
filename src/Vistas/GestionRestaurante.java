@@ -1,13 +1,28 @@
 
 package Vistas;
 
+import BaseDatos.Conexion;
+import java.sql.*;
+import javax.swing.ImageIcon;
+
 
 public class GestionRestaurante extends javax.swing.JFrame {
 
+    private Connection con = null;
   
     public GestionRestaurante() {
         initComponents();
         this.setLocationRelativeTo(null);
+        setIconImage(new ImageIcon(getClass().getResource("/Recursos/meal_500px.png")).getImage());
+      
+        con = Conexion.getConexion();
+      
+      
+      
+        
+        
+        //setIconImage(new ImageIcon(getClass().getResource("/universidadejemplo/Recursos/colegio.png")).getImage());
+        
     }
 
  
