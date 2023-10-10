@@ -2,24 +2,22 @@
 package BaseDatos;
 
 import Entidades.Pedido;
-import Entidades.Producto;
 import java.sql.*;
 import javax.swing.JOptionPane;
-import java.util.Date;
 
 public class PedidoData {
     
     private Connection con = null;
     
-    
     public PedidoData(){
+        
         con = Conexion.getConexion();
     }
     
     public void guardarPedido(Pedido ped){
         
-        String sql="INSERT INTO pedido (idMesa , nombreMesero , fechaHora , importe , cobrada) VALUES (?,?,?,?.?)"; 
-      
+        String sql = "INSERT INTO pedido (idMesa , nombreMesero , fechaHora , importe , cobrada) VALUES (?,?,?,?,?)"; 
+        
         try {
             
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
@@ -29,7 +27,6 @@ public class PedidoData {
             ps.setTimestamp(3, Timestamp.valueOf(ped.getFechaHora()));
             ps.setDouble(4, ped.getImporte());
             ps.setBoolean(5, ped.isCobrada());
-            System.out.println(ped.getMesa().getIdMesa());
             ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
            
@@ -48,8 +45,5 @@ public class PedidoData {
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla " + ex.getMessage());
             
         }
-    }
-    
-    
-    
+    }   
 }

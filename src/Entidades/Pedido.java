@@ -1,11 +1,7 @@
 
 package Entidades;
 
-import java.sql.Date;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.List;
-
+import java.time.*;
 
 public class Pedido {
     private int idPedido;

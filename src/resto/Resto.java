@@ -7,8 +7,6 @@ import BaseDatos.ProductoData;
 import Entidades.Mesa;
 import Entidades.Pedido;
 import Entidades.Producto;
-import java.sql.Date;
-import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
 
@@ -22,18 +20,15 @@ public class Resto {
 //       pd.ModificarProducto(pro); //Funciona
 //       pd.eliminarProducto(5);  //Funciona
 //       MesaData md = new MesaData();
-//       System.out.println(md.listarMesas());
+//       System.out.println(md.listarMesas()); //Funciona
 //       Mesa mesa= new Mesa(1,"",4);
 //       md.crearMesa(mesa);  //Funciona
 //       md.eliminarMesa(4);  //Funciona
-       Mesa mesa= new Mesa(1,1,"Ocupado",6);
+//        Mesa mesa = new Mesa(1, 1, "Ocupado", 6);
 //       md.modificarMesa(mesa);  //Funciona
-       
-       Pedido p1 = new Pedido(mesa,"Carlos",LocalDateTime.of(2023,10,10,11,00), 5000.00,true);
-//      
-       PedidoData pd = new PedidoData();
-       pd.guardarPedido(p1);
+//        Pedido p1 = new Pedido(mesa, "Carlos", LocalDateTime.of(2023, 10, 10, 11, 00), 5000, true);
+//        PedidoData pd = new PedidoData();
+//        pd.guardarPedido(p1); //Funciona
 
-        }
     }
-
+}

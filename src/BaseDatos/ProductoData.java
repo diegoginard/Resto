@@ -1,7 +1,6 @@
 
 package BaseDatos;
 
-import BaseDatos.Conexion;
 import Entidades.Producto;
 import java.sql.*;
 import java.util.*;
@@ -17,7 +16,6 @@ public class ProductoData {
         
     }
   
-    
     public void guardarProducto(Producto pro){
         
         String sql="INSERT INTO producto(nombreProducto, precio, stock, estadoProducto) VALUES (?,?,?,?)"; 
