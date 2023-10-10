@@ -18,7 +18,7 @@ public class PedidoData {
     
     public void guardarPedido(Pedido ped){
         
-        String sql="INSERT INTO pedido(idMesa,nombreMesero,fechaHora, importe, cobrada) VALUES (?,?,?,?.?)"; 
+        String sql="INSERT INTO pedido (idMesa , nombreMesero , fechaHora , importe , cobrada) VALUES (?,?,?,?.?)"; 
       
         try {
             
@@ -26,10 +26,10 @@ public class PedidoData {
             
             ps.setInt(1, ped.getMesa().getIdMesa());
             ps.setString(2, ped.getNombreMesero());
-            ps.setTime(3, ped.getFechaHora());
+            ps.setTimestamp(3, Timestamp.valueOf(ped.getFechaHora()));
             ps.setDouble(4, ped.getImporte());
             ps.setBoolean(5, ped.isCobrada());
-            
+            System.out.println(ped.getMesa().getIdMesa());
             ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
            

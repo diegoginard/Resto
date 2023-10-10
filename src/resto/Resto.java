@@ -16,7 +16,7 @@ public class Resto {
 
     public static void main(String[] args) {
 //       ProductoData pd = new ProductoData();      
-//       Producto pro = new Producto("tacos" , 2800.000 ,5, true);
+//       Producto pro = new Producto(5,"empanadas salteñas" , 4000.000 ,5, true);
 //       System.out.println(pd.listarProductos()); //Funciona
 //       pd.guardarProducto(pro);  //Funciona
 //       pd.ModificarProducto(pro); //Funciona
@@ -26,11 +26,11 @@ public class Resto {
 //       Mesa mesa= new Mesa(1,"",4);
 //       md.crearMesa(mesa);  //Funciona
 //       md.eliminarMesa(4);  //Funciona
-//       Mesa mesa= new Mesa(1,1,"Ocupado",6);
+       Mesa mesa= new Mesa(1,1,"Ocupado",6);
 //       md.modificarMesa(mesa);  //Funciona
        
-       Pedido p1 = new Pedido("Carlos",fechaHora, 5000.00,true);
-      
+       Pedido p1 = new Pedido(mesa,"Carlos",LocalDateTime.of(2023,10,10,11,00), 5000.00,true);
+//      
        PedidoData pd = new PedidoData();
        pd.guardarPedido(p1);
 

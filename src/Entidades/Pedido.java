@@ -3,6 +3,7 @@ package Entidades;
 
 import java.sql.Date;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 
@@ -10,14 +11,14 @@ public class Pedido {
     private int idPedido;
     private Mesa mesa;
     private String nombreMesero;
-    private LocalDate fechaHora;
+    private LocalDateTime fechaHora;
     private double importe;
     private boolean cobrada;
 
     public Pedido() {
     }
 
-    public Pedido(Mesa mesa, String nombreMesero, LocalDate fechaHora, double importe, boolean cobrada) {
+    public Pedido(Mesa mesa, String nombreMesero, LocalDateTime fechaHora, double importe, boolean cobrada) {
         this.mesa = mesa;
         this.nombreMesero = nombreMesero;
         this.fechaHora = fechaHora;
@@ -25,7 +26,7 @@ public class Pedido {
         this.cobrada = cobrada;
     }
 
-    public Pedido(int idPedido, Mesa mesa, String nombreMesero, LocalDate fechaHora, double importe, boolean cobrada) {
+    public Pedido(int idPedido, Mesa mesa, String nombreMesero, LocalDateTime fechaHora, double importe, boolean cobrada) {
         this.idPedido = idPedido;
         this.mesa = mesa;
         this.nombreMesero = nombreMesero;
@@ -58,11 +59,11 @@ public class Pedido {
         this.nombreMesero = nombreMesero;
     }
 
-    public LocalDate getFechaHora() {
+    public LocalDateTime getFechaHora() {
         return fechaHora;
     }
 
-    public void setFechaHora(LocalDate fechaHora) {
+    public void setFechaHora(LocalDateTime fechaHora) {
         this.fechaHora = fechaHora;
     }
 
@@ -87,5 +88,6 @@ public class Pedido {
         return "Pedido{" + "idPedido=" + idPedido + ", mesa=" + mesa + ", nombreMesero=" + nombreMesero + ", fechaHora=" + fechaHora + ", importe=" + importe + ", cobrada=" + cobrada + '}';
     }
 
+    
     
 }
