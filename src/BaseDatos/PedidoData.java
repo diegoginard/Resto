@@ -40,12 +40,13 @@ public class PedidoData {
             
             ps.close();
             
-        } catch (SQLException ex) {
+        }catch (SQLException ex) {
             
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla " + ex.getMessage());
             
         }
     }
+    
       public void eliminarPedido (int idPedido){
         
         String sql = "DELETE FROM pedido WHERE idPedido=?";
