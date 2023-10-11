@@ -25,12 +25,12 @@ public class Resto {
 //       Mesa mesa= new Mesa(1,"",4);
 //       md.crearMesa(mesa);  //Funciona
 //       md.eliminarMesa(4);  //Funciona
-//       Mesa mesa = new Mesa(1, 1, "Ocupado", 6);
+       Mesa mesa = new Mesa(2, 1, "Ocupado", 6);
 //       md.modificarMesa(mesa);  //Funciona
-//       Pedido p1 = new Pedido(mesa, "Carlos", LocalDateTime.of(2023, 10, 10, 11, 00), 5000, true);
-        PedidoData pd = new PedidoData();
-//       pd.guardarPedido(p1); //Funciona
-        pd.eliminarPedido(4);
+       Pedido p1 = new Pedido(mesa, "Carlos", LocalDateTime.of(2023, 10, 10, 11, 00), 5000, true);
+       PedidoData pd = new PedidoData();
+       pd.guardarPedido(p1); //Funciona
+//        pd.eliminarPedido(4);
 
     }
 }

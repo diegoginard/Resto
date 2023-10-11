@@ -49,7 +49,7 @@ public class PedidoData {
     
       public void eliminarPedido (int idPedido){
         
-        String sql = "DELETE FROM pedido WHERE idPedido=?";
+        String sql = "DELETE FROM pedido WHERE idPedido = ?";
         
         try {
             PreparedStatement ps = con.prepareStatement(sql);
@@ -60,7 +60,7 @@ public class PedidoData {
             
         } catch (SQLException ex) {
             
-            JOptionPane.showMessageDialog(null, "No se pudo acceder a la tabla pedidos "+ex);
+            JOptionPane.showMessageDialog(null, "No se pudo acceder a la tabla pedidos "+ex.getMessage());
         }
     }
 }
