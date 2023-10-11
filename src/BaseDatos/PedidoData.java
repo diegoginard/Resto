@@ -60,7 +60,7 @@ public class PedidoData {
             
         } catch (SQLException ex) {
             
-            ex.printStackTrace();
+            JOptionPane.showMessageDialog(null, "No se pudo acceder a la tabla pedidos "+ex);
         }
     }
 }
