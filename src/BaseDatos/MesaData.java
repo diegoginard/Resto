@@ -105,7 +105,6 @@ public class MesaData {
            
             }
             
-            
         } catch (SQLException ex) {
             
             JOptionPane.showMessageDialog(null,"Error al acceder a la tabla"+ex.getMessage());
@@ -114,6 +113,7 @@ public class MesaData {
     }
     
     public List<Mesa> listarMesas(){
+        
         List<Mesa> Mesas = new ArrayList<>();
     
         try {

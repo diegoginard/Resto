@@ -14,9 +14,6 @@ public class PedidoData {
         
         con = Conexion.getConexion();
     }
-    
-    Pedido pe = new Pedido();
-    Mesa me =new Mesa();
         
     public void guardarPedido(Pedido ped) {
 
@@ -69,7 +66,9 @@ public class PedidoData {
         }
     }
     
-    public void modificarPedido(int id){
+    public void modificarPedido(Pedido pe){
+        
+        Mesa me =new Mesa();
         
         String sql = "UPDATE pedido SET idPedido = ? , idMesa = ? , nombreMesero = ? , "
                 + "fechaHora = ? , importe = ? , cobrada = ? , estado = ? WHERE idPedido = ?";
@@ -79,13 +78,13 @@ public class PedidoData {
             PreparedStatement ps= con.prepareStatement(sql);
 
             ps.setInt(1, pe.getIdPedido());
-            ps.setInt(2, me.getIdMesa());
+            ps.setInt(2, pe.getMesa().getIdMesa());
             ps.setString(3, pe.getNombreMesero());
             ps.setTimestamp(4,Timestamp.valueOf(pe.getFechaHora()));
             ps.setDouble(5, pe.getImporte());
             ps.setBoolean(6, pe.isCobrada());
             ps.setString(7, pe.getEstado());
-            ps.setInt(8,id);
+            ps.setInt(8,pe.getIdPedido());
             int exito= ps.executeUpdate();
             
             if (exito==1) {
@@ -99,5 +98,9 @@ public class PedidoData {
             JOptionPane.showMessageDialog(null,"Error al acceder a la tabla Pedido"+ex.getMessage());
         
         }
+    }
+    
+    public void listarPedido(){
+    
     }
 }
