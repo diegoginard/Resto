@@ -26,15 +26,36 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
+        mesa1 = new javax.swing.JLabel();
+        mesa2 = new javax.swing.JLabel();
+        mesa3 = new javax.swing.JLabel();
+        mesa4 = new javax.swing.JLabel();
+        mesa5 = new javax.swing.JLabel();
+        mesa6 = new javax.swing.JLabel();
+        mesa7 = new javax.swing.JLabel();
+        mesa8 = new javax.swing.JLabel();
+        mesa9 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
+        jLabel30 = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
+        jLabel32 = new javax.swing.JLabel();
+        jLabel33 = new javax.swing.JLabel();
+        jLabel34 = new javax.swing.JLabel();
+        jLabel35 = new javax.swing.JLabel();
+        jLabel36 = new javax.swing.JLabel();
+        jLabel37 = new javax.swing.JLabel();
+        jLabel38 = new javax.swing.JLabel();
+        jLabel39 = new javax.swing.JLabel();
 
         setClosable(true);
         setTitle("Administra Salon");
@@ -45,337 +66,352 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel1.setBackground(new java.awt.Color(255, 0, 0));
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-rojo.png"))); // NOI18N
-        jLabel1.setText("3");
-        jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel1.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
-                jLabel1AncestorAdded(evt);
-            }
-            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
-        });
-        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel1MouseClicked(evt);
+        mesa1.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        mesa1.setForeground(new java.awt.Color(0, 0, 0));
+        mesa1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-verde.png"))); // NOI18N
+        mesa1.setText("1");
+        mesa1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        mesa1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                mesa1MouseReleased(evt);
             }
         });
 
-        jLabel2.setBackground(new java.awt.Color(255, 0, 0));
-        jLabel2.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-rojo.png"))); // NOI18N
-        jLabel2.setText("1");
-        jLabel2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel2.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
-                jLabel2AncestorAdded(evt);
-            }
-            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
-        });
-        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel2MouseClicked(evt);
-            }
-        });
+        mesa2.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        mesa2.setForeground(new java.awt.Color(0, 0, 0));
+        mesa2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-verde.png"))); // NOI18N
+        mesa2.setText("2");
+        mesa2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        jLabel3.setBackground(new java.awt.Color(255, 0, 0));
-        jLabel3.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-rojo.png"))); // NOI18N
-        jLabel3.setText("2");
-        jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel3.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
-                jLabel3AncestorAdded(evt);
-            }
-            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
-        });
-        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel3MouseClicked(evt);
-            }
-        });
+        mesa3.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        mesa3.setForeground(new java.awt.Color(0, 0, 0));
+        mesa3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-verde.png"))); // NOI18N
+        mesa3.setText("3");
+        mesa3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        jLabel4.setBackground(new java.awt.Color(255, 0, 0));
-        jLabel4.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-rojo.png"))); // NOI18N
-        jLabel4.setText("4");
-        jLabel4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel4.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
-                jLabel4AncestorAdded(evt);
-            }
-            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
-        });
-        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel4MouseClicked(evt);
-            }
-        });
+        mesa4.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        mesa4.setForeground(new java.awt.Color(0, 0, 0));
+        mesa4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-verde.png"))); // NOI18N
+        mesa4.setText("4");
+        mesa4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        jLabel5.setBackground(new java.awt.Color(255, 0, 0));
-        jLabel5.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-rojo.png"))); // NOI18N
-        jLabel5.setText("5");
-        jLabel5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel5.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
-                jLabel5AncestorAdded(evt);
-            }
-            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
-        });
-        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel5MouseClicked(evt);
-            }
-        });
+        mesa5.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        mesa5.setForeground(new java.awt.Color(0, 0, 0));
+        mesa5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-verde.png"))); // NOI18N
+        mesa5.setText("5");
+        mesa5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        jLabel6.setBackground(new java.awt.Color(255, 0, 0));
-        jLabel6.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-rojo.png"))); // NOI18N
-        jLabel6.setText("6");
-        jLabel6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel6.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
-                jLabel6AncestorAdded(evt);
-            }
-            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
-        });
-        jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel6MouseClicked(evt);
-            }
-        });
+        mesa6.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        mesa6.setForeground(new java.awt.Color(0, 0, 0));
+        mesa6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-verde.png"))); // NOI18N
+        mesa6.setText("6");
+        mesa6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        jLabel7.setBackground(new java.awt.Color(255, 0, 0));
-        jLabel7.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-rojo.png"))); // NOI18N
-        jLabel7.setText("7");
-        jLabel7.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel7.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
-                jLabel7AncestorAdded(evt);
-            }
-            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
-        });
-        jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel7MouseClicked(evt);
-            }
-        });
+        mesa7.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        mesa7.setForeground(new java.awt.Color(0, 0, 0));
+        mesa7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-verde.png"))); // NOI18N
+        mesa7.setText("7");
+        mesa7.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        jLabel8.setBackground(new java.awt.Color(255, 0, 0));
-        jLabel8.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-rojo.png"))); // NOI18N
-        jLabel8.setText("8");
-        jLabel8.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel8.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
-                jLabel8AncestorAdded(evt);
-            }
-            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
-        });
-        jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel8MouseClicked(evt);
-            }
-        });
+        mesa8.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        mesa8.setForeground(new java.awt.Color(0, 0, 0));
+        mesa8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-verde.png"))); // NOI18N
+        mesa8.setText("8");
+        mesa8.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        jLabel9.setBackground(new java.awt.Color(255, 0, 0));
-        jLabel9.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-rojo.png"))); // NOI18N
-        jLabel9.setText("9");
-        jLabel9.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel9.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
-                jLabel9AncestorAdded(evt);
-            }
-            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
-        });
-        jLabel9.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel9MouseClicked(evt);
-            }
-        });
+        mesa9.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        mesa9.setForeground(new java.awt.Color(0, 0, 0));
+        mesa9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-verde.png"))); // NOI18N
+        mesa9.setText("9");
+        mesa9.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        jLabel19.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        jLabel19.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-verde.png"))); // NOI18N
+        jLabel19.setText("10");
+        jLabel19.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        jLabel20.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        jLabel20.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-verde.png"))); // NOI18N
+        jLabel20.setText("11");
+        jLabel20.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        jLabel21.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        jLabel21.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-verde.png"))); // NOI18N
+        jLabel21.setText("12");
+        jLabel21.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        jLabel22.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        jLabel22.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-verde.png"))); // NOI18N
+        jLabel22.setText("13");
+        jLabel22.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        jLabel23.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        jLabel23.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-verde.png"))); // NOI18N
+        jLabel23.setText("14");
+        jLabel23.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        jLabel24.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        jLabel24.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-verde.png"))); // NOI18N
+        jLabel24.setText("15");
+        jLabel24.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        jLabel25.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        jLabel25.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-verde.png"))); // NOI18N
+        jLabel25.setText("16");
+        jLabel25.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        jLabel26.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        jLabel26.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-verde.png"))); // NOI18N
+        jLabel26.setText("17");
+        jLabel26.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        jLabel27.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        jLabel27.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel27.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-verde.png"))); // NOI18N
+        jLabel27.setText("18");
+        jLabel27.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        jLabel28.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        jLabel28.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-verde.png"))); // NOI18N
+        jLabel28.setText("19");
+        jLabel28.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        jLabel29.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        jLabel29.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel29.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-verde.png"))); // NOI18N
+        jLabel29.setText("20");
+        jLabel29.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        jLabel30.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        jLabel30.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel30.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-verde.png"))); // NOI18N
+        jLabel30.setText("21");
+        jLabel30.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        jLabel31.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        jLabel31.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel31.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-verde.png"))); // NOI18N
+        jLabel31.setText("22");
+        jLabel31.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        jLabel32.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        jLabel32.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-verde.png"))); // NOI18N
+        jLabel32.setText("23");
+        jLabel32.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        jLabel33.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        jLabel33.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel33.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-verde.png"))); // NOI18N
+        jLabel33.setText("24");
+        jLabel33.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        jLabel34.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        jLabel34.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel34.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-verde.png"))); // NOI18N
+        jLabel34.setText("25");
+        jLabel34.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        jLabel35.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        jLabel35.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel35.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-verde.png"))); // NOI18N
+        jLabel35.setText("26");
+        jLabel35.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        jLabel36.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        jLabel36.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel36.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-verde.png"))); // NOI18N
+        jLabel36.setText("27");
+        jLabel36.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        jLabel37.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        jLabel37.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel37.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-verde.png"))); // NOI18N
+        jLabel37.setText("28");
+        jLabel37.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        jLabel38.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        jLabel38.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel38.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-verde.png"))); // NOI18N
+        jLabel38.setText("29");
+        jLabel38.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        jLabel39.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        jLabel39.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel39.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-verde.png"))); // NOI18N
+        jLabel39.setText("30");
+        jLabel39.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(118, 118, 118)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(255, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel8)
-                    .addComponent(jLabel2))
-                .addGap(51, 51, 51)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel9))
-                .addGap(66, 66, 66)
-                .addComponent(jLabel1)
-                .addGap(46, 46, 46)
-                .addComponent(jLabel4)
-                .addGap(46, 46, 46)
-                .addComponent(jLabel5)
-                .addGap(56, 56, 56)
-                .addComponent(jLabel6)
-                .addGap(57, 57, 57)
-                .addComponent(jLabel7)
-                .addContainerGap(81, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel34)
+                        .addGap(49, 49, 49)
+                        .addComponent(jLabel35)
+                        .addGap(58, 58, 58)
+                        .addComponent(jLabel36)
+                        .addGap(59, 59, 59)
+                        .addComponent(jLabel37)
+                        .addGap(61, 61, 61)
+                        .addComponent(jLabel38)
+                        .addGap(55, 55, 55)
+                        .addComponent(jLabel39))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel28)
+                        .addGap(49, 49, 49)
+                        .addComponent(jLabel29)
+                        .addGap(58, 58, 58)
+                        .addComponent(jLabel30)
+                        .addGap(59, 59, 59)
+                        .addComponent(jLabel31)
+                        .addGap(61, 61, 61)
+                        .addComponent(jLabel32)
+                        .addGap(55, 55, 55)
+                        .addComponent(jLabel33))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jLabel22)
+                            .addGap(49, 49, 49)
+                            .addComponent(jLabel23)
+                            .addGap(58, 58, 58)
+                            .addComponent(jLabel24)
+                            .addGap(59, 59, 59)
+                            .addComponent(jLabel25)
+                            .addGap(61, 61, 61)
+                            .addComponent(jLabel26)
+                            .addGap(55, 55, 55)
+                            .addComponent(jLabel27))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(mesa7)
+                            .addGap(49, 49, 49)
+                            .addComponent(mesa8)
+                            .addGap(58, 58, 58)
+                            .addComponent(mesa9)
+                            .addGap(59, 59, 59)
+                            .addComponent(jLabel19)
+                            .addGap(61, 61, 61)
+                            .addComponent(jLabel20)
+                            .addGap(55, 55, 55)
+                            .addComponent(jLabel21))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(mesa1)
+                            .addGap(49, 49, 49)
+                            .addComponent(mesa2)
+                            .addGap(58, 58, 58)
+                            .addComponent(mesa3)
+                            .addGap(59, 59, 59)
+                            .addComponent(mesa4)
+                            .addGap(61, 61, 61)
+                            .addComponent(mesa5)
+                            .addGap(55, 55, 55)
+                            .addComponent(mesa6))))
+                .addGap(44, 44, 44))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(42, 42, 42)
+                .addGap(104, 104, 104)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel7))
-                .addGap(40, 40, 40)
+                    .addComponent(mesa1)
+                    .addComponent(mesa2)
+                    .addComponent(mesa3)
+                    .addComponent(mesa4)
+                    .addComponent(mesa5)
+                    .addComponent(mesa6))
+                .addGap(59, 59, 59)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(jLabel9))
-                .addContainerGap(414, Short.MAX_VALUE))
+                    .addComponent(mesa7)
+                    .addComponent(mesa8)
+                    .addComponent(mesa9)
+                    .addComponent(jLabel19)
+                    .addComponent(jLabel20)
+                    .addComponent(jLabel21))
+                .addGap(82, 82, 82)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel22)
+                    .addComponent(jLabel23)
+                    .addComponent(jLabel24)
+                    .addComponent(jLabel25)
+                    .addComponent(jLabel26)
+                    .addComponent(jLabel27))
+                .addGap(63, 63, 63)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel28)
+                    .addComponent(jLabel29)
+                    .addComponent(jLabel30)
+                    .addComponent(jLabel31)
+                    .addComponent(jLabel32)
+                    .addComponent(jLabel33))
+                .addGap(54, 54, 54)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel34)
+                    .addComponent(jLabel35)
+                    .addComponent(jLabel36)
+                    .addComponent(jLabel37)
+                    .addComponent(jLabel38)
+                    .addComponent(jLabel39))
+                .addContainerGap(86, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jLabel1AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jLabel1AncestorAdded
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel1AncestorAdded
-
-    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel1MouseClicked
-
-    private void jLabel2AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jLabel2AncestorAdded
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel2AncestorAdded
-
-    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel2MouseClicked
-
-    private void jLabel3AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jLabel3AncestorAdded
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel3AncestorAdded
-
-    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel3MouseClicked
-
-    private void jLabel4AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jLabel4AncestorAdded
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel4AncestorAdded
-
-    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel4MouseClicked
-
-    private void jLabel5AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jLabel5AncestorAdded
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel5AncestorAdded
-
-    private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel5MouseClicked
-
-    private void jLabel6AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jLabel6AncestorAdded
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel6AncestorAdded
-
-    private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel6MouseClicked
-
-    private void jLabel7AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jLabel7AncestorAdded
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel7AncestorAdded
-
-    private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel7MouseClicked
-
-    private void jLabel8AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jLabel8AncestorAdded
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel8AncestorAdded
-
-    private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel8MouseClicked
-
-    private void jLabel9AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jLabel9AncestorAdded
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel9AncestorAdded
-
-    private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel9MouseClicked
-
     private void formComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_formComponentAdded
         // TODO add your handling code here:
     }//GEN-LAST:event_formComponentAdded
 
+    private void mesa1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mesa1MouseReleased
+        // TODO add your handling code here:
+        
+        
+        
+    }//GEN-LAST:event_mesa1MouseReleased
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel38;
+    private javax.swing.JLabel jLabel39;
+    private javax.swing.JLabel mesa1;
+    private javax.swing.JLabel mesa2;
+    private javax.swing.JLabel mesa3;
+    private javax.swing.JLabel mesa4;
+    private javax.swing.JLabel mesa5;
+    private javax.swing.JLabel mesa6;
+    private javax.swing.JLabel mesa7;
+    private javax.swing.JLabel mesa8;
+    private javax.swing.JLabel mesa9;
     // End of variables declaration//GEN-END:variables
 }
