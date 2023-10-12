@@ -10,25 +10,28 @@ public class Pedido {
     private LocalDateTime fechaHora;
     private double importe;
     private boolean cobrada;
+    private String estado;
 
     public Pedido() {
     }
 
-    public Pedido(Mesa mesa, String nombreMesero, LocalDateTime fechaHora, double importe, boolean cobrada) {
-        this.mesa = mesa;
-        this.nombreMesero = nombreMesero;
-        this.fechaHora = fechaHora;
-        this.importe = importe;
-        this.cobrada = cobrada;
-    }
-
-    public Pedido(int idPedido, Mesa mesa, String nombreMesero, LocalDateTime fechaHora, double importe, boolean cobrada) {
+    public Pedido(int idPedido, Mesa mesa, String nombreMesero, LocalDateTime fechaHora, double importe, boolean cobrada, String estado) {
         this.idPedido = idPedido;
         this.mesa = mesa;
         this.nombreMesero = nombreMesero;
         this.fechaHora = fechaHora;
         this.importe = importe;
         this.cobrada = cobrada;
+        this.estado = estado;
+    }
+
+    public Pedido(Mesa mesa, String nombreMesero, LocalDateTime fechaHora, double importe, boolean cobrada, String estado) {
+        this.mesa = mesa;
+        this.nombreMesero = nombreMesero;
+        this.fechaHora = fechaHora;
+        this.importe = importe;
+        this.cobrada = cobrada;
+        this.estado = estado;
     }
 
     public int getIdPedido() {
@@ -79,11 +82,16 @@ public class Pedido {
         this.cobrada = cobrada;
     }
 
-    @Override
-    public String toString() {
-        return "Pedido{" + "idPedido=" + idPedido + ", mesa=" + mesa + ", nombreMesero=" + nombreMesero + ", fechaHora=" + fechaHora + ", importe=" + importe + ", cobrada=" + cobrada + '}';
+    public String getEstado() {
+        return estado;
     }
 
-    
-    
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    @Override
+    public String toString() {
+        return "Pedido{" + "idPedido=" + idPedido + ", mesa=" + mesa + ", nombreMesero=" + nombreMesero + ", fechaHora=" + fechaHora + ", importe=" + importe + ", cobrada=" + cobrada + ", estado=" + estado + '}';
+    }
 }
