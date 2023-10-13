@@ -4,6 +4,9 @@
  */
 package Vistas;
 
+import java.util.ArrayList;
+import javax.swing.JLabel;
+
 /**
  *
  * @author Hogar
@@ -16,6 +19,26 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
     public AdministraSalon() {
         initComponents();
     }
+    public  ArrayList<JLabel> AgregarMesaSalon(){
+        ArrayList<JLabel> me = new ArrayList<>();
+        me.add(mesa1);
+        me.add(mesa2);
+        me.add(mesa1);
+        me.add(mesa2);
+        me.add(mesa1);
+        me.add(mesa2);
+        me.add(mesa1);
+        me.add(mesa2);
+ 
+ 
+ 
+    
+    
+    
+    
+    
+    
+    } 
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -35,27 +58,27 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
         mesa7 = new javax.swing.JLabel();
         mesa8 = new javax.swing.JLabel();
         mesa9 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
-        jLabel21 = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
-        jLabel23 = new javax.swing.JLabel();
-        jLabel24 = new javax.swing.JLabel();
-        jLabel25 = new javax.swing.JLabel();
-        jLabel26 = new javax.swing.JLabel();
-        jLabel27 = new javax.swing.JLabel();
-        jLabel28 = new javax.swing.JLabel();
-        jLabel29 = new javax.swing.JLabel();
-        jLabel30 = new javax.swing.JLabel();
-        jLabel31 = new javax.swing.JLabel();
-        jLabel32 = new javax.swing.JLabel();
-        jLabel33 = new javax.swing.JLabel();
-        jLabel34 = new javax.swing.JLabel();
-        jLabel35 = new javax.swing.JLabel();
-        jLabel36 = new javax.swing.JLabel();
-        jLabel37 = new javax.swing.JLabel();
-        jLabel38 = new javax.swing.JLabel();
-        jLabel39 = new javax.swing.JLabel();
+        mesa10 = new javax.swing.JLabel();
+        mesa11 = new javax.swing.JLabel();
+        mesa12 = new javax.swing.JLabel();
+        mesa13 = new javax.swing.JLabel();
+        meas14 = new javax.swing.JLabel();
+        mesa15 = new javax.swing.JLabel();
+        mea16 = new javax.swing.JLabel();
+        mesa17 = new javax.swing.JLabel();
+        mesa18 = new javax.swing.JLabel();
+        mesa19 = new javax.swing.JLabel();
+        mesa20 = new javax.swing.JLabel();
+        mesa21 = new javax.swing.JLabel();
+        mesa22 = new javax.swing.JLabel();
+        mesa23 = new javax.swing.JLabel();
+        mesa24 = new javax.swing.JLabel();
+        mesa25 = new javax.swing.JLabel();
+        mesa26 = new javax.swing.JLabel();
+        mesa27 = new javax.swing.JLabel();
+        mesa28 = new javax.swing.JLabel();
+        mesa29 = new javax.swing.JLabel();
+        mesa30 = new javax.swing.JLabel();
 
         setClosable(true);
         setTitle("Administra Salon");
@@ -68,7 +91,7 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
 
         mesa1.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
         mesa1.setForeground(new java.awt.Color(0, 0, 0));
-        mesa1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-verde.png"))); // NOI18N
+        mesa1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
         mesa1.setText("1");
         mesa1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         mesa1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -76,225 +99,230 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
                 mesa1MouseReleased(evt);
             }
         });
+        mesa1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                mesa1KeyReleased(evt);
+            }
+        });
 
         mesa2.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
         mesa2.setForeground(new java.awt.Color(0, 0, 0));
-        mesa2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-verde.png"))); // NOI18N
+        mesa2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
         mesa2.setText("2");
         mesa2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         mesa3.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
         mesa3.setForeground(new java.awt.Color(0, 0, 0));
-        mesa3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-verde.png"))); // NOI18N
+        mesa3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
         mesa3.setText("3");
         mesa3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         mesa4.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
         mesa4.setForeground(new java.awt.Color(0, 0, 0));
-        mesa4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-verde.png"))); // NOI18N
+        mesa4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
         mesa4.setText("4");
         mesa4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         mesa5.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
         mesa5.setForeground(new java.awt.Color(0, 0, 0));
-        mesa5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-verde.png"))); // NOI18N
+        mesa5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
         mesa5.setText("5");
         mesa5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         mesa6.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
         mesa6.setForeground(new java.awt.Color(0, 0, 0));
-        mesa6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-verde.png"))); // NOI18N
+        mesa6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
         mesa6.setText("6");
         mesa6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         mesa7.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
         mesa7.setForeground(new java.awt.Color(0, 0, 0));
-        mesa7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-verde.png"))); // NOI18N
+        mesa7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
         mesa7.setText("7");
         mesa7.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         mesa8.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
         mesa8.setForeground(new java.awt.Color(0, 0, 0));
-        mesa8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-verde.png"))); // NOI18N
+        mesa8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
         mesa8.setText("8");
         mesa8.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         mesa9.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
         mesa9.setForeground(new java.awt.Color(0, 0, 0));
-        mesa9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-verde.png"))); // NOI18N
+        mesa9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
         mesa9.setText("9");
         mesa9.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        jLabel19.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
-        jLabel19.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-verde.png"))); // NOI18N
-        jLabel19.setText("10");
-        jLabel19.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        mesa10.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        mesa10.setForeground(new java.awt.Color(0, 0, 0));
+        mesa10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
+        mesa10.setText("10");
+        mesa10.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        jLabel20.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
-        jLabel20.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-verde.png"))); // NOI18N
-        jLabel20.setText("11");
-        jLabel20.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        mesa11.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        mesa11.setForeground(new java.awt.Color(0, 0, 0));
+        mesa11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
+        mesa11.setText("11");
+        mesa11.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        jLabel21.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
-        jLabel21.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-verde.png"))); // NOI18N
-        jLabel21.setText("12");
-        jLabel21.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        mesa12.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        mesa12.setForeground(new java.awt.Color(0, 0, 0));
+        mesa12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
+        mesa12.setText("12");
+        mesa12.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        jLabel22.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
-        jLabel22.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-verde.png"))); // NOI18N
-        jLabel22.setText("13");
-        jLabel22.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        mesa13.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        mesa13.setForeground(new java.awt.Color(0, 0, 0));
+        mesa13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
+        mesa13.setText("13");
+        mesa13.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        jLabel23.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
-        jLabel23.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-verde.png"))); // NOI18N
-        jLabel23.setText("14");
-        jLabel23.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        meas14.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        meas14.setForeground(new java.awt.Color(0, 0, 0));
+        meas14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
+        meas14.setText("14");
+        meas14.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        jLabel24.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
-        jLabel24.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-verde.png"))); // NOI18N
-        jLabel24.setText("15");
-        jLabel24.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        mesa15.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        mesa15.setForeground(new java.awt.Color(0, 0, 0));
+        mesa15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
+        mesa15.setText("15");
+        mesa15.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        jLabel25.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
-        jLabel25.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-verde.png"))); // NOI18N
-        jLabel25.setText("16");
-        jLabel25.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        mea16.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        mea16.setForeground(new java.awt.Color(0, 0, 0));
+        mea16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
+        mea16.setText("16");
+        mea16.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        jLabel26.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
-        jLabel26.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-verde.png"))); // NOI18N
-        jLabel26.setText("17");
-        jLabel26.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        mesa17.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        mesa17.setForeground(new java.awt.Color(0, 0, 0));
+        mesa17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
+        mesa17.setText("17");
+        mesa17.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        jLabel27.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
-        jLabel27.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel27.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-verde.png"))); // NOI18N
-        jLabel27.setText("18");
-        jLabel27.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        mesa18.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        mesa18.setForeground(new java.awt.Color(0, 0, 0));
+        mesa18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
+        mesa18.setText("18");
+        mesa18.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        jLabel28.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
-        jLabel28.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-verde.png"))); // NOI18N
-        jLabel28.setText("19");
-        jLabel28.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        mesa19.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        mesa19.setForeground(new java.awt.Color(0, 0, 0));
+        mesa19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
+        mesa19.setText("19");
+        mesa19.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        jLabel29.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
-        jLabel29.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel29.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-verde.png"))); // NOI18N
-        jLabel29.setText("20");
-        jLabel29.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        mesa20.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        mesa20.setForeground(new java.awt.Color(0, 0, 0));
+        mesa20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
+        mesa20.setText("20");
+        mesa20.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        jLabel30.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
-        jLabel30.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel30.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-verde.png"))); // NOI18N
-        jLabel30.setText("21");
-        jLabel30.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        mesa21.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        mesa21.setForeground(new java.awt.Color(0, 0, 0));
+        mesa21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
+        mesa21.setText("21");
+        mesa21.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        jLabel31.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
-        jLabel31.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel31.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-verde.png"))); // NOI18N
-        jLabel31.setText("22");
-        jLabel31.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        mesa22.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        mesa22.setForeground(new java.awt.Color(0, 0, 0));
+        mesa22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
+        mesa22.setText("22");
+        mesa22.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        jLabel32.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
-        jLabel32.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-verde.png"))); // NOI18N
-        jLabel32.setText("23");
-        jLabel32.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        mesa23.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        mesa23.setForeground(new java.awt.Color(0, 0, 0));
+        mesa23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
+        mesa23.setText("23");
+        mesa23.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        jLabel33.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
-        jLabel33.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel33.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-verde.png"))); // NOI18N
-        jLabel33.setText("24");
-        jLabel33.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        mesa24.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        mesa24.setForeground(new java.awt.Color(0, 0, 0));
+        mesa24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
+        mesa24.setText("24");
+        mesa24.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        jLabel34.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
-        jLabel34.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel34.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-verde.png"))); // NOI18N
-        jLabel34.setText("25");
-        jLabel34.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        mesa25.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        mesa25.setForeground(new java.awt.Color(0, 0, 0));
+        mesa25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
+        mesa25.setText("25");
+        mesa25.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        jLabel35.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
-        jLabel35.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel35.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-verde.png"))); // NOI18N
-        jLabel35.setText("26");
-        jLabel35.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        mesa26.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        mesa26.setForeground(new java.awt.Color(0, 0, 0));
+        mesa26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
+        mesa26.setText("26");
+        mesa26.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        jLabel36.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
-        jLabel36.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel36.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-verde.png"))); // NOI18N
-        jLabel36.setText("27");
-        jLabel36.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        mesa27.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        mesa27.setForeground(new java.awt.Color(0, 0, 0));
+        mesa27.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
+        mesa27.setText("27");
+        mesa27.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        jLabel37.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
-        jLabel37.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel37.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-verde.png"))); // NOI18N
-        jLabel37.setText("28");
-        jLabel37.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        mesa28.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        mesa28.setForeground(new java.awt.Color(0, 0, 0));
+        mesa28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
+        mesa28.setText("28");
+        mesa28.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        jLabel38.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
-        jLabel38.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel38.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-verde.png"))); // NOI18N
-        jLabel38.setText("29");
-        jLabel38.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        mesa29.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        mesa29.setForeground(new java.awt.Color(0, 0, 0));
+        mesa29.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
+        mesa29.setText("29");
+        mesa29.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        jLabel39.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
-        jLabel39.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel39.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-verde.png"))); // NOI18N
-        jLabel39.setText("30");
-        jLabel39.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        mesa30.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        mesa30.setForeground(new java.awt.Color(0, 0, 0));
+        mesa30.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
+        mesa30.setText("30");
+        mesa30.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(255, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel34)
+                        .addComponent(mesa25)
                         .addGap(49, 49, 49)
-                        .addComponent(jLabel35)
+                        .addComponent(mesa26)
                         .addGap(58, 58, 58)
-                        .addComponent(jLabel36)
+                        .addComponent(mesa27)
                         .addGap(59, 59, 59)
-                        .addComponent(jLabel37)
+                        .addComponent(mesa28)
                         .addGap(61, 61, 61)
-                        .addComponent(jLabel38)
+                        .addComponent(mesa29)
                         .addGap(55, 55, 55)
-                        .addComponent(jLabel39))
+                        .addComponent(mesa30))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel28)
+                        .addComponent(mesa19)
                         .addGap(49, 49, 49)
-                        .addComponent(jLabel29)
+                        .addComponent(mesa20)
                         .addGap(58, 58, 58)
-                        .addComponent(jLabel30)
+                        .addComponent(mesa21)
                         .addGap(59, 59, 59)
-                        .addComponent(jLabel31)
+                        .addComponent(mesa22)
                         .addGap(61, 61, 61)
-                        .addComponent(jLabel32)
+                        .addComponent(mesa23)
                         .addGap(55, 55, 55)
-                        .addComponent(jLabel33))
+                        .addComponent(mesa24))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
-                            .addComponent(jLabel22)
+                            .addComponent(mesa13)
                             .addGap(49, 49, 49)
-                            .addComponent(jLabel23)
+                            .addComponent(meas14)
                             .addGap(58, 58, 58)
-                            .addComponent(jLabel24)
+                            .addComponent(mesa15)
                             .addGap(59, 59, 59)
-                            .addComponent(jLabel25)
+                            .addComponent(mea16)
                             .addGap(61, 61, 61)
-                            .addComponent(jLabel26)
+                            .addComponent(mesa17)
                             .addGap(55, 55, 55)
-                            .addComponent(jLabel27))
+                            .addComponent(mesa18))
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(mesa7)
                             .addGap(49, 49, 49)
@@ -302,11 +330,11 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
                             .addGap(58, 58, 58)
                             .addComponent(mesa9)
                             .addGap(59, 59, 59)
-                            .addComponent(jLabel19)
+                            .addComponent(mesa10)
                             .addGap(61, 61, 61)
-                            .addComponent(jLabel20)
+                            .addComponent(mesa11)
                             .addGap(55, 55, 55)
-                            .addComponent(jLabel21))
+                            .addComponent(mesa12))
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(mesa1)
                             .addGap(49, 49, 49)
@@ -337,34 +365,34 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
                     .addComponent(mesa7)
                     .addComponent(mesa8)
                     .addComponent(mesa9)
-                    .addComponent(jLabel19)
-                    .addComponent(jLabel20)
-                    .addComponent(jLabel21))
+                    .addComponent(mesa10)
+                    .addComponent(mesa11)
+                    .addComponent(mesa12))
                 .addGap(82, 82, 82)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel22)
-                    .addComponent(jLabel23)
-                    .addComponent(jLabel24)
-                    .addComponent(jLabel25)
-                    .addComponent(jLabel26)
-                    .addComponent(jLabel27))
+                    .addComponent(mesa13)
+                    .addComponent(meas14)
+                    .addComponent(mesa15)
+                    .addComponent(mea16)
+                    .addComponent(mesa17)
+                    .addComponent(mesa18))
                 .addGap(63, 63, 63)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel28)
-                    .addComponent(jLabel29)
-                    .addComponent(jLabel30)
-                    .addComponent(jLabel31)
-                    .addComponent(jLabel32)
-                    .addComponent(jLabel33))
+                    .addComponent(mesa19)
+                    .addComponent(mesa20)
+                    .addComponent(mesa21)
+                    .addComponent(mesa22)
+                    .addComponent(mesa23)
+                    .addComponent(mesa24))
                 .addGap(54, 54, 54)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel34)
-                    .addComponent(jLabel35)
-                    .addComponent(jLabel36)
-                    .addComponent(jLabel37)
-                    .addComponent(jLabel38)
-                    .addComponent(jLabel39))
-                .addContainerGap(86, Short.MAX_VALUE))
+                    .addComponent(mesa25)
+                    .addComponent(mesa26)
+                    .addComponent(mesa27)
+                    .addComponent(mesa28)
+                    .addComponent(mesa29)
+                    .addComponent(mesa30))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -381,32 +409,37 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_mesa1MouseReleased
 
+    private void mesa1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_mesa1KeyReleased
+        // TODO add your handling code here:
+        mesa1
+    }//GEN-LAST:event_mesa1KeyReleased
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel27;
-    private javax.swing.JLabel jLabel28;
-    private javax.swing.JLabel jLabel29;
-    private javax.swing.JLabel jLabel30;
-    private javax.swing.JLabel jLabel31;
-    private javax.swing.JLabel jLabel32;
-    private javax.swing.JLabel jLabel33;
-    private javax.swing.JLabel jLabel34;
-    private javax.swing.JLabel jLabel35;
-    private javax.swing.JLabel jLabel36;
-    private javax.swing.JLabel jLabel37;
-    private javax.swing.JLabel jLabel38;
-    private javax.swing.JLabel jLabel39;
+    private javax.swing.JLabel mea16;
+    private javax.swing.JLabel meas14;
     private javax.swing.JLabel mesa1;
+    private javax.swing.JLabel mesa10;
+    private javax.swing.JLabel mesa11;
+    private javax.swing.JLabel mesa12;
+    private javax.swing.JLabel mesa13;
+    private javax.swing.JLabel mesa15;
+    private javax.swing.JLabel mesa17;
+    private javax.swing.JLabel mesa18;
+    private javax.swing.JLabel mesa19;
     private javax.swing.JLabel mesa2;
+    private javax.swing.JLabel mesa20;
+    private javax.swing.JLabel mesa21;
+    private javax.swing.JLabel mesa22;
+    private javax.swing.JLabel mesa23;
+    private javax.swing.JLabel mesa24;
+    private javax.swing.JLabel mesa25;
+    private javax.swing.JLabel mesa26;
+    private javax.swing.JLabel mesa27;
+    private javax.swing.JLabel mesa28;
+    private javax.swing.JLabel mesa29;
     private javax.swing.JLabel mesa3;
+    private javax.swing.JLabel mesa30;
     private javax.swing.JLabel mesa4;
     private javax.swing.JLabel mesa5;
     private javax.swing.JLabel mesa6;
@@ -414,4 +447,7 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
     private javax.swing.JLabel mesa8;
     private javax.swing.JLabel mesa9;
     // End of variables declaration//GEN-END:variables
+
+
+
 }
