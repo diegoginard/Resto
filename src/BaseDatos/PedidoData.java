@@ -1,7 +1,6 @@
 
 package BaseDatos;
 
-import Entidades.Mesa;
 import Entidades.Pedido;
 import java.sql.*;
 import javax.swing.JOptionPane;
@@ -68,8 +67,6 @@ public class PedidoData {
     
     public void modificarPedido(Pedido pe){
         
-        Mesa me =new Mesa();
-        
         String sql = "UPDATE pedido SET idPedido = ? , idMesa = ? , nombreMesero = ? , "
                 + "fechaHora = ? , importe = ? , cobrada = ? , estado = ? WHERE idPedido = ?";
         
@@ -101,6 +98,7 @@ public class PedidoData {
     }
     
     public void listarPedido(){
-    
+         
+        
     }
 }
