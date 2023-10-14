@@ -1,20 +1,24 @@
 
 package Vistas;
 
-import java.awt.Color;
-import java.util.ArrayList;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
+import Entidades.Mesa;
+import java.util.*;
+import javax.swing.*;
 
 public class AdministraSalon extends javax.swing.JInternalFrame {
-     
+    
+    Icon icoG = new ImageIcon(getClass().getResource("/Recursos/mesa-gris.png"));
+    Icon ico = new ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"));
+    List <Mesa> mesas = new ArrayList();
+    
     public AdministraSalon(){
         
         initComponents();
-        
+        mesa1.setIcon(icoG);
     }
    
     private boolean mesaOcupada = false;
+
     
     public ArrayList<JLabel> AgregarMesaSalon(){
         
@@ -408,12 +412,12 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
 
         // Actualiza el color de fondo
         if (mesaOcupada){
-            
-            mesa1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-verde.png"))); // Cambia el color al ocupado
-            
+              
+            mesa1.setIcon(ico); // Cambia el color al ocupado
+            Mesa mesa1 = new Mesa();
         } else{
-            
-            mesa1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-rojo.png"))); // Cambia el color al libre
+                
+            mesa1.setIcon(icoG); // Cambia el color al libre
             
         }
     }//GEN-LAST:event_mesa1MouseClicked
