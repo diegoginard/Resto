@@ -20,18 +20,40 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
     private boolean mesaOcupada = false;
 
     
-    public ArrayList<JLabel> AgregarMesaSalon(){
+    public ArrayList<JLabel> ListaMesaSalon(){
         
         ArrayList<JLabel> me = new ArrayList<>();
         
         me.add(mesa1);
         me.add(mesa2);
-        me.add(mesa1);
-        me.add(mesa2);
-        me.add(mesa1);
-        me.add(mesa2);
-        me.add(mesa1);
-        me.add(mesa2);  
+        me.add(mesa3);
+        me.add(mesa4);
+        me.add(mesa5);
+        me.add(mesa6);
+        me.add(mesa7);
+        me.add(mesa8);  
+        me.add(mesa9);  
+        me.add(mesa10);  
+        me.add(mesa11);
+        me.add(mesa12);
+        me.add(mesa13);
+        me.add(mesa14);
+        me.add(mesa15);
+        me.add(mesa16);
+        me.add(mesa17);
+        me.add(mesa18);  
+        me.add(mesa19);  
+        me.add(mesa20);  
+        me.add(mesa21);
+        me.add(mesa22);
+        me.add(mesa23);
+        me.add(mesa24);
+        me.add(mesa25);
+        me.add(mesa26);
+        me.add(mesa27);
+        me.add(mesa28);  
+        me.add(mesa29);  
+        me.add(mesa30);  
         
         return me;
     } 
@@ -53,9 +75,9 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
         mesa11 = new javax.swing.JLabel();
         mesa12 = new javax.swing.JLabel();
         mesa13 = new javax.swing.JLabel();
-        meas14 = new javax.swing.JLabel();
+        mesa14 = new javax.swing.JLabel();
         mesa15 = new javax.swing.JLabel();
-        mea16 = new javax.swing.JLabel();
+        mesa16 = new javax.swing.JLabel();
         mesa17 = new javax.swing.JLabel();
         mesa18 = new javax.swing.JLabel();
         mesa19 = new javax.swing.JLabel();
@@ -171,11 +193,11 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
         mesa13.setText("13");
         mesa13.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        meas14.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
-        meas14.setForeground(new java.awt.Color(0, 0, 0));
-        meas14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
-        meas14.setText("14");
-        meas14.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        mesa14.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        mesa14.setForeground(new java.awt.Color(0, 0, 0));
+        mesa14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
+        mesa14.setText("14");
+        mesa14.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         mesa15.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
         mesa15.setForeground(new java.awt.Color(0, 0, 0));
@@ -183,11 +205,11 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
         mesa15.setText("15");
         mesa15.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        mea16.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
-        mea16.setForeground(new java.awt.Color(0, 0, 0));
-        mea16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
-        mea16.setText("16");
-        mea16.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        mesa16.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        mesa16.setForeground(new java.awt.Color(0, 0, 0));
+        mesa16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
+        mesa16.setText("16");
+        mesa16.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         mesa17.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
         mesa17.setForeground(new java.awt.Color(0, 0, 0));
@@ -278,7 +300,7 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(277, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(mesa25)
@@ -308,11 +330,11 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(mesa13)
                             .addGap(49, 49, 49)
-                            .addComponent(meas14)
+                            .addComponent(mesa14)
                             .addGap(58, 58, 58)
                             .addComponent(mesa15)
                             .addGap(59, 59, 59)
-                            .addComponent(mea16)
+                            .addComponent(mesa16)
                             .addGap(61, 61, 61)
                             .addComponent(mesa17)
                             .addGap(55, 55, 55)
@@ -365,9 +387,9 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
                 .addGap(82, 82, 82)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(mesa13)
-                    .addComponent(meas14)
+                    .addComponent(mesa14)
                     .addComponent(mesa15)
-                    .addComponent(mea16)
+                    .addComponent(mesa16)
                     .addComponent(mesa17)
                     .addComponent(mesa18))
                 .addGap(63, 63, 63)
@@ -386,7 +408,7 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
                     .addComponent(mesa28)
                     .addComponent(mesa29)
                     .addComponent(mesa30))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
         pack();
@@ -424,14 +446,14 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel mea16;
-    private javax.swing.JLabel meas14;
     private javax.swing.JLabel mesa1;
     private javax.swing.JLabel mesa10;
     private javax.swing.JLabel mesa11;
     private javax.swing.JLabel mesa12;
     private javax.swing.JLabel mesa13;
+    private javax.swing.JLabel mesa14;
     private javax.swing.JLabel mesa15;
+    private javax.swing.JLabel mesa16;
     private javax.swing.JLabel mesa17;
     private javax.swing.JLabel mesa18;
     private javax.swing.JLabel mesa19;

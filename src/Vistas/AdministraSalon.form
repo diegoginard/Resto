@@ -30,7 +30,7 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="277" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
                   <Group type="102" attributes="0">
                       <Component id="mesa25" min="-2" max="-2" attributes="0"/>
@@ -62,11 +62,11 @@
                       <Group type="102" attributes="0">
                           <Component id="mesa13" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
-                          <Component id="meas14" min="-2" max="-2" attributes="0"/>
+                          <Component id="mesa14" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
                           <Component id="mesa15" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
-                          <Component id="mea16" min="-2" max="-2" attributes="0"/>
+                          <Component id="mesa16" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
                           <Component id="mesa17" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
@@ -128,9 +128,9 @@
               <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="mesa13" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="meas14" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="mesa14" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="mesa15" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="mea16" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="mesa16" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="mesa17" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="mesa18" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
@@ -152,7 +152,7 @@
                   <Component id="mesa29" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="mesa30" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="16" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -358,7 +358,7 @@
         <Property name="horizontalTextPosition" type="int" value="0"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="meas14">
+    <Component class="javax.swing.JLabel" name="mesa14">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="48" style="1"/>
@@ -388,7 +388,7 @@
         <Property name="horizontalTextPosition" type="int" value="0"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="mea16">
+    <Component class="javax.swing.JLabel" name="mesa16">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="48" style="1"/>
