@@ -1,16 +1,21 @@
 
 package Vistas;
 
+import java.awt.Color;
 import java.util.ArrayList;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 public class AdministraSalon extends javax.swing.JInternalFrame {
-
+     
     public AdministraSalon(){
         
         initComponents();
         
     }
+   
+    private boolean mesaOcupada = false;
+    
     public ArrayList<JLabel> AgregarMesaSalon(){
         
         ArrayList<JLabel> me = new ArrayList<>();
@@ -77,6 +82,9 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
         mesa1.setText("1");
         mesa1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         mesa1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mesa1MouseClicked(evt);
+            }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 mesa1MouseReleased(evt);
             }
@@ -390,8 +398,25 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_mesa1MouseReleased
 
     private void mesa1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_mesa1KeyReleased
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_mesa1KeyReleased
+
+    private void mesa1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mesa1MouseClicked
+        
+        // Cambia el estado de la mesa
+        mesaOcupada = !mesaOcupada;
+
+        // Actualiza el color de fondo
+        if (mesaOcupada){
+            
+            mesa1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-verde.png"))); // Cambia el color al ocupado
+            
+        } else{
+            
+            mesa1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-rojo.png"))); // Cambia el color al libre
+            
+        }
+    }//GEN-LAST:event_mesa1MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
