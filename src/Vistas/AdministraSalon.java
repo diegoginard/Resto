@@ -7,21 +7,35 @@ import javax.swing.*;
 
 public class AdministraSalon extends javax.swing.JInternalFrame {
     
-    Icon icoG = new ImageIcon(getClass().getResource("/Recursos/mesa-gris.png"));
-    Icon ico = new ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"));
+    Icon icoG = new ImageIcon(getClass().getResource("/Recursos/mesa-rojo.png"));
+    Icon ico = new ImageIcon(getClass().getResource("/Recursos/mesa-verde.png"));
     List <Mesa> mesas = new ArrayList();
+    Mesa mes= new Mesa();
+
+    
     
     public AdministraSalon(){
         
         initComponents();
         mesa1.setIcon(icoG);
+        
+        ArrayList<JLabel> listarMesas = ListaMesaSalon();
+        for(int i = 0 ;i < listarMesas.size() ; i ++ ){
+            Mesa mesa = mesas.get(i);
+            JLabel mesaLabel = listarMesas.get(i);
+            mesaLabel.setIcon(icoG);
+            mesa.setOcupada("ocupado");
+        }
+         
+        
     }
    
     private boolean mesaOcupada = false;
 
     
     public ArrayList<JLabel> ListaMesaSalon(){
-        
+    Mesa mes= new Mesa();
+    mesas.add(mes); 
         ArrayList<JLabel> me = new ArrayList<>();
         
         me.add(mesa1);
