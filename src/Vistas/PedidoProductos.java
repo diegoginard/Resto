@@ -45,6 +45,7 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
         jtTotal = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jtMonto = new javax.swing.JTextField();
+
         jButton1 = new javax.swing.JButton();
         jInternalFrame1 = new javax.swing.JInternalFrame();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -115,6 +116,14 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
         jButton8 = new javax.swing.JButton();
         n27 = new javax.swing.JButton();
         n28 = new javax.swing.JButton();
+
+        jbPunto2 = new javax.swing.JButton();
+        jb13 = new javax.swing.JButton();
+        jb14 = new javax.swing.JButton();
+        jbPunto3 = new javax.swing.JButton();
+        jb15 = new javax.swing.JButton();
+        jb16 = new javax.swing.JButton();
+
 
         setBorder(null);
         setResizable(true);
@@ -212,6 +221,7 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
         jLabel2.setFont(new java.awt.Font("Californian FB", 1, 18)); // NOI18N
         jLabel2.setText("Monto");
 
+
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/iconos/cerrar-sesión-24.png"))); // NOI18N
         jButton1.setText("Salir");
         jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -274,6 +284,11 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
 
         jb13.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jb13.setText("7");
+
+        jbPunto2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+
+        jb13.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+
         jb13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jb13ActionPerformed(evt);
@@ -281,10 +296,22 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
         });
 
         jb14.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+
         jb14.setText("8");
 
         jb15.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jb15.setText("9");
+
+        jb14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb14ActionPerformed(evt);
+            }
+        });
+
+        jbPunto3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+
+        jb15.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+
         jb15.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jb15ActionPerformed(evt);
@@ -292,12 +319,15 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
         });
 
         jb16.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+
         jb16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/enter-5.png"))); // NOI18N
+a
         jb16.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jb16ActionPerformed(evt);
             }
         });
+
 
         jb17.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jb17.setText("0");
@@ -893,11 +923,13 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
 
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(163, 163, 163)
@@ -955,10 +987,74 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
                     .addGap(0, 609, Short.MAX_VALUE)
                     .addComponent(jInternalFrame2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 610, Short.MAX_VALUE)))
+
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(39, 39, 39)
+                        .addComponent(jLabel1)
+                        .addGap(158, 158, 158)
+                        .addComponent(jLabel2))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(13, 13, 13)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jb15, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jb16, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jbPunto3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jb14, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jb13, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jbPunto2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(108, 108, 108)
+                                .addComponent(jtMonto, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                .addComponent(n1)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(n2)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(n3))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(n4)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(n5)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(jb6)))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(jbPunto, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jb11, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jb7)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jb8)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jb9)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jb10))))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 809, Short.MAX_VALUE))
+
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1001,6 +1097,53 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
                     .addGap(0, 614, Short.MAX_VALUE)
                     .addComponent(jInternalFrame2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 614, Short.MAX_VALUE)))
+
+                .addGap(11, 11, 11)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2))
+                .addGap(12, 12, 12)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtMonto, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(n3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(n1)
+                                .addComponent(n2))
+                            .addComponent(jbPunto))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jb11)
+                            .addComponent(n4)
+                            .addComponent(n5)
+                            .addComponent(jb6)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jbPunto3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jbPunto2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jb13, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jb14, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jb16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jb15, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jb10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jb7)
+                            .addComponent(jb8)
+                            .addComponent(jb9))))
+                .addContainerGap(18, Short.MAX_VALUE))
+
         );
 
         pack();
@@ -1034,6 +1177,7 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jb11ActionPerformed
 
+
     private void n10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_n10ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_n10ActionPerformed
@@ -1046,9 +1190,16 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jb12ActionPerformed
 
+
     private void jb13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb13ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jb13ActionPerformed
+
+
+    private void jb14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb14ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jb14ActionPerformed
+
 
     private void jb15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb15ActionPerformed
         // TODO add your handling code here:
@@ -1057,6 +1208,7 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
     private void jb16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb16ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jb16ActionPerformed
+
 
     private void jb17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb17ActionPerformed
         // TODO add your handling code here:
@@ -1125,6 +1277,7 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
@@ -1150,11 +1303,14 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JButton jb10;
     private javax.swing.JButton jb11;
+
     private javax.swing.JButton jb12;
+
     private javax.swing.JButton jb13;
     private javax.swing.JButton jb14;
     private javax.swing.JButton jb15;
     private javax.swing.JButton jb16;
+
     private javax.swing.JButton jb17;
     private javax.swing.JButton jb18;
     private javax.swing.JButton jb19;
@@ -1168,12 +1324,15 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
     private javax.swing.JButton jb27;
     private javax.swing.JButton jb28;
     private javax.swing.JButton jb29;
+
     private javax.swing.JButton jb6;
     private javax.swing.JButton jb7;
     private javax.swing.JButton jb8;
     private javax.swing.JButton jb9;
     private javax.swing.JButton jbPunto;
+
     private javax.swing.JButton jbPunto1;
+
     private javax.swing.JButton jbPunto2;
     private javax.swing.JButton jbPunto3;
     private javax.swing.JTextField jtMonto;
