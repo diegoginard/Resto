@@ -11,16 +11,12 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
     Icon ico = new ImageIcon(getClass().getResource("/Recursos/mesa-verde.png"));
     List <Mesa> mesas = new ArrayList();
     Mesa mes= new Mesa();
-    
-
-
-    
+  
     public AdministraSalon(){
         
         initComponents();
         mesa1.setIcon(icoG);
         
-
         ArrayList<JLabel> listarMesas = ListaMesaSalon();
 
         for (int i = 0; i < listarMesas.size(); i++) {
@@ -132,14 +128,6 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
         mesa1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 mesa1MouseClicked(evt);
-            }
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                mesa1MouseReleased(evt);
-            }
-        });
-        mesa1.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                mesa1KeyReleased(evt);
             }
         });
 
@@ -489,15 +477,6 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
     private void formComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_formComponentAdded
         // TODO add your handling code here:
     }//GEN-LAST:event_formComponentAdded
-
-    private void mesa1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mesa1MouseReleased
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_mesa1MouseReleased
-
-    private void mesa1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_mesa1KeyReleased
-
-    }//GEN-LAST:event_mesa1KeyReleased
 
     private void mesa1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mesa1MouseClicked
         

@@ -11,6 +11,13 @@ public class Mesa {
     public Mesa() {
     }
 
+    public Mesa(int idMesa, int numero, String estadoMesa, int capacidad) {
+        this.idMesa = idMesa;
+        this.numero = numero;
+        this.estadoMesa = estadoMesa;
+        this.capacidad = capacidad;
+    }
+
     public Mesa(int numero, String estadoMesa, int capacidad) {
         this.numero = numero;
         this.estadoMesa = estadoMesa;
