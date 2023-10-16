@@ -90,7 +90,7 @@ public class Login extends javax.swing.JFrame {
         String Pass=new String(jpContraseña.getPassword());
 
         if (jtUsuario.getText().isEmpty() || jpContraseña.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "No Se Permiten Casillas Vacias");
+            JOptionPane.showMessageDialog(this, "Nose Permiten Casillas Vacias");
 
             return;
         } else if (jtUsuario.getText().equals(Usuario) && jpContraseña.getText().equals(Contraseña)) {
