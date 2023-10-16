@@ -26,38 +26,23 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
         for (int i = 0; i < listarMesas.size(); i++) {
             if (i < mesas.size()) {
                 
-          // ArrayList<JLabel> mesalabel = listarMesas;
+//            ArrayList<JLabel> mesalabel = listarMesas;
             JLabel mesaLabel =listarMesas.get(i);
             mesaLabel.setIcon(icoG);
-        
-            
-            
-            
             
 //            Mesa mesa = mesas.get(i);
 //            mesa.setEstadoMesa("ocupado");
                 
-            }
-            
-    }  
-        
-            
-        
-        }
- 
-   
+            }         
+        }  
+    }
+
     private boolean mesaOcupada = false;
 
-   
-
-    
-
- 
-    
-    
     public ArrayList<JLabel> ListaMesaSalon(){
-    Mesa mes= new Mesa();
-    mesas.add(mes); 
+        
+        Mesa mes= new Mesa();
+        mesas.add(mes); 
         ArrayList<JLabel> me = new ArrayList<>();
         
         me.add(mesa1);
@@ -94,9 +79,6 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
         return me;
     }
      //Mesa mes = mesas.add(ListaMesaSalon());
-
-
-    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -522,9 +504,7 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
               
             mesa1.setIcon(ico); // Cambia el color al ocupado
             Mesa mesa1 = new Mesa();
-         
-            
-            
+    
         } else{
                 
             mesa1.setIcon(icoG); // Cambia el color al libre
@@ -541,9 +521,7 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
               
             mesa2.setIcon(ico); // Cambia el color al ocupado
             Mesa mesa2 = new Mesa();
-         
-            
-            
+   
         } else{
                 
             mesa2.setIcon(icoG); // Cambia el color al libre
@@ -560,9 +538,7 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
               
             mesa3.setIcon(ico); // Cambia el color al ocupado
             Mesa mesa3= new Mesa();
-         
-            
-            
+  
         } else{
                 
             mesa3.setIcon(icoG); // Cambia el color al libre
@@ -571,6 +547,7 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_mesa3MouseClicked
 
     private void mesa4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mesa4MouseClicked
+        
         // Cambia el estado de la mesa
         mesaOcupada = !mesaOcupada;
 
@@ -579,9 +556,7 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
               
             mesa4.setIcon(ico); // Cambia el color al ocupado
             Mesa mesa4= new Mesa();
-         
-            
-            
+ 
         } else{
                 
             mesa4.setIcon(icoG); // Cambia el color al libre
