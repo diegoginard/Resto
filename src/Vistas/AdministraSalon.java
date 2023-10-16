@@ -12,25 +12,25 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
     List <Mesa> mesas = new ArrayList();
     Mesa mes= new Mesa();
   
-    public AdministraSalon(){
-        
+    public AdministraSalon() {
+
         initComponents();
         mesa1.setIcon(icoG);
-        
+
         ArrayList<JLabel> listarMesas = ListaMesaSalon();
 
         for (int i = 0; i < listarMesas.size(); i++) {
             if (i < mesas.size()) {
-                
+
 //            ArrayList<JLabel> mesalabel = listarMesas;
-            JLabel mesaLabel =listarMesas.get(i);
-            mesaLabel.setIcon(icoG);
-            
+                JLabel mesaLabel = listarMesas.get(i);
+                mesaLabel.setIcon(icoG);
+
 //            Mesa mesa = mesas.get(i);
 //            mesa.setEstadoMesa("ocupado");
-                
-            }         
-        }  
+
+            }
+        }
     }
 
     private boolean mesaOcupada = false;
