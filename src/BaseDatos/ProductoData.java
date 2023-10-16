@@ -141,7 +141,9 @@ public class ProductoData {
     }
     
     public List<Producto> listarProductos(){
+        
         List<Producto> productos = new ArrayList<>();
+        
         try {
             
             String sql = "SELECT * FROM producto WHERE estadoProducto = 1 ";
