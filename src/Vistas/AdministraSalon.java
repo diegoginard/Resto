@@ -11,16 +11,9 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
     Icon ico = new ImageIcon(getClass().getResource("/Recursos/mesa-verde.png"));
     List <Mesa> mesas = new ArrayList();
     Mesa mes= new Mesa();
+    
 
-    ArrayList<JLabel> listarMesas = ListaMesaSalon();
 
-//    for(int i =0 ; i < listarMesas.size(); i ++){
-//        Mesa mesa = mesas.get(i);
-//        JLabel mesaLabel = listarMesas.get(i);
-//        mesaLabel.setIcon(icoG);
-//        mesa.setEstadoMesa("ocupada");
-//
-//    }
     
     public AdministraSalon(){
         
@@ -28,12 +21,39 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
         mesa1.setIcon(icoG);
         
 
+        ArrayList<JLabel> listarMesas = ListaMesaSalon();
+
+        for (int i = 0; i < listarMesas.size(); i++) {
+            if (i < mesas.size()) {
+                
+          // ArrayList<JLabel> mesalabel = listarMesas;
+            JLabel mesaLabel =listarMesas.get(i);
+            mesaLabel.setIcon(icoG);
+        
             
+            
+            
+            
+//            Mesa mesa = mesas.get(i);
+//            mesa.setEstadoMesa("ocupado");
+                
+            }
+            
+    }  
+        
+            
+        
         }
  
    
     private boolean mesaOcupada = false;
 
+   
+
+    
+
+ 
+    
     
     public ArrayList<JLabel> ListaMesaSalon(){
     Mesa mes= new Mesa();
@@ -72,7 +92,11 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
         me.add(mesa30);  
         
         return me;
-    } 
+    }
+     //Mesa mes = mesas.add(ListaMesaSalon());
+
+
+    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -111,7 +135,7 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
 
         setClosable(true);
         setTitle("Administra Salon");
-        setPreferredSize(new java.awt.Dimension(670, 600));
+        setPreferredSize(new java.awt.Dimension(749, 661));
         addContainerListener(new java.awt.event.ContainerAdapter() {
             public void componentAdded(java.awt.event.ContainerEvent evt) {
                 formComponentAdded(evt);
@@ -142,54 +166,99 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
         mesa2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
         mesa2.setText("2");
         mesa2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        mesa2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mesa2MouseClicked(evt);
+            }
+        });
 
         mesa3.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
         mesa3.setForeground(new java.awt.Color(0, 0, 0));
         mesa3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
         mesa3.setText("3");
         mesa3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        mesa3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mesa3MouseClicked(evt);
+            }
+        });
 
         mesa4.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
         mesa4.setForeground(new java.awt.Color(0, 0, 0));
         mesa4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
         mesa4.setText("4");
         mesa4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        mesa4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mesa4MouseClicked(evt);
+            }
+        });
 
         mesa5.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
         mesa5.setForeground(new java.awt.Color(0, 0, 0));
         mesa5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
         mesa5.setText("5");
         mesa5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        mesa5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mesa5MouseClicked(evt);
+            }
+        });
 
         mesa6.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
         mesa6.setForeground(new java.awt.Color(0, 0, 0));
         mesa6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
         mesa6.setText("6");
         mesa6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        mesa6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mesa6MouseClicked(evt);
+            }
+        });
 
         mesa7.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
         mesa7.setForeground(new java.awt.Color(0, 0, 0));
         mesa7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
         mesa7.setText("7");
         mesa7.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        mesa7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mesa7MouseClicked(evt);
+            }
+        });
 
         mesa8.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
         mesa8.setForeground(new java.awt.Color(0, 0, 0));
         mesa8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
         mesa8.setText("8");
         mesa8.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        mesa8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mesa8MouseClicked(evt);
+            }
+        });
 
         mesa9.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
         mesa9.setForeground(new java.awt.Color(0, 0, 0));
         mesa9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
         mesa9.setText("9");
         mesa9.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        mesa9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mesa9MouseClicked(evt);
+            }
+        });
 
         mesa10.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
         mesa10.setForeground(new java.awt.Color(0, 0, 0));
         mesa10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
         mesa10.setText("10");
         mesa10.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        mesa10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mesa10MouseClicked(evt);
+            }
+        });
 
         mesa11.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
         mesa11.setForeground(new java.awt.Color(0, 0, 0));
@@ -453,12 +522,96 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
               
             mesa1.setIcon(ico); // Cambia el color al ocupado
             Mesa mesa1 = new Mesa();
+         
+            
+            
         } else{
                 
             mesa1.setIcon(icoG); // Cambia el color al libre
             
         }
     }//GEN-LAST:event_mesa1MouseClicked
+
+    private void mesa2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mesa2MouseClicked
+                // Cambia el estado de la mesa
+        mesaOcupada = !mesaOcupada;
+
+        // Actualiza el color de fondo
+        if (mesaOcupada){
+              
+            mesa2.setIcon(ico); // Cambia el color al ocupado
+            Mesa mesa2 = new Mesa();
+         
+            
+            
+        } else{
+                
+            mesa2.setIcon(icoG); // Cambia el color al libre
+            
+        }
+    }//GEN-LAST:event_mesa2MouseClicked
+
+    private void mesa3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mesa3MouseClicked
+        // Cambia el estado de la mesa
+        mesaOcupada = !mesaOcupada;
+
+        // Actualiza el color de fondo
+        if (mesaOcupada){
+              
+            mesa3.setIcon(ico); // Cambia el color al ocupado
+            Mesa mesa3= new Mesa();
+         
+            
+            
+        } else{
+                
+            mesa3.setIcon(icoG); // Cambia el color al libre
+            
+        }
+    }//GEN-LAST:event_mesa3MouseClicked
+
+    private void mesa4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mesa4MouseClicked
+        // Cambia el estado de la mesa
+        mesaOcupada = !mesaOcupada;
+
+        // Actualiza el color de fondo
+        if (mesaOcupada){
+              
+            mesa4.setIcon(ico); // Cambia el color al ocupado
+            Mesa mesa4= new Mesa();
+         
+            
+            
+        } else{
+                
+            mesa4.setIcon(icoG); // Cambia el color al libre
+            
+        }
+    }//GEN-LAST:event_mesa4MouseClicked
+
+    private void mesa5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mesa5MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mesa5MouseClicked
+
+    private void mesa6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mesa6MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mesa6MouseClicked
+
+    private void mesa7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mesa7MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mesa7MouseClicked
+
+    private void mesa8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mesa8MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mesa8MouseClicked
+
+    private void mesa9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mesa9MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mesa9MouseClicked
+
+    private void mesa10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mesa10MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mesa10MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
