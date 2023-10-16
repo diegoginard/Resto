@@ -315,8 +315,8 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(277, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(50, 50, 50)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(mesa25)
@@ -379,12 +379,12 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
                             .addComponent(mesa5)
                             .addGap(55, 55, 55)
                             .addComponent(mesa6))))
-                .addGap(44, 44, 44))
+                .addContainerGap(55, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(104, 104, 104)
+                .addGap(38, 38, 38)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(mesa1)
                     .addComponent(mesa2)
@@ -424,7 +424,7 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
                     .addComponent(mesa28)
                     .addComponent(mesa29)
                     .addComponent(mesa30))
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
         pack();
