@@ -78,6 +78,16 @@ public class AdministracionProductos extends javax.swing.JInternalFrame {
         });
 
         jbBorrar.setText("Borrar");
+        jbBorrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jbBorrarMouseClicked(evt);
+            }
+        });
+        jbBorrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbBorrarActionPerformed(evt);
+            }
+        });
 
         jLabel3.setText("Precio");
 
@@ -91,6 +101,11 @@ public class AdministracionProductos extends javax.swing.JInternalFrame {
         jLabel4.setText("Stock");
 
         jbSalir.setText("Salir");
+        jbSalir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jbSalirMouseClicked(evt);
+            }
+        });
 
         jLabel5.setText("Estado");
 
@@ -242,7 +257,7 @@ public class AdministracionProductos extends javax.swing.JInternalFrame {
     private void jtBuscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtBuscarKeyReleased
         
 //        modelo.setRowCount(0);
-        String buscar = jtBuscar.getSelectedText();
+        String buscar = jtBuscar.getText();
         List <Producto> buscarMenus = pd.BuscarProductos(buscar);
         
         
@@ -266,6 +281,33 @@ public class AdministracionProductos extends javax.swing.JInternalFrame {
         pd.guardarProducto(pro);
                                   
     }//GEN-LAST:event_jbCrearActionPerformed
+
+    private void jbSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbSalirMouseClicked
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_jbSalirMouseClicked
+
+    private void jbBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBorrarActionPerformed
+        // TODO add your handling code here:
+//        String borrar =jbBorrar.getText(Integer.parseInt(borrar));
+//        int num = Integer.parseInt(borrar);
+//       List <Producto> pro = pd.eliminarProducto(num);
+    }//GEN-LAST:event_jbBorrarActionPerformed
+
+    private void jbBorrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbBorrarMouseClicked
+        // TODO add your handling code here:
+        
+        
+        int num = Integer.valueOf(jbBorrar.getText());
+       
+        for ( : ) {
+            
+        }
+        
+        
+        
+        
+    }//GEN-LAST:event_jbBorrarMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
