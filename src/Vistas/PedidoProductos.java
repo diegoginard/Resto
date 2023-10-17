@@ -15,7 +15,9 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
      * Creates new form PedidoProductos
      */
     public PedidoProductos() {
+        
         initComponents();
+        
     }
 
     /**

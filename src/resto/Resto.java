@@ -14,7 +14,7 @@ public class Resto {
 
     public static void main(String[] args) {
 
-        ProductoData pd = new ProductoData();
+//       ProductoData pd = new ProductoData();
 //       Producto pro = new Producto(5,"empanadas salteñas" , 4000.000 ,5, true);
 //       System.out.println(pd.listarProductos()); //Funciona
 //       pd.guardarProducto(pro);  //Funciona
