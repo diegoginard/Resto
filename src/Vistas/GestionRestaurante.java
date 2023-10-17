@@ -79,6 +79,11 @@ public class GestionRestaurante extends javax.swing.JFrame {
         jMenu1.add(jMenuItem1);
 
         jMenuItem2.setText("Productos");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem2);
 
         jMenuBar1.add(jMenu1);
@@ -121,6 +126,17 @@ public class GestionRestaurante extends javax.swing.JFrame {
         escritorio.moveToFront(as);
        
     }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        
+        escritorio.removeAll();
+        escritorio.repaint();
+        AdministracionProductos ap = new AdministracionProductos();
+        ap.setVisible(true);
+        escritorio.add(ap);
+        escritorio.moveToFront(ap);
+        
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     /**
      * @param args the command line arguments

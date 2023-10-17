@@ -111,7 +111,7 @@ public class ProductoData {
       List<Producto> productos = new ArrayList<>();
         try {
             
-            String sql = "SELECT * FROM Producto WHERE idProducto LIKE ? OR nombre LIKE ?";
+            String sql = "SELECT * FROM Producto WHERE idProducto LIKE ? OR nombreProducto LIKE ?";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, "%" + buscar + "%"); // Configura el primer parámetro con el valor de búsqueda
             ps.setString(2, "%" + buscar + "%"); // Configura el segundo parámetro con el valor de búsqueda
@@ -121,9 +121,9 @@ public class ProductoData {
 
                 Producto prod = new Producto();
                 prod.setIdProducto(rs.getInt("idProducto"));
-                prod.setNombre(rs.getString("nombre"));
+                prod.setNombre(rs.getString("nombreProducto"));
                 prod.setPrecio(rs.getDouble("precio"));
-                prod.setEstado(rs.getBoolean("estado"));
+                prod.setEstado(rs.getBoolean("estadoProducto"));
                 productos.add(prod);
 
             }
