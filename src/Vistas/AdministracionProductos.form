@@ -147,6 +147,9 @@
       </Layout>
       <SubComponents>
         <Component class="javax.swing.JTextField" name="jtId">
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jtIdKeyTyped"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel6">
           <Properties>
@@ -160,8 +163,14 @@
         <Component class="javax.swing.JTextField" name="jtNombre">
         </Component>
         <Component class="javax.swing.JTextField" name="jtPrecio">
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jtPrecioKeyTyped"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="jtStock">
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jtStockKeyTyped"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>

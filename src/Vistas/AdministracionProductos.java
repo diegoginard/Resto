@@ -4,6 +4,7 @@ package Vistas;
 import BaseDatos.ProductoData;
 import Entidades.Producto;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class AdministracionProductos extends javax.swing.JInternalFrame {
@@ -48,9 +49,27 @@ public class AdministracionProductos extends javax.swing.JInternalFrame {
         jtBuscar = new javax.swing.JTextField();
         jrEstado = new javax.swing.JRadioButton();
 
+        jtId.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtIdKeyTyped(evt);
+            }
+        });
+
         jLabel6.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("Administracion de Menus");
+
+        jtPrecio.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtPrecioKeyTyped(evt);
+            }
+        });
+
+        jtStock.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtStockKeyTyped(evt);
+            }
+        });
 
         jLabel1.setText("Id");
 
@@ -264,6 +283,40 @@ public class AdministracionProductos extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_jbCrearActionPerformed
 
+    private void jtIdKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtIdKeyTyped
+        
+        char validar = evt.getKeyChar();
+        
+        if(Character.isLetter(validar)){
+            
+            getToolkit().beep();
+            evt.consume();
+            
+            JOptionPane.showMessageDialog(rootPane, "Ingrese solo numeros");
+            
+        }
+    }//GEN-LAST:event_jtIdKeyTyped
+
+    private void jtStockKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtStockKeyTyped
+        
+        char validar = evt.getKeyChar();
+        
+        if(Character.isLetter(validar)){
+            
+            getToolkit().beep();
+            evt.consume();
+            
+            JOptionPane.showMessageDialog(rootPane, "Ingrese solo numeros");
+            
+        }
+    }//GEN-LAST:event_jtStockKeyTyped
+
+    private void jtPrecioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtPrecioKeyTyped
+        
+        soloNumeros(evt);
+
+    }//GEN-LAST:event_jtPrecioKeyTyped
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel1;
@@ -309,5 +362,19 @@ public class AdministracionProductos extends javax.swing.JInternalFrame {
         modelo.addColumn("Estado");
         jTable1.setModel(modelo);
 
+    }
+    
+    private void soloNumeros(java.awt.event.KeyEvent evt){
+        
+        char validar = evt.getKeyChar();
+        
+        if(Character.isLetter(validar)){
+            
+            getToolkit().beep();
+            evt.consume();
+            
+            JOptionPane.showMessageDialog(rootPane, "Ingrese solo numeros");
+        }
+    
     }
 }
