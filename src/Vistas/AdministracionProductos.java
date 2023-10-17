@@ -15,7 +15,11 @@ public class AdministracionProductos extends javax.swing.JInternalFrame {
         initComponents();
         armarCabecera();
         cargarLista();
+        jbBorrar.setEnabled(false);
+        jbModificar.setEnabled(false);
+        
     }
+    
     private DefaultTableModel modelo = new DefaultTableModel(){
         
         @Override
@@ -25,6 +29,7 @@ public class AdministracionProductos extends javax.swing.JInternalFrame {
         
         }
     };
+    
     ProductoData pd = new ProductoData();
     Producto produ = new Producto();
     
@@ -55,6 +60,11 @@ public class AdministracionProductos extends javax.swing.JInternalFrame {
         jbLimpiar = new javax.swing.JButton();
         jbActualizar = new javax.swing.JButton();
 
+        jtId.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jtIdMouseClicked(evt);
+            }
+        });
         jtId.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jtIdKeyTyped(evt);
@@ -64,12 +74,6 @@ public class AdministracionProductos extends javax.swing.JInternalFrame {
         jLabel6.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("Administracion de Menus");
-
-        jtNombre.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jtNombreKeyTyped(evt);
-            }
-        });
 
         jtPrecio.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -135,6 +139,11 @@ public class AdministracionProductos extends javax.swing.JInternalFrame {
         });
 
         jbBorrar.setText("Borrar");
+        jbBorrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbBorrarActionPerformed(evt);
+            }
+        });
 
         jbSalir.setText("Salir");
         jbSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -369,12 +378,6 @@ public class AdministracionProductos extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_jtPrecioKeyTyped
 
-    private void jtNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtNombreKeyTyped
-        
-        soloLetras(evt);
-        
-    }//GEN-LAST:event_jtNombreKeyTyped
-
     private void jbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirActionPerformed
         
         dispose();
@@ -389,6 +392,8 @@ public class AdministracionProductos extends javax.swing.JInternalFrame {
 
     private void jtListaMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtListaMenuMouseClicked
         
+        jbBorrar.setEnabled(true);
+        jbModificar.setEnabled(true);
         jbCrear.setEnabled(false);
         int fila = jtListaMenu.getSelectedRow();
         jtId.setText(jtListaMenu.getValueAt(fila, 0)+"");
@@ -402,6 +407,9 @@ public class AdministracionProductos extends javax.swing.JInternalFrame {
 
     private void jbLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbLimpiarActionPerformed
         
+        jbCrear.setEnabled(true);
+        jbBorrar.setEnabled(false);
+        jbModificar.setEnabled(false);
         jtId.setText("");
         jtNombre.setText("");
         jtPrecio.setText("");
@@ -409,6 +417,25 @@ public class AdministracionProductos extends javax.swing.JInternalFrame {
         jrEstado.setSelected(false);
         
     }//GEN-LAST:event_jbLimpiarActionPerformed
+
+    private void jbBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBorrarActionPerformed
+      
+        try{
+            
+            int id = Integer.parseInt(jtId.getText());       
+            pd.eliminarProducto(id);
+           
+        }catch(NumberFormatException ex){
+            
+            JOptionPane.showMessageDialog(rootPane, "Ingrese un numero de ID");
+        }
+    }//GEN-LAST:event_jbBorrarActionPerformed
+
+    private void jtIdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtIdMouseClicked
+        
+        jbBorrar.setEnabled(true);
+        
+    }//GEN-LAST:event_jtIdMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane jDesktopPane1;
