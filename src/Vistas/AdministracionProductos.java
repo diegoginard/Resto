@@ -2,7 +2,6 @@
 package Vistas;
 
 import BaseDatos.ProductoData;
-import Entidades.Mesa;
 import Entidades.Producto;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
@@ -241,7 +240,7 @@ public class AdministracionProductos extends javax.swing.JInternalFrame {
 
     private void jtBuscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtBuscarKeyReleased
         
-        String buscar = jtBuscar.getSelectedText();
+        String buscar = jtBuscar.getText();
         List <Producto> buscarMenus = pd.BuscarProductos(buscar);
 
         for (Producto pro : buscarMenus) {
@@ -261,9 +260,9 @@ public class AdministracionProductos extends javax.swing.JInternalFrame {
         Producto pro = new Producto(nombre,precio,stock);
         
         pd.guardarProducto(pro);
-        cargarLista();                          
+        cargarLista(); 
+        
     }//GEN-LAST:event_jbCrearActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane jDesktopPane1;
