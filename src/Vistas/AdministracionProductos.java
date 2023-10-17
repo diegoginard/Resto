@@ -300,9 +300,9 @@ public class AdministracionProductos extends javax.swing.JInternalFrame {
         
         int num = Integer.valueOf(jbBorrar.getText());
        
-        for ( : ) {
+        //for ( : ) {
             
-        }
+       // }
         
         
         
