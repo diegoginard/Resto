@@ -4,7 +4,7 @@ package BaseDatos;
 import Entidades.Producto;
 import java.sql.*;
 import java.util.*;
-import javax.swing.JOptionPane;
+import javax.swing.*;
 
 public class ProductoData {
    
@@ -108,7 +108,9 @@ public class ProductoData {
     }
     
     public List<Producto> BuscarProductos(String buscar) {
+        
       List<Producto> productos = new ArrayList<>();
+      
         try {
             
             String sql = "SELECT * FROM Producto WHERE idProducto LIKE ? OR nombreProducto LIKE ?";
@@ -152,6 +154,7 @@ public class ProductoData {
             ResultSet rs = ps.executeQuery();
             
             while (rs.next()) {
+                
                 Producto prod = new Producto();
                 prod.setIdProducto(rs.getInt("idProducto"));
                 prod.setNombre(rs.getString("nombreProducto"));
