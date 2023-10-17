@@ -6,6 +6,7 @@ public class Mesa {
     private int numero;
     private String estadoMesa;
     private int capacidad;
+    private Boolean activo;
 
     public Mesa() {
     }
@@ -21,6 +22,21 @@ public class Mesa {
         this.numero = numero;
         this.estadoMesa = estadoMesa;
         this.capacidad = capacidad;
+    }
+
+    public Mesa(int numero, String estadoMesa, int capacidad, Boolean activo) {
+        this.numero = numero;
+        this.estadoMesa = estadoMesa;
+        this.capacidad = capacidad;
+        this.activo = activo;
+    }
+
+    public Mesa(int idMesa, int numero, String estadoMesa, int capacidad, Boolean activo) {
+        this.idMesa = idMesa;
+        this.numero = numero;
+        this.estadoMesa = estadoMesa;
+        this.capacidad = capacidad;
+        this.activo = activo;
     }
 
     public int getIdMesa() {
@@ -55,9 +71,16 @@ public class Mesa {
         this.capacidad = capacidad;
     }
 
-    @Override
-    public String toString() {
-        return "Mesa{" + "idMesa=" + idMesa + ", numero=" + numero + ", estadoMesa=" + estadoMesa + ", capacidad=" + capacidad + '}';
+    public Boolean getActivo() {
+        return activo;
     }
 
+    public void setActivo(Boolean activo) {
+        this.activo = activo;
+    }
+
+    @Override
+    public String toString() {
+        return "Mesa{" + "idMesa=" + idMesa + ", numero=" + numero + ", estadoMesa=" + estadoMesa + ", capacidad=" + capacidad + ", activo=" + activo + '}';
+    }
 }

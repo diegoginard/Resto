@@ -2,14 +2,9 @@
 package BaseDatos;
 
 import Entidades.Mesa;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
-import javax.swing.JOptionPane;
+import java.sql.*;
+import java.util.*;
+import javax.swing.*;
 
 
 public class MesaData {
@@ -117,7 +112,8 @@ public class MesaData {
         List<Mesa> Mesas = new ArrayList<>();
     
         try {
-            String sql = "SELECT * FROM mesa WHERE idMesa";
+            
+            String sql = "SELECT * FROM mesa WHERE activo = 1";
             PreparedStatement ps = con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             
@@ -127,6 +123,7 @@ public class MesaData {
                 mesa.setNumero(rs.getInt("numero"));
                 mesa.setEstadoMesa(rs.getString("estadoMesa"));
                 mesa.setCapacidad(rs.getInt("capacidad"));
+                mesa.setActivo(Boolean.TRUE);
                 Mesas.add(mesa);
             
             }

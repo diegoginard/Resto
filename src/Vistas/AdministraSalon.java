@@ -1,102 +1,96 @@
 
 package Vistas;
 
+import BaseDatos.MesaData;
 import Entidades.Mesa;
 import java.util.*;
 import javax.swing.*;
+import javax.swing.table.*;
+
 
 public class AdministraSalon extends javax.swing.JInternalFrame {
     
-    Icon icoG = new ImageIcon(getClass().getResource("/Recursos/mesa-rojo.png"));
-    Icon ico = new ImageIcon(getClass().getResource("/Recursos/mesa-verde.png"));
-    List <Mesa> mesas = new ArrayList();
-    Mesa mes= new Mesa();
-    
+   
+    Icon icoR = new ImageIcon(getClass().getResource("/Recursos/mesa-rojo.png"));
+    Icon icoV = new ImageIcon(getClass().getResource("/Recursos/mesa-verde.png"));
+    Icon icoG = new ImageIcon(getClass().getResource("/Recursos/mesa-gris.png"));
+    MesaData md = new MesaData();
+    List<Mesa> mesas = md.listarMesas();
+    Mesa mes = new Mesa();
+    private boolean mesaOcupada = false;
+       
+    public AdministraSalon() {
 
-
-    
-    public AdministraSalon(){
-        
         initComponents();
         mesa1.setIcon(icoG);
-        
+        List<Mesa> mesas = md.listarMesas();
+//        ArrayList<JLabel> listarMesas = ListaMesaSalon();
+        armarCabecera();
+        cargarLista();
 
-        ArrayList<JLabel> listarMesas = ListaMesaSalon();
-
-        for (int i = 0; i < listarMesas.size(); i++) {
-            if (i < mesas.size()) {
-                
-          // ArrayList<JLabel> mesalabel = listarMesas;
-            JLabel mesaLabel =listarMesas.get(i);
-            mesaLabel.setIcon(icoG);
-        
-            
-            
-            
-            
+//        for (int i = 0; i < listarMesas.size(); i++) {
+//            
+//            if (i < mesas.size()) {
+//
+//                JLabel mesaLabel = listarMesas.get(i);
+//                mesaLabel.setIcon(icoG);
+//
 //            Mesa mesa = mesas.get(i);
 //            mesa.setEstadoMesa("ocupado");
-                
-            }
-            
-    }  
+//
+//            }
+//        }
+    }
+    
+    private DefaultTableModel modelo = new DefaultTableModel(){
         
-            
+        @Override
+        public boolean isCellEditable(int rowIndex, int columnIndex) {
+        return false;
         
         }
- 
-   
-    private boolean mesaOcupada = false;
+    };
 
-   
-
-    
-
- 
-    
-    
-    public ArrayList<JLabel> ListaMesaSalon(){
-    Mesa mes= new Mesa();
-    mesas.add(mes); 
-        ArrayList<JLabel> me = new ArrayList<>();
-        
-        me.add(mesa1);
-        me.add(mesa2);
-        me.add(mesa3);
-        me.add(mesa4);
-        me.add(mesa5);
-        me.add(mesa6);
-        me.add(mesa7);
-        me.add(mesa8);  
-        me.add(mesa9);  
-        me.add(mesa10);  
-        me.add(mesa11);
-        me.add(mesa12);
-        me.add(mesa13);
-        me.add(mesa14);
-        me.add(mesa15);
-        me.add(mesa16);
-        me.add(mesa17);
-        me.add(mesa18);  
-        me.add(mesa19);  
-        me.add(mesa20);  
-        me.add(mesa21);
-        me.add(mesa22);
-        me.add(mesa23);
-        me.add(mesa24);
-        me.add(mesa25);
-        me.add(mesa26);
-        me.add(mesa27);
-        me.add(mesa28);  
-        me.add(mesa29);  
-        me.add(mesa30);  
-        
-        return me;
-    }
+//    public ArrayList<JLabel> ListaMesaSalon(){
+//        
+//        List<Mesa> mesas = md.listarMesas();
+//        mesas.add(mes); 
+//        ArrayList<JLabel> me = new ArrayList<>();
+//        
+//        me.add(mesa1);
+//        me.add(mesa2);
+//        me.add(mesa3);
+//        me.add(mesa4);
+//        me.add(mesa5);
+//        me.add(mesa6);
+//        me.add(mesa7);
+//        me.add(mesa8);  
+//        me.add(mesa9);  
+//        me.add(mesa10);  
+//        me.add(mesa11);
+//        me.add(mesa12);
+//        me.add(mesa13);
+//        me.add(mesa14);
+//        me.add(mesa15);
+//        me.add(mesa16);
+//        me.add(mesa17);
+//        me.add(mesa18);  
+//        me.add(mesa19);  
+//        me.add(mesa20);  
+//        me.add(mesa21);
+//        me.add(mesa22);
+//        me.add(mesa23);
+//        me.add(mesa24);
+//        me.add(mesa25);
+//        me.add(mesa26);
+//        me.add(mesa27);
+//        me.add(mesa28);  
+//        me.add(mesa29);  
+//        me.add(mesa30);  
+//        
+//        return me;
+//    }
      //Mesa mes = mesas.add(ListaMesaSalon());
-
-
-    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -132,6 +126,8 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
         mesa28 = new javax.swing.JLabel();
         mesa29 = new javax.swing.JLabel();
         mesa30 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jtListaMesas = new javax.swing.JTable();
 
         setClosable(true);
         setTitle("Administra Salon");
@@ -150,14 +146,6 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
         mesa1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 mesa1MouseClicked(evt);
-            }
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                mesa1MouseReleased(evt);
-            }
-        });
-        mesa1.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                mesa1KeyReleased(evt);
             }
         });
 
@@ -380,88 +368,110 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
         mesa30.setText("30");
         mesa30.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
+        jtListaMesas.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jtListaMesas);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(mesa13)
+                                .addGap(49, 49, 49)
+                                .addComponent(mesa14)
+                                .addGap(58, 58, 58)
+                                .addComponent(mesa15)
+                                .addGap(59, 59, 59)
+                                .addComponent(mesa16)
+                                .addGap(61, 61, 61)
+                                .addComponent(mesa17)
+                                .addGap(55, 55, 55)
+                                .addComponent(mesa18))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(mesa7)
+                                .addGap(49, 49, 49)
+                                .addComponent(mesa8)
+                                .addGap(58, 58, 58)
+                                .addComponent(mesa9)
+                                .addGap(59, 59, 59)
+                                .addComponent(mesa10)
+                                .addGap(61, 61, 61)
+                                .addComponent(mesa11)
+                                .addGap(55, 55, 55)
+                                .addComponent(mesa12))))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(mesa25)
-                        .addGap(49, 49, 49)
-                        .addComponent(mesa26)
-                        .addGap(58, 58, 58)
-                        .addComponent(mesa27)
-                        .addGap(59, 59, 59)
-                        .addComponent(mesa28)
-                        .addGap(61, 61, 61)
-                        .addComponent(mesa29)
-                        .addGap(55, 55, 55)
-                        .addComponent(mesa30))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(mesa19)
-                        .addGap(49, 49, 49)
-                        .addComponent(mesa20)
-                        .addGap(58, 58, 58)
-                        .addComponent(mesa21)
-                        .addGap(59, 59, 59)
-                        .addComponent(mesa22)
-                        .addGap(61, 61, 61)
-                        .addComponent(mesa23)
-                        .addGap(55, 55, 55)
-                        .addComponent(mesa24))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(mesa13)
-                            .addGap(49, 49, 49)
-                            .addComponent(mesa14)
-                            .addGap(58, 58, 58)
-                            .addComponent(mesa15)
-                            .addGap(59, 59, 59)
-                            .addComponent(mesa16)
-                            .addGap(61, 61, 61)
-                            .addComponent(mesa17)
-                            .addGap(55, 55, 55)
-                            .addComponent(mesa18))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(mesa7)
-                            .addGap(49, 49, 49)
-                            .addComponent(mesa8)
-                            .addGap(58, 58, 58)
-                            .addComponent(mesa9)
-                            .addGap(59, 59, 59)
-                            .addComponent(mesa10)
-                            .addGap(61, 61, 61)
-                            .addComponent(mesa11)
-                            .addGap(55, 55, 55)
-                            .addComponent(mesa12))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(mesa1)
-                            .addGap(49, 49, 49)
-                            .addComponent(mesa2)
-                            .addGap(58, 58, 58)
-                            .addComponent(mesa3)
-                            .addGap(59, 59, 59)
-                            .addComponent(mesa4)
-                            .addGap(61, 61, 61)
-                            .addComponent(mesa5)
-                            .addGap(55, 55, 55)
-                            .addComponent(mesa6))))
-                .addContainerGap(55, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(mesa25)
+                                .addGap(49, 49, 49)
+                                .addComponent(mesa26)
+                                .addGap(58, 58, 58)
+                                .addComponent(mesa27)
+                                .addGap(59, 59, 59)
+                                .addComponent(mesa28)
+                                .addGap(61, 61, 61)
+                                .addComponent(mesa29)
+                                .addGap(55, 55, 55)
+                                .addComponent(mesa30))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(mesa19)
+                                .addGap(49, 49, 49)
+                                .addComponent(mesa20)
+                                .addGap(50, 50, 50)
+                                .addComponent(mesa21)
+                                .addGap(67, 67, 67)
+                                .addComponent(mesa22)
+                                .addGap(61, 61, 61)
+                                .addComponent(mesa23)
+                                .addGap(55, 55, 55)
+                                .addComponent(mesa24))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(mesa1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(49, 49, 49)
+                                .addComponent(mesa2)
+                                .addGap(58, 58, 58)
+                                .addComponent(mesa3)
+                                .addGap(59, 59, 59)
+                                .addComponent(mesa4)
+                                .addGap(61, 61, 61)
+                                .addComponent(mesa5)
+                                .addGap(55, 55, 55)
+                                .addComponent(mesa6)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(mesa1)
-                    .addComponent(mesa2)
-                    .addComponent(mesa3)
-                    .addComponent(mesa4)
-                    .addComponent(mesa5)
-                    .addComponent(mesa6))
-                .addGap(59, 59, 59)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(232, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(mesa2)
+                        .addComponent(mesa3)
+                        .addComponent(mesa4)
+                        .addComponent(mesa5)
+                        .addComponent(mesa6))
+                    .addComponent(mesa1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(mesa7)
                     .addComponent(mesa8)
@@ -469,7 +479,7 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
                     .addComponent(mesa10)
                     .addComponent(mesa11)
                     .addComponent(mesa12))
-                .addGap(82, 82, 82)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(mesa13)
                     .addComponent(mesa14)
@@ -477,7 +487,7 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
                     .addComponent(mesa16)
                     .addComponent(mesa17)
                     .addComponent(mesa18))
-                .addGap(63, 63, 63)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(mesa19)
                     .addComponent(mesa20)
@@ -485,7 +495,7 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
                     .addComponent(mesa22)
                     .addComponent(mesa23)
                     .addComponent(mesa24))
-                .addGap(54, 54, 54)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(mesa25)
                     .addComponent(mesa26)
@@ -493,7 +503,7 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
                     .addComponent(mesa28)
                     .addComponent(mesa29)
                     .addComponent(mesa30))
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
@@ -503,15 +513,6 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_formComponentAdded
 
-    private void mesa1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mesa1MouseReleased
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_mesa1MouseReleased
-
-    private void mesa1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_mesa1KeyReleased
-
-    }//GEN-LAST:event_mesa1KeyReleased
-
     private void mesa1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mesa1MouseClicked
         
         // Cambia el estado de la mesa
@@ -520,11 +521,9 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
         // Actualiza el color de fondo
         if (mesaOcupada){
               
-            mesa1.setIcon(ico); // Cambia el color al ocupado
+            mesa1.setIcon(icoR); // Cambia el color al ocupado
             Mesa mesa1 = new Mesa();
-         
-            
-            
+    
         } else{
                 
             mesa1.setIcon(icoG); // Cambia el color al libre
@@ -539,11 +538,9 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
         // Actualiza el color de fondo
         if (mesaOcupada){
               
-            mesa2.setIcon(ico); // Cambia el color al ocupado
+            mesa2.setIcon(icoR); // Cambia el color al ocupado
             Mesa mesa2 = new Mesa();
-         
-            
-            
+   
         } else{
                 
             mesa2.setIcon(icoG); // Cambia el color al libre
@@ -558,11 +555,9 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
         // Actualiza el color de fondo
         if (mesaOcupada){
               
-            mesa3.setIcon(ico); // Cambia el color al ocupado
+            mesa3.setIcon(icoR); // Cambia el color al ocupado
             Mesa mesa3= new Mesa();
-         
-            
-            
+  
         } else{
                 
             mesa3.setIcon(icoG); // Cambia el color al libre
@@ -571,17 +566,16 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_mesa3MouseClicked
 
     private void mesa4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mesa4MouseClicked
+        
         // Cambia el estado de la mesa
         mesaOcupada = !mesaOcupada;
 
         // Actualiza el color de fondo
         if (mesaOcupada){
               
-            mesa4.setIcon(ico); // Cambia el color al ocupado
+            mesa4.setIcon(icoR); // Cambia el color al ocupado
             Mesa mesa4= new Mesa();
-         
-            
-            
+ 
         } else{
                 
             mesa4.setIcon(icoG); // Cambia el color al libre
@@ -615,6 +609,8 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jtListaMesas;
     private javax.swing.JLabel mesa1;
     private javax.swing.JLabel mesa10;
     private javax.swing.JLabel mesa11;
@@ -647,4 +643,26 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
     private javax.swing.JLabel mesa9;
     // End of variables declaration//GEN-END:variables
 
+    private void cargarLista() {
+
+        List<Mesa> mesas = md.listarMesas();
+        modelo.setRowCount(0);
+
+        for (Mesa me : mesas) {
+
+            modelo.addRow(new Object[]{me.getIdMesa(),
+                me.getNumero(), me.getEstadoMesa(), me.getCapacidad()});
+
+        }
+    }
+    
+    private void armarCabecera() {
+
+        modelo.addColumn("IdMesa");
+        modelo.addColumn("Numero");
+        modelo.addColumn("EstadoMesa");
+        modelo.addColumn("Cantidad");
+        jtListaMesas.setModel(modelo);
+
+    }
 }
