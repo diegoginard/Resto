@@ -18,6 +18,7 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
     List<Mesa> mesas = md.listarMesas();
     Mesa mes = new Mesa();
     private boolean mesaOcupada = false;
+    
        
     public AdministraSalon() {
 
@@ -143,6 +144,7 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
         mesa1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
         mesa1.setText("1");
         mesa1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        mesa1.setOpaque(true);
         mesa1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 mesa1MouseClicked(evt);
@@ -460,9 +462,9 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(232, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addContainerGap(283, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(79, 79, 79)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(mesa2)
