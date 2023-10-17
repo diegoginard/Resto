@@ -5,7 +5,8 @@ import BaseDatos.MesaData;
 import Entidades.Mesa;
 import java.util.*;
 import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
+import javax.swing.table.*;
+
 
 public class AdministraSalon extends javax.swing.JInternalFrame {
     
