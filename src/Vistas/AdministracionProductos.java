@@ -2,14 +2,26 @@
 package Vistas;
 
 import BaseDatos.ProductoData;
+import Entidades.Mesa;
 import Entidades.Producto;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
 
 public class AdministracionProductos extends javax.swing.JInternalFrame {
 
     public AdministracionProductos() {
         initComponents();
+        armarCabecera();
+        cargarLista();
     }
-    
+    private DefaultTableModel modelo = new DefaultTableModel(){
+        
+        @Override
+        public boolean isCellEditable(int rowIndex, int columnIndex) {
+        return false;
+        
+        }
+    };
     ProductoData pd = new ProductoData();
     
     @SuppressWarnings("unchecked")
@@ -24,7 +36,7 @@ public class AdministracionProductos extends javax.swing.JInternalFrame {
         jtStock = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jtListaMenus = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
         jbCrear = new javax.swing.JButton();
         jbBorrar = new javax.swing.JButton();
@@ -43,7 +55,7 @@ public class AdministracionProductos extends javax.swing.JInternalFrame {
 
         jLabel1.setText("Id");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jtListaMenus.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -54,7 +66,7 @@ public class AdministracionProductos extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(jtListaMenus);
 
         jLabel2.setText("Nombre");
 
@@ -149,13 +161,12 @@ public class AdministracionProductos extends javax.swing.JInternalFrame {
                 .addContainerGap(81, Short.MAX_VALUE))
             .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                            .addGap(75, 75, 75)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addContainerGap(9, Short.MAX_VALUE)))
+                    .addGap(81, 81, 81)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(86, Short.MAX_VALUE))
+                .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 462, Short.MAX_VALUE)
+                    .addContainerGap()))
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -235,7 +246,6 @@ public class AdministracionProductos extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JButton jbBorrar;
     private javax.swing.JButton jbCrear;
@@ -243,8 +253,33 @@ public class AdministracionProductos extends javax.swing.JInternalFrame {
     private javax.swing.JButton jbSalir;
     private javax.swing.JRadioButton jrEstado;
     private javax.swing.JTextField jtId;
+    private javax.swing.JTable jtListaMenus;
     private javax.swing.JTextField jtNombre;
     private javax.swing.JTextField jtPrecio;
     private javax.swing.JTextField jtStock;
     // End of variables declaration//GEN-END:variables
+
+ private void cargarLista() {
+
+        List<Producto> menus = pd.listarProductos();
+        modelo.setRowCount(0);
+
+        for (Producto pro : menus) {
+
+            modelo.addRow(new Object[]{pro.getIdProducto(),
+                pro.getNombre(), pro.getPrecio(),pro.getStock(),pro.isEstado()});
+
+        }
+    }
+    
+    private void armarCabecera() {
+
+        modelo.addColumn("IProducto");
+        modelo.addColumn("Nombre");
+        modelo.addColumn("Precio");
+        modelo.addColumn("Stock");
+        modelo.addColumn("Estado");
+        jtListaMenus.setModel(modelo);
+
+    }
 }
