@@ -620,6 +620,9 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
 
     private void mesa1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mesa1MouseClicked
         
+        
+        
+        
         // Cambia el estado de la mesa
         mesaOcupada = !mesaOcupada;
 

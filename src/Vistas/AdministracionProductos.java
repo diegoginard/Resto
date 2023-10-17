@@ -5,7 +5,6 @@ import BaseDatos.ProductoData;
 import Entidades.Mesa;
 import Entidades.Producto;
 import java.util.List;
-import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class AdministracionProductos extends javax.swing.JInternalFrame {
@@ -242,10 +241,12 @@ public class AdministracionProductos extends javax.swing.JInternalFrame {
 
     private void jtBuscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtBuscarKeyReleased
         
-        modelo.setRowCount(0);
-        String buscar = jtBuscar.getText();
+//        modelo.setRowCount(0);
+        String buscar = jtBuscar.getSelectedText();
         List <Producto> buscarMenus = pd.BuscarProductos(buscar);
         
+        
+
         for (Producto pro : buscarMenus) {
 
             modelo.addRow(new Object[]{pro.getIdProducto(),
@@ -255,7 +256,7 @@ public class AdministracionProductos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jtBuscarKeyReleased
 
     private void jbCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCrearActionPerformed
-        
+                
         String nombre = jtNombre.getText();
         Double precio = Double.valueOf(jtPrecio.getText());
         int stock = Integer.valueOf(jtStock.getText());
@@ -263,7 +264,7 @@ public class AdministracionProductos extends javax.swing.JInternalFrame {
         Producto pro = new Producto(nombre,precio,stock);
         
         pd.guardarProducto(pro);
-        cargarLista();
+                                  
     }//GEN-LAST:event_jbCrearActionPerformed
 
 
