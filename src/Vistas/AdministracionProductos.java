@@ -4,9 +4,9 @@ package Vistas;
 import BaseDatos.ProductoData;
 import Entidades.Producto;
 import java.awt.event.KeyEvent;
-import java.util.List;
-import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.table.*;
 
 public class AdministracionProductos extends javax.swing.JInternalFrame {
 
@@ -21,7 +21,7 @@ public class AdministracionProductos extends javax.swing.JInternalFrame {
         @Override
         public boolean isCellEditable(int fila, int columna) {
             
-            return columna == 1 || columna == 2 ||  columna == 3 ||columna == 4;
+            return false;
         
         }
     };
@@ -39,7 +39,7 @@ public class AdministracionProductos extends javax.swing.JInternalFrame {
         jtStock = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jtListaMenu = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
         jbCrear = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
@@ -84,7 +84,7 @@ public class AdministracionProductos extends javax.swing.JInternalFrame {
 
         jLabel1.setText("Id");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jtListaMenu.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -95,8 +95,13 @@ public class AdministracionProductos extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jTable1.setCellSelectionEnabled(true);
-        jScrollPane1.setViewportView(jTable1);
+        jtListaMenu.setColumnSelectionAllowed(false);
+        jtListaMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jtListaMenuMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(jtListaMenu);
 
         jLabel2.setText("Nombre");
 
@@ -138,6 +143,11 @@ public class AdministracionProductos extends javax.swing.JInternalFrame {
         });
 
         jbLimpiar.setText("Limpiar");
+        jbLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbLimpiarActionPerformed(evt);
+            }
+        });
 
         jbActualizar.setText("Actualizar");
         jbActualizar.addActionListener(new java.awt.event.ActionListener() {
@@ -350,6 +360,27 @@ public class AdministracionProductos extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_jbActualizarActionPerformed
 
+    private void jtListaMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtListaMenuMouseClicked
+        
+        int fila = jtListaMenu.getSelectedRow();
+        jtId.setText(jtListaMenu.getValueAt(fila, 0)+"");
+        jtNombre.setText(jtListaMenu.getValueAt(fila, 1)+"");
+        jtPrecio.setText(jtListaMenu.getValueAt(fila, 2)+"");
+        jtStock.setText(jtListaMenu.getValueAt(fila, 3)+"");
+        jrEstado.setSelected((boolean) jtListaMenu.getValueAt(fila, 4));
+        
+    }//GEN-LAST:event_jtListaMenuMouseClicked
+
+    private void jbLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbLimpiarActionPerformed
+        
+        jtId.setText("");
+        jtNombre.setText("");
+        jtPrecio.setText("");
+        jtStock.setText("");
+        jrEstado.setSelected(false);
+        
+    }//GEN-LAST:event_jbLimpiarActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel1;
@@ -360,7 +391,6 @@ public class AdministracionProductos extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JButton jbActualizar;
     private javax.swing.JButton jbBorrar;
     private javax.swing.JButton jbCrear;
@@ -370,6 +400,7 @@ public class AdministracionProductos extends javax.swing.JInternalFrame {
     private javax.swing.JRadioButton jrEstado;
     private javax.swing.JTextField jtBuscar;
     private javax.swing.JTextField jtId;
+    private javax.swing.JTable jtListaMenu;
     private javax.swing.JTextField jtNombre;
     private javax.swing.JTextField jtPrecio;
     private javax.swing.JTextField jtStock;
@@ -395,7 +426,7 @@ public class AdministracionProductos extends javax.swing.JInternalFrame {
         modelo.addColumn("Precio");
         modelo.addColumn("Stock");
         modelo.addColumn("Estado");
-        jTable1.setModel(modelo);
+        jtListaMenu.setModel(modelo);
 
     }
     
