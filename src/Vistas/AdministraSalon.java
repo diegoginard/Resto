@@ -128,10 +128,13 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
         mesa30 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtListaMesas = new javax.swing.JTable();
+        jPanel1 = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setClosable(true);
         setTitle("Administra Salon");
-        setPreferredSize(new java.awt.Dimension(749, 661));
+        setPreferredSize(new java.awt.Dimension(995, 661));
         addContainerListener(new java.awt.event.ContainerAdapter() {
             public void componentAdded(java.awt.event.ContainerEvent evt) {
                 formComponentAdded(evt);
@@ -381,80 +384,104 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(jtListaMesas);
 
+        jButton1.setText("jButton1");
+
+        jButton2.setText("jButton2");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(56, 56, 56)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton2)
+                    .addComponent(jButton1))
+                .addContainerGap(206, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(48, 48, 48)
+                .addComponent(jButton1)
+                .addGap(46, 46, 46)
+                .addComponent(jButton2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jScrollPane1)
-                    .addGroup(layout.createSequentialGroup()
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(mesa25)
+                                .addGap(49, 49, 49)
+                                .addComponent(mesa26)
+                                .addGap(58, 58, 58)
+                                .addComponent(mesa27)
+                                .addGap(59, 59, 59)
+                                .addComponent(mesa28)
+                                .addGap(61, 61, 61)
+                                .addComponent(mesa29)
+                                .addGap(55, 55, 55)
+                                .addComponent(mesa30))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(mesa19)
+                                .addGap(49, 49, 49)
+                                .addComponent(mesa20)
+                                .addGap(50, 50, 50)
+                                .addComponent(mesa21)
+                                .addGap(67, 67, 67)
+                                .addComponent(mesa22)
+                                .addGap(61, 61, 61)
+                                .addComponent(mesa23)
+                                .addGap(55, 55, 55)
+                                .addComponent(mesa24))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(mesa1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(49, 49, 49)
+                                .addComponent(mesa2)
+                                .addGap(58, 58, 58)
+                                .addComponent(mesa3)
+                                .addGap(59, 59, 59)
+                                .addComponent(mesa4)
+                                .addGap(61, 61, 61)
+                                .addComponent(mesa5)
+                                .addGap(55, 55, 55)
+                                .addComponent(mesa6)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(mesa25)
-                                    .addGap(49, 49, 49)
-                                    .addComponent(mesa26)
-                                    .addGap(58, 58, 58)
-                                    .addComponent(mesa27)
-                                    .addGap(59, 59, 59)
-                                    .addComponent(mesa28)
-                                    .addGap(61, 61, 61)
-                                    .addComponent(mesa29)
-                                    .addGap(55, 55, 55)
-                                    .addComponent(mesa30))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(mesa19)
-                                    .addGap(49, 49, 49)
-                                    .addComponent(mesa20)
-                                    .addGap(50, 50, 50)
-                                    .addComponent(mesa21)
-                                    .addGap(67, 67, 67)
-                                    .addComponent(mesa22)
-                                    .addGap(61, 61, 61)
-                                    .addComponent(mesa23)
-                                    .addGap(55, 55, 55)
-                                    .addComponent(mesa24))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(mesa1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addGap(49, 49, 49)
-                                    .addComponent(mesa2)
-                                    .addGap(58, 58, 58)
-                                    .addComponent(mesa3)
-                                    .addGap(59, 59, 59)
-                                    .addComponent(mesa4)
-                                    .addGap(61, 61, 61)
-                                    .addComponent(mesa5)
-                                    .addGap(55, 55, 55)
-                                    .addComponent(mesa6)))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                    .addComponent(mesa13)
-                                    .addGap(49, 49, 49)
-                                    .addComponent(mesa14)
-                                    .addGap(58, 58, 58)
-                                    .addComponent(mesa15)
-                                    .addGap(59, 59, 59)
-                                    .addComponent(mesa16)
-                                    .addGap(61, 61, 61)
-                                    .addComponent(mesa17)
-                                    .addGap(55, 55, 55)
-                                    .addComponent(mesa18))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                    .addComponent(mesa7)
-                                    .addGap(49, 49, 49)
-                                    .addComponent(mesa8)
-                                    .addGap(58, 58, 58)
-                                    .addComponent(mesa9)
-                                    .addGap(59, 59, 59)
-                                    .addComponent(mesa10)
-                                    .addGap(61, 61, 61)
-                                    .addComponent(mesa11)
-                                    .addGap(55, 55, 55)
-                                    .addComponent(mesa12))))
-                        .addGap(0, 93, Short.MAX_VALUE)))
-                .addContainerGap())
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(mesa13)
+                                .addGap(49, 49, 49)
+                                .addComponent(mesa14)
+                                .addGap(58, 58, 58)
+                                .addComponent(mesa15)
+                                .addGap(59, 59, 59)
+                                .addComponent(mesa16)
+                                .addGap(61, 61, 61)
+                                .addComponent(mesa17)
+                                .addGap(55, 55, 55)
+                                .addComponent(mesa18))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(mesa7)
+                                .addGap(49, 49, 49)
+                                .addComponent(mesa8)
+                                .addGap(58, 58, 58)
+                                .addComponent(mesa9)
+                                .addGap(59, 59, 59)
+                                .addComponent(mesa10)
+                                .addGap(61, 61, 61)
+                                .addComponent(mesa11)
+                                .addGap(55, 55, 55)
+                                .addComponent(mesa12)))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -503,6 +530,9 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
                     .addComponent(mesa29)
                     .addComponent(mesa30))
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -608,6 +638,9 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jtListaMesas;
     private javax.swing.JLabel mesa1;
