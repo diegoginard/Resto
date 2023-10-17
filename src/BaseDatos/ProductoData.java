@@ -18,7 +18,7 @@ public class ProductoData {
   
     public void guardarProducto(Producto pro){
         
-        String sql="INSERT INTO producto(nombreProducto, precio, stock) VALUES (?,?,?)"; 
+        String sql="INSERT INTO producto(nombreProducto, precio, stock, estadoProducto) VALUES (?,?,?,?)"; 
       
         try {
             
