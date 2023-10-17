@@ -241,11 +241,8 @@ public class AdministracionProductos extends javax.swing.JInternalFrame {
 
     private void jtBuscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtBuscarKeyReleased
         
-//        modelo.setRowCount(0);
         String buscar = jtBuscar.getSelectedText();
         List <Producto> buscarMenus = pd.BuscarProductos(buscar);
-        
-        
 
         for (Producto pro : buscarMenus) {
 
@@ -264,7 +261,7 @@ public class AdministracionProductos extends javax.swing.JInternalFrame {
         Producto pro = new Producto(nombre,precio,stock);
         
         pd.guardarProducto(pro);
-                                  
+        cargarLista();                          
     }//GEN-LAST:event_jbCrearActionPerformed
 
 
