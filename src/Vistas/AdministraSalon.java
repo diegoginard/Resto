@@ -452,7 +452,7 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
                                 .addComponent(mesa11)
                                 .addGap(55, 55, 55)
                                 .addComponent(mesa12)))))
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
