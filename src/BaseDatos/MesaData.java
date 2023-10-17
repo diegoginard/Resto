@@ -108,6 +108,7 @@ public class MesaData {
     }
     
     public List<Mesa> listarMesas(){
+        //estadoMesa   // cambiar Activo
         
         List<Mesa> Mesas = new ArrayList<>();
     
