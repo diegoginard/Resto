@@ -284,35 +284,19 @@ public class AdministracionProductos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jbCrearActionPerformed
 
     private void jtIdKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtIdKeyTyped
-        
-        char validar = evt.getKeyChar();
-        
-        if(Character.isLetter(validar)){
-            
-            getToolkit().beep();
-            evt.consume();
-            
-            JOptionPane.showMessageDialog(rootPane, "Ingrese solo numeros");
-            
-        }
+
+        soloNumeros(evt);
+
     }//GEN-LAST:event_jtIdKeyTyped
 
     private void jtStockKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtStockKeyTyped
-        
-        char validar = evt.getKeyChar();
-        
-        if(Character.isLetter(validar)){
-            
-            getToolkit().beep();
-            evt.consume();
-            
-            JOptionPane.showMessageDialog(rootPane, "Ingrese solo numeros");
-            
-        }
+
+        soloNumeros(evt);
+
     }//GEN-LAST:event_jtStockKeyTyped
 
     private void jtPrecioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtPrecioKeyTyped
-        
+
         soloNumeros(evt);
 
     }//GEN-LAST:event_jtPrecioKeyTyped
@@ -375,6 +359,5 @@ public class AdministracionProductos extends javax.swing.JInternalFrame {
             
             JOptionPane.showMessageDialog(rootPane, "Ingrese solo numeros");
         }
-    
     }
 }
