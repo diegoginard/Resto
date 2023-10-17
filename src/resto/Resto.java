@@ -14,7 +14,7 @@ public class Resto {
 
     public static void main(String[] args) {
 
-//       ProductoData pd = new ProductoData();      
+       ProductoData pd = new ProductoData();      
 //       Producto pro = new Producto(5,"empanadas salteñas" , 4000.000 ,5, true);
 //       System.out.println(pd.listarProductos()); //Funciona
 //       pd.guardarProducto(pro);  //Funciona
@@ -30,8 +30,8 @@ public class Resto {
         Pedido p1 = new Pedido(mesa, "Carlos",
             LocalDateTime.of(2023, 10, 10, 11, 00),
             5000, true, "entregado");
-        PedidoData pd = new PedidoData();
-        pd.guardarPedido(p1); //Funciona
+        PedidoData ped = new PedidoData();
+        ped.guardarPedido(p1); //Funciona
 //        pd.eliminarPedido(4);
 
     }

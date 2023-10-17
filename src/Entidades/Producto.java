@@ -11,6 +11,12 @@ public class Producto {
     public Producto() {
     }
 
+    public Producto(String nombre, double precio, int stock) {
+        this.nombre = nombre;
+        this.precio = precio;
+        this.stock = stock;
+    }
+
     public Producto(String nombre, double precio, int stock, boolean estado) {
         this.nombre = nombre;
         this.precio = precio;
