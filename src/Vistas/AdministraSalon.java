@@ -520,7 +520,7 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
         // Actualiza el color de fondo
         if (mesaOcupada){
               
-            mesa1.setIcon(ico); // Cambia el color al ocupado
+            mesa1.setIcon(icoR); // Cambia el color al ocupado
             Mesa mesa1 = new Mesa();
     
         } else{
@@ -537,7 +537,7 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
         // Actualiza el color de fondo
         if (mesaOcupada){
               
-            mesa2.setIcon(ico); // Cambia el color al ocupado
+            mesa2.setIcon(icoR); // Cambia el color al ocupado
             Mesa mesa2 = new Mesa();
    
         } else{
@@ -554,7 +554,7 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
         // Actualiza el color de fondo
         if (mesaOcupada){
               
-            mesa3.setIcon(ico); // Cambia el color al ocupado
+            mesa3.setIcon(icoR); // Cambia el color al ocupado
             Mesa mesa3= new Mesa();
   
         } else{
@@ -572,7 +572,7 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
         // Actualiza el color de fondo
         if (mesaOcupada){
               
-            mesa4.setIcon(ico); // Cambia el color al ocupado
+            mesa4.setIcon(icoR); // Cambia el color al ocupado
             Mesa mesa4= new Mesa();
  
         } else{
