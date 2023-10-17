@@ -3,6 +3,7 @@ package Vistas;
 
 import BaseDatos.ProductoData;
 import Entidades.Producto;
+import java.awt.event.KeyEvent;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -39,11 +40,9 @@ public class AdministracionProductos extends javax.swing.JInternalFrame {
         jTable1 = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
         jbCrear = new javax.swing.JButton();
-        jbBorrar = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jbModificar = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        jbSalir = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jtBuscar = new javax.swing.JTextField();
@@ -58,6 +57,12 @@ public class AdministracionProductos extends javax.swing.JInternalFrame {
         jLabel6.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("Administracion de Menus");
+
+        jtNombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtNombreKeyTyped(evt);
+            }
+        });
 
         jtPrecio.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -95,8 +100,6 @@ public class AdministracionProductos extends javax.swing.JInternalFrame {
             }
         });
 
-        jbBorrar.setText("Borrar");
-
         jLabel3.setText("Precio");
 
         jbModificar.setText("Modificar");
@@ -108,17 +111,10 @@ public class AdministracionProductos extends javax.swing.JInternalFrame {
 
         jLabel4.setText("Stock");
 
-        jbSalir.setText("Salir");
-
         jLabel5.setText("Estado");
 
         jLabel7.setText("Buscar");
 
-        jtBuscar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtBuscarActionPerformed(evt);
-            }
-        });
         jtBuscar.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jtBuscarKeyReleased(evt);
@@ -134,11 +130,9 @@ public class AdministracionProductos extends javax.swing.JInternalFrame {
         jDesktopPane1.setLayer(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jbCrear, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(jbBorrar, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jLabel3, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jbModificar, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jLabel4, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(jbSalir, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jLabel5, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jLabel7, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jtBuscar, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -180,13 +174,9 @@ public class AdministracionProductos extends javax.swing.JInternalFrame {
                     .addGroup(jDesktopPane1Layout.createSequentialGroup()
                         .addGap(10, 10, 10)
                         .addComponent(jbCrear)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jbBorrar)
-                        .addGap(18, 18, 18)
+                        .addGap(76, 76, 76)
                         .addComponent(jbModificar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jbSalir)
-                        .addGap(51, 51, 51))))
+                        .addGap(51, 180, Short.MAX_VALUE))))
             .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jDesktopPane1Layout.createSequentialGroup()
                     .addContainerGap()
@@ -221,9 +211,7 @@ public class AdministracionProductos extends javax.swing.JInternalFrame {
                 .addGap(28, 28, 28)
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbCrear)
-                    .addComponent(jbBorrar)
-                    .addComponent(jbModificar)
-                    .addComponent(jbSalir))
+                    .addComponent(jbModificar))
                 .addContainerGap(231, Short.MAX_VALUE))
             .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jDesktopPane1Layout.createSequentialGroup()
@@ -251,11 +239,6 @@ public class AdministracionProductos extends javax.swing.JInternalFrame {
     private void jbModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbModificarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jbModificarActionPerformed
-
-    private void jtBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtBuscarActionPerformed
-        
-       
-    }//GEN-LAST:event_jtBuscarActionPerformed
 
     private void jtBuscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtBuscarKeyReleased
         
@@ -301,6 +284,12 @@ public class AdministracionProductos extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_jtPrecioKeyTyped
 
+    private void jtNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtNombreKeyTyped
+        
+        soloLetras(evt);
+        
+    }//GEN-LAST:event_jtNombreKeyTyped
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel1;
@@ -312,10 +301,8 @@ public class AdministracionProductos extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JButton jbBorrar;
     private javax.swing.JButton jbCrear;
     private javax.swing.JButton jbModificar;
-    private javax.swing.JButton jbSalir;
     private javax.swing.JRadioButton jrEstado;
     private javax.swing.JTextField jtBuscar;
     private javax.swing.JTextField jtId;
@@ -348,7 +335,7 @@ public class AdministracionProductos extends javax.swing.JInternalFrame {
 
     }
     
-    private void soloNumeros(java.awt.event.KeyEvent evt){
+    private void soloNumeros(KeyEvent evt){
         
         char validar = evt.getKeyChar();
         
@@ -358,6 +345,20 @@ public class AdministracionProductos extends javax.swing.JInternalFrame {
             evt.consume();
             
             JOptionPane.showMessageDialog(rootPane, "Ingrese solo numeros");
+        }
+    }
+    
+    private void soloLetras(KeyEvent evt) {
+        
+        char validar = evt.getKeyChar();
+
+        if (Character.isDigit(validar)) {
+
+            getToolkit().beep();
+            evt.consume();
+
+            JOptionPane.showMessageDialog(rootPane, "Ingrese solo letras");
+
         }
     }
 }
