@@ -71,6 +71,11 @@ public class AdministracionProductos extends javax.swing.JInternalFrame {
         jLabel2.setText("Nombre");
 
         jbCrear.setText("Crear");
+        jbCrear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbCrearActionPerformed(evt);
+            }
+        });
 
         jbBorrar.setText("Borrar");
 
@@ -249,6 +254,18 @@ public class AdministracionProductos extends javax.swing.JInternalFrame {
 
         }
     }//GEN-LAST:event_jtBuscarKeyReleased
+
+    private void jbCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCrearActionPerformed
+                
+        String nombre = jtNombre.getText();
+        Double precio = Double.valueOf(jtPrecio.getText());
+        int stock = Integer.valueOf(jtStock.getText());
+  
+        Producto pro = new Producto(nombre,precio,stock);
+        
+        pd.guardarProducto(pro);
+                                  
+    }//GEN-LAST:event_jbCrearActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
