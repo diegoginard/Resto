@@ -9,13 +9,39 @@ import javax.swing.table.DefaultTableModel;
 
 public class AdministraSalon extends javax.swing.JInternalFrame {
     
-    Icon icoG = new ImageIcon(getClass().getResource("/Recursos/mesa-rojo.png"));
-    Icon ico = new ImageIcon(getClass().getResource("/Recursos/mesa-verde.png"));
+   
+    Icon icoR = new ImageIcon(getClass().getResource("/Recursos/mesa-rojo.png"));
+    Icon icoV = new ImageIcon(getClass().getResource("/Recursos/mesa-verde.png"));
+    Icon icoG = new ImageIcon(getClass().getResource("/Recursos/mesa-gris.png"));
     MesaData md = new MesaData();
-
+    List<Mesa> mesas = md.listarMesas();
+    Mesa mes = new Mesa();
     private boolean mesaOcupada = false;
+       
+    public AdministraSalon() {
+
+        initComponents();
+        mesa1.setIcon(icoG);
+        List<Mesa> mesas = md.listarMesas();
+//        ArrayList<JLabel> listarMesas = ListaMesaSalon();
+        armarCabecera();
+        cargarLista();
+
+//        for (int i = 0; i < listarMesas.size(); i++) {
+//            
+//            if (i < mesas.size()) {
+//
+//                JLabel mesaLabel = listarMesas.get(i);
+//                mesaLabel.setIcon(icoG);
+//
+//            Mesa mesa = mesas.get(i);
+//            mesa.setEstadoMesa("ocupado");
+//
+//            }
+//        }
+    }
     
-     private DefaultTableModel modelo = new DefaultTableModel(){
+    private DefaultTableModel modelo = new DefaultTableModel(){
         
         @Override
         public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -24,44 +50,45 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
         }
     };
 
-    public ArrayList<JLabel> ListaMesaSalon(){
-        
-        mesas.add(mes); 
-        ArrayList<JLabel> me = new ArrayList<>();
-        
-        me.add(mesa1);
-        me.add(mesa2);
-        me.add(mesa3);
-        me.add(mesa4);
-        me.add(mesa5);
-        me.add(mesa6);
-        me.add(mesa7);
-        me.add(mesa8);  
-        me.add(mesa9);  
-        me.add(mesa10);  
-        me.add(mesa11);
-        me.add(mesa12);
-        me.add(mesa13);
-        me.add(mesa14);
-        me.add(mesa15);
-        me.add(mesa16);
-        me.add(mesa17);
-        me.add(mesa18);  
-        me.add(mesa19);  
-        me.add(mesa20);  
-        me.add(mesa21);
-        me.add(mesa22);
-        me.add(mesa23);
-        me.add(mesa24);
-        me.add(mesa25);
-        me.add(mesa26);
-        me.add(mesa27);
-        me.add(mesa28);  
-        me.add(mesa29);  
-        me.add(mesa30);  
-        
-        return me;
-    }
+//    public ArrayList<JLabel> ListaMesaSalon(){
+//        
+//        List<Mesa> mesas = md.listarMesas();
+//        mesas.add(mes); 
+//        ArrayList<JLabel> me = new ArrayList<>();
+//        
+//        me.add(mesa1);
+//        me.add(mesa2);
+//        me.add(mesa3);
+//        me.add(mesa4);
+//        me.add(mesa5);
+//        me.add(mesa6);
+//        me.add(mesa7);
+//        me.add(mesa8);  
+//        me.add(mesa9);  
+//        me.add(mesa10);  
+//        me.add(mesa11);
+//        me.add(mesa12);
+//        me.add(mesa13);
+//        me.add(mesa14);
+//        me.add(mesa15);
+//        me.add(mesa16);
+//        me.add(mesa17);
+//        me.add(mesa18);  
+//        me.add(mesa19);  
+//        me.add(mesa20);  
+//        me.add(mesa21);
+//        me.add(mesa22);
+//        me.add(mesa23);
+//        me.add(mesa24);
+//        me.add(mesa25);
+//        me.add(mesa26);
+//        me.add(mesa27);
+//        me.add(mesa28);  
+//        me.add(mesa29);  
+//        me.add(mesa30);  
+//        
+//        return me;
+//    }
      //Mesa mes = mesas.add(ListaMesaSalon());
 
     @SuppressWarnings("unchecked")
@@ -628,24 +655,13 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
         }
     }
     
-    public AdministraSalon() {
+    private void armarCabecera() {
 
-        initComponents();
-        mesa1.setIcon(icoG);
-         List<Mesa> mesas = md.listarMesas();
-        ArrayList<JLabel> listarMesas = ListaMesaSalon();
+        modelo.addColumn("IdMesa");
+        modelo.addColumn("Numero");
+        modelo.addColumn("EstadoMesa");
+        modelo.addColumn("Cantidad");
+        jtListaMesas.setModel(modelo);
 
-        for (int i = 0; i < listarMesas.size(); i++) {
-            
-            if (i < mesas.size()) {
-
-                JLabel mesaLabel = listarMesas.get(i);
-                mesaLabel.setIcon(icoG);
-
-//            Mesa mesa = mesas.get(i);
-//            mesa.setEstadoMesa("ocupado");
-
-            }
-        }
     }
 }
