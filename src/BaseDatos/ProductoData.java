@@ -18,7 +18,7 @@ public class ProductoData {
   
     public void guardarProducto(Producto pro){
         
-        String sql="INSERT INTO producto(nombreProducto, precio, stock, estadoProducto) VALUES (?,?,?,?)"; 
+        String sql="INSERT INTO producto(nombreProducto, precio, stock) VALUES (?,?,?)"; 
       
         try {
             
@@ -27,7 +27,7 @@ public class ProductoData {
             ps.setString(1, pro.getNombre());
             ps.setDouble(2, pro.getPrecio());
             ps.setInt(3, pro.getStock());
-            ps.setBoolean(4, pro.isEstado());
+            ps.setBoolean(4, true);
             ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
            
