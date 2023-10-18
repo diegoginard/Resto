@@ -114,7 +114,7 @@ public class MesaData {
     
         try {
             
-            String sql = "SELECT * FROM mesa WHERE estadoMesa = 1";
+            String sql = "SELECT * FROM mesa WHERE activo = 1";
             PreparedStatement ps = con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             

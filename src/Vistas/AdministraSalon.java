@@ -1125,12 +1125,14 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
 
     private void jtListaMesasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtListaMesasMouseClicked
         
+        jbCrear.setEnabled(false);
         int fila = jtListaMesas.getSelectedRow();
-        String estadoM = jtListaMesas.getValueAt(fila, 3)+"";
+        String estadoM = jtListaMesas.getValueAt(fila, 2)+"";
         jtID.setText(jtListaMesas.getValueAt(fila, 0)+"");
         jtNumero.setText(jtListaMesas.getValueAt(fila, 1)+"");
         jtCapacidad.setText(jtListaMesas.getValueAt(fila, 3)+"");
         jrActivo.setSelected((boolean) jtListaMesas.getValueAt(fila, 4));
+        
         switch(estadoM){
         
             case "LIBRE":
@@ -1150,7 +1152,11 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
                 jcEstado.setSelectedIndex(2);
         
                 break;
-        
+                
+            default:
+                
+                JOptionPane.showMessageDialog(rootPane, "error");
+                
         }
     }//GEN-LAST:event_jtListaMesasMouseClicked
 
