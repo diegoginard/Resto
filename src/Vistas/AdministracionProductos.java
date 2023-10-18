@@ -383,7 +383,16 @@ public class AdministracionProductos extends JInternalFrame {
                 break;
 
             case 3:
-                System.out.println("Elegiste la opción 3");
+                
+                List<Producto> buscarPrecio = pd.BuscarProductosPrecio(buscar);
+
+                for (Producto pro : buscarPrecio) {
+
+                    modelo.addRow(new Object[]{pro.getIdProducto(),
+                        pro.getNombre(), pro.getPrecio(), pro.getStock(), pro.isEstado()});
+
+                }
+                
                 break;
 
             case 4:
