@@ -49,7 +49,7 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
         jtMonto = new javax.swing.JTextField();
         jbAnular = new javax.swing.JButton();
         jbMenos = new javax.swing.JButton();
-        jbMas = new javax.swing.JButton();
+        jbSumar = new javax.swing.JButton();
         jbBorrar = new javax.swing.JButton();
         jbDescuento = new javax.swing.JButton();
         jbEfectivo = new javax.swing.JButton();
@@ -162,11 +162,11 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
             }
         });
 
-        jbMas.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jbMas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/ico pedido/mas1_48.png"))); // NOI18N
-        jbMas.addActionListener(new java.awt.event.ActionListener() {
+        jbSumar.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jbSumar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/ico pedido/mas1_48.png"))); // NOI18N
+        jbSumar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbMasActionPerformed(evt);
+                jbSumarActionPerformed(evt);
             }
         });
 
@@ -233,7 +233,7 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
                                 .addGroup(layout.createSequentialGroup()
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addComponent(jbBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jbMas, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(jbSumar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGap(18, 18, 18)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jbMenos, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -316,7 +316,7 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jbMenos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jbMas, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jbSumar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -332,7 +332,7 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
                 .addComponent(jLabel3)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addGap(0, 6, Short.MAX_VALUE)
                 .addComponent(pProductos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -371,9 +371,9 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jbMenosActionPerformed
 
-    private void jbMasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbMasActionPerformed
+    private void jbSumarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSumarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jbMasActionPerformed
+    }//GEN-LAST:event_jbSumarActionPerformed
 
     private void jbDescuentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbDescuentoActionPerformed
         // TODO add your handling code here:
@@ -394,9 +394,9 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
     private javax.swing.JButton jbBorrar;
     private javax.swing.JButton jbDescuento;
     private javax.swing.JButton jbEfectivo;
-    private javax.swing.JButton jbMas;
     private javax.swing.JButton jbMenos;
     private javax.swing.JButton jbPunto;
+    private javax.swing.JButton jbSumar;
     private javax.swing.JButton jbenter;
     private javax.swing.JTextField jtMonto;
     private javax.swing.JTable jtProductos;

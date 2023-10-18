@@ -97,38 +97,43 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        mesa1 = new javax.swing.JLabel();
-        mesa2 = new javax.swing.JLabel();
-        mesa3 = new javax.swing.JLabel();
-        mesa4 = new javax.swing.JLabel();
-        mesa5 = new javax.swing.JLabel();
-        mesa6 = new javax.swing.JLabel();
-        mesa7 = new javax.swing.JLabel();
-        mesa8 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
         mesa9 = new javax.swing.JLabel();
-        mesa10 = new javax.swing.JLabel();
-        mesa11 = new javax.swing.JLabel();
-        mesa12 = new javax.swing.JLabel();
-        mesa13 = new javax.swing.JLabel();
+        mesa29 = new javax.swing.JLabel();
+        mesa3 = new javax.swing.JLabel();
+        mesa8 = new javax.swing.JLabel();
+        mesa22 = new javax.swing.JLabel();
+        mesa24 = new javax.swing.JLabel();
+        mesa6 = new javax.swing.JLabel();
+        mesa20 = new javax.swing.JLabel();
+        mesa30 = new javax.swing.JLabel();
+        mesa2 = new javax.swing.JLabel();
+        mesa21 = new javax.swing.JLabel();
         mesa14 = new javax.swing.JLabel();
-        mesa15 = new javax.swing.JLabel();
+        mesa13 = new javax.swing.JLabel();
+        mesa27 = new javax.swing.JLabel();
+        mesa1 = new javax.swing.JLabel();
+        mesa7 = new javax.swing.JLabel();
+        mesa26 = new javax.swing.JLabel();
         mesa16 = new javax.swing.JLabel();
-        mesa17 = new javax.swing.JLabel();
+        mesa28 = new javax.swing.JLabel();
+        mesa25 = new javax.swing.JLabel();
+        mesa4 = new javax.swing.JLabel();
+        mesa11 = new javax.swing.JLabel();
         mesa18 = new javax.swing.JLabel();
         mesa19 = new javax.swing.JLabel();
-        mesa20 = new javax.swing.JLabel();
-        mesa21 = new javax.swing.JLabel();
-        mesa22 = new javax.swing.JLabel();
-        mesa23 = new javax.swing.JLabel();
-        mesa24 = new javax.swing.JLabel();
-        mesa25 = new javax.swing.JLabel();
-        mesa26 = new javax.swing.JLabel();
-        mesa27 = new javax.swing.JLabel();
-        mesa28 = new javax.swing.JLabel();
-        mesa29 = new javax.swing.JLabel();
-        mesa30 = new javax.swing.JLabel();
+        mesa10 = new javax.swing.JLabel();
+        mesa17 = new javax.swing.JLabel();
+        mesa5 = new javax.swing.JLabel();
+        mesa15 = new javax.swing.JLabel();
+        mesa12 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtListaMesas = new javax.swing.JTable();
+        mesa23 = new javax.swing.JLabel();
+
+        jLabel1.setText("jLabel1");
 
         setClosable(true);
         setTitle("Administra Salon");
@@ -138,6 +143,178 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
                 formComponentAdded(evt);
             }
         });
+
+        jPanel1.setPreferredSize(new java.awt.Dimension(749, 661));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 760, 660));
+
+        mesa9.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        mesa9.setForeground(new java.awt.Color(0, 0, 0));
+        mesa9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
+        mesa9.setText("9");
+        mesa9.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        mesa9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mesa9MouseClicked(evt);
+            }
+        });
+        jPanel1.add(mesa9, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 300, -1, -1));
+
+        mesa29.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        mesa29.setForeground(new java.awt.Color(0, 0, 0));
+        mesa29.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
+        mesa29.setText("29");
+        mesa29.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        mesa29.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mesa29MouseClicked(evt);
+            }
+        });
+        jPanel1.add(mesa29, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 540, -1, -1));
+
+        mesa3.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        mesa3.setForeground(new java.awt.Color(0, 0, 0));
+        mesa3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
+        mesa3.setText("3");
+        mesa3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        mesa3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mesa3MouseClicked(evt);
+            }
+        });
+        jPanel1.add(mesa3, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 220, -1, -1));
+
+        mesa8.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        mesa8.setForeground(new java.awt.Color(0, 0, 0));
+        mesa8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
+        mesa8.setText("8");
+        mesa8.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        mesa8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mesa8MouseClicked(evt);
+            }
+        });
+        jPanel1.add(mesa8, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 300, -1, -1));
+
+        mesa22.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        mesa22.setForeground(new java.awt.Color(0, 0, 0));
+        mesa22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
+        mesa22.setText("22");
+        mesa22.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        mesa22.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mesa22MouseClicked(evt);
+            }
+        });
+        jPanel1.add(mesa22, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 460, -1, -1));
+
+        mesa24.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        mesa24.setForeground(new java.awt.Color(0, 0, 0));
+        mesa24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
+        mesa24.setText("24");
+        mesa24.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        mesa24.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mesa24MouseClicked(evt);
+            }
+        });
+        jPanel1.add(mesa24, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 460, -1, -1));
+
+        mesa6.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        mesa6.setForeground(new java.awt.Color(0, 0, 0));
+        mesa6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
+        mesa6.setText("6");
+        mesa6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        mesa6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mesa6MouseClicked(evt);
+            }
+        });
+        jPanel1.add(mesa6, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 220, -1, -1));
+
+        mesa20.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        mesa20.setForeground(new java.awt.Color(0, 0, 0));
+        mesa20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
+        mesa20.setText("20");
+        mesa20.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        mesa20.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mesa20MouseClicked(evt);
+            }
+        });
+        jPanel1.add(mesa20, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 460, -1, -1));
+
+        mesa30.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        mesa30.setForeground(new java.awt.Color(0, 0, 0));
+        mesa30.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
+        mesa30.setText("30");
+        mesa30.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        mesa30.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mesa30MouseClicked(evt);
+            }
+        });
+        jPanel1.add(mesa30, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 540, -1, -1));
+
+        mesa2.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        mesa2.setForeground(new java.awt.Color(0, 0, 0));
+        mesa2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
+        mesa2.setText("2");
+        mesa2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        mesa2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mesa2MouseClicked(evt);
+            }
+        });
+        jPanel1.add(mesa2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 220, -1, -1));
+
+        mesa21.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        mesa21.setForeground(new java.awt.Color(0, 0, 0));
+        mesa21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
+        mesa21.setText("21");
+        mesa21.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        mesa21.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mesa21MouseClicked(evt);
+            }
+        });
+        jPanel1.add(mesa21, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 460, -1, -1));
+
+        mesa14.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        mesa14.setForeground(new java.awt.Color(0, 0, 0));
+        mesa14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
+        mesa14.setText("14");
+        mesa14.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        mesa14.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mesa14MouseClicked(evt);
+            }
+        });
+        jPanel1.add(mesa14, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 380, -1, -1));
+
+        mesa13.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        mesa13.setForeground(new java.awt.Color(0, 0, 0));
+        mesa13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
+        mesa13.setText("13");
+        mesa13.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        mesa13.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mesa13MouseClicked(evt);
+            }
+        });
+        jPanel1.add(mesa13, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 380, -1, -1));
+
+        mesa27.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        mesa27.setForeground(new java.awt.Color(0, 0, 0));
+        mesa27.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
+        mesa27.setText("27");
+        mesa27.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        mesa27.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mesa27MouseClicked(evt);
+            }
+        });
+        jPanel1.add(mesa27, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 540, -1, -1));
 
         mesa1.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
         mesa1.setForeground(new java.awt.Color(0, 0, 0));
@@ -150,61 +327,7 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
                 mesa1MouseClicked(evt);
             }
         });
-
-        mesa2.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
-        mesa2.setForeground(new java.awt.Color(0, 0, 0));
-        mesa2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
-        mesa2.setText("2");
-        mesa2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        mesa2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                mesa2MouseClicked(evt);
-            }
-        });
-
-        mesa3.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
-        mesa3.setForeground(new java.awt.Color(0, 0, 0));
-        mesa3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
-        mesa3.setText("3");
-        mesa3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        mesa3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                mesa3MouseClicked(evt);
-            }
-        });
-
-        mesa4.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
-        mesa4.setForeground(new java.awt.Color(0, 0, 0));
-        mesa4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
-        mesa4.setText("4");
-        mesa4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        mesa4.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                mesa4MouseClicked(evt);
-            }
-        });
-
-        mesa5.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
-        mesa5.setForeground(new java.awt.Color(0, 0, 0));
-        mesa5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
-        mesa5.setText("5");
-        mesa5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        mesa5.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                mesa5MouseClicked(evt);
-            }
-        });
-
-        mesa6.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
-        mesa6.setForeground(new java.awt.Color(0, 0, 0));
-        mesa6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
-        mesa6.setText("6");
-        mesa6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        mesa6.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                mesa6MouseClicked(evt);
-            }
-        });
+        jPanel1.add(mesa1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, -1, -1));
 
         mesa7.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
         mesa7.setForeground(new java.awt.Color(0, 0, 0));
@@ -216,204 +339,7 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
                 mesa7MouseClicked(evt);
             }
         });
-
-        mesa8.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
-        mesa8.setForeground(new java.awt.Color(0, 0, 0));
-        mesa8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
-        mesa8.setText("8");
-        mesa8.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        mesa8.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                mesa8MouseClicked(evt);
-            }
-        });
-
-        mesa9.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
-        mesa9.setForeground(new java.awt.Color(0, 0, 0));
-        mesa9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
-        mesa9.setText("9");
-        mesa9.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        mesa9.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                mesa9MouseClicked(evt);
-            }
-        });
-
-        mesa10.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
-        mesa10.setForeground(new java.awt.Color(0, 0, 0));
-        mesa10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
-        mesa10.setText("10");
-        mesa10.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        mesa10.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                mesa10MouseClicked(evt);
-            }
-        });
-
-        mesa11.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
-        mesa11.setForeground(new java.awt.Color(0, 0, 0));
-        mesa11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
-        mesa11.setText("11");
-        mesa11.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        mesa11.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                mesa11MouseClicked(evt);
-            }
-        });
-
-        mesa12.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
-        mesa12.setForeground(new java.awt.Color(0, 0, 0));
-        mesa12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
-        mesa12.setText("12");
-        mesa12.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        mesa12.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                mesa12MouseClicked(evt);
-            }
-        });
-
-        mesa13.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
-        mesa13.setForeground(new java.awt.Color(0, 0, 0));
-        mesa13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
-        mesa13.setText("13");
-        mesa13.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        mesa13.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                mesa13MouseClicked(evt);
-            }
-        });
-
-        mesa14.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
-        mesa14.setForeground(new java.awt.Color(0, 0, 0));
-        mesa14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
-        mesa14.setText("14");
-        mesa14.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        mesa14.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                mesa14MouseClicked(evt);
-            }
-        });
-
-        mesa15.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
-        mesa15.setForeground(new java.awt.Color(0, 0, 0));
-        mesa15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
-        mesa15.setText("15");
-        mesa15.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        mesa15.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                mesa15MouseClicked(evt);
-            }
-        });
-
-        mesa16.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
-        mesa16.setForeground(new java.awt.Color(0, 0, 0));
-        mesa16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
-        mesa16.setText("16");
-        mesa16.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        mesa16.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                mesa16MouseClicked(evt);
-            }
-        });
-
-        mesa17.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
-        mesa17.setForeground(new java.awt.Color(0, 0, 0));
-        mesa17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
-        mesa17.setText("17");
-        mesa17.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        mesa17.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                mesa17MouseClicked(evt);
-            }
-        });
-
-        mesa18.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
-        mesa18.setForeground(new java.awt.Color(0, 0, 0));
-        mesa18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
-        mesa18.setText("18");
-        mesa18.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        mesa18.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                mesa18MouseClicked(evt);
-            }
-        });
-
-        mesa19.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
-        mesa19.setForeground(new java.awt.Color(0, 0, 0));
-        mesa19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
-        mesa19.setText("19");
-        mesa19.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        mesa19.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                mesa19MouseClicked(evt);
-            }
-        });
-
-        mesa20.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
-        mesa20.setForeground(new java.awt.Color(0, 0, 0));
-        mesa20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
-        mesa20.setText("20");
-        mesa20.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        mesa20.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                mesa20MouseClicked(evt);
-            }
-        });
-
-        mesa21.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
-        mesa21.setForeground(new java.awt.Color(0, 0, 0));
-        mesa21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
-        mesa21.setText("21");
-        mesa21.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        mesa21.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                mesa21MouseClicked(evt);
-            }
-        });
-
-        mesa22.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
-        mesa22.setForeground(new java.awt.Color(0, 0, 0));
-        mesa22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
-        mesa22.setText("22");
-        mesa22.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        mesa22.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                mesa22MouseClicked(evt);
-            }
-        });
-
-        mesa23.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
-        mesa23.setForeground(new java.awt.Color(0, 0, 0));
-        mesa23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
-        mesa23.setText("23");
-        mesa23.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        mesa23.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                mesa23MouseClicked(evt);
-            }
-        });
-
-        mesa24.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
-        mesa24.setForeground(new java.awt.Color(0, 0, 0));
-        mesa24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
-        mesa24.setText("24");
-        mesa24.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        mesa24.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                mesa24MouseClicked(evt);
-            }
-        });
-
-        mesa25.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
-        mesa25.setForeground(new java.awt.Color(0, 0, 0));
-        mesa25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
-        mesa25.setText("25");
-        mesa25.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        mesa25.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                mesa25MouseClicked(evt);
-            }
-        });
+        jPanel1.add(mesa7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 300, -1, -1));
 
         mesa26.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
         mesa26.setForeground(new java.awt.Color(0, 0, 0));
@@ -425,17 +351,19 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
                 mesa26MouseClicked(evt);
             }
         });
+        jPanel1.add(mesa26, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 540, -1, -1));
 
-        mesa27.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
-        mesa27.setForeground(new java.awt.Color(0, 0, 0));
-        mesa27.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
-        mesa27.setText("27");
-        mesa27.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        mesa27.addMouseListener(new java.awt.event.MouseAdapter() {
+        mesa16.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        mesa16.setForeground(new java.awt.Color(0, 0, 0));
+        mesa16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
+        mesa16.setText("16");
+        mesa16.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        mesa16.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                mesa27MouseClicked(evt);
+                mesa16MouseClicked(evt);
             }
         });
+        jPanel1.add(mesa16, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 370, -1, -1));
 
         mesa28.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
         mesa28.setForeground(new java.awt.Color(0, 0, 0));
@@ -447,28 +375,127 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
                 mesa28MouseClicked(evt);
             }
         });
+        jPanel1.add(mesa28, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 540, -1, -1));
 
-        mesa29.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
-        mesa29.setForeground(new java.awt.Color(0, 0, 0));
-        mesa29.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
-        mesa29.setText("29");
-        mesa29.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        mesa29.addMouseListener(new java.awt.event.MouseAdapter() {
+        mesa25.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        mesa25.setForeground(new java.awt.Color(0, 0, 0));
+        mesa25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
+        mesa25.setText("25");
+        mesa25.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        mesa25.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                mesa29MouseClicked(evt);
+                mesa25MouseClicked(evt);
             }
         });
+        jPanel1.add(mesa25, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 540, -1, -1));
 
-        mesa30.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
-        mesa30.setForeground(new java.awt.Color(0, 0, 0));
-        mesa30.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
-        mesa30.setText("30");
-        mesa30.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        mesa30.addMouseListener(new java.awt.event.MouseAdapter() {
+        mesa4.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        mesa4.setForeground(new java.awt.Color(0, 0, 0));
+        mesa4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
+        mesa4.setText("4");
+        mesa4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        mesa4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                mesa30MouseClicked(evt);
+                mesa4MouseClicked(evt);
             }
         });
+        jPanel1.add(mesa4, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 220, -1, -1));
+
+        mesa11.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        mesa11.setForeground(new java.awt.Color(0, 0, 0));
+        mesa11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
+        mesa11.setText("11");
+        mesa11.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        mesa11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mesa11MouseClicked(evt);
+            }
+        });
+        jPanel1.add(mesa11, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 300, -1, -1));
+
+        mesa18.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        mesa18.setForeground(new java.awt.Color(0, 0, 0));
+        mesa18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
+        mesa18.setText("18");
+        mesa18.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        mesa18.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mesa18MouseClicked(evt);
+            }
+        });
+        jPanel1.add(mesa18, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 380, -1, -1));
+
+        mesa19.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        mesa19.setForeground(new java.awt.Color(0, 0, 0));
+        mesa19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
+        mesa19.setText("19");
+        mesa19.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        mesa19.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mesa19MouseClicked(evt);
+            }
+        });
+        jPanel1.add(mesa19, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 460, -1, -1));
+
+        mesa10.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        mesa10.setForeground(new java.awt.Color(0, 0, 0));
+        mesa10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
+        mesa10.setText("10");
+        mesa10.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        mesa10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mesa10MouseClicked(evt);
+            }
+        });
+        jPanel1.add(mesa10, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 300, -1, -1));
+
+        mesa17.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        mesa17.setForeground(new java.awt.Color(0, 0, 0));
+        mesa17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
+        mesa17.setText("17");
+        mesa17.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        mesa17.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mesa17MouseClicked(evt);
+            }
+        });
+        jPanel1.add(mesa17, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 380, -1, -1));
+
+        mesa5.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        mesa5.setForeground(new java.awt.Color(0, 0, 0));
+        mesa5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
+        mesa5.setText("5");
+        mesa5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        mesa5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mesa5MouseClicked(evt);
+            }
+        });
+        jPanel1.add(mesa5, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 220, -1, -1));
+
+        mesa15.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        mesa15.setForeground(new java.awt.Color(0, 0, 0));
+        mesa15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
+        mesa15.setText("15");
+        mesa15.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        mesa15.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mesa15MouseClicked(evt);
+            }
+        });
+        jPanel1.add(mesa15, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 370, -1, -1));
+
+        mesa12.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        mesa12.setForeground(new java.awt.Color(0, 0, 0));
+        mesa12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
+        mesa12.setText("12");
+        mesa12.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        mesa12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mesa12MouseClicked(evt);
+            }
+        });
+        jPanel1.add(mesa12, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 300, -1, -1));
 
         jtListaMesas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -483,132 +510,33 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(jtListaMesas);
 
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 642, 83));
+
+        mesa23.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        mesa23.setForeground(new java.awt.Color(0, 0, 0));
+        mesa23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
+        mesa23.setText("23");
+        mesa23.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        mesa23.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mesa23MouseClicked(evt);
+            }
+        });
+        jPanel1.add(mesa23, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 460, -1, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jScrollPane1)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(mesa7)
-                        .addComponent(mesa13)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(mesa25)
-                                .addGap(49, 49, 49)
-                                .addComponent(mesa26)
-                                .addGap(58, 58, 58)
-                                .addComponent(mesa27)
-                                .addGap(59, 59, 59)
-                                .addComponent(mesa28)
-                                .addGap(61, 61, 61)
-                                .addComponent(mesa29)
-                                .addGap(55, 55, 55)
-                                .addComponent(mesa30))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(mesa19)
-                                .addGap(49, 49, 49)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(mesa14)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(mesa20)
-                                        .addGap(50, 50, 50)
-                                        .addComponent(mesa21)
-                                        .addGap(67, 67, 67)
-                                        .addComponent(mesa22)
-                                        .addGap(61, 61, 61)
-                                        .addComponent(mesa23)
-                                        .addGap(55, 55, 55)
-                                        .addComponent(mesa24))
-                                    .addComponent(mesa8)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(mesa1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(49, 49, 49)
-                                .addComponent(mesa2)
-                                .addGap(58, 58, 58)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(mesa3)
-                                        .addGap(59, 59, 59)
-                                        .addComponent(mesa4))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(mesa15)
-                                            .addComponent(mesa9))
-                                        .addGap(59, 59, 59)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(mesa10)
-                                            .addComponent(mesa16))))
-                                .addGap(61, 61, 61)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(mesa5)
-                                        .addGap(55, 55, 55)
-                                        .addComponent(mesa6))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(mesa17)
-                                            .addComponent(mesa11))
-                                        .addGap(55, 55, 55)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(mesa12)
-                                            .addComponent(mesa18))))))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(89, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(79, 79, 79)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(mesa2)
-                        .addComponent(mesa3)
-                        .addComponent(mesa4)
-                        .addComponent(mesa5)
-                        .addComponent(mesa6))
-                    .addComponent(mesa1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(mesa7)
-                    .addComponent(mesa8)
-                    .addComponent(mesa9)
-                    .addComponent(mesa11)
-                    .addComponent(mesa12)
-                    .addComponent(mesa10, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(mesa13)
-                            .addComponent(mesa14)
-                            .addComponent(mesa17)
-                            .addComponent(mesa18)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(mesa15)
-                            .addComponent(mesa16))))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(mesa19)
-                    .addComponent(mesa20)
-                    .addComponent(mesa21)
-                    .addComponent(mesa22)
-                    .addComponent(mesa23)
-                    .addComponent(mesa24))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(mesa25)
-                    .addComponent(mesa26)
-                    .addComponent(mesa27)
-                    .addComponent(mesa28)
-                    .addComponent(mesa29)
-                    .addComponent(mesa30))
-                .addContainerGap())
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -1115,6 +1043,9 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jtListaMesas;
     private javax.swing.JLabel mesa1;

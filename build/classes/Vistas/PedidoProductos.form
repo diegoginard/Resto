@@ -48,7 +48,7 @@
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="1" attributes="0">
                                       <Component id="jbBorrar" min="-2" pref="40" max="-2" attributes="0"/>
-                                      <Component id="jbMas" min="-2" pref="40" max="-2" attributes="0"/>
+                                      <Component id="jbSumar" min="-2" pref="40" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -132,7 +132,7 @@
                   <Component id="jtTotal" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
                   <Component id="jtMonto" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="40" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -159,7 +159,7 @@
                       <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jbMenos" alignment="1" min="-2" pref="40" max="-2" attributes="0"/>
-                          <Component id="jbMas" alignment="1" min="-2" pref="40" max="-2" attributes="0"/>
+                          <Component id="jbSumar" alignment="1" min="-2" pref="40" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -174,7 +174,7 @@
                   <Component id="jbDescuento" alignment="0" min="-2" pref="40" max="-2" attributes="0"/>
                   <Component id="jbenter" alignment="0" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="40" max="32767" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
@@ -182,7 +182,7 @@
               <EmptySpace max="32767" attributes="0"/>
           </Group>
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="6" max="32767" attributes="0"/>
               <Component id="pProductos" min="-2" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -372,7 +372,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbMenosActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jbMas">
+    <Component class="javax.swing.JButton" name="jbSumar">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="18" style="1"/>
@@ -382,7 +382,7 @@
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbMasActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbSumarActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jbBorrar">
