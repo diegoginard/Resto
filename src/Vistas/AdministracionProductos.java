@@ -430,7 +430,8 @@ public class AdministracionProductos extends JInternalFrame {
                 break;
             
             case 5:
-                System.out.println("Elegiste la opción 3");
+               jRsi.setEnabled(true);
+               jRno.setEnabled(true);
                 break;
                 
         }

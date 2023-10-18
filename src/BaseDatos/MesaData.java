@@ -20,7 +20,7 @@ public class MesaData {
     
     public void crearMesa(Mesa mesa){
         
-    String sql = "INSERT INTO mesa(numero, estadoMesa, capacidad) VALUES (?,?,?)"; 
+    String sql = "INSERT INTO mesa(numero, estadoMesa, capacidad,activo) VALUES (?,?,?,?)"; 
     
         try {
             
@@ -29,6 +29,7 @@ public class MesaData {
             ps.setInt(1, mesa.getNumero());
             ps.setString(2, mesa.getEstadoMesa());
             ps.setInt(3, mesa.getCapacidad());
+            ps.setBoolean(4, true);
             ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
            
