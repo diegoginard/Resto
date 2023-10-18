@@ -130,22 +130,22 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jtListaMesas = new javax.swing.JTable();
         mesa23 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jtID = new javax.swing.JTextField();
-        jtNumero = new javax.swing.JTextField();
-        jtCapacidad = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
-        jrActivo = new javax.swing.JRadioButton();
-        jLabel2 = new javax.swing.JLabel();
-        jcEstado = new javax.swing.JComboBox<>();
         jbCrear = new javax.swing.JButton();
         jbModificar = new javax.swing.JButton();
         jbBorrar = new javax.swing.JButton();
         jbBuscar = new javax.swing.JButton();
         jbSalir = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jrActivo = new javax.swing.JRadioButton();
+        jLabel5 = new javax.swing.JLabel();
+        jcEstado = new javax.swing.JComboBox<>();
+        jtCapacidad = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jtID = new javax.swing.JTextField();
+        jtNumero = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setClosable(true);
         setTitle("Administra Salon");
@@ -168,7 +168,7 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
                 mesa9MouseClicked(evt);
             }
         });
-        jPanel1.add(mesa9, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 240, -1, -1));
+        jPanel1.add(mesa9, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 560, -1, -1));
 
         mesa29.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
         mesa29.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
@@ -179,7 +179,7 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
                 mesa29MouseClicked(evt);
             }
         });
-        jPanel1.add(mesa29, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 480, -1, -1));
+        jPanel1.add(mesa29, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 800, -1, -1));
 
         mesa3.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
         mesa3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
@@ -190,7 +190,7 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
                 mesa3MouseClicked(evt);
             }
         });
-        jPanel1.add(mesa3, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 160, -1, -1));
+        jPanel1.add(mesa3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 480, -1, -1));
 
         mesa8.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
         mesa8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
@@ -201,7 +201,7 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
                 mesa8MouseClicked(evt);
             }
         });
-        jPanel1.add(mesa8, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 240, -1, -1));
+        jPanel1.add(mesa8, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 560, -1, -1));
 
         mesa22.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
         mesa22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
@@ -212,7 +212,7 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
                 mesa22MouseClicked(evt);
             }
         });
-        jPanel1.add(mesa22, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 400, -1, -1));
+        jPanel1.add(mesa22, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 720, -1, -1));
 
         mesa24.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
         mesa24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
@@ -223,7 +223,7 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
                 mesa24MouseClicked(evt);
             }
         });
-        jPanel1.add(mesa24, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 400, -1, -1));
+        jPanel1.add(mesa24, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 720, -1, -1));
 
         mesa6.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
         mesa6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
@@ -234,7 +234,7 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
                 mesa6MouseClicked(evt);
             }
         });
-        jPanel1.add(mesa6, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 160, -1, -1));
+        jPanel1.add(mesa6, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 480, -1, -1));
 
         mesa20.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
         mesa20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
@@ -245,7 +245,7 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
                 mesa20MouseClicked(evt);
             }
         });
-        jPanel1.add(mesa20, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 400, -1, -1));
+        jPanel1.add(mesa20, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 720, -1, -1));
 
         mesa30.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
         mesa30.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
@@ -256,7 +256,7 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
                 mesa30MouseClicked(evt);
             }
         });
-        jPanel1.add(mesa30, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 480, -1, -1));
+        jPanel1.add(mesa30, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 800, -1, -1));
 
         mesa2.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
         mesa2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
@@ -267,7 +267,7 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
                 mesa2MouseClicked(evt);
             }
         });
-        jPanel1.add(mesa2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 160, -1, -1));
+        jPanel1.add(mesa2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 480, -1, -1));
 
         mesa21.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
         mesa21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
@@ -278,7 +278,7 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
                 mesa21MouseClicked(evt);
             }
         });
-        jPanel1.add(mesa21, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 400, -1, -1));
+        jPanel1.add(mesa21, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 720, -1, -1));
 
         mesa14.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
         mesa14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
@@ -289,7 +289,7 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
                 mesa14MouseClicked(evt);
             }
         });
-        jPanel1.add(mesa14, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 320, -1, -1));
+        jPanel1.add(mesa14, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 640, -1, -1));
 
         mesa13.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
         mesa13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
@@ -300,7 +300,7 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
                 mesa13MouseClicked(evt);
             }
         });
-        jPanel1.add(mesa13, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, -1, -1));
+        jPanel1.add(mesa13, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 640, -1, -1));
 
         mesa27.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
         mesa27.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
@@ -311,7 +311,7 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
                 mesa27MouseClicked(evt);
             }
         });
-        jPanel1.add(mesa27, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 480, -1, -1));
+        jPanel1.add(mesa27, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 800, -1, -1));
 
         mesa1.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
         mesa1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
@@ -323,7 +323,7 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
                 mesa1MouseClicked(evt);
             }
         });
-        jPanel1.add(mesa1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, -1, -1));
+        jPanel1.add(mesa1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 480, -1, -1));
 
         mesa7.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
         mesa7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
@@ -334,7 +334,7 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
                 mesa7MouseClicked(evt);
             }
         });
-        jPanel1.add(mesa7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, -1, -1));
+        jPanel1.add(mesa7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 560, -1, -1));
 
         mesa26.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
         mesa26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
@@ -345,7 +345,7 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
                 mesa26MouseClicked(evt);
             }
         });
-        jPanel1.add(mesa26, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 480, -1, -1));
+        jPanel1.add(mesa26, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 800, -1, -1));
 
         mesa16.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
         mesa16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
@@ -356,7 +356,7 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
                 mesa16MouseClicked(evt);
             }
         });
-        jPanel1.add(mesa16, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 310, -1, -1));
+        jPanel1.add(mesa16, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 630, -1, -1));
 
         mesa28.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
         mesa28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
@@ -367,7 +367,7 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
                 mesa28MouseClicked(evt);
             }
         });
-        jPanel1.add(mesa28, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 480, -1, -1));
+        jPanel1.add(mesa28, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 800, -1, -1));
 
         mesa25.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
         mesa25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
@@ -378,7 +378,7 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
                 mesa25MouseClicked(evt);
             }
         });
-        jPanel1.add(mesa25, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 480, -1, -1));
+        jPanel1.add(mesa25, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 800, -1, -1));
 
         mesa4.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
         mesa4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
@@ -389,7 +389,7 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
                 mesa4MouseClicked(evt);
             }
         });
-        jPanel1.add(mesa4, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 160, -1, -1));
+        jPanel1.add(mesa4, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 480, -1, -1));
 
         mesa11.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
         mesa11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
@@ -400,7 +400,7 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
                 mesa11MouseClicked(evt);
             }
         });
-        jPanel1.add(mesa11, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 240, -1, -1));
+        jPanel1.add(mesa11, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 560, -1, -1));
 
         mesa18.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
         mesa18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
@@ -411,7 +411,7 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
                 mesa18MouseClicked(evt);
             }
         });
-        jPanel1.add(mesa18, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 320, -1, -1));
+        jPanel1.add(mesa18, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 640, -1, -1));
 
         mesa19.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
         mesa19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
@@ -422,7 +422,7 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
                 mesa19MouseClicked(evt);
             }
         });
-        jPanel1.add(mesa19, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 400, -1, -1));
+        jPanel1.add(mesa19, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 720, -1, -1));
 
         mesa10.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
         mesa10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
@@ -433,7 +433,7 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
                 mesa10MouseClicked(evt);
             }
         });
-        jPanel1.add(mesa10, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 240, -1, -1));
+        jPanel1.add(mesa10, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 560, -1, -1));
 
         mesa17.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
         mesa17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
@@ -444,7 +444,7 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
                 mesa17MouseClicked(evt);
             }
         });
-        jPanel1.add(mesa17, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 320, -1, -1));
+        jPanel1.add(mesa17, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 640, -1, -1));
 
         mesa5.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
         mesa5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
@@ -455,7 +455,7 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
                 mesa5MouseClicked(evt);
             }
         });
-        jPanel1.add(mesa5, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 160, -1, -1));
+        jPanel1.add(mesa5, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 480, -1, -1));
 
         mesa15.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
         mesa15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
@@ -466,7 +466,7 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
                 mesa15MouseClicked(evt);
             }
         });
-        jPanel1.add(mesa15, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 310, -1, -1));
+        jPanel1.add(mesa15, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 630, -1, -1));
 
         mesa12.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
         mesa12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
@@ -477,7 +477,7 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
                 mesa12MouseClicked(evt);
             }
         });
-        jPanel1.add(mesa12, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 240, -1, -1));
+        jPanel1.add(mesa12, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 560, -1, -1));
 
         jtListaMesas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -497,7 +497,7 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
         });
         jScrollPane1.setViewportView(jtListaMesas);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, 642, 83));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 690, 130));
 
         mesa23.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
         mesa23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
@@ -508,40 +508,7 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
                 mesa23MouseClicked(evt);
             }
         });
-        jPanel1.add(mesa23, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 400, -1, -1));
-
-        jLabel3.setText("ID Mesa");
-
-        jLabel4.setText("Numero");
-
-        jLabel5.setText("Estado ");
-
-        jLabel6.setText("Capacidad");
-
-        jtID.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtIDActionPerformed(evt);
-            }
-        });
-
-        jtNumero.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtNumeroActionPerformed(evt);
-            }
-        });
-
-        jtCapacidad.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtCapacidadActionPerformed(evt);
-            }
-        });
-
-        jLabel1.setText("Activo");
-
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel2.setText("ADMINISTRACION DE MESAS");
-
-        jcEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "LIBRE", "OCUPADO", "PENDIENTE" }));
+        jPanel1.add(mesa23, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 720, -1, -1));
 
         jbCrear.setText("Crear");
         jbCrear.addActionListener(new java.awt.event.ActionListener() {
@@ -549,8 +516,10 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
                 jbCrearActionPerformed(evt);
             }
         });
+        jPanel1.add(jbCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 230, 64, -1));
 
         jbModificar.setText("Modificar");
+        jPanel1.add(jbModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 230, -1, -1));
 
         jbBorrar.setText("Borrar");
         jbBorrar.addActionListener(new java.awt.event.ActionListener() {
@@ -558,8 +527,10 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
                 jbBorrarActionPerformed(evt);
             }
         });
+        jPanel1.add(jbBorrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 230, 57, -1));
 
         jbBuscar.setText("Buscar");
+        jPanel1.add(jbBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 230, -1, -1));
 
         jbSalir.setText("Salir");
         jbSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -567,90 +538,63 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
                 jbSalirActionPerformed(evt);
             }
         });
+        jPanel1.add(jbSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 230, 48, -1));
+
+        jLabel1.setText("Activo");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 180, 45, -1));
+        jPanel1.add(jrActivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 170, -1, -1));
+
+        jLabel5.setText("Estado ");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 170, -1, -1));
+
+        jcEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "LIBRE", "OCUPADO", "PENDIENTE" }));
+        jPanel1.add(jcEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 160, 91, -1));
+
+        jtCapacidad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtCapacidadActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jtCapacidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 100, 99, -1));
+
+        jLabel6.setText("Capacidad");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 110, -1, -1));
+
+        jLabel3.setText("ID Mesa");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, -1, -1));
+
+        jtID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtIDActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jtID, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 100, 93, -1));
+
+        jtNumero.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtNumeroActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jtNumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 100, 99, -1));
+
+        jLabel4.setText("Numero");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 110, -1, -1));
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel2.setText("ADMINISTRACION DE MESAS");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 20, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(186, 186, 186)
-                        .addComponent(jLabel2))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(251, 251, 251)
-                        .addComponent(jLabel1)
-                        .addGap(18, 18, 18)
-                        .addComponent(jrActivo))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addGap(53, 53, 53)
-                                .addComponent(jbCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(44, 44, 44)
-                                .addComponent(jbModificar))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addGap(21, 21, 21)
-                                .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jtID, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(14, 14, 14)
-                                .addComponent(jLabel4)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jtNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(31, 31, 31))
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jbBorrar)
-                                .addGap(34, 34, 34)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel5)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jcEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(42, 42, 42)
-                                .addComponent(jLabel6)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jtCapacidad, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jbBuscar)
-                                .addGap(35, 35, 35)
-                                .addComponent(jbSalir)))))
-                .addGap(31, 31, 31))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 747, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jLabel2)
-                .addGap(33, 33, 33)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4)
-                    .addComponent(jtNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel6)
-                    .addComponent(jtCapacidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jcEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(jrActivo))
-                .addGap(24, 24, 24)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jbCrear)
-                    .addComponent(jbModificar)
-                    .addComponent(jbBorrar)
-                    .addComponent(jbBuscar)
-                    .addComponent(jbSalir))
-                .addGap(31, 31, 31)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 649, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(12, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 882, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -1180,12 +1124,34 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jtCapacidadActionPerformed
 
     private void jtListaMesasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtListaMesasMouseClicked
+        
         int fila = jtListaMesas.getSelectedRow();
+        String estadoM = jtListaMesas.getValueAt(fila, 3)+"";
         jtID.setText(jtListaMesas.getValueAt(fila, 0)+"");
         jtNumero.setText(jtListaMesas.getValueAt(fila, 1)+"");
-//        jcEstado.setSelectedIndex(Integer.parseInt(jtListaMesas.getValueAt(fila, 2));
         jtCapacidad.setText(jtListaMesas.getValueAt(fila, 3)+"");
         jrActivo.setSelected((boolean) jtListaMesas.getValueAt(fila, 4));
+        switch(estadoM){
+        
+            case "LIBRE":
+                    
+                jcEstado.setSelectedIndex(0);
+                
+                break;
+                
+            case "OCUPADO":
+                
+                jcEstado.setSelectedIndex(1);
+        
+                break;
+                
+            case "PENDIENTE":
+                
+                jcEstado.setSelectedIndex(2);
+        
+                break;
+        
+        }
     }//GEN-LAST:event_jtListaMesasMouseClicked
 
 
@@ -1249,7 +1215,7 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
         for (Mesa me : mesas) {
 
             modelo.addRow(new Object[]{me.getIdMesa(),
-                me.getNumero(), me.getEstadoMesa(), me.getCapacidad()});
+                me.getNumero(), me.getEstadoMesa(), me.getCapacidad(), me.getActivo()});
 
         }
     }
@@ -1259,7 +1225,8 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
         modelo.addColumn("IdMesa");
         modelo.addColumn("Numero");
         modelo.addColumn("EstadoMesa");
-        modelo.addColumn("Cantidad");
+        modelo.addColumn("Capacidad");
+        modelo.addColumn("Activo");
         jtListaMesas.setModel(modelo);
 
     }
