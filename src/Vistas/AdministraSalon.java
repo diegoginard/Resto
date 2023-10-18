@@ -497,7 +497,7 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
         });
         jScrollPane1.setViewportView(jtListaMesas);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 690, 130));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 690, 150));
 
         mesa23.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
         mesa23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
@@ -538,7 +538,7 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
                 jbSalirActionPerformed(evt);
             }
         });
-        jPanel1.add(jbSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 230, 48, -1));
+        jPanel1.add(jbSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(558, 230, 70, -1));
 
         jLabel1.setText("Activo");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 180, 45, -1));
@@ -549,12 +549,6 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
 
         jcEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "LIBRE", "OCUPADO", "PENDIENTE" }));
         jPanel1.add(jcEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 160, 91, -1));
-
-        jtCapacidad.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtCapacidadActionPerformed(evt);
-            }
-        });
         jPanel1.add(jtCapacidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 100, 99, -1));
 
         jLabel6.setText("Capacidad");
@@ -562,19 +556,7 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
 
         jLabel3.setText("ID Mesa");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, -1, -1));
-
-        jtID.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtIDActionPerformed(evt);
-            }
-        });
         jPanel1.add(jtID, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 100, 93, -1));
-
-        jtNumero.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtNumeroActionPerformed(evt);
-            }
-        });
         jPanel1.add(jtNumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 100, 99, -1));
 
         jLabel4.setText("Numero");
@@ -1099,14 +1081,6 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_mesa30MouseClicked
 
-    private void jtNumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtNumeroActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtNumeroActionPerformed
-
-    private void jtIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtIDActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtIDActionPerformed
-
     private void jbCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCrearActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jbCrearActionPerformed
@@ -1119,17 +1093,13 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jbSalirActionPerformed
 
-    private void jtCapacidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtCapacidadActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtCapacidadActionPerformed
-
     private void jtListaMesasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtListaMesasMouseClicked
         
         jbCrear.setEnabled(false);
         int fila = jtListaMesas.getSelectedRow();
-        String estadoM = jtListaMesas.getValueAt(fila, 2)+"";
         jtID.setText(jtListaMesas.getValueAt(fila, 0)+"");
         jtNumero.setText(jtListaMesas.getValueAt(fila, 1)+"");
+        String estadoM = jtListaMesas.getValueAt(fila, 2)+"";
         jtCapacidad.setText(jtListaMesas.getValueAt(fila, 3)+"");
         jrActivo.setSelected((boolean) jtListaMesas.getValueAt(fila, 4));
         
@@ -1152,10 +1122,6 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
                 jcEstado.setSelectedIndex(2);
         
                 break;
-                
-            default:
-                
-                JOptionPane.showMessageDialog(rootPane, "error");
                 
         }
     }//GEN-LAST:event_jtListaMesasMouseClicked
