@@ -20,7 +20,7 @@ public class ProductoData {
         
         String sql="INSERT INTO producto(nombreProducto, precio, stock, estadoProducto) VALUES (?,?,?,?)"; 
       
-        try {
+        try{
             
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             
@@ -31,7 +31,7 @@ public class ProductoData {
             ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
            
-            if (rs.next()) {
+            if(rs.next()) {
 
                pro.setIdProducto(rs.getInt(1));
                 
@@ -41,11 +41,10 @@ public class ProductoData {
             
             ps.close();
             
-        } catch (SQLException ex) {
+        }catch(SQLException ex) {
             
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla producto " + ex.getMessage());
-            
-        }
+        }    
     }
     
     public void eliminarProducto(int id) {

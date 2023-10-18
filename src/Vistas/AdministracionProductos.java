@@ -8,7 +8,7 @@ import java.util.*;
 import javax.swing.*;
 import javax.swing.table.*;
 
-public class AdministracionProductos extends javax.swing.JInternalFrame {
+public class AdministracionProductos extends JInternalFrame {
 
     public AdministracionProductos() {
         
@@ -17,6 +17,7 @@ public class AdministracionProductos extends javax.swing.JInternalFrame {
         cargarLista();
         jbBorrar.setEnabled(false);
         jbModificar.setEnabled(false);
+        jtBuscar.setEnabled(false);
         
     }
     
@@ -59,6 +60,7 @@ public class AdministracionProductos extends javax.swing.JInternalFrame {
         jbSalir = new javax.swing.JButton();
         jbLimpiar = new javax.swing.JButton();
         jbActualizar = new javax.swing.JButton();
+        jcBuscar = new javax.swing.JComboBox<>();
 
         jtId.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -166,6 +168,18 @@ public class AdministracionProductos extends javax.swing.JInternalFrame {
             }
         });
 
+        jcBuscar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "...........", "idProducto", "Nombre", "Precio", "Stock", "Estado" }));
+        jcBuscar.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jcBuscarItemStateChanged(evt);
+            }
+        });
+        jcBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcBuscarActionPerformed(evt);
+            }
+        });
+
         jDesktopPane1.setLayer(jtId, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jLabel6, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jtNombre, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -186,6 +200,7 @@ public class AdministracionProductos extends javax.swing.JInternalFrame {
         jDesktopPane1.setLayer(jbSalir, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jbLimpiar, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jbActualizar, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(jcBuscar, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
@@ -240,13 +255,16 @@ public class AdministracionProductos extends javax.swing.JInternalFrame {
                                 .addGap(162, 162, 162)
                                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                                        .addGap(10, 10, 10)
                                         .addComponent(jLabel5)
-                                        .addGap(22, 22, 22)
+                                        .addGap(18, 18, 18)
                                         .addComponent(jrEstado))
                                     .addGroup(jDesktopPane1Layout.createSequentialGroup()
                                         .addComponent(jbModificar)
                                         .addGap(18, 18, 18)
-                                        .addComponent(jbLimpiar))))))
+                                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jbLimpiar)
+                                            .addComponent(jcBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
                     .addGroup(jDesktopPane1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -283,14 +301,15 @@ public class AdministracionProductos extends javax.swing.JInternalFrame {
                             .addComponent(jbBorrar)
                             .addComponent(jbLimpiar)
                             .addComponent(jbModificar))
-                        .addGap(31, 31, 31)
+                        .addGap(30, 30, 30)
                         .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel7)))
+                            .addComponent(jLabel7)
+                            .addComponent(jcBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jrEstado))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jbActualizar, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jbSalir, javax.swing.GroupLayout.Alignment.TRAILING))
@@ -347,17 +366,22 @@ public class AdministracionProductos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jtBuscarKeyReleased
 
     private void jbCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCrearActionPerformed
-                
-        String nombre = jtNombre.getText();
-        Double precio = Double.valueOf(jtPrecio.getText());
-        int stock = Integer.valueOf(jtStock.getText());
-  
-        Producto pro = new Producto(nombre,precio,stock);
         
-        pd.guardarProducto(pro);
-        
-        cargarLista(); 
-        
+        try {
+            
+            String nombre = jtNombre.getText();
+            Double precio = Double.valueOf(jtPrecio.getText());
+            int stock = Integer.parseInt(jtStock.getText());
+
+            Producto pro = new Producto(nombre, precio, stock);
+            pd.guardarProducto(pro);
+            cargarLista();
+            
+        } catch (NumberFormatException  ex) {
+            
+            JOptionPane.showMessageDialog(rootPane, "Debe rellenar todos los campos " +ex);
+            
+        }
     }//GEN-LAST:event_jbCrearActionPerformed
 
     private void jtIdKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtIdKeyTyped
@@ -428,6 +452,7 @@ public class AdministracionProductos extends javax.swing.JInternalFrame {
         }catch(NumberFormatException ex){
             
             JOptionPane.showMessageDialog(rootPane, "Ingrese un numero de ID");
+            
         }
     }//GEN-LAST:event_jbBorrarActionPerformed
 
@@ -436,6 +461,25 @@ public class AdministracionProductos extends javax.swing.JInternalFrame {
         jbBorrar.setEnabled(true);
         
     }//GEN-LAST:event_jtIdMouseClicked
+
+    private void jcBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcBuscarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jcBuscarActionPerformed
+
+    private void jcBuscarItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jcBuscarItemStateChanged
+      
+        int indice = jcBuscar.getSelectedIndex();
+        
+        if(indice != 0){
+            
+            jtBuscar.setEnabled(true);
+            
+        }else{
+        
+            jtBuscar.setEnabled(false);
+        
+        }     
+    }//GEN-LAST:event_jcBuscarItemStateChanged
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane jDesktopPane1;
@@ -453,6 +497,7 @@ public class AdministracionProductos extends javax.swing.JInternalFrame {
     private javax.swing.JButton jbLimpiar;
     private javax.swing.JButton jbModificar;
     private javax.swing.JButton jbSalir;
+    private javax.swing.JComboBox<String> jcBuscar;
     private javax.swing.JRadioButton jrEstado;
     private javax.swing.JTextField jtBuscar;
     private javax.swing.JTextField jtId;
