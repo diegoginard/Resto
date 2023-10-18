@@ -355,13 +355,48 @@ public class AdministracionProductos extends JInternalFrame {
         
         modelo.setRowCount(0);
         String buscar = jtBuscar.getText();
-        List <Producto> buscarMenus = pd.BuscarProductos(buscar);
+        int indice = jcBuscar.getSelectedIndex();
+        
+        switch (indice) {
 
-        for (Producto pro : buscarMenus) {
+            case 1:
+                
+                List<Producto> buscarId = pd.BuscarProductosId(buscar);
 
-            modelo.addRow(new Object[]{pro.getIdProducto(),
-                pro.getNombre(), pro.getPrecio(),pro.getStock(),pro.isEstado()});
+                for (Producto pro : buscarId) {
 
+                    modelo.addRow(new Object[]{pro.getIdProducto(),
+                        pro.getNombre(), pro.getPrecio(), pro.getStock(), pro.isEstado()});
+
+                }
+                
+                break; 
+
+            case 2:
+                
+                List<Producto> buscarNombre = pd.BuscarProductosNombre(buscar);
+
+                for (Producto pro : buscarNombre) {
+
+                    modelo.addRow(new Object[]{pro.getIdProducto(),
+                        pro.getNombre(), pro.getPrecio(), pro.getStock(), pro.isEstado()});
+
+                }
+                
+                break;
+
+            case 3:
+                System.out.println("Elegiste la opción 3");
+                break;
+
+            case 4:
+                System.out.println("Elegiste la opción 3");
+                break;
+            
+            case 5:
+                System.out.println("Elegiste la opción 3");
+                break;
+                
         }
     }//GEN-LAST:event_jtBuscarKeyReleased
 
