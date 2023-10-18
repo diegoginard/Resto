@@ -2,9 +2,13 @@
 package Vistas;
 
 import BaseDatos.Conexion;
+import BaseDatos.MesaData;
+import Entidades.Mesa;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.sql.*;
+import java.util.List;
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
 
@@ -12,6 +16,16 @@ public class GestionRestaurante extends javax.swing.JFrame {
 
     private Connection con = null;
   
+        Icon icoR = new ImageIcon(getClass().getResource("/Recursos/mesa-rojo.png"));
+    Icon icoV = new ImageIcon(getClass().getResource("/Recursos/mesa-verde.png"));
+    Icon icoG = new ImageIcon(getClass().getResource("/Recursos/mesa-gris.png"));
+            MesaData md = new MesaData();
+    List<Mesa> mesas = md.listarMesas();
+    Mesa mes = new Mesa();
+        private boolean mesaOcupada = false;
+    
+    
+    
     public GestionRestaurante() {
         
         initComponents();
@@ -19,7 +33,7 @@ public class GestionRestaurante extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         setIconImage(new ImageIcon(getClass().getResource("/Recursos/meal_500px.png")).getImage());
         //setIconImage(new ImageIcon(getClass().getResource("/universidadejemplo/Recursos/colegio.png")).getImage());
-        
+
     }
 
     @SuppressWarnings("unchecked")
@@ -485,7 +499,7 @@ public class GestionRestaurante extends javax.swing.JFrame {
         escritorioLayout.setVerticalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, escritorioLayout.createSequentialGroup()
-                .addContainerGap(162, Short.MAX_VALUE)
+                .addContainerGap(171, Short.MAX_VALUE)
                 .addGroup(escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(mesa1)
                     .addComponent(mesa2)
@@ -528,7 +542,7 @@ public class GestionRestaurante extends javax.swing.JFrame {
                     .addComponent(mesa28)
                     .addComponent(mesa29)
                     .addComponent(mesa30))
-                .addGap(136, 136, 136))
+                .addGap(127, 127, 127))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
