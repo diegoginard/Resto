@@ -18,7 +18,7 @@ public class ProductoData {
   
     public void guardarProducto(Producto pro){
         
-        String sql="INSERT INTO producto(nombreProducto, precio, stock, estadoProducto) VALUES (?,?,?,?)"; 
+        String sql="INSERT INTO producto(nombreProducto, precio, stock, estadoProducto,categoria) VALUE(?,?,?,?,?)"; 
       
         try{
             
@@ -28,6 +28,7 @@ public class ProductoData {
             ps.setDouble(2, pro.getPrecio());
             ps.setInt(3, pro.getStock());
             ps.setBoolean(4, true);
+            ps.setString(5, pro.getCategoria());
             ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
            
@@ -78,7 +79,7 @@ public class ProductoData {
     
     public void ModificarProducto(Producto produ){
    
-        String sql = "UPDATE producto SET idProducto= ?, nombreProducto = ?, precio = ?, stock = ?, estadoProducto = ? WHERE idProducto = ?";
+        String sql = "UPDATE producto SET idProducto= ?, nombreProducto = ?, precio = ?, stock = ?, estadoProducto = ?, categoria = ? WHERE idProducto = ?";
         
         try {
             
@@ -89,7 +90,8 @@ public class ProductoData {
             ps.setDouble(3, produ.getPrecio());
             ps.setInt(4, produ.getStock());
             ps.setBoolean(5, produ.isEstado());
-            ps.setInt(6, produ.getIdProducto());
+            ps.setString(6,produ.getCategoria());
+            ps.setInt(7, produ.getIdProducto());
             
             int exito= ps.executeUpdate();
             
@@ -125,6 +127,7 @@ public class ProductoData {
                 prod.setPrecio(rs.getDouble("precio"));
                 prod.setStock(rs.getInt("stock"));
                 prod.setEstado(rs.getBoolean("estadoProducto"));
+                prod.setCategoria(rs.getString("categoria"));
                 productos.add(prod);
 
             }
@@ -160,6 +163,7 @@ public class ProductoData {
                 prod.setPrecio(rs.getDouble("precio"));
                 prod.setStock(rs.getInt("stock"));
                 prod.setEstado(rs.getBoolean("estadoProducto"));
+                prod.setCategoria(rs.getString("categoria"));
                 productos.add(prod);
 
             }
@@ -195,6 +199,7 @@ public class ProductoData {
                 prod.setPrecio(rs.getDouble("precio"));
                 prod.setStock(rs.getInt("stock"));
                 prod.setEstado(rs.getBoolean("estadoProducto"));
+                prod.setCategoria(rs.getString("categoria"));
                 productos.add(prod);
 
             }
@@ -230,6 +235,7 @@ public class ProductoData {
                 prod.setPrecio(rs.getDouble("precio"));
                 prod.setStock(rs.getInt("stock"));
                 prod.setEstado(rs.getBoolean("estadoProducto"));
+                prod.setCategoria(rs.getString("categoria"));
                 productos.add(prod);
 
             }
@@ -265,6 +271,7 @@ public class ProductoData {
                 prod.setPrecio(rs.getDouble("precio"));
                 prod.setStock(rs.getInt("stock"));
                 prod.setEstado(rs.getBoolean("estadoProducto"));
+                prod.setCategoria(rs.getString("categoria"));
                 productos.add(prod);
 
             }
@@ -299,6 +306,7 @@ public class ProductoData {
                 prod.setPrecio(rs.getDouble("precio"));
                 prod.setStock(rs.getInt("stock"));
                 prod.setEstado(rs.getBoolean("estadoProducto"));
+                prod.setCategoria(rs.getString("categoria"));
                 productos.add(prod);
             
             }

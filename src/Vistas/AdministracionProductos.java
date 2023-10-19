@@ -62,6 +62,8 @@ public class AdministracionProductos extends JInternalFrame {
         jbLimpiar = new javax.swing.JButton();
         jbActualizar = new javax.swing.JButton();
         jcBuscar = new javax.swing.JComboBox<>();
+        jLabel8 = new javax.swing.JLabel();
+        jcCategoria = new javax.swing.JComboBox<>();
 
         jtId.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -180,6 +182,10 @@ public class AdministracionProductos extends JInternalFrame {
             }
         });
 
+        jLabel8.setText("Categoria");
+
+        jcCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { ".............", "COMIDA", "BEBIDA", "POSTRE" }));
+
         jDesktopPane1.setLayer(jtId, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jLabel6, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jtNombre, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -201,32 +207,13 @@ public class AdministracionProductos extends JInternalFrame {
         jDesktopPane1.setLayer(jbLimpiar, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jbActualizar, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jcBuscar, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(jLabel8, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(jcCategoria, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
         jDesktopPane1Layout.setHorizontalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3))
-                .addGap(26, 26, 26)
-                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                        .addComponent(jtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                                .addComponent(jtId, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel4)))
-                        .addGap(24, 24, 24)
-                        .addComponent(jtStock, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(jDesktopPane1Layout.createSequentialGroup()
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jDesktopPane1Layout.createSequentialGroup()
@@ -238,33 +225,56 @@ public class AdministracionProductos extends JInternalFrame {
                         .addContainerGap()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                                .addGap(257, 257, 257)
-                                .addComponent(jLabel5))
-                            .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                                .addGap(81, 81, 81)
-                                .addComponent(jbCrear)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jbModificar)))
-                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(jrEstado))
-                            .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                                .addGap(31, 31, 31)
-                                .addComponent(jbLimpiar))))
+                        .addGap(257, 257, 257)
+                        .addComponent(jLabel5)
+                        .addGap(18, 18, 18)
+                        .addComponent(jrEstado))
                     .addGroup(jDesktopPane1Layout.createSequentialGroup()
                         .addGap(34, 34, 34)
-                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jbBorrar)
+                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                                .addComponent(jbCrear)
+                                .addGap(18, 18, 18)
+                                .addComponent(jbBorrar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jbModificar)
+                                .addGap(18, 18, 18)
+                                .addComponent(jbLimpiar))
                             .addGroup(jDesktopPane1Layout.createSequentialGroup()
                                 .addComponent(jLabel7)
                                 .addGap(18, 18, 18)
-                                .addComponent(jtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(59, 59, 59)
-                        .addComponent(jcBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(jtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(59, 59, 59)
+                                .addComponent(jcBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(7, Short.MAX_VALUE))
+            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                        .addComponent(jLabel8)
+                        .addGap(18, 18, 18)
+                        .addComponent(jcCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3))
+                        .addGap(26, 26, 26)
+                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                                .addComponent(jtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                                        .addComponent(jtId, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jLabel4)))
+                                .addGap(24, 24, 24)
+                                .addComponent(jtStock, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
             .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jDesktopPane1Layout.createSequentialGroup()
                     .addGap(81, 81, 81)
@@ -280,13 +290,7 @@ public class AdministracionProductos extends JInternalFrame {
                         .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
                             .addComponent(jtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5))
-                        .addGap(18, 18, 18)
-                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jbCrear)
-                            .addComponent(jbBorrar)
-                            .addComponent(jbModificar)
-                            .addComponent(jbLimpiar)))
+                            .addComponent(jLabel5)))
                     .addGroup(jDesktopPane1Layout.createSequentialGroup()
                         .addGap(50, 50, 50)
                         .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -300,14 +304,24 @@ public class AdministracionProductos extends JInternalFrame {
                             .addComponent(jLabel2))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jrEstado)))
-                .addGap(48, 48, 48)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(jcCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27)
+                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jbCrear)
+                    .addComponent(jbBorrar)
+                    .addComponent(jbModificar)
+                    .addComponent(jbLimpiar))
+                .addGap(8, 8, 8)
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7)
                     .addComponent(jcBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(14, 14, 14)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jbActualizar, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jbSalir, javax.swing.GroupLayout.Alignment.TRAILING))
@@ -333,7 +347,7 @@ public class AdministracionProductos extends JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jDesktopPane1)
-                .addContainerGap())
+                .addGap(33, 33, 33))
         );
 
         pack();
@@ -346,6 +360,18 @@ public class AdministracionProductos extends JInternalFrame {
         produ.setPrecio(Double.parseDouble(jtPrecio.getText()));
         produ.setStock(Integer.parseInt(jtStock.getText()));
         produ.setEstado(jrEstado.isSelected());
+        int categ = jcCategoria.getSelectedIndex();
+        switch (categ) {
+            case 1:
+                produ.setCategoria("COMIDA");
+                break;
+            case 2:
+                produ.setCategoria("BEBIDA");
+                break;
+            case 3:
+                produ.setCategoria("POSTRE");
+                break;
+        }
 
         pd.ModificarProducto(produ);
         cargarLista();
@@ -368,7 +394,7 @@ public class AdministracionProductos extends JInternalFrame {
                 for (Producto pro : buscarId) {
 
                     modelo.addRow(new Object[]{pro.getIdProducto(),
-                        pro.getNombre(), pro.getPrecio(), pro.getStock(), pro.isEstado()});
+                        pro.getNombre(), pro.getPrecio(), pro.getStock(), pro.isEstado(), pro.getCategoria()});
 
                 }
                 
@@ -381,7 +407,7 @@ public class AdministracionProductos extends JInternalFrame {
                 for (Producto pro : buscarNombre) {
 
                     modelo.addRow(new Object[]{pro.getIdProducto(),
-                        pro.getNombre(), pro.getPrecio(), pro.getStock(), pro.isEstado()});
+                        pro.getNombre(), pro.getPrecio(), pro.getStock(), pro.isEstado(), pro.getCategoria()});
 
                 }
                 
@@ -394,7 +420,7 @@ public class AdministracionProductos extends JInternalFrame {
                 for (Producto pro : buscarPrecio) {
 
                     modelo.addRow(new Object[]{pro.getIdProducto(),
-                        pro.getNombre(), pro.getPrecio(), pro.getStock(), pro.isEstado()});
+                        pro.getNombre(), pro.getPrecio(), pro.getStock(), pro.isEstado(), pro.getCategoria()});
 
                 }
                 
@@ -407,7 +433,7 @@ public class AdministracionProductos extends JInternalFrame {
                 for (Producto pro : buscarStock) {
 
                     modelo.addRow(new Object[]{pro.getIdProducto(),
-                        pro.getNombre(), pro.getPrecio(), pro.getStock(), pro.isEstado()});
+                        pro.getNombre(), pro.getPrecio(), pro.getStock(), pro.isEstado(), pro.getCategoria()});
 
                 }
                 
@@ -420,7 +446,7 @@ public class AdministracionProductos extends JInternalFrame {
                 for (Producto pro : buscarEstado) {
 
                     modelo.addRow(new Object[]{pro.getIdProducto(),
-                        pro.getNombre(), pro.getPrecio(), pro.getStock(), pro.isEstado()});
+                        pro.getNombre(), pro.getPrecio(), pro.getStock(), pro.isEstado(), pro.getCategoria()});
 
                 }
                 
@@ -432,12 +458,23 @@ public class AdministracionProductos extends JInternalFrame {
     private void jbCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCrearActionPerformed
         
         try {
-            
+            String cate = "";
             String nombre = jtNombre.getText();
             Double precio = Double.valueOf(jtPrecio.getText());
             int stock = Integer.parseInt(jtStock.getText());
-
-            Producto pro = new Producto(nombre, precio, stock);
+            int categ = jcCategoria.getSelectedIndex();
+            switch (categ) {
+                case 1:
+                    cate = "COMIDA";
+                    break;
+                case 2:
+                    cate = "BEBIDA";
+                    break;
+                case 3:
+                    cate = "POSTRE";
+                    break;
+        }
+            Producto pro = new Producto(nombre, precio, stock, cate);
             pd.guardarProducto(pro);
             cargarLista();
             
@@ -489,6 +526,18 @@ public class AdministracionProductos extends JInternalFrame {
         jtPrecio.setText(jtListaMenu.getValueAt(fila, 2)+"");
         jtStock.setText(jtListaMenu.getValueAt(fila, 3)+"");
         jrEstado.setSelected((boolean) jtListaMenu.getValueAt(fila, 4));
+        String categ = jtListaMenu.getValueAt(fila, 5)+"";
+            switch (categ) {
+                case "COMIDA":
+                        jcCategoria.setSelectedIndex(1);
+                    break;
+                case "BEBIDA":
+                        jcCategoria.setSelectedIndex(2);
+                    break;
+                case "POSTRE":
+                        jcCategoria.setSelectedIndex(3);
+                    break;
+        }
         
         
     }//GEN-LAST:event_jtListaMenuMouseClicked
@@ -548,6 +597,7 @@ public class AdministracionProductos extends JInternalFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton jbActualizar;
     private javax.swing.JButton jbBorrar;
@@ -556,6 +606,7 @@ public class AdministracionProductos extends JInternalFrame {
     private javax.swing.JButton jbModificar;
     private javax.swing.JButton jbSalir;
     private javax.swing.JComboBox<String> jcBuscar;
+    private javax.swing.JComboBox<String> jcCategoria;
     private javax.swing.JRadioButton jrEstado;
     private javax.swing.JTextField jtBuscar;
     private javax.swing.JTextField jtId;
@@ -573,7 +624,7 @@ public class AdministracionProductos extends JInternalFrame {
         for (Producto pro : menus) {
 
             modelo.addRow(new Object[]{pro.getIdProducto(),
-                pro.getNombre(), pro.getPrecio(),pro.getStock(),pro.isEstado()});
+                pro.getNombre(), pro.getPrecio(),pro.getStock(),pro.isEstado(), pro.getCategoria()});
 
         }
     }
@@ -585,6 +636,7 @@ public class AdministracionProductos extends JInternalFrame {
         modelo.addColumn("Precio");
         modelo.addColumn("Stock");
         modelo.addColumn("Estado");
+        modelo.addColumn("Categoria");
         jtListaMenu.setModel(modelo);
 
     }
@@ -627,6 +679,7 @@ public class AdministracionProductos extends JInternalFrame {
         jtStock.setText("");
         jrEstado.setSelected(false);
         jtBuscar.setText("");
+        jcCategoria.setSelectedIndex(0);
         
     }
 }
