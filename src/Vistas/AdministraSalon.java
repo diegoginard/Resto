@@ -23,7 +23,7 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
     public AdministraSalon() {
 
         initComponents();
-        mesa1.setIcon(icoG);
+      //  mesa1.setIcon(icoG);
         List<Mesa> mesas = md.listarMesas();
 //        ArrayList<JLabel> listarMesas = ListaMesaSalon();
         armarCabecera();
