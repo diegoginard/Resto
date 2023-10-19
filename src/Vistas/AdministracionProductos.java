@@ -18,7 +18,7 @@ public class AdministracionProductos extends JInternalFrame {
         jbBorrar.setEnabled(false);
         jbModificar.setEnabled(false);
         jtBuscar.setEnabled(false);
-        
+        jcCategoria2.setEnabled(false);
     }
     
     private DefaultTableModel modelo = new DefaultTableModel(){
@@ -64,6 +64,7 @@ public class AdministracionProductos extends JInternalFrame {
         jcBuscar = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
         jcCategoria = new javax.swing.JComboBox<>();
+        jcCategoria2 = new javax.swing.JComboBox<>();
 
         jtId.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -170,7 +171,7 @@ public class AdministracionProductos extends JInternalFrame {
             }
         });
 
-        jcBuscar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "...........", "idProducto", "Nombre", "Precio", "Stock", "Estado" }));
+        jcBuscar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "...........", "idProducto", "Nombre", "Precio", "Stock", "Estado", "Categoria" }));
         jcBuscar.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 jcBuscarItemStateChanged(evt);
@@ -185,6 +186,13 @@ public class AdministracionProductos extends JInternalFrame {
         jLabel8.setText("Categoria");
 
         jcCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { ".............", "COMIDA", "BEBIDA", "POSTRE" }));
+
+        jcCategoria2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "COMIDA", "BEBIDA", "POSTRE" }));
+        jcCategoria2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcCategoria2ActionPerformed(evt);
+            }
+        });
 
         jDesktopPane1.setLayer(jtId, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jLabel6, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -209,6 +217,7 @@ public class AdministracionProductos extends JInternalFrame {
         jDesktopPane1.setLayer(jcBuscar, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jLabel8, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jcCategoria, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(jcCategoria2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
@@ -244,8 +253,10 @@ public class AdministracionProductos extends JInternalFrame {
                                 .addComponent(jLabel7)
                                 .addGap(18, 18, 18)
                                 .addComponent(jtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(59, 59, 59)
-                                .addComponent(jcBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jcBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jcCategoria2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(7, Short.MAX_VALUE))
             .addGroup(jDesktopPane1Layout.createSequentialGroup()
                 .addGap(50, 50, 50)
@@ -318,7 +329,8 @@ public class AdministracionProductos extends JInternalFrame {
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7)
-                    .addComponent(jcBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jcBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jcCategoria2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(14, 14, 14)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
@@ -569,7 +581,11 @@ public class AdministracionProductos extends JInternalFrame {
     }//GEN-LAST:event_jtIdMouseClicked
 
     private void jcBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcBuscarActionPerformed
-        // TODO add your handling code here:
+        
+        int index = jcBuscar.getSelectedIndex();
+        if (index == 6){
+            jcCategoria2.setEnabled(true);
+        }
     }//GEN-LAST:event_jcBuscarActionPerformed
 
     private void jcBuscarItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jcBuscarItemStateChanged
@@ -586,6 +602,10 @@ public class AdministracionProductos extends JInternalFrame {
         
         }     
     }//GEN-LAST:event_jcBuscarItemStateChanged
+
+    private void jcCategoria2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcCategoria2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jcCategoria2ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
@@ -607,6 +627,7 @@ public class AdministracionProductos extends JInternalFrame {
     private javax.swing.JButton jbSalir;
     private javax.swing.JComboBox<String> jcBuscar;
     private javax.swing.JComboBox<String> jcCategoria;
+    private javax.swing.JComboBox<String> jcCategoria2;
     private javax.swing.JRadioButton jrEstado;
     private javax.swing.JTextField jtBuscar;
     private javax.swing.JTextField jtId;
