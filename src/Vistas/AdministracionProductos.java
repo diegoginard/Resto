@@ -463,7 +463,8 @@ public class AdministracionProductos extends JInternalFrame {
                 }
                 
                 break;
-                
+            case  6:
+                List<Producto> buscarCategoria = pd.BuscarProductoCategoria(buscar);
         }
     }//GEN-LAST:event_jtBuscarKeyReleased
 
