@@ -187,7 +187,7 @@ public class AdministracionProductos extends JInternalFrame {
 
         jcCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { ".............", "COMIDA", "BEBIDA", "POSTRE" }));
 
-        jcCategoria2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "COMIDA", "BEBIDA", "POSTRE" }));
+        jcCategoria2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "..........", "COMIDA", "BEBIDA", "POSTRE" }));
         jcCategoria2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jcCategoria2ActionPerformed(evt);
@@ -396,7 +396,8 @@ public class AdministracionProductos extends JInternalFrame {
         modelo.setRowCount(0);
         String buscar = jtBuscar.getText();
         int indice = jcBuscar.getSelectedIndex();
-        
+        int indice1 = jcCategoria2.getSelectedIndex();
+         
         switch (indice) {
 
             case 1:
@@ -463,8 +464,46 @@ public class AdministracionProductos extends JInternalFrame {
                 }
                 
                 break;
-            case  6:
-                List<Producto> buscarCategoria = pd.BuscarProductoCategoria(buscar);
+            
+            case 6:
+
+                if (indice1 == 1) {
+
+                    modelo.setRowCount(0);
+                    List<Producto> buscarCategoria = pd.BuscarCategComida(buscar);
+
+                    for (Producto pro : buscarCategoria) {
+
+                        modelo.addRow(new Object[]{pro.getIdProducto(),
+                            pro.getNombre(), pro.getPrecio(), pro.getStock(), pro.isEstado(), pro.getCategoria()});
+
+                    }
+
+                } else if (indice1 == 2) {
+
+                    modelo.setRowCount(0);
+                    List<Producto> buscarCategoria = pd.BuscarCategBebida(buscar);
+
+                    for (Producto pro : buscarCategoria) {
+
+                        modelo.addRow(new Object[]{pro.getIdProducto(),
+                            pro.getNombre(), pro.getPrecio(), pro.getStock(), pro.isEstado(), pro.getCategoria()});
+
+                    }
+
+                } else if (indice1 == 2) {
+
+                    modelo.setRowCount(0);
+                    List<Producto> buscarCategoria = pd.BuscarCategPostre(buscar);
+
+                    for (Producto pro : buscarCategoria) {
+
+                        modelo.addRow(new Object[]{pro.getIdProducto(),
+                            pro.getNombre(), pro.getPrecio(), pro.getStock(), pro.isEstado(), pro.getCategoria()});
+
+                    }
+                }
+
         }
     }//GEN-LAST:event_jtBuscarKeyReleased
 
@@ -584,13 +623,21 @@ public class AdministracionProductos extends JInternalFrame {
     private void jcBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcBuscarActionPerformed
         
         int index = jcBuscar.getSelectedIndex();
+        
         if (index == 6){
+            
             jcCategoria2.setEnabled(true);
+            
+        }else{
+        
+            jcCategoria2.setEnabled(false);
+        
         }
     }//GEN-LAST:event_jcBuscarActionPerformed
 
     private void jcBuscarItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jcBuscarItemStateChanged
-      
+        
+        cargarLista();
         int indice = jcBuscar.getSelectedIndex();
         
         if(indice != 0){
@@ -605,7 +652,45 @@ public class AdministracionProductos extends JInternalFrame {
     }//GEN-LAST:event_jcBuscarItemStateChanged
 
     private void jcCategoria2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcCategoria2ActionPerformed
-        // TODO add your handling code here:
+
+        int indice = jcCategoria2.getSelectedIndex();     
+        
+        if (indice == 1) {
+            
+            modelo.setRowCount(0);
+            List<Producto> buscarCategoria = pd.listarProdCateg(indice);
+
+            for (Producto pro : buscarCategoria) {
+
+                modelo.addRow(new Object[]{pro.getIdProducto(),
+                    pro.getNombre(), pro.getPrecio(), pro.getStock(), pro.isEstado(), pro.getCategoria()});
+
+            }
+
+        } else if (indice == 2) {
+            
+            modelo.setRowCount(0);
+            List<Producto> buscarCategoria = pd.listarProdCateg(indice);
+
+            for (Producto pro : buscarCategoria) {
+
+                modelo.addRow(new Object[]{pro.getIdProducto(),
+                    pro.getNombre(), pro.getPrecio(), pro.getStock(), pro.isEstado(), pro.getCategoria()});
+
+            }
+
+        } else if (indice == 3) {
+            
+            modelo.setRowCount(0);
+            List<Producto> buscarCategoria = pd.listarProdCateg(indice);
+
+            for (Producto pro : buscarCategoria) {
+
+                modelo.addRow(new Object[]{pro.getIdProducto(),
+                    pro.getNombre(), pro.getPrecio(), pro.getStock(), pro.isEstado(), pro.getCategoria()});
+
+            }
+        }
     }//GEN-LAST:event_jcCategoria2ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

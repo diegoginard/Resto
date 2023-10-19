@@ -287,15 +287,51 @@ public class ProductoData {
         return productos;
 
     }
-     public List<Producto> BuscarProductoCateComida(String buscar) {
+     
+    public List<Producto> listarProductos(){
+        
+        List<Producto> productos = new ArrayList<>();
+        
+        try {
+            
+            String sql = "SELECT * FROM producto WHERE estadoProducto = 1 ";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            
+            while (rs.next()) {
+                
+                Producto prod = new Producto();
+                prod.setIdProducto(rs.getInt("idProducto"));
+                prod.setNombre(rs.getString("nombreProducto"));
+                prod.setPrecio(rs.getDouble("precio"));
+                prod.setStock(rs.getInt("stock"));
+                prod.setEstado(rs.getBoolean("estadoProducto"));
+                prod.setCategoria(rs.getString("categoria"));
+                productos.add(prod);
+            
+            }
+            
+            ps.close();
+
+        }catch (SQLException ex) {
+
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla producto" + ex.getMessage());
+
+        }
+
+        return productos;
+    
+    }
+    
+    public List<Producto> BuscarCategComida(String buscar) {
 
         List<Producto> productos = new ArrayList<>();
 
         try {
 
-            String sql = "SELECT * FROM Producto WHERE categoria LIKE ?";
+            String sql = "SELECT * FROM Producto WHERE categoria = 1 AND nombreProducto LIKE ?";
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setString(1, "%" + buscar + "%"); // Configura el primer parámetro con el valor de búsqueda
+            ps.setString(1, buscar + "%"); // Configura el primer parámetro con el valor de búsqueda
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
@@ -322,14 +358,88 @@ public class ProductoData {
         return productos;
 
     }
-    public List<Producto> listarProductos(){
+    
+    public List<Producto> BuscarCategBebida(String buscar) {
+
+        List<Producto> productos = new ArrayList<>();
+
+        try {
+
+            String sql = "SELECT * FROM Producto WHERE categoria = 2 AND nombreProducto LIKE ?";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, buscar + "%"); // Configura el primer parámetro con el valor de búsqueda
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+
+                Producto prod = new Producto();
+                prod.setIdProducto(rs.getInt("idProducto"));
+                prod.setNombre(rs.getString("nombreProducto"));
+                prod.setPrecio(rs.getDouble("precio"));
+                prod.setStock(rs.getInt("stock"));
+                prod.setEstado(rs.getBoolean("estadoProducto"));
+                prod.setCategoria(rs.getString("categoria"));
+                productos.add(prod);
+
+            }
+
+            ps.close();
+
+        } catch (SQLException ex) {
+
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Productos" + ex.getMessage());
+
+        }
+
+        return productos;
+
+    }
+    
+    public List<Producto> BuscarCategPostre(String buscar) {
+
+        List<Producto> productos = new ArrayList<>();
+
+        try {
+
+            String sql = "SELECT * FROM Producto WHERE categoria = 3 AND nombreProducto LIKE ?";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, buscar + "%"); // Configura el primer parámetro con el valor de búsqueda
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+
+                Producto prod = new Producto();
+                prod.setIdProducto(rs.getInt("idProducto"));
+                prod.setNombre(rs.getString("nombreProducto"));
+                prod.setPrecio(rs.getDouble("precio"));
+                prod.setStock(rs.getInt("stock"));
+                prod.setEstado(rs.getBoolean("estadoProducto"));
+                prod.setCategoria(rs.getString("categoria"));
+                productos.add(prod);
+
+            }
+
+            ps.close();
+
+        } catch (SQLException ex) {
+
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Productos" + ex.getMessage());
+
+        }
+
+        return productos;
+
+    }
+    
+    public List<Producto> listarProdCateg(int buscar){
         
         List<Producto> productos = new ArrayList<>();
         
         try {
             
-            String sql = "SELECT * FROM producto WHERE estadoProducto = 1 ";
+            String sql = "SELECT * FROM producto WHERE categoria = ? ";
             PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, buscar ); // Configura el primer parámetro con el valor de búsqueda
             ResultSet rs = ps.executeQuery();
             
             while (rs.next()) {

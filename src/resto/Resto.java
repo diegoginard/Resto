@@ -20,10 +20,10 @@ public class Resto {
 //       pd.guardarProducto(pro);  //Funciona
 //       pd.ModificarProducto(pro); //Funciona
 //       pd.eliminarProducto(5);  //Funciona
-       MesaData md = new MesaData();
+//       MesaData md = new MesaData();
 //       System.out.println(md.listarMesas()); //Funciona
-       Mesa mesa= new Mesa(4,"OCUPADO",6,true);
-       md.crearMesa(mesa);  //Funciona
+//       Mesa mesa= new Mesa(4,"OCUPADO",6,true);
+//       md.crearMesa(mesa);  //Funciona
 //       md.eliminarMesa(4);  //Funciona
 //       Mesa mesa = new Mesa(1, "Ocupado", 6);
 //       md.modificarMesa(mesa);  //Funciona
@@ -34,6 +34,6 @@ public class Resto {
 //       ped.guardarPedido(p1); //Funciona
 //       pd.eliminarPedido(4);
 //       System.out.println(pd.BuscarProductos("H")); //Funciona
-
+//       System.out.println(pd.listarProdCateg(1)); //Funciona
     }
 }
