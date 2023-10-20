@@ -61,7 +61,7 @@ public class AdministraMesas extends javax.swing.JInternalFrame {
         jcEstado = new javax.swing.JComboBox<>();
         jtCapacidad = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jtID = new javax.swing.JTextField();
+        jtId = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
@@ -106,6 +106,11 @@ public class AdministraMesas extends javax.swing.JInternalFrame {
         escritorio.add(jbCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 260, 70, -1));
 
         jbModificar.setText("Modificar");
+        jbModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbModificarActionPerformed(evt);
+            }
+        });
         escritorio.add(jbModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 260, 90, -1));
 
         jbBorrar.setText("Borrar");
@@ -162,12 +167,12 @@ public class AdministraMesas extends javax.swing.JInternalFrame {
         jLabel6.setText("Capacidad");
         escritorio.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 80, -1, -1));
 
-        jtID.addKeyListener(new java.awt.event.KeyAdapter() {
+        jtId.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jtIDKeyTyped(evt);
+                jtIdKeyTyped(evt);
             }
         });
-        escritorio.add(jtID, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 70, 40, -1));
+        escritorio.add(jtId, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 70, 40, -1));
 
         jLabel3.setBackground(new java.awt.Color(51, 51, 51));
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
@@ -206,7 +211,7 @@ public class AdministraMesas extends javax.swing.JInternalFrame {
 
     private void jbBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBorrarActionPerformed
         
-        md.eliminarMesa(Integer.parseInt(jtID.getText()));
+        md.eliminarMesa(Integer.parseInt(jtId.getText()));
     }//GEN-LAST:event_jbBorrarActionPerformed
 
     private void jbCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCrearActionPerformed
@@ -235,7 +240,7 @@ public class AdministraMesas extends javax.swing.JInternalFrame {
 
         jbCrear.setEnabled(false);
         int fila = jtListaMesas.getSelectedRow();
-        jtID.setText(jtListaMesas.getValueAt(fila, 0)+"");
+        jtId.setText(jtListaMesas.getValueAt(fila, 0)+"");
         jtNumero.setText(jtListaMesas.getValueAt(fila, 1)+"");
         String estadoM = jtListaMesas.getValueAt(fila, 2)+"";
         jtCapacidad.setText(jtListaMesas.getValueAt(fila, 3)+"");
@@ -264,11 +269,11 @@ public class AdministraMesas extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_jtListaMesasMouseClicked
 
-    private void jtIDKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtIDKeyTyped
+    private void jtIdKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtIdKeyTyped
        
         soloNumeros(evt);
         
-    }//GEN-LAST:event_jtIDKeyTyped
+    }//GEN-LAST:event_jtIdKeyTyped
 
     private void jtCapacidadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtCapacidadKeyTyped
         
@@ -281,6 +286,33 @@ public class AdministraMesas extends javax.swing.JInternalFrame {
         soloNumeros(evt);
         
     }//GEN-LAST:event_jtNumeroKeyTyped
+
+    private void jbModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbModificarActionPerformed
+        
+        mesa.setIdMesa(Integer.parseInt(jtId.getText()));
+        mesa.setNumero(Integer.parseInt(jtNumero.getText()));
+        int idEstado = jcEstado.getSelectedIndex();
+        mesa.setCapacidad(Integer.parseInt(jtCapacidad.getText()));
+        mesa.setActivo(jrActivo.isSelected());
+        switch(idEstado){
+           
+        case 0:
+            
+            mesa.setEstadoMesa("LIBRE");
+        
+        case 1:
+            
+            mesa.setEstadoMesa("OCUPADO");
+            
+        case 2:
+            
+            mesa.setEstadoMesa("PENDIENTE");
+        }
+        
+        md.modificarMesa(mesa);
+        cargarLista();
+        
+    }//GEN-LAST:event_jbModificarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -299,7 +331,7 @@ public class AdministraMesas extends javax.swing.JInternalFrame {
     private javax.swing.JComboBox<String> jcEstado;
     private javax.swing.JRadioButton jrActivo;
     private javax.swing.JTextField jtCapacidad;
-    private javax.swing.JTextField jtID;
+    private javax.swing.JTextField jtId;
     private javax.swing.JTable jtListaMesas;
     private javax.swing.JTextField jtNumero;
     // End of variables declaration//GEN-END:variables
