@@ -31,7 +31,8 @@ public class AdministraMesas extends javax.swing.JInternalFrame {
     };
     
     MesaData md = new MesaData();
-      
+    Mesa mesa = new Mesa();
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -204,11 +205,29 @@ public class AdministraMesas extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jbSalirActionPerformed
 
     private void jbBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBorrarActionPerformed
-        // TODO add your handling code here:
+        
+        md.eliminarMesa(Integer.parseInt(jtID.getText()));
     }//GEN-LAST:event_jbBorrarActionPerformed
 
     private void jbCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCrearActionPerformed
         
+        mesa.setNumero(Integer.parseInt(jtNumero.getText())); 
+        mesa.setCapacidad(Integer.parseInt(jtCapacidad.getText()));
+        int index = jcEstado.getSelectedIndex();
+        String estado = "";
+        if(index == 0){
+        
+            estado = "LIBRE";
+        }else if(index == 1){
+        
+            estado = "OCUPADO";
+        }else{
+            
+            estado = "PENDIENTE";
+        }  
+        mesa.setEstadoMesa(estado);
+        md.crearMesa(mesa);
+        cargarLista();
         
     }//GEN-LAST:event_jbCrearActionPerformed
 
