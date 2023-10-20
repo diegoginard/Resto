@@ -378,7 +378,7 @@ public class AdministraMenus extends JInternalFrame {
 
                     }
 
-                } else if (indice1 == 2) {
+                } else if (indice1 == 3) {
 
                     modelo.setRowCount(0);
                     List<Producto> buscarCategoria = pd.BuscarCategPostre(buscar);
