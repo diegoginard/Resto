@@ -45,6 +45,7 @@ public class ProductoData {
         }catch(SQLException ex) {
             
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla producto " + ex.getMessage());
+            
         }    
     }
     
@@ -116,7 +117,7 @@ public class ProductoData {
             
             String sql = "SELECT * FROM Producto WHERE nombreProducto LIKE ?";
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setString(1, "%" + buscar + "%"); // Configura el primer parámetro con el valor de búsqueda
+            ps.setString(1, buscar + "%"); // Configura el primer parámetro con el valor de búsqueda
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
@@ -152,7 +153,7 @@ public class ProductoData {
             
             String sql = "SELECT * FROM Producto WHERE idProducto LIKE ?";
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setString(1, "%" + buscar + "%"); // Configura el primer parámetro con el valor de búsqueda
+            ps.setString(1, buscar + "%"); // Configura el primer parámetro con el valor de búsqueda
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
@@ -188,7 +189,7 @@ public class ProductoData {
             
             String sql = "SELECT * FROM Producto WHERE precio LIKE ?";
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setString(1, "%" + buscar + "%"); // Configura el primer parámetro con el valor de búsqueda
+            ps.setString(1, buscar + "%"); // Configura el primer parámetro con el valor de búsqueda
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
@@ -224,7 +225,7 @@ public class ProductoData {
 
             String sql = "SELECT * FROM Producto WHERE stock LIKE ?";
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setString(1, "%" + buscar + "%"); // Configura el primer parámetro con el valor de búsqueda
+            ps.setString(1, buscar + "%"); // Configura el primer parámetro con el valor de búsqueda
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
@@ -260,7 +261,7 @@ public class ProductoData {
 
             String sql = "SELECT * FROM Producto WHERE estadoProducto LIKE ?";
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setString(1, "%" + buscar + "%"); // Configura el primer parámetro con el valor de búsqueda
+            ps.setString(1, buscar + "%"); // Configura el primer parámetro con el valor de búsqueda
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
