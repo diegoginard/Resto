@@ -152,7 +152,7 @@ public class AdministraMesas extends javax.swing.JInternalFrame {
         jLabel5.setText("Estado ");
         escritorio.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 130, -1, -1));
 
-        jcEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "LIBRE", "OCUPADO", "PENDIENTE" }));
+        jcEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "..........", "LIBRE", "OCUPADO", "PENDIENTE" }));
         escritorio.add(jcEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 120, 91, -1));
 
         jtCapacidad.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -220,13 +220,13 @@ public class AdministraMesas extends javax.swing.JInternalFrame {
         mesa.setCapacidad(Integer.parseInt(jtCapacidad.getText()));
         int index = jcEstado.getSelectedIndex();
         String estado = "";
-        if(index == 0){
+        if(index == 1){
         
             estado = "LIBRE";
-        }else if(index == 1){
+        }else if(index == 2){
         
             estado = "OCUPADO";
-        }else{
+        }else if (index == 3){
             
             estado = "PENDIENTE";
         }  
@@ -250,19 +250,19 @@ public class AdministraMesas extends javax.swing.JInternalFrame {
 
             case "LIBRE":
 
-            jcEstado.setSelectedIndex(0);
+            jcEstado.setSelectedIndex(1);
 
             break;
 
             case "OCUPADO":
 
-            jcEstado.setSelectedIndex(1);
+            jcEstado.setSelectedIndex(2);
 
             break;
 
             case "PENDIENTE":
 
-            jcEstado.setSelectedIndex(2);
+            jcEstado.setSelectedIndex(3);
 
             break;
 
@@ -294,23 +294,29 @@ public class AdministraMesas extends javax.swing.JInternalFrame {
         int idEstado = jcEstado.getSelectedIndex();
         mesa.setCapacidad(Integer.parseInt(jtCapacidad.getText()));
         mesa.setActivo(jrActivo.isSelected());
+        
         switch(idEstado){
            
-        case 0:
-            
-            mesa.setEstadoMesa("LIBRE");
-        
         case 1:
             
-            mesa.setEstadoMesa("OCUPADO");
+            mesa.setEstadoMesa("LIBRE");
+            break;
             
         case 2:
             
+            mesa.setEstadoMesa("OCUPADO");
+            break;
+            
+        case 3:
+            
             mesa.setEstadoMesa("PENDIENTE");
+            break;
+            
         }
         
         md.modificarMesa(mesa);
         cargarLista();
+        limpiar();
         
     }//GEN-LAST:event_jbModificarActionPerformed
 
@@ -374,17 +380,13 @@ public class AdministraMesas extends javax.swing.JInternalFrame {
         }
     }
     
-    private void soloLetras(KeyEvent evt) {
+    private void limpiar() {
         
-        char validar = evt.getKeyChar();
-
-        if (Character.isDigit(validar)) {
-
-            getToolkit().beep();
-            evt.consume();
-
-            JOptionPane.showMessageDialog(rootPane, "Ingrese solo letras");
-
-        }
+       jtId.setText("");
+       jtNumero.setText("");
+       jcEstado.setSelectedIndex(0);
+       jtCapacidad.setText("");
+       jrActivo.setSelected(false);
+       
     }
 }

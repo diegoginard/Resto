@@ -140,4 +140,26 @@ public class MesaData {
         return Mesas;
     
     }
+    
+    public void modificarMesaLibre(){
+   
+        String sql = "UPDATE mesa SET estadoMesa = 1";
+        
+        try {
+            
+            PreparedStatement ps= con.prepareStatement(sql);
+            int exito= ps.executeUpdate();
+            
+            if (exito==1) {
+                
+                JOptionPane.showMessageDialog(null, "Mesas Modificada");
+           
+            }
+            
+        } catch (SQLException ex) {
+            
+            JOptionPane.showMessageDialog(null,"Error al acceder a la tabla"+ex.getMessage());
+        
+        }
+    }
 }

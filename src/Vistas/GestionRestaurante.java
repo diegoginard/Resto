@@ -45,7 +45,6 @@ public class GestionRestaurante extends javax.swing.JFrame {
         jMenuItem4.setText("jMenuItem4");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1024, 680));
 
         javax.swing.GroupLayout escritorioLayout = new javax.swing.GroupLayout(escritorio);
         escritorio.setLayout(escritorioLayout);
@@ -68,6 +67,11 @@ public class GestionRestaurante extends javax.swing.JFrame {
         jMenu2.setText("Gestionar");
 
         jmPedidos.setText("Pedidos");
+        jmPedidos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmPedidosActionPerformed(evt);
+            }
+        });
         jMenu2.add(jmPedidos);
 
         jmMesas.setText("Mesas");
@@ -128,6 +132,10 @@ public class GestionRestaurante extends javax.swing.JFrame {
         escritorio.moveToFront(me);
         
     }//GEN-LAST:event_jmMesasActionPerformed
+
+    private void jmPedidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmPedidosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jmPedidosActionPerformed
 
    
     public static void main(String args[]) {

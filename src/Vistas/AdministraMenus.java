@@ -475,19 +475,21 @@ public class AdministraMenus extends JInternalFrame {
         jtStock.setText(jtListaMenu.getValueAt(fila, 3)+"");
         jrEstado.setSelected((boolean) jtListaMenu.getValueAt(fila, 4));
         String categ = jtListaMenu.getValueAt(fila, 5)+"";
+        
             switch (categ) {
+                
                 case "COMIDA":
                         jcCategoria.setSelectedIndex(1);
                     break;
+                    
                 case "BEBIDA":
                         jcCategoria.setSelectedIndex(2);
                     break;
+                    
                 case "POSTRE":
                         jcCategoria.setSelectedIndex(3);
                     break;
-        }
-        
-        
+        }      
     }//GEN-LAST:event_jtListaMenuMouseClicked
 
     private void jbLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbLimpiarActionPerformed

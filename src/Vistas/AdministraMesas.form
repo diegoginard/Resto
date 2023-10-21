@@ -209,10 +209,11 @@
         <Component class="javax.swing.JComboBox" name="jcEstado">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="3">
-                <StringItem index="0" value="LIBRE"/>
-                <StringItem index="1" value="OCUPADO"/>
-                <StringItem index="2" value="PENDIENTE"/>
+              <StringArray count="4">
+                <StringItem index="0" value=".........."/>
+                <StringItem index="1" value="LIBRE"/>
+                <StringItem index="2" value="OCUPADO"/>
+                <StringItem index="3" value="PENDIENTE"/>
               </StringArray>
             </Property>
           </Properties>
