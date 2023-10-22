@@ -16,6 +16,8 @@ public class GestionRestaurante extends javax.swing.JFrame {
         initComponents();
         con = Conexion.getConexion();
         
+        this.setLocationRelativeTo(null);
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -93,6 +95,11 @@ public class GestionRestaurante extends javax.swing.JFrame {
         jMenuBar1.add(jMenu2);
 
         jMenu3.setText("Salir");
+        jMenu3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu3ActionPerformed(evt);
+            }
+        });
         jMenuBar1.add(jMenu3);
 
         setJMenuBar(jMenuBar1);
@@ -136,6 +143,15 @@ public class GestionRestaurante extends javax.swing.JFrame {
     private void jmPedidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmPedidosActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jmPedidosActionPerformed
+
+    private void jMenu3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu3ActionPerformed
+
+        dispose();
+
+
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenu3ActionPerformed
 
    
     public static void main(String args[]) {
