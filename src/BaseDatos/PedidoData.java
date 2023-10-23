@@ -1,8 +1,11 @@
 
 package BaseDatos;
 
+import Entidades.Mesa;
 import Entidades.Pedido;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 
 public class PedidoData {
@@ -97,8 +100,39 @@ public class PedidoData {
         }
     }
     
-    public void listarPedido(){
-         
+     public List<Pedido> listarPedidos(){
         
+        List<Pedido> Pedidos = new ArrayList<>();
+    
+        try {
+            
+            String sql = "SELECT * FROM Pedido ";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+          
+            while (rs.next()) {
+                Pedido ped = new Pedido();
+                ped.setIdPedido(rs.getInt("idPedido"));
+                ped.getMesa().setIdMesa(rs.getInt("idMesa"));
+                ped.setNombreMesero(rs.getString("nombreMesero"));
+                ped.setFechaHora(rs.getTimestamp("fechaHora").toLocalDateTime());
+                ped.setImporte(rs.getDouble("importe"));
+                ped.setCobrada(rs.getBoolean("cobrada"));
+                ped.setEstado(rs.getString("estado"));
+                Pedidos.add(ped);
+            
+            }
+            
+            ps.close();
+
+        }catch (SQLException ex) {
+
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla pedidos" + ex.getMessage());
+
+        }
+
+        return Pedidos;
+    
     }
+    
 }
