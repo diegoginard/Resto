@@ -64,6 +64,8 @@ public class AdministraMesas extends javax.swing.JInternalFrame {
         jtId = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
 
         setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         setTitle("Administra Salon");
@@ -103,7 +105,7 @@ public class AdministraMesas extends javax.swing.JInternalFrame {
                 jbCrearActionPerformed(evt);
             }
         });
-        escritorio.add(jbCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 260, 70, -1));
+        escritorio.add(jbCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, 70, -1));
 
         jbModificar.setText("Modificar");
         jbModificar.addActionListener(new java.awt.event.ActionListener() {
@@ -111,7 +113,7 @@ public class AdministraMesas extends javax.swing.JInternalFrame {
                 jbModificarActionPerformed(evt);
             }
         });
-        escritorio.add(jbModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 260, 90, -1));
+        escritorio.add(jbModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 220, 90, -1));
 
         jbBorrar.setText("Borrar");
         jbBorrar.addActionListener(new java.awt.event.ActionListener() {
@@ -119,7 +121,7 @@ public class AdministraMesas extends javax.swing.JInternalFrame {
                 jbBorrarActionPerformed(evt);
             }
         });
-        escritorio.add(jbBorrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 260, 80, -1));
+        escritorio.add(jbBorrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 220, 80, -1));
 
         jbSalir.setText("Salir");
         jbSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -127,7 +129,7 @@ public class AdministraMesas extends javax.swing.JInternalFrame {
                 jbSalirActionPerformed(evt);
             }
         });
-        escritorio.add(jbSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 260, 70, -1));
+        escritorio.add(jbSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 220, 70, -1));
 
         jLabel1.setBackground(new java.awt.Color(0, 0, 0));
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
@@ -184,6 +186,17 @@ public class AdministraMesas extends javax.swing.JInternalFrame {
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("ADMINISTRACION DE MESAS");
         escritorio.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, -1, -1));
+
+        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField1KeyTyped(evt);
+            }
+        });
+        escritorio.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 270, 120, -1));
+
+        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel7.setText("Bucar");
+        escritorio.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 270, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -320,6 +333,11 @@ public class AdministraMesas extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_jbModificarActionPerformed
 
+    private void jTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyTyped
+        
+        
+    }//GEN-LAST:event_jTextField1KeyTyped
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane escritorio;
@@ -329,7 +347,9 @@ public class AdministraMesas extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JButton jbBorrar;
     private javax.swing.JButton jbCrear;
     private javax.swing.JButton jbModificar;

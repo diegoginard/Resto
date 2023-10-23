@@ -2,6 +2,7 @@
 package BaseDatos;
 
 import Entidades.Mesa;
+import Entidades.Producto;
 import java.sql.*;
 import java.util.*;
 import javax.swing.*;
@@ -192,5 +193,110 @@ public class MesaData {
             JOptionPane.showMessageDialog(null,"Error al acceder a la tabla"+ex.getMessage());
         
         }
+    }
+    
+    public List<Mesa> BuscarMesasNumero(String buscar){
+        
+        List <Mesa> mesasNumero = new ArrayList();
+        
+        try {
+            
+            String sql = "SELECT * FROM mesa WHERE numero LIKE ?";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, buscar + "%"); // Configura el primer parámetro con el valor de búsqueda
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+
+                Mesa mesa = new Mesa();
+                mesa.setIdMesa(rs.getInt("idMesa"));
+                mesa.setNumero(rs.getInt("numero"));
+                mesa.setEstadoMesa(rs.getString("estadoMesa"));
+                mesa.setCapacidad(rs.getInt("capacidad"));
+                mesa.setActivo(rs.getBoolean("activo"));
+                mesasNumero.add(mesa);
+
+            }
+
+            ps.close();
+
+        } catch (SQLException ex) {
+
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Mesa" + ex.getMessage());
+
+        }
+    
+    return mesasNumero;
+    
+    }
+    
+    public List<Mesa> BuscarMesasCapacidad(int buscar){
+        
+        List <Mesa> mesasNumero = new ArrayList();
+        
+        try {
+            
+            String sql = "SELECT * FROM mesa WHERE capacidad LIKE ?";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, buscar + "%"); // Configura el primer parámetro con el valor de búsqueda
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+
+                Mesa mesa = new Mesa();
+                mesa.setIdMesa(rs.getInt("idMesa"));
+                mesa.setNumero(rs.getInt("numero"));
+                mesa.setEstadoMesa(rs.getString("estadoMesa"));
+                mesa.setCapacidad(rs.getInt("capacidad"));
+                mesa.setActivo(rs.getBoolean("activo"));
+                mesasNumero.add(mesa);
+
+            }
+
+            ps.close();
+
+        } catch (SQLException ex) {
+
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Mesa" + ex.getMessage());
+
+        }
+    
+    return mesasNumero;
+    
+    }
+    
+    public List<Mesa> BuscarMesasEstadoMesa(String buscar){
+        
+        List <Mesa> mesasNumero = new ArrayList();
+        
+        try {
+            
+            String sql = "SELECT * FROM mesa WHERE estadoMesa LIKE ?";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, buscar + "%"); // Configura el primer parámetro con el valor de búsqueda
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+
+                Mesa mesa = new Mesa();
+                mesa.setIdMesa(rs.getInt("idMesa"));
+                mesa.setNumero(rs.getInt("numero"));
+                mesa.setEstadoMesa(rs.getString("estadoMesa"));
+                mesa.setCapacidad(rs.getInt("capacidad"));
+                mesa.setActivo(rs.getBoolean("activo"));
+                mesasNumero.add(mesa);
+
+            }
+
+            ps.close();
+
+        } catch (SQLException ex) {
+
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Mesa" + ex.getMessage());
+
+        }
+    
+    return mesasNumero;
+    
     }
 }

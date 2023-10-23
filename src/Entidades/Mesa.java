@@ -11,10 +11,6 @@ public class Mesa {
     public Mesa() {
     }
 
-    public Mesa(int idMesa) {
-        this.idMesa = idMesa;
-    }
-
     public Mesa(int idMesa, int numero, String estadoMesa, int capacidad) {
         this.idMesa = idMesa;
         this.numero = numero;

@@ -31,12 +31,13 @@ public class Resto {
 //       Pedido p1 = new Pedido(mesa, "Carlos",
 //            LocalDateTime.of(2023, 10, 10, 11, 00),
 //            5000, true, "entregado");
-       PedidoData ped = new PedidoData();
+//       PedidoData ped = new PedidoData();
 //       ped.guardarPedido(p1); //Funciona
 //       pd.eliminarPedido(4);
 //       System.out.println(pd.BuscarProductos("H")); //Funciona
 //       System.out.println(pd.listarProdCateg(1)); //Funciona
-       System.out.println(ped.listarPedidos());
+//       System.out.println(ped.listarPedidos()); //Funciona
+
 
     }
 }
