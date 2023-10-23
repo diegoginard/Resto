@@ -146,6 +146,21 @@ public class GestionRestaurante extends javax.swing.JFrame {
     }//GEN-LAST:event_jmMesasActionPerformed
 
     private void jmPedidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmPedidosActionPerformed
+
+
+        escritorio.removeAll();
+        escritorio.repaint();
+        PedidoProductos pp = new PedidoProductos();
+        pp.setVisible(true);
+        escritorio.add(pp);
+        escritorio.moveToFront(pp);
+        
+        
+        
+        
+        
+        
+        
         // TODO add your handling code here:
     }//GEN-LAST:event_jmPedidosActionPerformed
 
