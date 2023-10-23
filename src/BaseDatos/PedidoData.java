@@ -11,6 +11,8 @@ import javax.swing.JOptionPane;
 public class PedidoData {
     
     private Connection con = null;
+    private Mesa mesa = new Mesa();
+    private MesaData md = new MesaData();
     
     public PedidoData(){
         
@@ -113,7 +115,8 @@ public class PedidoData {
             while (rs.next()) {
                 Pedido ped = new Pedido();
                 ped.setIdPedido(rs.getInt("idPedido"));
-                ped.getMesa().setIdMesa(rs.getInt("idMesa"));
+                mesa = md.ObtenerMesasId(rs.getInt("idMesa"));
+                ped.setMesa(mesa);
                 ped.setNombreMesero(rs.getString("nombreMesero"));
                 ped.setFechaHora(rs.getTimestamp("fechaHora").toLocalDateTime());
                 ped.setImporte(rs.getDouble("importe"));

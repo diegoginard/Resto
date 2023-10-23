@@ -10,7 +10,7 @@ import javax.swing.*;
 public class MesaData {
     
     private Connection con = null;
-    
+    private Mesa mesa = new Mesa();
      public MesaData(){
         
         con = Conexion.getConexion();
@@ -138,6 +138,37 @@ public class MesaData {
         }
 
         return Mesas;
+    
+    }
+    
+      public Mesa ObtenerMesasId(int id){
+    
+        try {
+            
+            String sql = "SELECT * FROM mesa WHERE idMesa = ?";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            
+            while (rs.next()) {
+                Mesa mesa = new Mesa();
+                mesa.setIdMesa(rs.getInt("idMesa"));
+                mesa.setNumero(rs.getInt("numero"));
+                mesa.setEstadoMesa(rs.getString("estadoMesa"));
+                mesa.setCapacidad(rs.getInt("capacidad"));
+                mesa.setActivo(rs.getBoolean("activo"));
+            
+            }
+            
+            ps.close();
+
+        }catch (SQLException ex) {
+
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla mesa" + ex.getMessage());
+
+        }
+
+        return mesa;
     
     }
     

@@ -21,6 +21,7 @@ public class Resto {
 //       pd.ModificarProducto(pro); //Funciona
 //       pd.eliminarProducto(5);  //Funciona
 //       MesaData md = new MesaData();
+//       System.out.println(md.listarMesasId(1));       
 //       System.out.println(md.listarMesas()); //Funciona
 //       Mesa mesa= new Mesa(2,2,"LIBRE",6,true);
 //       md.crearMesa(mesa);  //Funciona
@@ -34,7 +35,8 @@ public class Resto {
 //       ped.guardarPedido(p1); //Funciona
 //       pd.eliminarPedido(4);
 //       System.out.println(pd.BuscarProductos("H")); //Funciona
-//        System.out.println(pd.listarProdCateg(1)); //Funciona
-        System.out.println(ped.listarPedidos());
+//       System.out.println(pd.listarProdCateg(1)); //Funciona
+       System.out.println(ped.listarPedidos());
+
     }
 }
