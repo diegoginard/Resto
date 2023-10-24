@@ -149,6 +149,11 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
 
         n9.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         n9.setText("9");
+        n9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                n9ActionPerformed(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Californian FB", 1, 18)); // NOI18N
         jLabel2.setText("Monto");
@@ -163,6 +168,11 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
 
         n5.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         n5.setText("5");
+        n5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                n5ActionPerformed(evt);
+            }
+        });
 
         jbAnular.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jbAnular.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/ico pedido/anular_48.png"))); // NOI18N
@@ -201,6 +211,11 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
 
         n8.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         n8.setText("8");
+        n8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                n8ActionPerformed(evt);
+            }
+        });
 
         jbBorrar.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jbBorrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/ico pedido/borrar_48.png"))); // NOI18N
@@ -242,18 +257,38 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
 
         jbPunto.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jbPunto.setText(".");
+        jbPunto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbPuntoActionPerformed(evt);
+            }
+        });
 
         n2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         n2.setText("2");
+        n2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                n2ActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Californian FB", 1, 18)); // NOI18N
         jLabel1.setText("Total");
 
         n3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         n3.setText("3");
+        n3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                n3ActionPerformed(evt);
+            }
+        });
 
         n1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         n1.setText("1");
+        n1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                n1MouseClicked(evt);
+            }
+        });
         n1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 n1ActionPerformed(evt);
@@ -762,7 +797,7 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(pProductos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 25, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -817,43 +852,50 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void n1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_n1ActionPerformed
-        // TODO add your handling code here:
+
+        jtMonto.setText(jtMonto.getText()+"1");
     }//GEN-LAST:event_n1ActionPerformed
 
     private void n4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_n4ActionPerformed
-        // TODO add your handling code here:
+        
+        jtMonto.setText(jtMonto.getText()+"4");
+
     }//GEN-LAST:event_n4ActionPerformed
 
     private void n7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_n7ActionPerformed
-        // TODO add your handling code here:
+
+        jtMonto.setText(jtMonto.getText()+"7");
     }//GEN-LAST:event_n7ActionPerformed
 
     private void n6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_n6ActionPerformed
-        // TODO add your handling code here:
+
+        jtMonto.setText(jtMonto.getText()+"6");
     }//GEN-LAST:event_n6ActionPerformed
 
     private void jbenterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbenterActionPerformed
-        // TODO add your handling code here:
+
+        
     }//GEN-LAST:event_jbenterActionPerformed
 
     private void n0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_n0ActionPerformed
-        // TODO add your handling code here:
+
+        jtMonto.setText(jtMonto.getText()+"0");
     }//GEN-LAST:event_n0ActionPerformed
 
     private void jbMenosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbMenosActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_jbMenosActionPerformed
 
     private void jbSumarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSumarActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_jbSumarActionPerformed
 
     private void jbDescuentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbDescuentoActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_jbDescuentoActionPerformed
 
     private void jbEfectivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEfectivoActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_jbEfectivoActionPerformed
 
     private void jlMesa1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlMesa1MouseClicked
@@ -1338,6 +1380,40 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
 
         dispose();
     }//GEN-LAST:event_jButton1MouseClicked
+
+    private void n1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_n1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_n1MouseClicked
+
+    private void n5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_n5ActionPerformed
+
+        jtMonto.setText(jtMonto.getText()+"5");
+    }//GEN-LAST:event_n5ActionPerformed
+
+    private void jbPuntoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbPuntoActionPerformed
+
+        jtMonto.setText(jtMonto.getText()+".");
+    }//GEN-LAST:event_jbPuntoActionPerformed
+
+    private void n8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_n8ActionPerformed
+
+        jtMonto.setText(jtMonto.getText()+"8");
+    }//GEN-LAST:event_n8ActionPerformed
+
+    private void n9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_n9ActionPerformed
+
+        jtMonto.setText(jtMonto.getText()+"9");
+    }//GEN-LAST:event_n9ActionPerformed
+
+    private void n2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_n2ActionPerformed
+
+        jtMonto.setText(jtMonto.getText()+"2");
+    }//GEN-LAST:event_n2ActionPerformed
+
+    private void n3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_n3ActionPerformed
+
+        jtMonto.setText(jtMonto.getText()+"3");
+    }//GEN-LAST:event_n3ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
