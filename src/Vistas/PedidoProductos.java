@@ -36,8 +36,10 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
     public PedidoProductos() {
 
         initComponents();
-        armarCabecera();
-        cargarLista();
+        armarCabeceraPro();
+        armarCabeceraPed();
+      
+//        cargarLista();
         
     }
  
@@ -111,6 +113,10 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jtProductos = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jtPedido = new javax.swing.JTable();
+        jtBuscar = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
         jlMesa5 = new javax.swing.JLabel();
         jlMesa7 = new javax.swing.JLabel();
         jlMesa6 = new javax.swing.JLabel();
@@ -315,18 +321,48 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
             }
         });
 
+        jtPedido.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(jtPedido);
+
+        jLabel3.setText("Buscar");
+
         javax.swing.GroupLayout pProductosLayout = new javax.swing.GroupLayout(pProductos);
         pProductos.setLayout(pProductosLayout);
         pProductosLayout.setHorizontalGroup(
             pProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pProductosLayout.createSequentialGroup()
-                .addContainerGap(180, Short.MAX_VALUE)
+                .addContainerGap()
                 .addGroup(pProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pProductosLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(pProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pProductosLayout.createSequentialGroup()
+                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(56, 56, 56)
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pProductosLayout.createSequentialGroup()
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 446, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pProductosLayout.createSequentialGroup()
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(56, 56, 56)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pProductosLayout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jbSumar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jbMenos, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(pProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(pProductosLayout.createSequentialGroup()
                                 .addGroup(pProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -342,13 +378,9 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
                                 .addGap(7, 7, 7)
                                 .addGroup(pProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(pProductosLayout.createSequentialGroup()
-                                        .addGroup(pProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jbBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jbSumar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(jbBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
-                                        .addGroup(pProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jbMenos, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jbAnular, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(jbAnular, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(pProductosLayout.createSequentialGroup()
                                         .addComponent(jbDescuento, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
@@ -382,7 +414,6 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
                                         .addGap(18, 18, 18)
                                         .addComponent(jbenter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                         .addGap(76, 76, 76))))
-            .addComponent(jScrollPane1)
         );
         pProductosLayout.setVerticalGroup(
             pProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -402,14 +433,8 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
                     .addComponent(jtMonto, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(pProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pProductosLayout.createSequentialGroup()
-                        .addGroup(pProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jbBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jbAnular, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(pProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jbMenos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jbSumar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jbBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jbAnular, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(pProductosLayout.createSequentialGroup()
                         .addGroup(pProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(pProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -424,23 +449,33 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
                             .addComponent(n4)
                             .addComponent(n5)
                             .addComponent(n6))))
-                .addGroup(pProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pProductosLayout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addGroup(pProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(pProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(n7)
-                                .addComponent(n8)
-                                .addComponent(n9))
-                            .addComponent(jbenter, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(pProductosLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(pProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jbEfectivo, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                            .addComponent(jbDescuento, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(20, 20, 20)
+                .addGroup(pProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(pProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(pProductosLayout.createSequentialGroup()
+                            .addGap(14, 14, 14)
+                            .addGroup(pProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(pProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(n7)
+                                    .addComponent(n8)
+                                    .addComponent(n9))
+                                .addComponent(jbenter, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(pProductosLayout.createSequentialGroup()
+                            .addGap(18, 18, 18)
+                            .addGroup(pProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jbEfectivo, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                                .addComponent(jbDescuento, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(pProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jbSumar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(pProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3)))
+                    .addComponent(jbMenos, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(19, 19, 19))
+                .addGroup(pProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 274, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addGap(159, 159, 159))
         );
 
         jlMesa5.setFont(new java.awt.Font("Arial Black", 1, 36)); // NOI18N
@@ -905,12 +940,12 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
         if (mesaOcupada){
 
             jlMesa1.setIcon(icoR); // Cambia el color al ocupado
-            Mesa mesa2= new Mesa();
-
+//            Mesa mesa2= new Mesa();
+            md.modificarMesaEstado(1,"OCUPADO");    
         } else{
 
             jlMesa1.setIcon(icoV); // Cambia el color al libre
-
+              md.modificarMesaEstado(1, "LIBRE");
         }
     }//GEN-LAST:event_jlMesa1MouseClicked
 
@@ -921,12 +956,12 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
         if (mesaOcupada){
 
             jlMesa2.setIcon(icoR); // Cambia el color al ocupado
-            Mesa mesa2= new Mesa();
-
+//            Mesa mesa2= new Mesa();
+            md.modificarMesaEstado(2,"OCUPADO");    
         } else{
 
             jlMesa2.setIcon(icoV); // Cambia el color al libre
-
+            md.modificarMesaEstado(2, "LIBRE");
         }    }//GEN-LAST:event_jlMesa2MouseClicked
 
     private void jlMesa3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlMesa3MouseClicked
@@ -936,16 +971,14 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
         // Actualiza el color de fondo
         if (mesaOcupada){
 
-            jlMesa3.setIcon(icoR); // Cambia el color al ocupado
-            Mesa mesa3= new Mesa();
-
+            jlMesa2.setIcon(icoR); // Cambia el color al ocupado
+//            Mesa mesa2= new Mesa();
+            md.modificarMesaEstado(3,"OCUPADO");    
         } else{
 
-            jlMesa3.setIcon(icoV); // Cambia el color al libre
-
+            jlMesa2.setIcon(icoV); // Cambia el color al libre
+            md.modificarMesaEstado(3, "LIBRE");
         }
-
-
     }//GEN-LAST:event_jlMesa3MouseClicked
 
     private void jlMesa4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlMesa4MouseClicked
@@ -955,16 +988,14 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
         // Actualiza el color de fondo
         if (mesaOcupada){
 
-            jlMesa4.setIcon(icoR); // Cambia el color al ocupado
-            Mesa mesa4= new Mesa();
-
+            jlMesa2.setIcon(icoR); // Cambia el color al ocupado
+//            Mesa mesa2= new Mesa();
+            md.modificarMesaEstado(4,"OCUPADO");    
         } else{
 
-            jlMesa4.setIcon(icoV); // Cambia el color al libre
-
+            jlMesa2.setIcon(icoV); // Cambia el color al libre
+            md.modificarMesaEstado(4, "LIBRE");
         }
-
-
     }//GEN-LAST:event_jlMesa4MouseClicked
 
     private void jlMesa5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlMesa5MouseClicked
@@ -974,13 +1005,13 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
         // Actualiza el color de fondo
         if (mesaOcupada){
 
-            jlMesa5.setIcon(icoR); // Cambia el color al ocupado
-            Mesa mesa5= new Mesa();
-
+            jlMesa2.setIcon(icoR); // Cambia el color al ocupado
+//            Mesa mesa2= new Mesa();
+            md.modificarMesaEstado(5,"OCUPADO");    
         } else{
 
-            jlMesa5.setIcon(icoV); // Cambia el color al libre
-
+            jlMesa2.setIcon(icoV); // Cambia el color al libre
+            md.modificarMesaEstado(5, "LIBRE");
         }
     }//GEN-LAST:event_jlMesa5MouseClicked
 
@@ -991,15 +1022,14 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
         // Actualiza el color de fondo
         if (mesaOcupada){
 
-            jlMesa6.setIcon(icoR); // Cambia el color al ocupado
-            Mesa mesa6= new Mesa();
-
+            jlMesa2.setIcon(icoR); // Cambia el color al ocupado
+//            Mesa mesa2= new Mesa();
+            md.modificarMesaEstado(6,"OCUPADO");    
         } else{
 
-            jlMesa6.setIcon(icoV); // Cambia el color al libre
-
+            jlMesa2.setIcon(icoV); // Cambia el color al libre
+            md.modificarMesaEstado(6, "LIBRE");
         }
-
     }//GEN-LAST:event_jlMesa6MouseClicked
 
     private void jlMesa7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlMesa7MouseClicked
@@ -1009,13 +1039,13 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
         // Actualiza el color de fondo
         if (mesaOcupada){
 
-            jlMesa7.setIcon(icoR); // Cambia el color al ocupado
-            Mesa mesa7= new Mesa();
-
+            jlMesa2.setIcon(icoR); // Cambia el color al ocupado
+//            Mesa mesa2= new Mesa();
+            md.modificarMesaEstado(7,"OCUPADO");    
         } else{
 
-            jlMesa7.setIcon(icoV); // Cambia el color al libre
-
+            jlMesa2.setIcon(icoV); // Cambia el color al libre
+            md.modificarMesaEstado(7, "LIBRE");
         }
     }//GEN-LAST:event_jlMesa7MouseClicked
 
@@ -1026,13 +1056,13 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
         // Actualiza el color de fondo
         if (mesaOcupada){
 
-            jlMesa8.setIcon(icoR); // Cambia el color al ocupado
-            Mesa mesa8= new Mesa();
-
+            jlMesa2.setIcon(icoR); // Cambia el color al ocupado
+//            Mesa mesa2= new Mesa();
+            md.modificarMesaEstado(8,"OCUPADO");    
         } else{
 
-            jlMesa8.setIcon(icoV); // Cambia el color al libre
-
+            jlMesa2.setIcon(icoV); // Cambia el color al libre
+            md.modificarMesaEstado(8, "LIBRE");
         }
     }//GEN-LAST:event_jlMesa8MouseClicked
 
@@ -1043,13 +1073,13 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
         // Actualiza el color de fondo
         if (mesaOcupada){
 
-            jlMesa9.setIcon(icoR); // Cambia el color al ocupado
-            Mesa mesa9= new Mesa();
-
+            jlMesa2.setIcon(icoR); // Cambia el color al ocupado
+//            Mesa mesa2= new Mesa();
+            md.modificarMesaEstado(9,"OCUPADO");    
         } else{
 
-            jlMesa9.setIcon(icoV); // Cambia el color al libre
-
+            jlMesa2.setIcon(icoV); // Cambia el color al libre
+            md.modificarMesaEstado(9, "LIBRE");
         }
     }//GEN-LAST:event_jlMesa9MouseClicked
 
@@ -1060,13 +1090,13 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
         // Actualiza el color de fondo
         if (mesaOcupada){
 
-            jlMesa10.setIcon(icoR); // Cambia el color al ocupado
-            Mesa mesa10= new Mesa();
-
+            jlMesa2.setIcon(icoR); // Cambia el color al ocupado
+//            Mesa mesa2= new Mesa();
+            md.modificarMesaEstado(10,"OCUPADO");    
         } else{
 
-            jlMesa10.setIcon(icoV); // Cambia el color al libre
-
+            jlMesa2.setIcon(icoV); // Cambia el color al libre
+            md.modificarMesaEstado(10, "LIBRE");
         }
     }//GEN-LAST:event_jlMesa10MouseClicked
 
@@ -1077,13 +1107,13 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
         // Actualiza el color de fondo
         if (mesaOcupada){
 
-            jlMesa11.setIcon(icoR); // Cambia el color al ocupado
-            Mesa mesa11= new Mesa();
-
+            jlMesa2.setIcon(icoR); // Cambia el color al ocupado
+//            Mesa mesa2= new Mesa();
+            md.modificarMesaEstado(11,"OCUPADO");    
         } else{
 
-            jlMesa11.setIcon(icoV); // Cambia el color al libre
-
+            jlMesa2.setIcon(icoV); // Cambia el color al libre
+            md.modificarMesaEstado(11, "LIBRE");
         }
     }//GEN-LAST:event_jlMesa11MouseClicked
 
@@ -1094,13 +1124,13 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
         // Actualiza el color de fondo
         if (mesaOcupada){
 
-            jlMesa12.setIcon(icoR); // Cambia el color al ocupado
-            Mesa mesa12= new Mesa();
-
+            jlMesa2.setIcon(icoR); // Cambia el color al ocupado
+//            Mesa mesa2= new Mesa();
+            md.modificarMesaEstado(12,"OCUPADO");    
         } else{
 
-            jlMesa12.setIcon(icoV); // Cambia el color al libre
-
+            jlMesa2.setIcon(icoV); // Cambia el color al libre
+            md.modificarMesaEstado(12, "LIBRE");
         }
     }//GEN-LAST:event_jlMesa12MouseClicked
 
@@ -1111,13 +1141,13 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
         // Actualiza el color de fondo
         if (mesaOcupada){
 
-            jlMesa13.setIcon(icoR); // Cambia el color al ocupado
-            Mesa mesa13= new Mesa();
-
+            jlMesa2.setIcon(icoR); // Cambia el color al ocupado
+//            Mesa mesa2= new Mesa();
+            md.modificarMesaEstado(13,"OCUPADO");    
         } else{
 
-            jlMesa13.setIcon(icoV); // Cambia el color al libre
-
+            jlMesa2.setIcon(icoV); // Cambia el color al libre
+            md.modificarMesaEstado(13, "LIBRE");
         }
     }//GEN-LAST:event_jlMesa13MouseClicked
 
@@ -1128,13 +1158,13 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
         // Actualiza el color de fondo
         if (mesaOcupada){
 
-            jlMesa14.setIcon(icoR); // Cambia el color al ocupado
-            Mesa mesa14= new Mesa();
-
+            jlMesa2.setIcon(icoR); // Cambia el color al ocupado
+//            Mesa mesa2= new Mesa();
+            md.modificarMesaEstado(14,"OCUPADO");    
         } else{
 
-            jlMesa14.setIcon(icoV); // Cambia el color al libre
-
+            jlMesa2.setIcon(icoV); // Cambia el color al libre
+            md.modificarMesaEstado(14, "LIBRE");
         }
     }//GEN-LAST:event_jlMesa14MouseClicked
 
@@ -1145,13 +1175,13 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
         // Actualiza el color de fondo
         if (mesaOcupada){
 
-            jlMesa15.setIcon(icoR); // Cambia el color al ocupado
-            Mesa mesa15= new Mesa();
-
+            jlMesa2.setIcon(icoR); // Cambia el color al ocupado
+//            Mesa mesa2= new Mesa();
+            md.modificarMesaEstado(15,"OCUPADO");    
         } else{
 
-            jlMesa15.setIcon(icoV); // Cambia el color al libre
-
+            jlMesa2.setIcon(icoV); // Cambia el color al libre
+            md.modificarMesaEstado(15, "LIBRE");
         }
     }//GEN-LAST:event_jlMesa15MouseClicked
 
@@ -1162,13 +1192,13 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
         // Actualiza el color de fondo
         if (mesaOcupada){
 
-            jlMesa16.setIcon(icoR); // Cambia el color al ocupado
-            Mesa mesa16= new Mesa();
-
+            jlMesa2.setIcon(icoR); // Cambia el color al ocupado
+//            Mesa mesa2= new Mesa();
+            md.modificarMesaEstado(16,"OCUPADO");    
         } else{
 
-            jlMesa16.setIcon(icoV); // Cambia el color al libre
-
+            jlMesa2.setIcon(icoV); // Cambia el color al libre
+            md.modificarMesaEstado(16, "LIBRE");
         }
     }//GEN-LAST:event_jlMesa16MouseClicked
 
@@ -1179,13 +1209,13 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
         // Actualiza el color de fondo
         if (mesaOcupada){
 
-            jlMesa17.setIcon(icoR); // Cambia el color al ocupado
-            Mesa mesa17= new Mesa();
-
+            jlMesa2.setIcon(icoR); // Cambia el color al ocupado
+//            Mesa mesa2= new Mesa();
+            md.modificarMesaEstado(17,"OCUPADO");    
         } else{
 
-            jlMesa17.setIcon(icoV); // Cambia el color al libre
-
+            jlMesa2.setIcon(icoV); // Cambia el color al libre
+            md.modificarMesaEstado(17, "LIBRE");
         }
     }//GEN-LAST:event_jlMesa17MouseClicked
 
@@ -1196,13 +1226,13 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
         // Actualiza el color de fondo
         if (mesaOcupada){
 
-            jlMesa18.setIcon(icoR); // Cambia el color al ocupado
-            Mesa mesa18= new Mesa();
-
+            jlMesa2.setIcon(icoR); // Cambia el color al ocupado
+//            Mesa mesa2= new Mesa();
+            md.modificarMesaEstado(18,"OCUPADO");    
         } else{
 
-            jlMesa18.setIcon(icoV); // Cambia el color al libre
-
+            jlMesa2.setIcon(icoV); // Cambia el color al libre
+            md.modificarMesaEstado(18, "LIBRE");
         }
     }//GEN-LAST:event_jlMesa18MouseClicked
 
@@ -1213,13 +1243,13 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
         // Actualiza el color de fondo
         if (mesaOcupada){
 
-            jlMesa19.setIcon(icoR); // Cambia el color al ocupado
-            Mesa mesaa19= new Mesa();
-
+            jlMesa2.setIcon(icoR); // Cambia el color al ocupado
+//            Mesa mesa2= new Mesa();
+            md.modificarMesaEstado(19,"OCUPADO");    
         } else{
 
-            jlMesa19.setIcon(icoV); // Cambia el color al libre
-
+            jlMesa2.setIcon(icoV); // Cambia el color al libre
+            md.modificarMesaEstado(19, "LIBRE");
         }
     }//GEN-LAST:event_jlMesa19MouseClicked
 
@@ -1227,16 +1257,15 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
 
               mesaOcupada = !mesaOcupada;
 
-        // Actualiza el color de fondo
         if (mesaOcupada){
 
-            jlMesa20.setIcon(icoR); // Cambia el color al ocupado
-            Mesa mesa20= new Mesa();
-
+            jlMesa2.setIcon(icoR); // Cambia el color al ocupado
+//            Mesa mesa2= new Mesa();
+            md.modificarMesaEstado(20,"OCUPADO");    
         } else{
 
-            jlMesa20.setIcon(icoV); // Cambia el color al libre
-
+            jlMesa2.setIcon(icoV); // Cambia el color al libre
+            md.modificarMesaEstado(20, "LIBRE");
         }
     }//GEN-LAST:event_jlMesa20MouseClicked
 
@@ -1247,13 +1276,13 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
         // Actualiza el color de fondo
         if (mesaOcupada){
 
-            jlMesa21.setIcon(icoR); // Cambia el color al ocupado
-            Mesa mesa21= new Mesa();
-
+            jlMesa2.setIcon(icoR); // Cambia el color al ocupado
+//            Mesa mesa2= new Mesa();
+            md.modificarMesaEstado(21,"OCUPADO");    
         } else{
 
-            jlMesa21.setIcon(icoV); // Cambia el color al libre
-
+            jlMesa2.setIcon(icoV); // Cambia el color al libre
+            md.modificarMesaEstado(21, "LIBRE");
         }
     }//GEN-LAST:event_jlMesa21MouseClicked
 
@@ -1264,13 +1293,13 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
         // Actualiza el color de fondo
         if (mesaOcupada){
 
-            jlMesa22.setIcon(icoR); // Cambia el color al ocupado
-            Mesa mesa22= new Mesa();
-
+            jlMesa2.setIcon(icoR); // Cambia el color al ocupado
+//            Mesa mesa2= new Mesa();
+            md.modificarMesaEstado(22,"OCUPADO");    
         } else{
 
-            jlMesa22.setIcon(icoV); // Cambia el color al libre
-
+            jlMesa2.setIcon(icoV); // Cambia el color al libre
+            md.modificarMesaEstado(22, "LIBRE");
         }
     }//GEN-LAST:event_jlMesa22MouseClicked
 
@@ -1281,13 +1310,13 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
         // Actualiza el color de fondo
         if (mesaOcupada){
 
-            jlMesa23.setIcon(icoR); // Cambia el color al ocupado
-            //Mesa mesa23= new Mesa();
-
+            jlMesa2.setIcon(icoR); // Cambia el color al ocupado
+//            Mesa mesa2= new Mesa();
+            md.modificarMesaEstado(23,"OCUPADO");    
         } else{
 
-            jlMesa23.setIcon(icoV); // Cambia el color al libre
-
+            jlMesa2.setIcon(icoV); // Cambia el color al libre
+            md.modificarMesaEstado(23, "LIBRE");
         }
     }//GEN-LAST:event_jlMesa23MouseClicked
 
@@ -1298,13 +1327,13 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
         // Actualiza el color de fondo
         if (mesaOcupada){
 
-            jlMesa24.setIcon(icoR); // Cambia el color al ocupado
-            Mesa mesa24= new Mesa();
-
+            jlMesa2.setIcon(icoR); // Cambia el color al ocupado
+//            Mesa mesa2= new Mesa();
+            md.modificarMesaEstado(24,"OCUPADO");    
         } else{
 
-            jlMesa24.setIcon(icoV); // Cambia el color al libre
-
+            jlMesa2.setIcon(icoV); // Cambia el color al libre
+            md.modificarMesaEstado(24, "LIBRE");
         }
     }//GEN-LAST:event_jlMesa24MouseClicked
 
@@ -1315,14 +1344,14 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
         // Actualiza el color de fondo
         if (mesaOcupada){
 
-            jlMesa25.setIcon(icoR); // Cambia el color al ocupado
-            Mesa mesa25= new Mesa();
-
+            jlMesa2.setIcon(icoR); // Cambia el color al ocupado
+//            Mesa mesa2= new Mesa();
+            md.modificarMesaEstado(25,"OCUPADO");    
         } else{
 
-            jlMesa25.setIcon(icoV); // Cambia el color al libre
-
-        }
+            jlMesa2.setIcon(icoV); // Cambia el color al libre
+            md.modificarMesaEstado(25, "LIBRE");
+        } 
     }//GEN-LAST:event_jlMesa25MouseClicked
 
     private void jlMesa26MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlMesa26MouseClicked
@@ -1332,14 +1361,14 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
         // Actualiza el color de fondo
         if (mesaOcupada){
 
-            jlMesa26.setIcon(icoR); // Cambia el color al ocupado
-            Mesa mesa26= new Mesa();
-
+            jlMesa2.setIcon(icoR); // Cambia el color al ocupado
+//            Mesa mesa2= new Mesa();
+            md.modificarMesaEstado(26,"OCUPADO");    
         } else{
 
-            jlMesa26.setIcon(icoV); // Cambia el color al libre
-
-        }
+            jlMesa2.setIcon(icoV); // Cambia el color al libre
+            md.modificarMesaEstado(26, "LIBRE");
+        } 
     }//GEN-LAST:event_jlMesa26MouseClicked
 
     private void jlMesa27MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlMesa27MouseClicked
@@ -1349,14 +1378,14 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
         // Actualiza el color de fondo
         if (mesaOcupada){
 
-            jlMesa27.setIcon(icoR); // Cambia el color al ocupado
-            Mesa mesa27= new Mesa();
-
+            jlMesa2.setIcon(icoR); // Cambia el color al ocupado
+//            Mesa mesa2= new Mesa();
+            md.modificarMesaEstado(27,"OCUPADO");    
         } else{
 
-            jlMesa27.setIcon(icoV); // Cambia el color al libre
-
-        }
+            jlMesa2.setIcon(icoV); // Cambia el color al libre
+            md.modificarMesaEstado(27, "LIBRE");
+        } 
     }//GEN-LAST:event_jlMesa27MouseClicked
 
     private void jlMesa28MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlMesa28MouseClicked
@@ -1366,14 +1395,14 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
         // Actualiza el color de fondo
         if (mesaOcupada){
 
-            jlMesa28.setIcon(icoR); // Cambia el color al ocupado
-            Mesa mesa28= new Mesa();
-
+            jlMesa2.setIcon(icoR); // Cambia el color al ocupado
+//            Mesa mesa2= new Mesa();
+            md.modificarMesaEstado(28,"OCUPADO");    
         } else{
 
-            jlMesa28.setIcon(icoV); // Cambia el color al libre
-
-        }
+            jlMesa2.setIcon(icoV); // Cambia el color al libre
+            md.modificarMesaEstado(28, "LIBRE");
+        } 
     }//GEN-LAST:event_jlMesa28MouseClicked
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
@@ -1420,8 +1449,10 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JButton jbAnular;
     private javax.swing.JButton jbBorrar;
     private javax.swing.JButton jbDescuento;
@@ -1458,7 +1489,9 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jlMesa7;
     private javax.swing.JLabel jlMesa8;
     private javax.swing.JLabel jlMesa9;
+    private javax.swing.JTextField jtBuscar;
     private javax.swing.JTextField jtMonto;
+    private javax.swing.JTable jtPedido;
     private javax.swing.JTable jtProductos;
     private javax.swing.JTextField jtTotal;
     private javax.swing.JButton n0;
@@ -1474,19 +1507,33 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
     private javax.swing.JPanel pProductos;
     // End of variables declaration//GEN-END:variables
 
-    private void armarCabecera(){
+    private void armarCabeceraPro(){
         modelo.addColumn("IdProducto");
         modelo.addColumn("Nombre");
-        modelo.addColumn("Feche y Hora");
+        modelo.addColumn("Fecha y Hora");
         modelo.addColumn("Cantidad");
         modelo.addColumn("Precio");
         jtProductos.setModel(modelo);
-        
-        
+          
     }
 
-    private void cargarLista(){
+   private void armarCabeceraPed(){
+        modelo.addColumn("IdPedido");
+        modelo.addColumn("Mesa");
+        modelo.addColumn("Mesero");
+        modelo.addColumn("Fecha y Hora");
+        modelo.addColumn("Importe");
+        modelo.addColumn("Cobrada");
+        modelo.addColumn("Estado");
+        jtProductos.setModel(modelo);
+          
+    }
+   
+    private void cargarListaPed(int id){
 
         }
-        
+    
+    private void cargarListaPro(){
+
+        }    
 }

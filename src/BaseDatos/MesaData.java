@@ -368,4 +368,29 @@ public class MesaData {
     return mesasNumero;
     
     }
+    public void modificarMesaEstado(int id, String estado){
+   
+        String sql = "UPDATE mesa SET estadoMesa = ? WHERE idMesa = ?";
+        
+        try {
+            
+            PreparedStatement ps= con.prepareStatement(sql);
+
+            ps.setString(1, estado);
+            ps.setInt(2, id);
+            
+            int exito= ps.executeUpdate();
+            
+            if (exito==1) {
+                
+//                JOptionPane.showMessageDialog(null, "Mesa Modificada");
+           
+            }
+            
+        } catch (SQLException ex) {
+            
+            JOptionPane.showMessageDialog(null,"Error al acceder a la tabla"+ex.getMessage());
+        
+        }
+    }
 }
