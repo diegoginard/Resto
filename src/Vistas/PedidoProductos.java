@@ -5,6 +5,10 @@ import BaseDatos.MesaData;
 import BaseDatos.PedidoData;
 import BaseDatos.ProductoData;
 import Entidades.Mesa;
+import Entidades.Pedido;
+import Entidades.PedidoProducto;
+import Entidades.Producto;
+import java.util.List;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -16,18 +20,24 @@ import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 public class PedidoProductos extends javax.swing.JInternalFrame {
+
     Icon icoR = new ImageIcon(getClass().getResource("/Recursos/mesa-rojo.png"));
     Icon icoV = new ImageIcon(getClass().getResource("/Recursos/mesa-verde.png"));
     Icon icoG = new ImageIcon(getClass().getResource("/Recursos/mesa-gris.png"));
     MesaData md = new MesaData();
     Mesa mes = new Mesa();
+    PedidoData pd = new PedidoData();
+
+    ProductoData productoD = new ProductoData();
+    PedidoData pedidoD = new PedidoData();
+
     private boolean mesaOcupada = false;
-    
-    
 
     public PedidoProductos() {
-        
+
         initComponents();
+        armarCabecera();
+        cargarLista();
         
     }
  
@@ -40,8 +50,6 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
         }
 
     };
-    ProductoData productoD = new ProductoData();
-    PedidoData  pedidoD=new PedidoData();
 
     public PedidoProductos(JLabel jLabel1, JLabel jLabel2, JLabel jLabel4, JScrollPane jScrollPane1, JButton jbAnular, JButton jbBorrar, JButton jbDescuento, JButton jbEfectivo, JButton jbMenos, JButton jbPunto, JButton jbSumar, JButton jbenter, JTextField jtMonto, JTable jtProductos, JTextField jtTotal, JButton n0, JButton n1, JButton n2, JButton n3, JButton n4, JButton n5, JButton n6, JButton n7, JButton n8, JButton n9, JPanel pProductos) {
         this.jLabel1 = jLabel1;
@@ -277,16 +285,12 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
         pProductosLayout.setHorizontalGroup(
             pProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pProductosLayout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(136, Short.MAX_VALUE)
                 .addGroup(pProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pProductosLayout.createSequentialGroup()
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(34, 34, 34)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addGroup(pProductosLayout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
-                        .addContainerGap())
+                        .addGap(56, 56, 56)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pProductosLayout.createSequentialGroup()
                         .addGroup(pProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(pProductosLayout.createSequentialGroup()
@@ -343,15 +347,17 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
                                         .addGap(18, 18, 18)
                                         .addComponent(jbenter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                         .addGap(76, 76, 76))))
+            .addComponent(jScrollPane1)
         );
         pProductosLayout.setVerticalGroup(
             pProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pProductosLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(pProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pProductosLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(37, 37, 37)
+                .addGap(43, 43, 43)
                 .addGroup(pProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jLabel2))
@@ -750,10 +756,13 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
                         .addComponent(jlMesa28, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(188, 188, 188)
                 .addComponent(pProductos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(0, 0, 0))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(pProductos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 25, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -802,9 +811,6 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
                     .addComponent(jlMesa27, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jlMesa28, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(pProductos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -1391,4 +1397,20 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
     private javax.swing.JButton n9;
     private javax.swing.JPanel pProductos;
     // End of variables declaration//GEN-END:variables
+
+    private void armarCabecera(){
+        modelo.addColumn("IdProducto");
+        modelo.addColumn("Nombre");
+        modelo.addColumn("Feche y Hora");
+        modelo.addColumn("Cantidad");
+        modelo.addColumn("Precio");
+        jtProductos.setModel(modelo);
+        
+        
+    }
+
+    private void cargarLista(){
+
+        }
+        
 }
