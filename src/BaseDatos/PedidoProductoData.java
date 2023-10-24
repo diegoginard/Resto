@@ -49,7 +49,6 @@ public class PedidoProductoData {
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla " + ex.getMessage());
 
         }
-
     }
 
 }
