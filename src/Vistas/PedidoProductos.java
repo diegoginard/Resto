@@ -842,7 +842,7 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
 
         } else{
 
-            jlMesa1.setIcon(icoG); // Cambia el color al libre
+            jlMesa1.setIcon(icoV); // Cambia el color al libre
 
         }
     }//GEN-LAST:event_jlMesa1MouseClicked
@@ -858,7 +858,7 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
 
         } else{
 
-            jlMesa2.setIcon(icoG); // Cambia el color al libre
+            jlMesa2.setIcon(icoV); // Cambia el color al libre
 
         }    }//GEN-LAST:event_jlMesa2MouseClicked
 
@@ -874,7 +874,7 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
 
         } else{
 
-            jlMesa3.setIcon(icoG); // Cambia el color al libre
+            jlMesa3.setIcon(icoV); // Cambia el color al libre
 
         }
 
@@ -893,7 +893,7 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
 
         } else{
 
-            jlMesa4.setIcon(icoG); // Cambia el color al libre
+            jlMesa4.setIcon(icoV); // Cambia el color al libre
 
         }
 
@@ -912,7 +912,7 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
 
         } else{
 
-            jlMesa5.setIcon(icoG); // Cambia el color al libre
+            jlMesa5.setIcon(icoV); // Cambia el color al libre
 
         }
     }//GEN-LAST:event_jlMesa5MouseClicked
@@ -929,7 +929,7 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
 
         } else{
 
-            jlMesa6.setIcon(icoG); // Cambia el color al libre
+            jlMesa6.setIcon(icoV); // Cambia el color al libre
 
         }
 
@@ -947,7 +947,7 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
 
         } else{
 
-            jlMesa7.setIcon(icoG); // Cambia el color al libre
+            jlMesa7.setIcon(icoV); // Cambia el color al libre
 
         }
     }//GEN-LAST:event_jlMesa7MouseClicked
@@ -964,7 +964,7 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
 
         } else{
 
-            jlMesa8.setIcon(icoG); // Cambia el color al libre
+            jlMesa8.setIcon(icoV); // Cambia el color al libre
 
         }
     }//GEN-LAST:event_jlMesa8MouseClicked
@@ -981,7 +981,7 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
 
         } else{
 
-            jlMesa9.setIcon(icoG); // Cambia el color al libre
+            jlMesa9.setIcon(icoV); // Cambia el color al libre
 
         }
     }//GEN-LAST:event_jlMesa9MouseClicked
@@ -998,7 +998,7 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
 
         } else{
 
-            jlMesa10.setIcon(icoG); // Cambia el color al libre
+            jlMesa10.setIcon(icoV); // Cambia el color al libre
 
         }
     }//GEN-LAST:event_jlMesa10MouseClicked
@@ -1015,7 +1015,7 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
 
         } else{
 
-            jlMesa11.setIcon(icoG); // Cambia el color al libre
+            jlMesa11.setIcon(icoV); // Cambia el color al libre
 
         }
     }//GEN-LAST:event_jlMesa11MouseClicked
@@ -1032,7 +1032,7 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
 
         } else{
 
-            jlMesa12.setIcon(icoG); // Cambia el color al libre
+            jlMesa12.setIcon(icoV); // Cambia el color al libre
 
         }
     }//GEN-LAST:event_jlMesa12MouseClicked
@@ -1049,7 +1049,7 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
 
         } else{
 
-            jlMesa13.setIcon(icoG); // Cambia el color al libre
+            jlMesa13.setIcon(icoV); // Cambia el color al libre
 
         }
     }//GEN-LAST:event_jlMesa13MouseClicked
@@ -1066,7 +1066,7 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
 
         } else{
 
-            jlMesa14.setIcon(icoG); // Cambia el color al libre
+            jlMesa14.setIcon(icoV); // Cambia el color al libre
 
         }
     }//GEN-LAST:event_jlMesa14MouseClicked
@@ -1083,7 +1083,7 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
 
         } else{
 
-            jlMesa15.setIcon(icoG); // Cambia el color al libre
+            jlMesa15.setIcon(icoV); // Cambia el color al libre
 
         }
     }//GEN-LAST:event_jlMesa15MouseClicked
@@ -1100,7 +1100,7 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
 
         } else{
 
-            jlMesa16.setIcon(icoG); // Cambia el color al libre
+            jlMesa16.setIcon(icoV); // Cambia el color al libre
 
         }
     }//GEN-LAST:event_jlMesa16MouseClicked
@@ -1117,7 +1117,7 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
 
         } else{
 
-            jlMesa17.setIcon(icoG); // Cambia el color al libre
+            jlMesa17.setIcon(icoV); // Cambia el color al libre
 
         }
     }//GEN-LAST:event_jlMesa17MouseClicked
@@ -1134,7 +1134,7 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
 
         } else{
 
-            jlMesa18.setIcon(icoG); // Cambia el color al libre
+            jlMesa18.setIcon(icoV); // Cambia el color al libre
 
         }
     }//GEN-LAST:event_jlMesa18MouseClicked
@@ -1151,7 +1151,7 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
 
         } else{
 
-            jlMesa19.setIcon(icoG); // Cambia el color al libre
+            jlMesa19.setIcon(icoV); // Cambia el color al libre
 
         }
     }//GEN-LAST:event_jlMesa19MouseClicked
@@ -1168,7 +1168,7 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
 
         } else{
 
-            jlMesa20.setIcon(icoG); // Cambia el color al libre
+            jlMesa20.setIcon(icoV); // Cambia el color al libre
 
         }
     }//GEN-LAST:event_jlMesa20MouseClicked
@@ -1185,7 +1185,7 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
 
         } else{
 
-            jlMesa21.setIcon(icoG); // Cambia el color al libre
+            jlMesa21.setIcon(icoV); // Cambia el color al libre
 
         }
     }//GEN-LAST:event_jlMesa21MouseClicked
@@ -1202,7 +1202,7 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
 
         } else{
 
-            jlMesa22.setIcon(icoG); // Cambia el color al libre
+            jlMesa22.setIcon(icoV); // Cambia el color al libre
 
         }
     }//GEN-LAST:event_jlMesa22MouseClicked
@@ -1215,11 +1215,11 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
         if (mesaOcupada){
 
             jlMesa23.setIcon(icoR); // Cambia el color al ocupado
-            Mesa mesa23= new Mesa();
+            //Mesa mesa23= new Mesa();
 
         } else{
 
-            jlMesa23.setIcon(icoG); // Cambia el color al libre
+            jlMesa23.setIcon(icoV); // Cambia el color al libre
 
         }
     }//GEN-LAST:event_jlMesa23MouseClicked
@@ -1236,7 +1236,7 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
 
         } else{
 
-            jlMesa24.setIcon(icoG); // Cambia el color al libre
+            jlMesa24.setIcon(icoV); // Cambia el color al libre
 
         }
     }//GEN-LAST:event_jlMesa24MouseClicked
@@ -1253,7 +1253,7 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
 
         } else{
 
-            jlMesa25.setIcon(icoG); // Cambia el color al libre
+            jlMesa25.setIcon(icoV); // Cambia el color al libre
 
         }
     }//GEN-LAST:event_jlMesa25MouseClicked
@@ -1270,7 +1270,7 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
 
         } else{
 
-            jlMesa26.setIcon(icoG); // Cambia el color al libre
+            jlMesa26.setIcon(icoV); // Cambia el color al libre
 
         }
     }//GEN-LAST:event_jlMesa26MouseClicked
@@ -1287,7 +1287,7 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
 
         } else{
 
-            jlMesa27.setIcon(icoG); // Cambia el color al libre
+            jlMesa27.setIcon(icoV); // Cambia el color al libre
 
         }
     }//GEN-LAST:event_jlMesa27MouseClicked
@@ -1304,7 +1304,7 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
 
         } else{
 
-            jlMesa28.setIcon(icoG); // Cambia el color al libre
+            jlMesa28.setIcon(icoV); // Cambia el color al libre
 
         }
     }//GEN-LAST:event_jlMesa28MouseClicked
