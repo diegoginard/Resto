@@ -200,10 +200,10 @@ public class AdministraMesas extends javax.swing.JInternalFrame {
         jLabel7.setText("Bucar");
         escritorio.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 270, -1, -1));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        escritorio.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 270, -1, -1));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "...........", "idMesa", "Numero", "EstadoMesa", "Cantidad", "Activo", " " }));
+        escritorio.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 270, -1, -1));
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "LIBRE", "OCUPADO ", "PENDIENTE" }));
         escritorio.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 270, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
