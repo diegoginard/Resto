@@ -33,6 +33,12 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
 
     private boolean mesaOcupada = false;
 
+    
+    
+    
+    double num1, num2;
+    String signo;
+    
     public PedidoProductos() {
 
         initComponents();
@@ -320,7 +326,7 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
         pProductosLayout.setHorizontalGroup(
             pProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pProductosLayout.createSequentialGroup()
-                .addContainerGap(136, Short.MAX_VALUE)
+                .addContainerGap(133, Short.MAX_VALUE)
                 .addGroup(pProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pProductosLayout.createSequentialGroup()
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -426,18 +432,18 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
                             .addComponent(n6))))
                 .addGroup(pProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pProductosLayout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addGroup(pProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(pProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(n7)
-                                .addComponent(n8)
-                                .addComponent(n9))
-                            .addComponent(jbenter, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(pProductosLayout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addGroup(pProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jbEfectivo, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                            .addComponent(jbDescuento, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jbDescuento, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(pProductosLayout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addGroup(pProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jbenter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(pProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(n7)
+                                .addComponent(n8)
+                                .addComponent(n9)))))
                 .addGap(30, 30, 30)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 287, Short.MAX_VALUE)
                 .addContainerGap())
@@ -892,6 +898,9 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
 
     private void jbDescuentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbDescuentoActionPerformed
 
+        num1=Double.parseDouble(jtMonto.getText());
+        signo= "%";
+        jtMonto.setText("");
     }//GEN-LAST:event_jbDescuentoActionPerformed
 
     private void jbEfectivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEfectivoActionPerformed
