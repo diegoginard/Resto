@@ -9,6 +9,7 @@ import Entidades.Pedido;
 import Entidades.PedidoProducto;
 import Entidades.Producto;
 import java.time.LocalDateTime;
+import static java.time.LocalDateTime.now;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import javax.swing.Icon;
@@ -20,6 +21,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
+
 
 public class PedidoProductos extends javax.swing.JInternalFrame {
 
@@ -430,7 +432,7 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
 
         jLabel3.setText("Pedidos x Mesa");
 
-        jLabel5.setText("Prductos x Pedido");
+        jLabel5.setText("Productos x Pedido");
 
         jLabel1.setText("Mesero");
 
@@ -564,11 +566,11 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
                                 .addComponent(jlMesa20, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(106, 106, 106)
-                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(106, 106, 106)
+                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(129, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -671,9 +673,12 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jlMesa1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlMesa1MouseClicked
-     
+        pd.listarPedidosMesa(1)
         jtNmesa.setText(1+"");
-        jtFechaHora.setText(LocalDateTime.now()+"");
+        LocalDateTime now = LocalDateTime.now();
+        String formattedDateTime = now.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+        jtFechaHora.setText(formattedDateTime);
+        
     }//GEN-LAST:event_jlMesa1MouseClicked
 
     private void jlMesa2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlMesa2MouseClicked
@@ -1149,11 +1154,13 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
         Mesa mesa = new Mesa();
         MesaData md = new MesaData();
         ped.setNombreMesero(jtMesero.getText());
-        DateTimeFormatter formato = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-        ped.setFechaHora(LocalDateTime.parse(jtFechaHora.getText(),formato));
+        String text = jtFechaHora.getText();
+        LocalDateTime dateTime = LocalDateTime.parse(text, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+        ped.setFechaHora(dateTime);
         mesa = md.ObtenerMesasId(Integer.parseInt(jtNmesa.getText()));
         ped.setMesa(mesa);
         ped.setEstado(jcEstadoPedido.getSelectedItem()+"");
+        pd.guardarPedido(ped);
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
@@ -1210,7 +1217,7 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
     // End of variables declaration//GEN-END:variables
 
     private void armarCabeceraPed(){
-        modelo.addColumn("IdProducto");
+        modelo.addColumn("IdPedido");
         modelo.addColumn("Nombre");
         modelo.addColumn("Fecha y Hora");
         modelo.addColumn("Cantidad");
@@ -1229,7 +1236,14 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
     
     }
 
-    private void cargarLista(){
+    private void cargarPedido(int id){
+   List<Pedido> pedido = pd.listarPedidosMesa(id);
+        modelo.setRowCount(0);
+
+        for (Pedido ped : pedido) {
+
+            modelo.addRow(new Object[]{ped.getIdPedido(),
+                ped.mesero(), ped.getPrecio(),ped.getStock(),ped.isEstado(), pro.getCategoria()});
 
         }
         
