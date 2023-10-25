@@ -21,16 +21,17 @@ public class PedidoData {
         
     public void guardarPedido(Pedido ped) {
 
-        String sql = "INSERT INTO pedido (nombreMesero , fechaHora , cobrada , estado) VALUES (?,?,?,?)";
+        String sql = "INSERT INTO pedido (nombreMesero, IdMesa, fechaHora , cobrada , estado) VALUES (?,?,?,?,?)";
 
         try {
 
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
             ps.setString(1, ped.getNombreMesero());
-            ps.setTimestamp(2, Timestamp.valueOf(ped.getFechaHora()));
-            ps.setBoolean(4, ped.isCobrada());
-            ps.setString(5, ped.getEstado());
+            ps.setInt(2,ped.getMesa().getIdMesa());
+            ps.setTimestamp(3, Timestamp.valueOf(ped.getFechaHora()));
+            ps.setBoolean(4, false);
+            ps.setString(5, "PENDIENTE");
             ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
 
