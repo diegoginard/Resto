@@ -203,7 +203,7 @@ public class AdministraMesas extends javax.swing.JInternalFrame {
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "...........", "idMesa", "Numero", "EstadoMesa", "Cantidad", "Activo", " " }));
         escritorio.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 270, -1, -1));
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "LIBRE", "OCUPADO ", "PENDIENTE" }));
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "LIBRE", "OCUPADO ", " " }));
         escritorio.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 270, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

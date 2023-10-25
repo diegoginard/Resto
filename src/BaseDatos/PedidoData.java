@@ -21,18 +21,17 @@ public class PedidoData {
         
     public void guardarPedido(Pedido ped) {
 
-        String sql = "INSERT INTO pedido (idMesa , nombreMesero , fechaHora , importe , cobrada , estado) VALUES (?,?,?,?,?,?)";
+        String sql = "INSERT INTO pedido (nombreMesero , fechaHora , importe , cobrada , estado) VALUES (?,?,?,?,?)";
 
         try {
 
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
-            ps.setInt(1, ped.getMesa().getIdMesa());
-            ps.setString(2, ped.getNombreMesero());
-            ps.setTimestamp(3, Timestamp.valueOf(ped.getFechaHora()));
-            ps.setDouble(4, ped.getImporte());
-            ps.setBoolean(5, ped.isCobrada());
-            ps.setString(6, ped.getEstado());
+            ps.setString(1, ped.getNombreMesero());
+            ps.setTimestamp(2, Timestamp.valueOf(ped.getFechaHora()));
+            ps.setDouble(3, ped.getImporte());
+            ps.setBoolean(4, ped.isCobrada());
+            ps.setString(5, ped.getEstado());
             ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
 
@@ -138,4 +137,40 @@ public class PedidoData {
     
     }
     
+    public List<Pedido> listarPedidosMesa(int id){
+        
+        List<Pedido> Pedidos = new ArrayList<>();
+    
+        try {
+            
+            String sql = "SELECT * FROM Pedido WHERE idMesa = ?";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1,id);
+            ResultSet rs = ps.executeQuery();
+          
+            while (rs.next()) {
+                Pedido ped = new Pedido();
+                ped.setIdPedido(rs.getInt("idPedido"));
+                mesa = md.ObtenerMesasId(rs.getInt("idMesa"));
+                ped.setMesa(mesa);
+                ped.setNombreMesero(rs.getString("nombreMesero"));
+                ped.setFechaHora(rs.getTimestamp("fechaHora").toLocalDateTime());
+                ped.setImporte(rs.getDouble("importe"));
+                ped.setCobrada(rs.getBoolean("cobrada"));
+                ped.setEstado(rs.getString("estado"));
+                Pedidos.add(ped);
+            
+            }
+            
+            ps.close();
+
+        }catch (SQLException ex) {
+
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla pedidos" + ex.getMessage());
+
+        }
+
+        return Pedidos;
+    
+    }
 }

@@ -11,7 +11,8 @@ public class MesaData {
     
     private Connection con = null;
     private Mesa mesa = new Mesa();
-     public MesaData(){
+    
+    public MesaData(){  
         
         con = Conexion.getConexion();
         
@@ -151,7 +152,7 @@ public class MesaData {
             ResultSet rs = ps.executeQuery();
             
             while (rs.next()) {
-                Mesa mesa = new Mesa();
+                
                 mesa.setIdMesa(rs.getInt("idMesa"));
                 mesa.setNumero(rs.getInt("numero"));
                 mesa.setEstadoMesa(rs.getString("estadoMesa"));
@@ -368,8 +369,9 @@ public class MesaData {
     return mesasNumero;
     
     }
+    
     public void modificarMesaEstado(int id, String estado){
-   
+        
         String sql = "UPDATE mesa SET estadoMesa = ? WHERE idMesa = ?";
         
         try {
