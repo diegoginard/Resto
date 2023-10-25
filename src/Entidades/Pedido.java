@@ -24,6 +24,7 @@ public class Pedido {
         this.nombreMesero = nombreMesero;
         this.fechaHora = fechaHora;
         this.cobrada = cobrada;
+        
         this.estado = estado;
     }
 

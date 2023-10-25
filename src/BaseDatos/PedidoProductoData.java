@@ -21,7 +21,7 @@ public class PedidoProductoData {
 
     public void crearPedProd(PedidoProducto pedprod) {
 
-        String sql = "INSERT INTO pedidoproducto(idPedido, idProducto, cantidad, estado) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO pedidoproducto(idPedido, idProducto, cantidad, importe, estado) VALUES (?, ?, ?, ?, ?)";
 
         try {
 
@@ -30,7 +30,8 @@ public class PedidoProductoData {
             ps.setInt(1, pedpro.getPedido().getIdPedido());
             ps.setInt(2, pedpro.getProducto().getIdProducto());
             ps.setInt(3, pedpro.getCantidad());
-            ps.setBoolean(4,true);
+            ps.setDouble(4, pedpro.getImporte());
+            ps.setBoolean(5,true);
             ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
 

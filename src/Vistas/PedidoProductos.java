@@ -673,7 +673,9 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jlMesa1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlMesa1MouseClicked
-        pd.listarPedidosMesa(1)
+        
+        modelo.setRowCount(0);
+        cargarPedido(1);
         jtNmesa.setText(1+"");
         LocalDateTime now = LocalDateTime.now();
         String formattedDateTime = now.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
@@ -1220,7 +1222,8 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
         modelo.addColumn("IdPedido");
         modelo.addColumn("Nombre");
         modelo.addColumn("Fecha y Hora");
-        modelo.addColumn("Cantidad");
+        modelo.addColumn("Cobrada");
+        modelo.addColumn("Estado");
         jtPedidos.setModel(modelo);
     
     }
@@ -1237,14 +1240,16 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
     }
 
     private void cargarPedido(int id){
-   List<Pedido> pedido = pd.listarPedidosMesa(id);
+        
+    List<Pedido> pedido = pd.listarPedidosMesa(id);
+    
         modelo.setRowCount(0);
 
         for (Pedido ped : pedido) {
 
             modelo.addRow(new Object[]{ped.getIdPedido(),
-                ped.mesero(), ped.getPrecio(),ped.getStock(),ped.isEstado(), pro.getCategoria()});
+                ped.getNombreMesero(), ped.getFechaHora(),ped.isCobrada(), ped.getEstado()});
 
-        }
-        
+        }   
+    }
 }
