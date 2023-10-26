@@ -6,23 +6,26 @@ public class PedidoProducto {
     private Pedido pedido;
     private Producto producto;
     private int cantidad;
+    private Double importe;
     private Boolean estado;
 
     public PedidoProducto() {
     }
 
-    public PedidoProducto(int idPedidoProducto, Pedido pedido, Producto producto, int cantidad, Boolean estado) {
+    public PedidoProducto(int idPedidoProducto, Pedido pedido, Producto producto, int cantidad, Double importe, Boolean estado) {
         this.idPedidoProducto = idPedidoProducto;
         this.pedido = pedido;
         this.producto = producto;
         this.cantidad = cantidad;
+        this.importe = importe;
         this.estado = estado;
     }
 
-    public PedidoProducto(Pedido pedido, Producto producto, int cantidad, Boolean estado) {
+    public PedidoProducto(Pedido pedido, Producto producto, int cantidad, Double importe, Boolean estado) {
         this.pedido = pedido;
         this.producto = producto;
         this.cantidad = cantidad;
+        this.importe = importe;
         this.estado = estado;
     }
 
@@ -58,6 +61,14 @@ public class PedidoProducto {
         this.cantidad = cantidad;
     }
 
+    public Double getImporte() {
+        return importe;
+    }
+
+    public void setImporte(Double importe) {
+        this.importe = importe;
+    }
+
     public Boolean getEstado() {
         return estado;
     }
@@ -68,7 +79,6 @@ public class PedidoProducto {
 
     @Override
     public String toString() {
-        return "PedidoProducto{" + "idPedidoProducto=" + idPedidoProducto + ", pedido=" + pedido + ", producto=" + producto + ", cantidad=" + cantidad + ", estado=" + estado + '}';
+        return "PedidoProducto{" + "idPedidoProducto=" + idPedidoProducto + ", pedido=" + pedido + ", producto=" + producto + ", cantidad=" + cantidad + ", importe=" + importe + ", estado=" + estado + '}';
     }
-
 }

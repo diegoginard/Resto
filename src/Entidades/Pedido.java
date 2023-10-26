@@ -8,7 +8,6 @@ public class Pedido {
     private Mesa mesa;
     private String nombreMesero;
     private LocalDateTime fechaHora;
-    private double importe;
     private boolean cobrada;
     private String estado;
 
@@ -19,21 +18,20 @@ public class Pedido {
         this.mesa = mesa;
     }
 
-    public Pedido(int idPedido, Mesa mesa, String nombreMesero, LocalDateTime fechaHora, double importe, boolean cobrada, String estado) {
+    public Pedido(int idPedido, Mesa mesa, String nombreMesero, LocalDateTime fechaHora, boolean cobrada, String estado) {
         this.idPedido = idPedido;
         this.mesa = mesa;
         this.nombreMesero = nombreMesero;
         this.fechaHora = fechaHora;
-        this.importe = importe;
         this.cobrada = cobrada;
+        
         this.estado = estado;
     }
 
-    public Pedido(Mesa mesa, String nombreMesero, LocalDateTime fechaHora, double importe, boolean cobrada, String estado) {
+    public Pedido(Mesa mesa, String nombreMesero, LocalDateTime fechaHora, boolean cobrada, String estado) {
         this.mesa = mesa;
         this.nombreMesero = nombreMesero;
         this.fechaHora = fechaHora;
-        this.importe = importe;
         this.cobrada = cobrada;
         this.estado = estado;
     }
@@ -70,14 +68,6 @@ public class Pedido {
         this.fechaHora = fechaHora;
     }
 
-    public double getImporte() {
-        return importe;
-    }
-
-    public void setImporte(double importe) {
-        this.importe = importe;
-    }
-
     public boolean isCobrada() {
         return cobrada;
     }
@@ -96,6 +86,6 @@ public class Pedido {
 
     @Override
     public String toString() {
-        return "Pedido{" + "idPedido=" + idPedido + ", mesa=" + mesa + ", nombreMesero=" + nombreMesero + ", fechaHora=" + fechaHora + ", importe=" + importe + ", cobrada=" + cobrada + ", estado=" + estado + '}';
+        return "Pedido{" + "idPedido=" + idPedido + ", mesa=" + mesa + ", nombreMesero=" + nombreMesero + ", fechaHora=" + fechaHora + ", cobrada=" + cobrada + ", estado=" + estado + '}';
     }
 }
