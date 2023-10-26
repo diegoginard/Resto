@@ -170,5 +170,32 @@ public class PedidoData {
         return Pedidos;
     
     }
+    public void modificarEstadoPedido(Pedido pe){
+        
+        String sql = "UPDATE pedido SET  nombreMesero = ? , "
+                + " cobrada = ? , estado = ? WHERE idPedido = ?";
+        
+        try {
+            
+            PreparedStatement ps= con.prepareStatement(sql);
+
+            ps.setString(1, pe.getNombreMesero());
+            ps.setBoolean(2, pe.isCobrada());
+            ps.setString(3, pe.getEstado());
+            ps.setInt(4,pe.getIdPedido());
+            int exito= ps.executeUpdate();
+            
+            if (exito==1) {
+                
+                JOptionPane.showMessageDialog(null, "Pedido Modificado");
+           
+            }
+            
+        } catch (SQLException ex) {
+            
+            JOptionPane.showMessageDialog(null,"Error al acceder a la tabla Pedido"+ex.getMessage());
+        
+        }
+    }
     
 }

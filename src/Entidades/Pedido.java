@@ -14,6 +14,13 @@ public class Pedido {
     public Pedido() {
     }
 
+    public Pedido(int idPedido, String nombreMesero, boolean cobrada, String estado) {
+        this.idPedido = idPedido;
+        this.nombreMesero = nombreMesero;
+        this.cobrada = cobrada;
+        this.estado = estado;
+    }
+
     public Pedido(Mesa mesa) {
         this.mesa = mesa;
     }

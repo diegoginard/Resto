@@ -31,12 +31,13 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
     Icon icoR = new ImageIcon(getClass().getResource("/Recursos/mesa-rojo.png"));
     Icon icoV = new ImageIcon(getClass().getResource("/Recursos/mesa-verde.png"));
     Icon icoG = new ImageIcon(getClass().getResource("/Recursos/mesa-gris.png"));
-    MesaData md = new MesaData();
-    Mesa mes = new Mesa();
+    Pedido ped = new Pedido();
     PedidoData pd = new PedidoData();
+    Mesa mesa = new Mesa();
+    MesaData md = new MesaData();
 
-    ProductoData productoD = new ProductoData();
-    PedidoData pedidoD = new PedidoData();
+//    ProductoData productoD = new ProductoData();
+//    PedidoData pedidoD = new PedidoData();
 
     private boolean mesaOcupada = false;
   
@@ -451,7 +452,12 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
 
         jLabel6.setText("Estado pedido");
 
-        jcEstadoPedido.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "PENDIENTE", "ENTREGADO", "CANCELA" }));
+        jcEstadoPedido.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "PENDIENTE", "ENTREGADO", "CANCELADO" }));
+        jcEstadoPedido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcEstadoPedidoActionPerformed(evt);
+            }
+        });
 
         jLabel7.setText("Cobrada");
 
@@ -1195,10 +1201,7 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
 
     private void jbCrearPedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCrearPedActionPerformed
 
-        Pedido ped = new Pedido();
-        PedidoData pd = new PedidoData();
-        Mesa mesa = new Mesa();
-        MesaData md = new MesaData();
+  
         ped.setNombreMesero(jcMesero.getSelectedItem()+"");
         String text = jtFechaHora.getText();
         LocalDateTime dateTime = LocalDateTime.parse(text, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
@@ -1223,14 +1226,28 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jbBorrarActionPerformed
 
     private void jbModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbModificarActionPerformed
-        // TODO add your handling code here:
+        
+        int id =Integer.parseInt(jtNmesa.getText());
+        ped.setIdPedido(Integer.parseInt(jtID.getText()));
+        ped.setNombreMesero(jcMesero.getSelectedItem()+"");
+        ped.setCobrada(jrCobrada.isSelected());
+        ped.setEstado(jcEstadoPedido.getSelectedItem()+"");
+        pd.modificarEstadoPedido(ped);
+        cargarPedido(id);
     }//GEN-LAST:event_jbModificarActionPerformed
 
     private void jtPedidosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtPedidosMouseClicked
       
       int fila = jtPedidos.getSelectedRow();
       jtID.setText(jtPedidos.getValueAt(fila, 0)+"");
+      jcMesero.setSelectedItem(jtPedidos.getValueAt(fila,2 ));
+      jrCobrada.setSelected((boolean)jtPedidos.getValueAt(fila,4));
+      jcEstadoPedido.setSelectedItem(jtPedidos.getValueAt(fila, 5));
     }//GEN-LAST:event_jtPedidosMouseClicked
+
+    private void jcEstadoPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcEstadoPedidoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jcEstadoPedidoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
