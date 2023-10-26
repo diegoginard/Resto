@@ -259,18 +259,7 @@ public class AdministraMenus extends JInternalFrame {
         produ.setPrecio(Double.parseDouble(jtPrecio.getText()));
         produ.setStock(Integer.parseInt(jtStock.getText()));
         produ.setEstado(jrEstado.isSelected());
-        int categ = jcCategoria.getSelectedIndex();
-        switch (categ) {
-            case 1:
-                produ.setCategoria("COMIDA");
-                break;
-            case 2:
-                produ.setCategoria("BEBIDA");
-                break;
-            case 3:
-                produ.setCategoria("POSTRE");
-                break;
-        }
+        produ.setCategoria(jcCategoria.getSelectedItem()+"");
 
         pd.ModificarProducto(produ);
         cargarLista();
@@ -397,32 +386,18 @@ public class AdministraMenus extends JInternalFrame {
         
         try {
             
-            String cate = "";
-            String nombre = jtNombre.getText();
-            Double precio = Double.valueOf(jtPrecio.getText());
-            int stock = Integer.parseInt(jtStock.getText());
+            produ.setNombre(jtNombre.getText());
+            produ.setPrecio(Double.parseDouble(jtPrecio.getText()));
+            produ.setStock(Integer.parseInt(jtStock.getText()));
+ 
             int categ = jcCategoria.getSelectedIndex();
             if (categ == 0){
             
                  JOptionPane.showMessageDialog(rootPane, "Seleccione una categoria");
                  
             }else{
-                    
-                switch (categ) {
-                case 1:
-                    cate = "COMIDA";
-                    break;
-                case 2:
-                    cate = "BEBIDA";
-                    break;
-                case 3:
-                    cate = "POSTRE";
-                    break;
-                    
-                }   
-                
-                Producto pro = new Producto(nombre, precio, stock, cate);
-                pd.guardarProducto(pro);
+                produ.setCategoria(jcCategoria.getSelectedItem()+"");
+                pd.guardarProducto(produ);
                 cargarLista();
             }
 
@@ -465,31 +440,18 @@ public class AdministraMenus extends JInternalFrame {
 
     private void jtListaMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtListaMenuMouseClicked
         
+        int fila = jtListaMenu.getSelectedRow();
+        
         jbBorrar.setEnabled(true);
         jbModificar.setEnabled(true);
         jbCrear.setEnabled(false);
-        int fila = jtListaMenu.getSelectedRow();
         jtId.setText(jtListaMenu.getValueAt(fila, 0)+"");
         jtNombre.setText(jtListaMenu.getValueAt(fila, 1)+"");
         jtPrecio.setText(jtListaMenu.getValueAt(fila, 2)+"");
         jtStock.setText(jtListaMenu.getValueAt(fila, 3)+"");
         jrEstado.setSelected((boolean) jtListaMenu.getValueAt(fila, 4));
-        String categ = jtListaMenu.getValueAt(fila, 5)+"";
-        
-            switch (categ) {
-                
-                case "COMIDA":
-                        jcCategoria.setSelectedIndex(1);
-                    break;
-                    
-                case "BEBIDA":
-                        jcCategoria.setSelectedIndex(2);
-                    break;
-                    
-                case "POSTRE":
-                        jcCategoria.setSelectedIndex(3);
-                    break;
-        }      
+        jcCategoria.setSelectedItem(jtListaMenu.getValueAt(fila, 5)+"");
+            
     }//GEN-LAST:event_jtListaMenuMouseClicked
 
     private void jbLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbLimpiarActionPerformed
@@ -660,19 +622,19 @@ public class AdministraMenus extends JInternalFrame {
         }
     }
     
-    private void soloLetras(KeyEvent evt) {
-        
-        char validar = evt.getKeyChar();
-
-        if (Character.isDigit(validar)) {
-
-            getToolkit().beep();
-            evt.consume();
-
-            JOptionPane.showMessageDialog(rootPane, "Ingrese solo letras");
-
-        }
-    }
+//    private void soloLetras(KeyEvent evt) {
+//        
+//        char validar = evt.getKeyChar();
+//
+//        if (Character.isDigit(validar)) {
+//
+//            getToolkit().beep();
+//            evt.consume();
+//
+//            JOptionPane.showMessageDialog(rootPane, "Ingrese solo letras");
+//
+//        }
+//    }
     
     private void limpiar(){
     
