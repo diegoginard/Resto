@@ -21,7 +21,7 @@ public class PedidoData {
         
     public void guardarPedido(Pedido ped) {
 
-        String sql = "INSERT INTO pedido (nombreMesero, IdMesa, fechaHora , cobrada , estado) VALUES (?,?,?,?,?)";
+        String sql = "INSERT INTO pedido (nombreMesero, IdMesa, fechaHora , cobrada , importe, estado) VALUES (?,?,?,?,?,?)";
 
         try {
 
@@ -31,7 +31,8 @@ public class PedidoData {
             ps.setInt(2,ped.getMesa().getIdMesa());
             ps.setTimestamp(3, Timestamp.valueOf(ped.getFechaHora()));
             ps.setBoolean(4, false);
-            ps.setString(5, "PENDIENTE");
+            ps.setDouble(5, ped.getImporte());
+            ps.setString(6, "PENDIENTE");
             ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
 
@@ -72,7 +73,7 @@ public class PedidoData {
     public void modificarPedido(Pedido pe){
         
         String sql = "UPDATE pedido SET idPedido = ? , idMesa = ? , nombreMesero = ? , "
-                + "fechaHora = ? , cobrada = ? , estado = ? WHERE idPedido = ?";
+                + "fechaHora = ? , cobrada = ? , importe = ? , estado = ? WHERE idPedido = ?";
         
         try {
             
@@ -83,8 +84,9 @@ public class PedidoData {
             ps.setString(3, pe.getNombreMesero());
             ps.setTimestamp(4,Timestamp.valueOf(pe.getFechaHora()));
             ps.setBoolean(5, pe.isCobrada());
-            ps.setString(6, pe.getEstado());
-            ps.setInt(7,pe.getIdPedido());
+            ps.setDouble(6, pe.getImporte());
+            ps.setString(7, pe.getEstado());
+            ps.setInt(8,pe.getIdPedido());
             int exito= ps.executeUpdate();
             
             if (exito==1) {
@@ -118,6 +120,7 @@ public class PedidoData {
                 ped.setNombreMesero(rs.getString("nombreMesero"));
                 ped.setFechaHora(rs.getTimestamp("fechaHora").toLocalDateTime());
                 ped.setCobrada(rs.getBoolean("cobrada"));
+                ped.setImporte(rs.getDouble("importe"));
                 ped.setEstado(rs.getString("estado"));
                 Pedidos.add(ped);
             
@@ -147,6 +150,7 @@ public class PedidoData {
             ResultSet rs = ps.executeQuery();
           
             while (rs.next()) {
+                
                 Pedido ped = new Pedido();
                 ped.setIdPedido(rs.getInt("idPedido"));
                 mesa = md.ObtenerMesasId(rs.getInt("idMesa"));
@@ -154,6 +158,7 @@ public class PedidoData {
                 ped.setNombreMesero(rs.getString("nombreMesero"));
                 ped.setFechaHora(rs.getTimestamp("fechaHora").toLocalDateTime());
                 ped.setCobrada(rs.getBoolean("cobrada"));
+                ped.setImporte(rs.getDouble("importe"));
                 ped.setEstado(rs.getString("estado"));
                 Pedidos.add(ped);
             
@@ -173,7 +178,7 @@ public class PedidoData {
     public void modificarEstadoPedido(Pedido pe){
         
         String sql = "UPDATE pedido SET  nombreMesero = ? , "
-                + " cobrada = ? , estado = ? WHERE idPedido = ?";
+                + " cobrada = ? , importe = ? , estado = ? WHERE idPedido = ?";
         
         try {
             
@@ -181,8 +186,9 @@ public class PedidoData {
 
             ps.setString(1, pe.getNombreMesero());
             ps.setBoolean(2, pe.isCobrada());
-            ps.setString(3, pe.getEstado());
-            ps.setInt(4,pe.getIdPedido());
+            ps.setDouble(3, pe.getImporte());
+            ps.setString(4, pe.getEstado());
+            ps.setInt(5,pe.getIdPedido());
             int exito= ps.executeUpdate();
             
             if (exito==1) {

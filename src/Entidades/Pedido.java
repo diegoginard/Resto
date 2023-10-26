@@ -2,6 +2,7 @@
 package Entidades;
 
 import java.time.*;
+import java.util.List;
 
 public class Pedido {
     private int idPedido;
@@ -9,37 +10,28 @@ public class Pedido {
     private String nombreMesero;
     private LocalDateTime fechaHora;
     private boolean cobrada;
+    private double Importe;
     private String estado;
 
     public Pedido() {
     }
 
-    public Pedido(int idPedido, String nombreMesero, boolean cobrada, String estado) {
-        this.idPedido = idPedido;
+    public Pedido(Mesa mesa, String nombreMesero, LocalDateTime fechaHora, boolean cobrada, double Importe, String estado) {
+        this.mesa = mesa;
         this.nombreMesero = nombreMesero;
+        this.fechaHora = fechaHora;
         this.cobrada = cobrada;
+        this.Importe = Importe;
         this.estado = estado;
     }
 
-    public Pedido(Mesa mesa) {
-        this.mesa = mesa;
-    }
-
-    public Pedido(int idPedido, Mesa mesa, String nombreMesero, LocalDateTime fechaHora, boolean cobrada, String estado) {
+    public Pedido(int idPedido, Mesa mesa, String nombreMesero, LocalDateTime fechaHora, boolean cobrada, double Importe, String estado) {
         this.idPedido = idPedido;
         this.mesa = mesa;
         this.nombreMesero = nombreMesero;
         this.fechaHora = fechaHora;
         this.cobrada = cobrada;
-        
-        this.estado = estado;
-    }
-
-    public Pedido(Mesa mesa, String nombreMesero, LocalDateTime fechaHora, boolean cobrada, String estado) {
-        this.mesa = mesa;
-        this.nombreMesero = nombreMesero;
-        this.fechaHora = fechaHora;
-        this.cobrada = cobrada;
+        this.Importe = Importe;
         this.estado = estado;
     }
 
@@ -83,6 +75,14 @@ public class Pedido {
         this.cobrada = cobrada;
     }
 
+    public double getImporte() {
+        return Importe;
+    }
+
+    public void setImporte(double Importe) {
+        this.Importe = Importe;
+    }
+
     public String getEstado() {
         return estado;
     }
@@ -93,6 +93,7 @@ public class Pedido {
 
     @Override
     public String toString() {
-        return "Pedido{" + "idPedido=" + idPedido + ", mesa=" + mesa + ", nombreMesero=" + nombreMesero + ", fechaHora=" + fechaHora + ", cobrada=" + cobrada + ", estado=" + estado + '}';
+        return "Pedido{" + "idPedido=" + idPedido + ", mesa=" + mesa + ", nombreMesero=" + nombreMesero + ", fechaHora=" + fechaHora + ", cobrada=" + cobrada + ", Importe=" + Importe + ", estado=" + estado + '}';
     }
+
 }
