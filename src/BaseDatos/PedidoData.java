@@ -146,7 +146,7 @@ public class PedidoData {
     
         try {
             
-            String sql = "SELECT * FROM Pedido WHERE idMesa = ?";
+            String sql = "SELECT * FROM Pedido WHERE idMesa = ? AND cobrada = false";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1,id);
             ResultSet rs = ps.executeQuery();

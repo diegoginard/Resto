@@ -31,8 +31,7 @@ public class PedidoProductoData {
         try {
 
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-            
-//            System.out.println(pedpro.getProducto().getIdProducto());
+
             ps.setInt(1, pedprod.getPedido().getIdPedido());
             ps.setInt(2, pedprod.getProducto().getIdProducto());
             ps.setInt(3, pedprod.getCantidad());
