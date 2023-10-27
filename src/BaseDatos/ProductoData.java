@@ -480,10 +480,10 @@ public class ProductoData {
             while (rs.next()) {
                 
                 produ.setIdProducto(rs.getInt("idProducto"));
-                produ.setNombre(rs.getString("nombre"));
+                produ.setNombre(rs.getString("nombreProducto"));
                 produ.setPrecio(rs.getDouble("precio"));
                 produ.setStock(rs.getInt("stock"));
-                produ.setEstado(rs.getBoolean("estado"));
+                produ.setEstado(rs.getBoolean("estadoProducto"));
                 produ.setCategoria(rs.getString("categoria"));
             
             }
@@ -492,7 +492,7 @@ public class ProductoData {
 
         }catch (SQLException ex) {
 
-            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla mesa" + ex.getMessage());
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla" + ex.getMessage());
 
         }
 

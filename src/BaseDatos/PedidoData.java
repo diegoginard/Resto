@@ -13,6 +13,7 @@ public class PedidoData {
     private Connection con = null;
     private Mesa mesa = new Mesa();
     private MesaData md = new MesaData();
+    private Pedido ped = new Pedido();
     
     public PedidoData(){
         
@@ -204,4 +205,35 @@ public class PedidoData {
         }
     }
     
+    public Pedido obtenerPedidoId (int id){
+       try {
+            
+            String sql = "SELECT * FROM pedido WHERE idPedido = ?";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            
+            while (rs.next()) {
+                
+                ped.setIdPedido(rs.getInt("idPedido"));
+                mesa =  md.ObtenerMesasId(rs.getInt("idMesa"));
+                ped.setMesa(mesa);
+                ped.setNombreMesero(rs.getString("nombreMesero"));
+                ped.setFechaHora(rs.getTimestamp("fechaHora").toLocalDateTime());
+                ped.setCobrada(rs.getBoolean("cobrada"));
+                ped.setImporte(rs.getDouble("importe"));
+                ped.setEstado(rs.getString("Estado"));
+               
+            }
+            
+            ps.close();
+
+        }catch (SQLException ex) {
+
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla" + ex.getMessage());
+
+        }
+
+        return ped; 
+    }
 }
