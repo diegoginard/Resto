@@ -17,6 +17,11 @@ import javax.swing.JOptionPane;
 public class PedidoProductoData {
 
     private Connection con = null;
+    Pedido ped = new Pedido();
+    PedidoData pd = new PedidoData();
+    PedidoProducto pedpro = new PedidoProducto();
+    Producto pro = new Producto();
+    ProductoData pdat = new ProductoData();
     
     public PedidoProductoData(){
     
@@ -56,41 +61,39 @@ public class PedidoProductoData {
 
         }
     }
-//    List<PedidoProducto> BuscarProductosxIdPedido(int id){
-//    
-//        
-//        try {
-//            
-//            String sql = "SELECT * FROM pedidoproducto WHERE idPedido = ?";
-//            PreparedStatement ps = con.prepareStatement(sql);
-//            ps.setInt(1,id);
-//            ResultSet rs = ps.executeQuery();
-//          
-//            while (rs.next()) {
-//                
-//                Pedido ped = new Pedido();
-//                ped.setIdPedido(rs.getInt("idPedido"));
-//                mesa = md.ObtenerMesasId(rs.getInt("idMesa"));
-//                ped.setMesa(mesa);
-//                ped.setNombreMesero(rs.getString("nombreMesero"));
-//                ped.setFechaHora(rs.getTimestamp("fechaHora").toLocalDateTime());
-//                ped.setCobrada(rs.getBoolean("cobrada"));
-//                ped.setImporte(rs.getDouble("importe"));
-//                ped.setEstado(rs.getString("estado"));
-//                Pedidos.add(ped);
-//            
-//            }
-//            
-//            ps.close();
-//
-//        }catch (SQLException ex) {
-//
-//            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla pedidos" + ex.getMessage());
-//
-//        }
-//
-//        
-//        return null;
-//        
-//    }
+    
+    List<PedidoProducto> BuscarProductosxIdPedido(int id){
+    
+        List<PedidoProducto> Pedidos = new ArrayList<>();
+        
+        try {
+            
+            String sql = "SELECT * FROM pedidoproducto WHERE idPedido = ?";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1,id);
+            ResultSet rs = ps.executeQuery();
+          
+            while (rs.next()) {
+                
+                pedpro.setIdPedidoProducto(rs.getInt("idPedidoProducto"));
+                pedpro.setPedido(pd.obtenerPedidoId(rs.getInt("idPedido")));
+                pedpro.setProducto(pdat.ObtenerPrductoId(rs.getInt("idProducto")));
+                pedpro.setCantidad(rs.getInt("cantidad"));
+                pedpro.setImporte(rs.getDouble("importe"));
+                pedpro.setEstado(rs.getBoolean("estado"));
+                Pedidos.add(pedpro);
+            
+            }
+            
+            ps.close();
+
+        }catch (SQLException ex) {
+
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla pedidos" + ex.getMessage());
+
+        }
+
+        return null;
+        
+    }
 }

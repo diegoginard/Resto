@@ -64,6 +64,11 @@ public class GestionRestaurante extends javax.swing.JFrame {
         jMenu1.setText("Salon");
 
         jMenuItem1.setText("Iniciar");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem1);
 
         jMenuBar1.add(jMenu1);
@@ -148,8 +153,21 @@ public class GestionRestaurante extends javax.swing.JFrame {
     }//GEN-LAST:event_jmMesasActionPerformed
 
     private void jmPedidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmPedidosActionPerformed
+      
+    }//GEN-LAST:event_jmPedidosActionPerformed
 
+    private void jMenu3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu3ActionPerformed
 
+    }//GEN-LAST:event_jMenu3ActionPerformed
+
+    private void jMenu3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu3MouseClicked
+
+        dispose();
+        
+    }//GEN-LAST:event_jMenu3MouseClicked
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        
         escritorio.removeAll();
         escritorio.repaint();
         PedidoProductos pp = new PedidoProductos();
@@ -157,31 +175,7 @@ public class GestionRestaurante extends javax.swing.JFrame {
         escritorio.add(pp);
         escritorio.moveToFront(pp);
         
-        
-        
-        
-        
-        
-        
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jmPedidosActionPerformed
-
-    private void jMenu3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu3ActionPerformed
-
-        
-        
-        
-
-
-
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenu3ActionPerformed
-
-    private void jMenu3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu3MouseClicked
-
-        dispose();
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenu3MouseClicked
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
    
     public static void main(String args[]) {

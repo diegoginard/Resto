@@ -115,7 +115,7 @@ public class PedidoData {
             ResultSet rs = ps.executeQuery();
           
             while (rs.next()) {
-                Pedido ped = new Pedido();
+                
                 ped.setIdPedido(rs.getInt("idPedido"));
                 mesa = md.ObtenerMesasId(rs.getInt("idMesa"));
                 ped.setMesa(mesa);
