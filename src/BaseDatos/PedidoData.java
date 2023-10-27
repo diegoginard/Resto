@@ -27,7 +27,8 @@ public class PedidoData {
         try {
 
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-
+            
+            System.out.println(ped.getNombreMesero());
             ps.setString(1, ped.getNombreMesero());
             ps.setInt(2,ped.getMesa().getIdMesa());
             ps.setTimestamp(3, Timestamp.valueOf(ped.getFechaHora()));

@@ -12,6 +12,13 @@ public class PedidoProducto {
     public PedidoProducto() {
     }
 
+    public PedidoProducto(Pedido pedido, Producto producto, int cantidad, Double importe) {
+        this.pedido = pedido;
+        this.producto = producto;
+        this.cantidad = cantidad;
+        this.importe = importe;
+    }
+
     public PedidoProducto(int idPedidoProducto, Pedido pedido, Producto producto, int cantidad, Double importe, Boolean estado) {
         this.idPedidoProducto = idPedidoProducto;
         this.pedido = pedido;

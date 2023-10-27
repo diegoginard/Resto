@@ -2,7 +2,6 @@
 package Entidades;
 
 import java.time.*;
-import java.util.List;
 
 public class Pedido {
     private int idPedido;
@@ -14,6 +13,10 @@ public class Pedido {
     private String estado;
 
     public Pedido() {
+    }
+
+    public Pedido(int idPedido) {
+        this.idPedido = idPedido;
     }
 
     public Pedido(Mesa mesa, String nombreMesero, LocalDateTime fechaHora, boolean cobrada, double Importe, String estado) {
