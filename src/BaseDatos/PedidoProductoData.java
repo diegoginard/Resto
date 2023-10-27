@@ -1,23 +1,25 @@
 
 package BaseDatos;
 
-import Entidades.Mesa;
 import Entidades.Pedido;
 import Entidades.PedidoProducto;
+import Entidades.Producto;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 
 
 public class PedidoProductoData {
 
     private Connection con = null;
-    private Mesa mesa = new Mesa();
     private Pedido pedido = new Pedido();
     private PedidoProducto pedpro = new PedidoProducto();
+    private ProductoData pdat = new ProductoData();
 
     public void crearPedProd(PedidoProducto pedprod) {
 
@@ -39,7 +41,7 @@ public class PedidoProductoData {
 
                 pedpro.setIdPedidoProducto(rs.getInt(1));
 
-                JOptionPane.showMessageDialog(null, "PedidoProducto Guardado ");
+                JOptionPane.showMessageDialog(null, "Producto agregado al pedido");
 
             }
 
@@ -50,5 +52,42 @@ public class PedidoProductoData {
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla " + ex.getMessage());
 
         }
+    }
+    List<PedidoProducto> BuscarProductosxIdPedido(int id){
+    
+        
+        try {
+            
+            String sql = "SELECT * FROM pedidoproducto WHERE idPedido = ?";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1,id);
+            ResultSet rs = ps.executeQuery();
+          
+            while (rs.next()) {
+                
+//                Pedido ped = new Pedido();
+//                ped.setIdPedido(rs.getInt("idPedido"));
+//                mesa = md.ObtenerMesasId(rs.getInt("idMesa"));
+//                ped.setMesa(mesa);
+//                ped.setNombreMesero(rs.getString("nombreMesero"));
+//                ped.setFechaHora(rs.getTimestamp("fechaHora").toLocalDateTime());
+//                ped.setCobrada(rs.getBoolean("cobrada"));
+//                ped.setImporte(rs.getDouble("importe"));
+//                ped.setEstado(rs.getString("estado"));
+//                Pedidos.add(ped);
+//            
+            }
+            
+            ps.close();
+
+        }catch (SQLException ex) {
+
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla pedidos" + ex.getMessage());
+
+        }
+
+        
+        return null;
+        
     }
 }

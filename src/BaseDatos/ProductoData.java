@@ -467,4 +467,36 @@ public class ProductoData {
         return productos;
     
     }
+     public Producto ObtenerPrductoId(int id){
+         
+        Producto produ = new Producto();
+        try {
+            
+            String sql = "SELECT * FROM producto WHERE idProducto = ?";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            
+            while (rs.next()) {
+                
+                produ.setIdProducto(rs.getInt("idProducto"));
+                produ.setNombre(rs.getString("nombre"));
+                produ.setPrecio(rs.getDouble("precio"));
+                produ.setStock(rs.getInt("stock"));
+                produ.setEstado(rs.getBoolean("estado"));
+                produ.setCategoria(rs.getString("categoria"));
+            
+            }
+            
+            ps.close();
+
+        }catch (SQLException ex) {
+
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla mesa" + ex.getMessage());
+
+        }
+
+        return produ;
+    
+    }
 }
