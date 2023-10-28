@@ -6,12 +6,11 @@ import Entidades.*;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.time.LocalDateTime;
-import static java.time.LocalDateTime.now;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.List;
 import javax.swing.*;
 import javax.swing.table.*;
+import java.util.stream.Collectors;
 
 public class PedidoProductos extends javax.swing.JInternalFrame {
 
@@ -1613,14 +1612,16 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
         
         modelo1.setRowCount(0);
 
-        List<PedidoProducto> pedido = ppd.BuscarProductosxIdPedido(id);
+        List<PedidoProducto> pedidoP = ppd.BuscarProductosxIdPedido(id);
         pdat.ObtenerPrductoId(id); 
-        List<Producto> producto = new ArrayList<>();
         
-        for (PedidoProducto pp : pedido) {
-            
-
-        }   
-    }
-    
+        List<Producto> nombresProductos = pedidoP.stream()
+                .map(pedidoP -> pedidoP.getProducto()).toList();
+        
+//        for (PedidoProducto pp : pedido) {
+//            
+//            
+//            
+//        }   
+    }  
 }

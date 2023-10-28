@@ -49,6 +49,6 @@ public class Resto {
 //       PedidoProducto pedp = new PedidoProducto(ped1,pro,4,pro.getPrecio());
        PedidoProductoData ppd = new PedidoProductoData();
 //       ppd.crearPedProd(pedp);
-System.out.println(ppd.BuscarProductosxIdPedido(8));
+System.out.println(ppd.BuscarProductosxIdPedido(2));
     }
 }
