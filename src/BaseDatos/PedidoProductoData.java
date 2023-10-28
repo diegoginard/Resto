@@ -62,7 +62,7 @@ public class PedidoProductoData {
         }
     }
     
-    List<PedidoProducto> BuscarProductosxIdPedido(int id){
+    public List<PedidoProducto> BuscarProductosxIdPedido(int id){
     
         List<PedidoProducto> Pedidos = new ArrayList<>();
         
@@ -93,7 +93,7 @@ public class PedidoProductoData {
 
         }
 
-        return null;
+        return Pedidos;
         
     }
 }

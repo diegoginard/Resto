@@ -8,6 +8,7 @@ import java.awt.Image;
 import java.time.LocalDateTime;
 import static java.time.LocalDateTime.now;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.*;
 import javax.swing.table.*;
@@ -1564,9 +1565,11 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
  
     private void armarCabeceraProdPed() {
 
-        modelo1.addColumn("Nombre");
-        modelo1.addColumn("Precio");
-        modelo1.addColumn("Categoria");
+        modelo1.addColumn("Producto");
+        modelo1.addColumn("Pedido");
+        modelo1.addColumn("Cantidad");
+        modelo1.addColumn("Importe");
+        modelo1.addColumn("estado");
         jtPedidoProd.setModel(modelo1);
 
     }
@@ -1606,4 +1609,18 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
 
         }   
     }
+    private void cargarPedidoProducto(int id){
+        
+        modelo1.setRowCount(0);
+
+        List<PedidoProducto> pedido = ppd.BuscarProductosxIdPedido(id);
+        pdat.ObtenerPrductoId(id); 
+        List<Producto> producto = new ArrayList<>();
+        
+        for (PedidoProducto pp : pedido) {
+            
+
+        }   
+    }
+    
 }
