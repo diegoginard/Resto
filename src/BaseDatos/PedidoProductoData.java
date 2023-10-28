@@ -38,6 +38,7 @@ public class PedidoProductoData {
 
         try {
 
+            if (! pedprod.getPedido().isCobrada()){
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
             ps.setInt(1, pedprod.getPedido().getIdPedido());
@@ -46,18 +47,23 @@ public class PedidoProductoData {
             ps.setDouble(4, total);
             ps.setBoolean(5, true);
             ps.executeUpdate();
-            ResultSet rs = ps.getGeneratedKeys();
-
-            if (rs.next()) {
+            ResultSet rs = ps.getGeneratedKeys(); 
+             if (rs.next()) {
 
                 pedprod.setIdPedidoProducto(rs.getInt(1));
 
                 JOptionPane.showMessageDialog(null, "Producto agregado al pedido");
-
             }
 
             ps.close();
 
+            } else {
+                JOptionPane.showMessageDialog(null, "Pedido cobrado, debe generar uno nuevo");
+            }
+                
+            
+
+           
         } catch (SQLException ex) {
 
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla " + ex.getMessage());
@@ -99,5 +105,33 @@ public class PedidoProductoData {
 
         return Pedidos;
         
+    }
+    public void eliminarPedidoProducto(int id) {
+
+        String sql = "DELETE FROM pedidoproducto WHERE idPedidoProducto = ?";
+
+        try {
+
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, id);
+            int exito = ps.executeUpdate();
+            
+            if(exito >= 1){
+                
+            JOptionPane.showMessageDialog(null, "Producto Eliminado");
+            
+            }else{
+                
+                JOptionPane.showMessageDialog(null, "No se encontro el producto");
+            
+            }
+            
+            ps.close();
+            
+        } catch (SQLException ex) {
+            
+            JOptionPane.showMessageDialog(null, " Error al Eliminar la tabla" + ex.getMessage());
+
+        }
     }
 }
