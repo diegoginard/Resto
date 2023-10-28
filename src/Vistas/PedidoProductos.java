@@ -1625,9 +1625,9 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
  
     private void armarCabeceraProdPed() {
         
-        modelo2.addColumn("ID PP");
-        modelo2.addColumn("ID PED");
-        modelo2.addColumn("ID PRO");
+        modelo2.addColumn("PP");
+        modelo2.addColumn("PED");
+        modelo2.addColumn("PRO");
         modelo2.addColumn("Nombre");
         modelo2.addColumn(" $ ");
         modelo2.addColumn("Cant");
