@@ -1498,10 +1498,8 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
 
     private void jbQuitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbQuitarActionPerformed
        
-        modelo2.setRowCount(0);
         int fila = jtPedidoProd.getSelectedRow();
-        int id =  (int)jtPedidoProd.getValueAt(fila, 1);
-        JOptionPane.showConfirmDialog(null, id);
+        int id = (int)jtPedidoProd.getValueAt(fila, 0);
         ppd.eliminarPedidoProducto(id);
         int idPe =Integer.parseInt(jtID.getText());
         cargarPedidoProducto(idPe);
