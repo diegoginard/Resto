@@ -568,7 +568,7 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
         jLabel13.setBackground(new java.awt.Color(102, 102, 102));
         jLabel13.setText("Cantidad");
 
-        jsCantidad.setModel(new javax.swing.SpinnerNumberModel(0, 0, 99, 1));
+        jsCantidad.setModel(new javax.swing.SpinnerNumberModel(1, 1, 99, 1));
 
         jDesktopPane1.setLayer(jlMesa24, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jlMesa26, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -1423,11 +1423,13 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
 
     private void jtPedidosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtPedidosMouseClicked
       
+//      int idPed =);
       int fila = jtPedidos.getSelectedRow();
       jtID.setText(jtPedidos.getValueAt(fila, 0)+"");
       jcMesero.setSelectedItem(jtPedidos.getValueAt(fila,2 ));
       jrCobrada.setSelected((boolean)jtPedidos.getValueAt(fila,4));
       jcEstadoPedido.setSelectedItem(jtPedidos.getValueAt(fila, 5));
+      cargarPedidoProducto(Integer.parseInt(jtID.getText()));
       
     }//GEN-LAST:event_jtPedidosMouseClicked
 
@@ -1461,7 +1463,7 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
         pp.setImporte(pro.getPrecio());
         pp.setEstado(true);
         ppd.crearPedProd(pp);
-        
+        cargarPedidoProducto(idPe);
         
     }//GEN-LAST:event_jbAgregarActionPerformed
  
@@ -1561,7 +1563,8 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
     }
  
     private void armarCabeceraProdPed() {
-
+        
+        modelo2.addColumn("id PP");
         modelo2.addColumn("ID Pedido");
         modelo2.addColumn("Nombre");
         modelo2.addColumn("Importe");
@@ -1605,15 +1608,15 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
 
         }   
     }
+    
     private void cargarPedidoProducto(int id){
         
         modelo2.setRowCount(0);
-
         List<PedidoProducto> pedidoP = ppd.BuscarProductosxIdPedido(id);
       
         for (PedidoProducto pp : pedidoP) {
 
-            modelo2.addRow(new Object[]{pp.getPedido().getIdPedido(),pp.getProducto().getNombre(),pp.getImporte(),pp.getCantidad()});
+            modelo2.addRow(new Object[]{pp.getIdPedidoProducto(),pp.getPedido().getIdPedido(),pp.getProducto().getNombre(),pp.getImporte(),pp.getCantidad()});
 
         }   
     }  
