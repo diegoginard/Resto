@@ -1493,7 +1493,7 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
             pdat.ModificarProducto(pro);
             ppd.crearPedProd(pp);
             cargarPedidoProducto(idPe);
-            
+            cargarProducto();
         }else{
         
             JOptionPane.showMessageDialog(rootPane, "No hay stock del producto");
@@ -1507,11 +1507,24 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
 
     private void jbQuitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbQuitarActionPerformed
        
+        PedidoProductoData ppdd = new PedidoProductoData();
+        ProductoData pdd = new ProductoData();
+        Producto p = new Producto();
+        
         int fila = jtPedidoProd.getSelectedRow();
         int id = (int)jtPedidoProd.getValueAt(fila, 0);
-        ppd.eliminarPedidoProducto(id);
+        int idProducto = (int)jtPedidoProd.getValueAt(fila, 2);
+        ppdd.eliminarPedidoProducto(id);
+        p = pdat.ObtenerPrductoId(idProducto);
+        int cantidad = (int)jtPedidoProd.getValueAt(fila, 5);
+        int stockTotal = p.getStock();
+        p.setStock(stockTotal + cantidad);
+        JOptionPane.showMessageDialog(rootPane, stockTotal);
+        pdd.ModificarProducto(p);
+      
         int idPe =Integer.parseInt(jtID.getText());
         cargarPedidoProducto(idPe);
+        cargarProducto();
     }//GEN-LAST:event_jbQuitarActionPerformed
  
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1612,11 +1625,12 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
  
     private void armarCabeceraProdPed() {
         
-        modelo2.addColumn("id PP");
-        modelo2.addColumn("ID Pedido");
+        modelo2.addColumn("ID PP");
+        modelo2.addColumn("ID PED");
+        modelo2.addColumn("ID PRO");
         modelo2.addColumn("Nombre");
-        modelo2.addColumn("Importe");
-        modelo2.addColumn("Cantidad");
+        modelo2.addColumn(" $ ");
+        modelo2.addColumn("Cant");
         jtPedidoProd.setModel(modelo2);
 
     }
@@ -1665,7 +1679,7 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
       
         for (PedidoProducto pp : pedidoP) {
 
-            modelo2.addRow(new Object[]{pp.getIdPedidoProducto(),pp.getPedido().getIdPedido(),pp.getProducto().getNombre(),pp.getImporte(),pp.getCantidad()});
+            modelo2.addRow(new Object[]{pp.getIdPedidoProducto(),pp.getPedido().getIdPedido(),pp.getProducto().getIdProducto(), pp.getProducto().getNombre(),pp.getImporte(),pp.getCantidad()});
            total+= pp.getImporte();
           
             
