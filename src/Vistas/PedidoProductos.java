@@ -1453,6 +1453,7 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
 
     private void jbAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAgregarActionPerformed
         
+        modelo2.setRowCount(0);
         int fila = jtProducto.getSelectedRow();
         int idProducto = (int)jtProducto.getValueAt(fila, 0);
         pro = pdat.ObtenerPrductoId(idProducto);
@@ -1619,15 +1620,5 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
             modelo2.addRow(new Object[]{pp.getIdPedidoProducto(),pp.getPedido().getIdPedido(),pp.getProducto().getNombre(),pp.getImporte(),pp.getCantidad()});
 
         } 
-        
-        for (PedidoProducto pp : pedidoP) {
-        System.out.println("ID Pedido Producto: " + pp.getIdPedidoProducto());
-        System.out.println("ID Pedido: " + pp.getPedido().getIdPedido());
-        System.out.println("Nombre del Producto: " + pp.getProducto().getNombre());
-        System.out.println("Importe: " + pp.getImporte());
-        System.out.println("Cantidad: " + pp.getCantidad());
-        System.out.println("-------------");
-        modelo2.addRow(new Object[]{pp.getIdPedidoProducto(), pp.getPedido().getIdPedido(), pp.getProducto().getNombre(), pp.getImporte(), pp.getCantidad()});
-    }
-    }  
+    }   
 }
