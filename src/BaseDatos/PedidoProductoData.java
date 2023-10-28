@@ -32,7 +32,15 @@ public class PedidoProductoData {
     public void crearPedProd(PedidoProducto pedprod) {
 
         String sql = "INSERT INTO pedidoproducto(idPedido, idProducto, cantidad, importe, estado) VALUES (?, ?, ?, ?, ?)";
-        System.out.println(pedprod.getProducto().getIdProducto());
+        
+        
+        double precio =  pedprod.getProducto().getPrecio();
+        double cantidad =  pedprod.getCantidad();
+        System.out.println("precio" + precio);
+        System.out.println("cantidad" + cantidad);
+        double total = precio * cantidad;
+        System.out.println("total" + total);
+
         try {
 
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
@@ -40,8 +48,8 @@ public class PedidoProductoData {
             ps.setInt(1, pedprod.getPedido().getIdPedido());
             ps.setInt(2, pedprod.getProducto().getIdProducto());
             ps.setInt(3, pedprod.getCantidad());
-            ps.setDouble(4, pedprod.getProducto().getPrecio()*pedpro.getCantidad());
-            ps.setBoolean(5,true);
+            ps.setDouble(4, total);
+            ps.setBoolean(5, true);
             ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
 
