@@ -3,6 +3,7 @@ package Vistas;
 
 import BaseDatos.*;
 import Entidades.*;
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.time.LocalDateTime;
@@ -36,7 +37,8 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
         armarCabeceraProdPed();
         armarCabeceraProd();
         cargarProducto();
-  
+        jbCrearPed.setEnabled(false);
+        jlMesa1.setBackground(Color.GREEN);
     }
  
     private DefaultTableModel modelo1 = new DefaultTableModel(){
@@ -124,8 +126,6 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
         jtFechaHora = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jcEstadoPedido = new javax.swing.JComboBox<>();
-        jLabel7 = new javax.swing.JLabel();
-        jrCobrada = new javax.swing.JRadioButton();
         jbCrearPed = new javax.swing.JButton();
         jbBorrar = new javax.swing.JButton();
         jtID = new javax.swing.JTextField();
@@ -145,6 +145,7 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
         jLabel13 = new javax.swing.JLabel();
         jsCantidad = new javax.swing.JSpinner();
         jbCancelar = new javax.swing.JButton();
+        jLabel14 = new javax.swing.JLabel();
 
         setBorder(null);
         setTitle("Gestion Pedidos");
@@ -480,20 +481,6 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
         jLabel6.setText("Estado pedido");
 
         jcEstadoPedido.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "PENDIENTE", "ENTREGADO", "CANCELADO" }));
-        jcEstadoPedido.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jcEstadoPedidoActionPerformed(evt);
-            }
-        });
-
-        jLabel7.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel7.setText("Cobrada");
-
-        jrCobrada.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jrCobradaActionPerformed(evt);
-            }
-        });
 
         jbCrearPed.setText("Crear Pedido");
         jbCrearPed.addActionListener(new java.awt.event.ActionListener() {
@@ -506,12 +493,6 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
         jbBorrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbBorrarActionPerformed(evt);
-            }
-        });
-
-        jtID.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtIDActionPerformed(evt);
             }
         });
 
@@ -581,8 +562,20 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
 
         jsCantidad.setModel(new javax.swing.SpinnerNumberModel(1, 1, 99, 1));
 
-        jbCancelar.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jbCancelar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jbCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/ico pedido/dinero_48.png"))); // NOI18N
+        jbCancelar.setText("Cobrar Mesa");
+        jbCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbCancelarActionPerformed(evt);
+            }
+        });
+
+        jLabel14.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        jLabel14.setText("Mesas");
+        jLabel14.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jLabel14.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jLabel14.setInheritsPopupMenu(false);
 
         jDesktopPane1.setLayer(jlMesa24, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jlMesa26, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -623,8 +616,6 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
         jDesktopPane1.setLayer(jtFechaHora, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jLabel6, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jcEstadoPedido, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(jLabel7, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(jrCobrada, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jbCrearPed, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jbBorrar, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jtID, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -643,6 +634,7 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
         jDesktopPane1.setLayer(jLabel13, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jsCantidad, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jbCancelar, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(jLabel14, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
@@ -693,178 +685,182 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jlMesa8, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                        .addComponent(jlMesa1, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jlMesa2, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jlMesa3, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jlMesa4, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
                         .addComponent(jlMesa9, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jlMesa10, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jlMesa11, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jlMesa12, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jlMesa12, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                        .addComponent(jlMesa1, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                                .addComponent(jlMesa2, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jlMesa3, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jlMesa4, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                                .addGap(17, 17, 17)
+                                .addComponent(jLabel14)))))
+                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                                .addGap(98, 98, 98)
+                                .addComponent(jLabel12)
+                                .addGap(18, 18, 18)
+                                .addComponent(jtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                        .addGap(138, 138, 138)
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                        .addGap(135, 135, 135)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                        .addGap(94, 94, 94)
-                        .addComponent(jLabel3))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel1)
+                        .addGap(74, 74, 74)
+                        .addComponent(jLabel6))
                     .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                        .addGap(88, 88, 88)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
-                        .addComponent(jLabel12)
-                        .addGap(18, 18, 18)
-                        .addComponent(jtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                        .addGap(12, 12, 12)
+                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jcMesero, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                                        .addComponent(jLabel1)
-                                        .addGap(74, 74, 74)
-                                        .addComponent(jLabel6))
-                                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jcMesero, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                                                .addGap(6, 6, 6)
-                                                .addComponent(jrCobrada)))
-                                        .addGap(18, 18, 18)
-                                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jtID, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel8)
-                                            .addComponent(jcEstadoPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addGap(24, 24, 24)
-                                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jcEstadoMesa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jtNmesa, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jtFechaHora, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(72, 72, 72)
-                                        .addComponent(jbCancelar))
-                                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                                        .addComponent(jbCrearPed)
-                                        .addGap(30, 30, 30)
-                                        .addComponent(jbBorrar)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
                                 .addGap(18, 18, 18)
-                                .addComponent(jbModificar)))
-                        .addGap(34, 34, 34))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jDesktopPane1Layout.createSequentialGroup()
+                                .addComponent(jcEstadoPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                                .addGap(49, 49, 49)
+                                .addComponent(jLabel8))))
+                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                        .addGap(144, 144, 144)
                         .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jcEstadoMesa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                                    .addComponent(jtID, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(31, 31, 31)
+                                    .addComponent(jtNmesa, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(38, 38, 38)))
                             .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                                .addGap(9, 9, 9)
-                                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jbQuitar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jbAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(105, 105, 105)
+                                .addComponent(jLabel2)
+                                .addGap(8, 8, 8))))
+                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jbCrearPed)
+                            .addComponent(jtFechaHora, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(jbBorrar)
+                        .addGap(18, 18, 18)
+                        .addComponent(jbModificar))
+                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                        .addGap(116, 116, 116)
+                        .addComponent(jLabel10)
+                        .addGap(18, 18, 18)
+                        .addComponent(jtBProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jbQuitar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jbAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                                .addGap(15, 15, 15)
+                                .addGap(6, 6, 6)
                                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel13)
                                     .addComponent(jsCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(18, 18, 18)
                         .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                                .addComponent(jLabel10)
-                                .addGap(27, 27, 27)
-                                .addComponent(jtBProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(31, 31, 31)
+                                .addComponent(jbCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jDesktopPane1Layout.createSequentialGroup()
                         .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addGap(18, 18, 18)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(19, 19, 19)
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                                .addGap(42, 42, 42)
-                                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jrCobrada, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
-                                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(jLabel1)
-                                            .addComponent(jLabel6)
-                                            .addComponent(jLabel11))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(jcEstadoPedido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jcMesero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jcEstadoMesa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel2)
-                                            .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                .addComponent(jLabel7)
-                                                .addComponent(jLabel8)))
-                                        .addGap(8, 8, 8)
-                                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(jtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jtNmesa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(10, 10, 10)))
-                                .addGap(18, 18, 18)
-                                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                                        .addComponent(jLabel4)
-                                        .addGap(38, 38, 38)
-                                        .addComponent(jtFechaHora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jbCancelar))
-                                .addGap(24, 24, 24)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jbCrearPed)
-                                    .addComponent(jbBorrar)
-                                    .addComponent(jbModificar))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel5)
-                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                                        .addGap(22, 22, 22)
-                                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(jLabel10)
-                                            .addComponent(jtBProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(18, 18, 18))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel13)
-                                        .addGap(3, 3, 3)))
-                                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                                        .addComponent(jsCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(36, 36, 36)
-                                        .addComponent(jbAgregar)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jbQuitar))
-                                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                                .addGap(37, 37, 37)
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel1)
+                                    .addComponent(jLabel6)
+                                    .addComponent(jLabel11))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jcEstadoPedido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jcMesero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jcEstadoMesa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(29, 29, 29)
+                                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel8)
+                                    .addComponent(jLabel4))
+                                .addGap(18, 18, 18)
+                                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jtFechaHora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jtNmesa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(56, 56, 56)
+                                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jbBorrar)
+                                    .addComponent(jbCrearPed)
+                                    .addComponent(jbModificar))
+                                .addGap(17, 17, 17)))
+                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                                .addGap(55, 55, 55)
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel12)))))
-                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                                    .addComponent(jLabel12)))
+                            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                                                .addGap(81, 81, 81)
+                                                .addComponent(jLabel13))
+                                            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                                                .addComponent(jbCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(30, 30, 30)
+                                                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                    .addComponent(jLabel10)
+                                                    .addComponent(jtBProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                                                .addComponent(jsCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(36, 36, 36)
+                                                .addComponent(jbAgregar)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(jbQuitar))
+                                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(jLabel5))))
+                        .addGap(15, 15, 15))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jlMesa2, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jlMesa3, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -921,9 +917,12 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel9))
-            .addComponent(jDesktopPane1)
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 576, Short.MAX_VALUE)
+                        .addComponent(jLabel9))
+                    .addComponent(jDesktopPane1)))
         );
 
         pack();
@@ -933,6 +932,7 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
         
         
         modelo1.setRowCount(0);
+        jbCrearPed.setEnabled(true);
         cargarPedido(1);
         jtNmesa.setText(1+"");
         LocalDateTime now = LocalDateTime.now();
@@ -959,506 +959,149 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
 
     private void jlMesa3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlMesa3MouseClicked
 
-              mesaOcupada = !mesaOcupada;
-
-        // Actualiza el color de fondo
-        if (mesaOcupada){
-
-            jlMesa3.setIcon(icoR); // Cambia el color al ocupado
-            Mesa mesa3= new Mesa();
-
-        } else{
-
-            jlMesa3.setIcon(icoV); // Cambia el color al libre
-
-        }
-
-
     }//GEN-LAST:event_jlMesa3MouseClicked
 
     private void jlMesa4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlMesa4MouseClicked
-
-              mesaOcupada = !mesaOcupada;
-
-        // Actualiza el color de fondo
-        if (mesaOcupada){
-
-            jlMesa4.setIcon(icoR); // Cambia el color al ocupado
-            Mesa mesa4= new Mesa();
-
-        } else{
-
-            jlMesa4.setIcon(icoV); // Cambia el color al libre
-
-        }
-
 
     }//GEN-LAST:event_jlMesa4MouseClicked
 
     private void jlMesa5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlMesa5MouseClicked
 
-              mesaOcupada = !mesaOcupada;
-
-        // Actualiza el color de fondo
-        if (mesaOcupada){
-
-            jlMesa5.setIcon(icoR); // Cambia el color al ocupado
-            Mesa mesa5= new Mesa();
-
-        } else{
-
-            jlMesa5.setIcon(icoV); // Cambia el color al libre
-
-        }
     }//GEN-LAST:event_jlMesa5MouseClicked
 
     private void jlMesa6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlMesa6MouseClicked
-
-              mesaOcupada = !mesaOcupada;
-
-        // Actualiza el color de fondo
-        if (mesaOcupada){
-
-            jlMesa6.setIcon(icoR); // Cambia el color al ocupado
-            Mesa mesa6= new Mesa();
-
-        } else{
-
-            jlMesa6.setIcon(icoV); // Cambia el color al libre
-
-        }
 
     }//GEN-LAST:event_jlMesa6MouseClicked
 
     private void jlMesa7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlMesa7MouseClicked
 
-              mesaOcupada = !mesaOcupada;
-
-        // Actualiza el color de fondo
-        if (mesaOcupada){
-
-            jlMesa7.setIcon(icoR); // Cambia el color al ocupado
-            Mesa mesa7= new Mesa();
-
-        } else{
-
-            jlMesa7.setIcon(icoV); // Cambia el color al libre
-
-        }
     }//GEN-LAST:event_jlMesa7MouseClicked
 
     private void jlMesa8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlMesa8MouseClicked
 
-              mesaOcupada = !mesaOcupada;
-
-        // Actualiza el color de fondo
-        if (mesaOcupada){
-
-            jlMesa8.setIcon(icoR); // Cambia el color al ocupado
-            Mesa mesa8= new Mesa();
-
-        } else{
-
-            jlMesa8.setIcon(icoV); // Cambia el color al libre
-
-        }
     }//GEN-LAST:event_jlMesa8MouseClicked
 
     private void jlMesa9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlMesa9MouseClicked
 
-              mesaOcupada = !mesaOcupada;
-
-        // Actualiza el color de fondo
-        if (mesaOcupada){
-
-            jlMesa9.setIcon(icoR); // Cambia el color al ocupado
-            Mesa mesa9= new Mesa();
-
-        } else{
-
-            jlMesa9.setIcon(icoV); // Cambia el color al libre
-
-        }
     }//GEN-LAST:event_jlMesa9MouseClicked
 
     private void jlMesa10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlMesa10MouseClicked
 
-              mesaOcupada = !mesaOcupada;
-
-        // Actualiza el color de fondo
-        if (mesaOcupada){
-
-            jlMesa10.setIcon(icoR); // Cambia el color al ocupado
-            Mesa mesa10= new Mesa();
-
-        } else{
-
-            jlMesa10.setIcon(icoV); // Cambia el color al libre
-
-        }
     }//GEN-LAST:event_jlMesa10MouseClicked
 
     private void jlMesa11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlMesa11MouseClicked
 
-              mesaOcupada = !mesaOcupada;
-
-        // Actualiza el color de fondo
-        if (mesaOcupada){
-
-            jlMesa11.setIcon(icoR); // Cambia el color al ocupado
-            Mesa mesa11= new Mesa();
-
-        } else{
-
-            jlMesa11.setIcon(icoV); // Cambia el color al libre
-
-        }
     }//GEN-LAST:event_jlMesa11MouseClicked
 
     private void jlMesa12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlMesa12MouseClicked
 
-              mesaOcupada = !mesaOcupada;
-
-        // Actualiza el color de fondo
-        if (mesaOcupada){
-
-            jlMesa12.setIcon(icoR); // Cambia el color al ocupado
-            Mesa mesa12= new Mesa();
-
-        } else{
-
-            jlMesa12.setIcon(icoV); // Cambia el color al libre
-
-        }
     }//GEN-LAST:event_jlMesa12MouseClicked
 
     private void jlMesa13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlMesa13MouseClicked
 
-              mesaOcupada = !mesaOcupada;
-
-        // Actualiza el color de fondo
-        if (mesaOcupada){
-
-            jlMesa13.setIcon(icoR); // Cambia el color al ocupado
-            Mesa mesa13= new Mesa();
-
-        } else{
-
-            jlMesa13.setIcon(icoV); // Cambia el color al libre
-
-        }
     }//GEN-LAST:event_jlMesa13MouseClicked
 
     private void jlMesa14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlMesa14MouseClicked
 
-              mesaOcupada = !mesaOcupada;
-
-        // Actualiza el color de fondo
-        if (mesaOcupada){
-
-            jlMesa14.setIcon(icoR); // Cambia el color al ocupado
-            Mesa mesa14= new Mesa();
-
-        } else{
-
-            jlMesa14.setIcon(icoV); // Cambia el color al libre
-
-        }
     }//GEN-LAST:event_jlMesa14MouseClicked
 
     private void jlMesa15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlMesa15MouseClicked
 
-              mesaOcupada = !mesaOcupada;
-
-        // Actualiza el color de fondo
-        if (mesaOcupada){
-
-            jlMesa15.setIcon(icoR); // Cambia el color al ocupado
-            Mesa mesa15= new Mesa();
-
-        } else{
-
-            jlMesa15.setIcon(icoV); // Cambia el color al libre
-
-        }
     }//GEN-LAST:event_jlMesa15MouseClicked
 
     private void jlMesa16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlMesa16MouseClicked
 
-              mesaOcupada = !mesaOcupada;
-
-        // Actualiza el color de fondo
-        if (mesaOcupada){
-
-            jlMesa16.setIcon(icoR); // Cambia el color al ocupado
-            Mesa mesa16= new Mesa();
-
-        } else{
-
-            jlMesa16.setIcon(icoV); // Cambia el color al libre
-
-        }
     }//GEN-LAST:event_jlMesa16MouseClicked
 
     private void jlMesa17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlMesa17MouseClicked
 
-              mesaOcupada = !mesaOcupada;
-
-        // Actualiza el color de fondo
-        if (mesaOcupada){
-
-            jlMesa17.setIcon(icoR); // Cambia el color al ocupado
-            Mesa mesa17= new Mesa();
-
-        } else{
-
-            jlMesa17.setIcon(icoV); // Cambia el color al libre
-
-        }
     }//GEN-LAST:event_jlMesa17MouseClicked
 
     private void jlMesa18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlMesa18MouseClicked
 
-              mesaOcupada = !mesaOcupada;
-
-        // Actualiza el color de fondo
-        if (mesaOcupada){
-
-            jlMesa18.setIcon(icoR); // Cambia el color al ocupado
-            Mesa mesa18= new Mesa();
-
-        } else{
-
-            jlMesa18.setIcon(icoV); // Cambia el color al libre
-
-        }
     }//GEN-LAST:event_jlMesa18MouseClicked
 
     private void jlMesa19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlMesa19MouseClicked
 
-              mesaOcupada = !mesaOcupada;
-
-        // Actualiza el color de fondo
-        if (mesaOcupada){
-
-            jlMesa19.setIcon(icoR); // Cambia el color al ocupado
-            Mesa mesaa19= new Mesa();
-
-        } else{
-
-            jlMesa19.setIcon(icoV); // Cambia el color al libre
-
-        }
     }//GEN-LAST:event_jlMesa19MouseClicked
 
     private void jlMesa20MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlMesa20MouseClicked
 
-              mesaOcupada = !mesaOcupada;
-
-        // Actualiza el color de fondo
-        if (mesaOcupada){
-
-            jlMesa20.setIcon(icoR); // Cambia el color al ocupado
-            Mesa mesa20= new Mesa();
-
-        } else{
-
-            jlMesa20.setIcon(icoV); // Cambia el color al libre
-
-        }
     }//GEN-LAST:event_jlMesa20MouseClicked
 
     private void jlMesa21MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlMesa21MouseClicked
 
-              mesaOcupada = !mesaOcupada;
-
-        // Actualiza el color de fondo
-        if (mesaOcupada){
-
-            jlMesa21.setIcon(icoR); // Cambia el color al ocupado
-            Mesa mesa21= new Mesa();
-
-        } else{
-
-            jlMesa21.setIcon(icoV); // Cambia el color al libre
-
-        }
     }//GEN-LAST:event_jlMesa21MouseClicked
 
     private void jlMesa22MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlMesa22MouseClicked
 
-              mesaOcupada = !mesaOcupada;
-
-        // Actualiza el color de fondo
-        if (mesaOcupada){
-
-            jlMesa22.setIcon(icoR); // Cambia el color al ocupado
-            Mesa mesa22= new Mesa();
-
-        } else{
-
-            jlMesa22.setIcon(icoV); // Cambia el color al libre
-
-        }
     }//GEN-LAST:event_jlMesa22MouseClicked
 
     private void jlMesa23MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlMesa23MouseClicked
 
-              mesaOcupada = !mesaOcupada;
-
-        // Actualiza el color de fondo
-        if (mesaOcupada){
-
-            jlMesa23.setIcon(icoR); // Cambia el color al ocupado
-            //Mesa mesa23= new Mesa();
-
-        } else{
-
-            jlMesa23.setIcon(icoV); // Cambia el color al libre
-
-        }
     }//GEN-LAST:event_jlMesa23MouseClicked
 
     private void jlMesa24MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlMesa24MouseClicked
 
-              mesaOcupada = !mesaOcupada;
-
-        // Actualiza el color de fondo
-        if (mesaOcupada){
-
-            jlMesa24.setIcon(icoR); // Cambia el color al ocupado
-            Mesa mesa24= new Mesa();
-
-        } else{
-
-            jlMesa24.setIcon(icoV); // Cambia el color al libre
-
-        }
     }//GEN-LAST:event_jlMesa24MouseClicked
 
     private void jlMesa25MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlMesa25MouseClicked
 
-              mesaOcupada = !mesaOcupada;
-
-        // Actualiza el color de fondo
-        if (mesaOcupada){
-
-            jlMesa25.setIcon(icoR); // Cambia el color al ocupado
-            Mesa mesa25= new Mesa();
-
-        } else{
-
-            jlMesa25.setIcon(icoV); // Cambia el color al libre
-
-        }
     }//GEN-LAST:event_jlMesa25MouseClicked
 
     private void jlMesa26MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlMesa26MouseClicked
 
-              mesaOcupada = !mesaOcupada;
-
-        // Actualiza el color de fondo
-        if (mesaOcupada){
-
-            jlMesa26.setIcon(icoR); // Cambia el color al ocupado
-            Mesa mesa26= new Mesa();
-
-        } else{
-
-            jlMesa26.setIcon(icoV); // Cambia el color al libre
-
-        }
     }//GEN-LAST:event_jlMesa26MouseClicked
 
     private void jlMesa27MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlMesa27MouseClicked
 
-              mesaOcupada = !mesaOcupada;
-
-        // Actualiza el color de fondo
-        if (mesaOcupada){
-
-            jlMesa27.setIcon(icoR); // Cambia el color al ocupado
-            Mesa mesa27= new Mesa();
-
-        } else{
-
-            jlMesa27.setIcon(icoV); // Cambia el color al libre
-
-        }
     }//GEN-LAST:event_jlMesa27MouseClicked
 
     private void jlMesa28MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlMesa28MouseClicked
 
-              mesaOcupada = !mesaOcupada;
-
-        // Actualiza el color de fondo
-        if (mesaOcupada){
-
-            jlMesa28.setIcon(icoR); // Cambia el color al ocupado
-            Mesa mesa28= new Mesa();
-
-        } else{
-
-            jlMesa28.setIcon(icoV); // Cambia el color al libre
-
-        }
     }//GEN-LAST:event_jlMesa28MouseClicked
-
-    private void jrCobradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrCobradaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jrCobradaActionPerformed
 
     private void jbCrearPedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCrearPedActionPerformed
 
-  
-        ped.setNombreMesero(jcMesero.getSelectedItem()+"");
+        ped.setNombreMesero(jcMesero.getSelectedItem() + "");
         String text = jtFechaHora.getText();
         LocalDateTime dateTime = LocalDateTime.parse(text, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
         ped.setFechaHora(dateTime);
         mesa = md.ObtenerMesasId(Integer.parseInt(jtNmesa.getText()));
         ped.setMesa(mesa);
-        ped.setEstado(jcEstadoPedido.getSelectedItem()+"");
+        ped.setEstado(jcEstadoPedido.getSelectedItem() + "");
         pd.guardarPedido(ped);
         cargarPedido(mesa.getIdMesa());
-       
+        jlMesa1.setBackground(Color.RED);
+
     }//GEN-LAST:event_jbCrearPedActionPerformed
 
-    private void jtIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtIDActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtIDActionPerformed
-
     private void jbBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBorrarActionPerformed
-       
+
         int id = Integer.parseInt(jtID.getText());
-       pd.eliminarPedido(id);
-       cargarPedido(id);
+        pd.eliminarPedido(id);
+        cargarPedido(id);
     }//GEN-LAST:event_jbBorrarActionPerformed
 
     private void jbModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbModificarActionPerformed
-        
-        int id =Integer.parseInt(jtNmesa.getText());
+
+        int id = Integer.parseInt(jtNmesa.getText());
         ped.setIdPedido(Integer.parseInt(jtID.getText()));
-        ped.setNombreMesero(jcMesero.getSelectedItem()+"");
-        ped.setCobrada(jrCobrada.isSelected());
-        ped.setEstado(jcEstadoPedido.getSelectedItem()+"");
+        ped.setNombreMesero(jcMesero.getSelectedItem() + "");
+        ped.setEstado(jcEstadoPedido.getSelectedItem() + "");
         pd.modificarEstadoPedido(ped);
         cargarPedido(id);
     }//GEN-LAST:event_jbModificarActionPerformed
 
     private void jtPedidosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtPedidosMouseClicked
 
-      int fila = jtPedidos.getSelectedRow();
-      jtID.setText(jtPedidos.getValueAt(fila, 0)+"");
-      jcMesero.setSelectedItem(jtPedidos.getValueAt(fila,2 ));
-      jrCobrada.setSelected((boolean)jtPedidos.getValueAt(fila,4));
-      jcEstadoPedido.setSelectedItem(jtPedidos.getValueAt(fila, 5));
-      cargarPedidoProducto(Integer.parseInt(jtID.getText()));
-      
-    }//GEN-LAST:event_jtPedidosMouseClicked
+        int fila = jtPedidos.getSelectedRow();
+        jtID.setText(jtPedidos.getValueAt(fila, 0) + "");
+        jcMesero.setSelectedItem(jtPedidos.getValueAt(fila, 2));
+        jcEstadoPedido.setSelectedItem(jtPedidos.getValueAt(fila, 5));
+        cargarPedidoProducto(Integer.parseInt(jtID.getText()));
 
-    private void jcEstadoPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcEstadoPedidoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jcEstadoPedidoActionPerformed
+    }//GEN-LAST:event_jtPedidosMouseClicked
 
     private void jtBProductoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtBProductoKeyReleased
 
@@ -1470,34 +1113,34 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
 
             modelo3.addRow(new Object[]{pro.getIdProducto(),
                 pro.getNombre(), pro.getPrecio(), pro.getStock(), pro.isEstado(), pro.getCategoria()});
-            
+
         }
     }//GEN-LAST:event_jtBProductoKeyReleased
 
     private void jbAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAgregarActionPerformed
-       
+
         int fila = jtProducto.getSelectedRow();
-        int idProducto = (int)jtProducto.getValueAt(fila, 0);
+        int idProducto = (int) jtProducto.getValueAt(fila, 0);
         pro = pdat.ObtenerPrductoId(idProducto);
         pp.setProducto(pro);
-        int idPe =Integer.parseInt(jtID.getText());
+        int idPe = Integer.parseInt(jtID.getText());
         pp.setPedido(pd.obtenerPedidoId(idPe));
         pp.setCantidad(Integer.parseInt(jsCantidad.getValue().toString()));
         pp.setImporte(pro.getPrecio());
         pp.setEstado(true);
         int stock = pro.getStock() - pp.getCantidad();
         pro.setStock(stock);
-        
-        if(stock > 0){
-            
+
+        if (stock > 0) {
+
             pdat.ModificarProducto(pro);
             ppd.crearPedProd(pp);
             cargarPedidoProducto(idPe);
             cargarProducto();
-        }else{
-        
+        } else {
+
             JOptionPane.showMessageDialog(rootPane, "No hay stock del producto");
-            
+
         }
     }//GEN-LAST:event_jbAgregarActionPerformed
 
@@ -1506,17 +1149,17 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jtBProductoActionPerformed
 
     private void jbQuitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbQuitarActionPerformed
-       
+
         PedidoProductoData ppdd = new PedidoProductoData();
         ProductoData pdd = new ProductoData();
         Producto p = new Producto();
-        
+
         int fila = jtPedidoProd.getSelectedRow();
-        int id = (int)jtPedidoProd.getValueAt(fila, 0);
-        int idProducto = (int)jtPedidoProd.getValueAt(fila, 2);
+        int id = (int) jtPedidoProd.getValueAt(fila, 0);
+        int idProducto = (int) jtPedidoProd.getValueAt(fila, 2);
         ppdd.eliminarPedidoProducto(id);
         p = pdat.ObtenerPrductoId(idProducto);
-        int cantidad = (int)jtPedidoProd.getValueAt(fila, 5);
+        int cantidad = (int) jtPedidoProd.getValueAt(fila, 5);
         int stockTotal = p.getStock();
         p.setStock(stockTotal + cantidad);
         JOptionPane.showMessageDialog(rootPane, stockTotal);
@@ -1526,6 +1169,10 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
         cargarPedidoProducto(idPe);
         cargarProducto();
     }//GEN-LAST:event_jbQuitarActionPerformed
+
+    private void jbCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCancelarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbCancelarActionPerformed
  
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane jDesktopPane1;
@@ -1534,12 +1181,12 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
@@ -1582,7 +1229,6 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jlMesa7;
     private javax.swing.JLabel jlMesa8;
     private javax.swing.JLabel jlMesa9;
-    private javax.swing.JRadioButton jrCobrada;
     private javax.swing.JSpinner jsCantidad;
     private javax.swing.JTextField jtBProducto;
     private javax.swing.JTextField jtFechaHora;
