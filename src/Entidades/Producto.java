@@ -15,7 +15,7 @@ public class Producto {
     public Producto(int idProducto) {
         this.idProducto = idProducto;
     }
-
+    
     public Producto(String nombre, double precio, int stock, String categoria) {
         this.nombre = nombre;
         this.precio = precio;
@@ -92,7 +92,4 @@ public class Producto {
     public String toString() {
         return "Producto{" + "idProducto=" + idProducto + ", nombre=" + nombre + ", precio=" + precio + ", stock=" + stock + ", estado=" + estado + ", categoria=" + categoria + '}';
     }
-
-    
-    
 }
