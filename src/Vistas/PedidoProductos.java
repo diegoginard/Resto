@@ -7,6 +7,7 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.*;
 import javax.swing.table.*;
@@ -1610,18 +1611,17 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
     }
     private void cargarPedidoProducto(int id){
         
-        modelo1.setRowCount(0);
+        modelo2.setRowCount(0);
 
         List<PedidoProducto> pedidoP = ppd.BuscarProductosxIdPedido(id);
         pdat.ObtenerPrductoId(id); 
         
-        List<Producto> nombresProductos = pedidoP.stream()
-                .map(pedidoP -> pedidoP.getProducto()).toList();
+        List<Producto> productos = new ArrayList();
         
-//        for (PedidoProducto pp : pedido) {
-//            
-//            
-//            
-//        }   
+        for (PedidoProducto pp : pedidoP) {
+            
+            productos.add(pp.getProducto());
+            
+        }   
     }  
 }
