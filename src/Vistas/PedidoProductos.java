@@ -39,15 +39,6 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
   
     }
  
-    private DefaultTableModel modelo = new DefaultTableModel(){
-
-        @Override
-        public boolean  isCellEditable(int rowIndex, int columnIndex ){
-            
-            return false;
-        }
-
-    };
     private DefaultTableModel modelo1 = new DefaultTableModel(){
 
         @Override
@@ -57,8 +48,17 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
         }
 
     };
-
     private DefaultTableModel modelo2 = new DefaultTableModel(){
+
+        @Override
+        public boolean  isCellEditable(int rowIndex, int columnIndex ){
+            
+            return false;
+        }
+
+    };
+
+    private DefaultTableModel modelo3 = new DefaultTableModel(){
 
         @Override
         public boolean  isCellEditable(int rowIndex, int columnIndex ){
@@ -142,8 +142,8 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
         jcEstadoMesa = new javax.swing.JComboBox<>();
         jtSubtotal = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
-        jtCantidad = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
+        jsCantidad = new javax.swing.JSpinner();
 
         setBorder(null);
         setTitle("Gestion Pedidos");
@@ -462,25 +462,20 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
         jScrollPane2.setViewportView(jtPedidoProd);
 
         jLabel3.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Pedidos x Mesa");
 
         jLabel5.setText("Productos x Pedido");
 
         jLabel1.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Mesero");
 
         jLabel2.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Numero de Mesa");
 
         jLabel4.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Fecha y hora");
 
         jLabel6.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Estado pedido");
 
         jcEstadoPedido.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "PENDIENTE", "ENTREGADO", "CANCELADO" }));
@@ -491,7 +486,6 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
         });
 
         jLabel7.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Cobrada");
 
         jrCobrada.addActionListener(new java.awt.event.ActionListener() {
@@ -521,7 +515,6 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
         });
 
         jLabel8.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("ID Pedido");
 
         jcMesero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CARLOS", "MARTIN", "FABIAN", "MARIA" }));
@@ -556,7 +549,6 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
         jbQuitar.setText("Quitar");
 
         jLabel10.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("Buscar Producto");
 
         jtBProducto.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -566,18 +558,17 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
         });
 
         jLabel11.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel11.setForeground(new java.awt.Color(0, 0, 0));
         jLabel11.setText("Estado de Mesa");
 
         jcEstadoMesa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "LIBRE", "OCUPADO" }));
 
         jLabel12.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel12.setForeground(new java.awt.Color(0, 0, 0));
         jLabel12.setText("SubTotal");
 
         jLabel13.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel13.setForeground(new java.awt.Color(0, 0, 0));
         jLabel13.setText("Cantidad");
+
+        jsCantidad.setModel(new javax.swing.SpinnerNumberModel(0, 0, 99, 1));
 
         jDesktopPane1.setLayer(jlMesa24, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jlMesa26, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -635,8 +626,8 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
         jDesktopPane1.setLayer(jcEstadoMesa, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jtSubtotal, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jLabel12, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(jtCantidad, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jLabel13, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(jsCantidad, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
@@ -761,10 +752,10 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
                                     .addComponent(jbQuitar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jbAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                                .addGap(24, 24, 24)
-                                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGap(15, 15, 15)
+                                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel13)
-                                    .addComponent(jtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(jsCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(18, 18, 18)
                         .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jDesktopPane1Layout.createSequentialGroup()
@@ -777,7 +768,7 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addGap(0, 29, Short.MAX_VALUE)
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jDesktopPane1Layout.createSequentialGroup()
                         .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -823,16 +814,21 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
                         .addComponent(jLabel5)
                         .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                                .addGap(22, 22, 22)
-                                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel10)
-                                    .addComponent(jtBProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel13))
-                                .addGap(18, 18, 18)
                                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                                        .addComponent(jtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
+                                        .addGap(22, 22, 22)
+                                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(jLabel10)
+                                            .addComponent(jtBProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(18, 18, 18))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel13)
+                                        .addGap(3, 3, 3)))
+                                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                                        .addComponent(jsCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(36, 36, 36)
                                         .addComponent(jbAgregar)
                                         .addGap(18, 18, 18)
                                         .addComponent(jbQuitar))
@@ -912,7 +908,7 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
     private void jlMesa1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlMesa1MouseClicked
         
         
-        modelo.setRowCount(0);
+        modelo1.setRowCount(0);
         cargarPedido(1);
         jtNmesa.setText(1+"");
         LocalDateTime now = LocalDateTime.now();
@@ -1432,6 +1428,7 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
       jcMesero.setSelectedItem(jtPedidos.getValueAt(fila,2 ));
       jrCobrada.setSelected((boolean)jtPedidos.getValueAt(fila,4));
       jcEstadoPedido.setSelectedItem(jtPedidos.getValueAt(fila, 5));
+      
     }//GEN-LAST:event_jtPedidosMouseClicked
 
     private void jcEstadoPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcEstadoPedidoActionPerformed
@@ -1460,7 +1457,7 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
         pp.setProducto(pro);
         int idPe =Integer.parseInt(jtID.getText());
         pp.setPedido(pd.obtenerPedidoId(idPe));
-        pp.setCantidad(Integer.parseInt(jtCantidad.getText()));
+        pp.setCantidad(Integer.parseInt(jsCantidad.getValue().toString()));
         pp.setImporte(pro.getPrecio());
         pp.setEstado(true);
         ppd.crearPedProd(pp);
@@ -1523,8 +1520,8 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jlMesa8;
     private javax.swing.JLabel jlMesa9;
     private javax.swing.JRadioButton jrCobrada;
+    private javax.swing.JSpinner jsCantidad;
     private javax.swing.JTextField jtBProducto;
-    private javax.swing.JTextField jtCantidad;
     private javax.swing.JTextField jtFechaHora;
     private javax.swing.JTextField jtID;
     private javax.swing.JTextField jtNmesa;
@@ -1536,14 +1533,14 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
 
     private void armarCabeceraPed(){
         
-        modelo.addColumn("ID");
-        modelo.addColumn("M");
-        modelo.addColumn("Nombre");
-        modelo.addColumn("Fecha y Hora");
-        modelo.addColumn("Cobrada");
-        modelo.addColumn("Importe");
-        modelo.addColumn("Estado");
-        jtPedidos.setModel(modelo);
+        modelo1.addColumn("ID");
+        modelo1.addColumn("M");
+        modelo1.addColumn("Nombre");
+        modelo1.addColumn("Fecha y Hora");
+        modelo1.addColumn("Cobrada");
+        modelo1.addColumn("Importe");
+        modelo1.addColumn("Estado");
+        jtPedidos.setModel(modelo1);
         
         TableColumn columnaID = jtPedidos.getColumnModel().getColumn(0);
         TableColumn columnaMesa = jtPedidos.getColumnModel().getColumn(1);
@@ -1565,34 +1562,33 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
  
     private void armarCabeceraProdPed() {
 
-        modelo1.addColumn("Producto");
-        modelo1.addColumn("Pedido");
-        modelo1.addColumn("Cantidad");
-        modelo1.addColumn("Importe");
-        modelo1.addColumn("estado");
-        jtPedidoProd.setModel(modelo1);
+        modelo2.addColumn("ID Pedido");
+        modelo2.addColumn("Nombre");
+        modelo2.addColumn("Importe");
+        modelo2.addColumn("Cantidad");
+        jtPedidoProd.setModel(modelo2);
 
     }
 
     private void armarCabeceraProd() {
 
-        modelo2.addColumn("ID");
-        modelo2.addColumn("Nombre");
-        modelo2.addColumn("Precio");
-        modelo2.addColumn("Categoria");
-        modelo2.addColumn("Stock");
-        jtProducto.setModel(modelo2);
+        modelo3.addColumn("ID");
+        modelo3.addColumn("Nombre");
+        modelo3.addColumn("Precio");
+        modelo3.addColumn("Categoria");
+        modelo3.addColumn("Stock");
+        jtProducto.setModel(modelo3);
 
     }
 
     private void cargarPedido(int id) {
 
-        modelo.setRowCount(0);
+        modelo1.setRowCount(0);
         List<Pedido> pedido = pd.listarPedidosMesa(id);
 
         for (Pedido pe : pedido) {
 
-            modelo.addRow(new Object[]{pe.getIdPedido(), pe.getMesa().getNumero(),
+            modelo1.addRow(new Object[]{pe.getIdPedido(), pe.getMesa().getNumero(),
                 pe.getNombreMesero(), pe.getFechaHora(),pe.isCobrada(),pe.getImporte(), pe.getEstado()});
 
         }   
@@ -1600,12 +1596,12 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
     
     private void cargarProducto() {
 
-        modelo2.setRowCount(0);
+        modelo3.setRowCount(0);
         List<Producto> producto = pdat.listarProductos();
 
         for (Producto pro : producto) {
 
-            modelo2.addRow(new Object[]{pro.getIdProducto(),pro.getNombre(), pro.getPrecio(), pro.getCategoria(), pro.getStock()});
+            modelo3.addRow(new Object[]{pro.getIdProducto(),pro.getNombre(), pro.getPrecio(), pro.getCategoria(), pro.getStock()});
 
         }   
     }
@@ -1614,14 +1610,11 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
         modelo2.setRowCount(0);
 
         List<PedidoProducto> pedidoP = ppd.BuscarProductosxIdPedido(id);
-        pdat.ObtenerPrductoId(id); 
-        
-        List<Producto> productos = new ArrayList();
-        
+      
         for (PedidoProducto pp : pedidoP) {
-            
-            productos.add(pp.getProducto());
-            
+
+            modelo2.addRow(new Object[]{pp.getPedido().getIdPedido(),pp.getProducto().getNombre(),pp.getImporte(),pp.getCantidad()});
+
         }   
     }  
 }

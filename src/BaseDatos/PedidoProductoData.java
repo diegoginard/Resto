@@ -40,7 +40,7 @@ public class PedidoProductoData {
             ps.setInt(1, pedprod.getPedido().getIdPedido());
             ps.setInt(2, pedprod.getProducto().getIdProducto());
             ps.setInt(3, pedprod.getCantidad());
-            ps.setDouble(4, pedprod.getImporte());
+            ps.setDouble(4, pedprod.getImporte()*pedpro.getCantidad());
             ps.setBoolean(5,true);
             ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
