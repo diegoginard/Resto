@@ -19,7 +19,6 @@ public class PedidoProductoData {
     private Connection con = null;
     Pedido ped = new Pedido();
     PedidoData pd = new PedidoData();
-    PedidoProducto pedpro = new PedidoProducto();
     Producto pro = new Producto();
     ProductoData pdat = new ProductoData();
     
@@ -33,13 +32,9 @@ public class PedidoProductoData {
 
         String sql = "INSERT INTO pedidoproducto(idPedido, idProducto, cantidad, importe, estado) VALUES (?, ?, ?, ?, ?)";
         
-        
         double precio =  pedprod.getProducto().getPrecio();
         double cantidad =  pedprod.getCantidad();
-        System.out.println("precio" + precio);
-        System.out.println("cantidad" + cantidad);
         double total = precio * cantidad;
-        System.out.println("total" + total);
 
         try {
 
@@ -76,13 +71,14 @@ public class PedidoProductoData {
         
         try {
             
-            String sql = "SELECT * FROM pedidoproducto WHERE idPedido = ?";
+            String sql = "SELECT * FROM pedidoproducto WHERE idPedido = ? AND estado = 1";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1,id);
             ResultSet rs = ps.executeQuery();
           
             while (rs.next()) {
                 
+                PedidoProducto pedpro = new PedidoProducto();
                 pedpro.setIdPedidoProducto(rs.getInt("idPedidoProducto"));
                 pedpro.setPedido(pd.obtenerPedidoId(rs.getInt("idPedido")));
                 pedpro.setProducto(pdat.ObtenerPrductoId(rs.getInt("idProducto")));
