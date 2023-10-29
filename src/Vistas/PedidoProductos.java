@@ -534,6 +534,7 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jtProducto.setSelectionForeground(new java.awt.Color(153, 153, 153));
         jScrollPane3.setViewportView(jtProducto);
 
         jbAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/flechaVerde.png"))); // NOI18N
