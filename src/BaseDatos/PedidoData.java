@@ -117,16 +117,16 @@ public class PedidoData {
             ResultSet rs = ps.executeQuery();
           
             while (rs.next()) {
-                
-                ped.setIdPedido(rs.getInt("idPedido"));
+                Pedido pedi = new Pedido();
+                pedi.setIdPedido(rs.getInt("idPedido"));
                 mesa = md.ObtenerMesasId(rs.getInt("idMesa"));
-                ped.setMesa(mesa);
-                ped.setNombreMesero(rs.getString("nombreMesero"));
-                ped.setFechaHora(rs.getTimestamp("fechaHora").toLocalDateTime());
-                ped.setCobrada(rs.getBoolean("cobrada"));
-                ped.setImporte(rs.getDouble("importe"));
-                ped.setEstado(rs.getString("estado"));
-                Pedidos.add(ped);
+                pedi.setMesa(mesa);
+                pedi.setNombreMesero(rs.getString("nombreMesero"));
+                pedi.setFechaHora(rs.getTimestamp("fechaHora").toLocalDateTime());
+                pedi.setCobrada(rs.getBoolean("cobrada"));
+                pedi.setImporte(rs.getDouble("importe"));
+                pedi.setEstado(rs.getString("estado"));
+                Pedidos.add(pedi);
             
             }
             
