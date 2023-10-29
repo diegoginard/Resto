@@ -4,6 +4,8 @@ package BaseDatos;
 import Entidades.Mesa;
 import Entidades.Pedido;
 import java.sql.*;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -206,6 +208,11 @@ public class PedidoData {
         }
     }
     
+    
+    
+    
+    
+    
     public Pedido obtenerPedidoId (int id){
        try {
             
@@ -237,4 +244,117 @@ public class PedidoData {
 
         return ped; 
     }
+    
+    
+    
+    
+     public List<Pedido> listarPedidoMesero(String meseroN){
+        
+        List<Pedido> mesero = new ArrayList<>();
+    
+        try {
+            
+            String sql = "SELECT * FROM Pedido WHERE nombreMesero = ? ";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, meseroN);
+            ResultSet rs = ps.executeQuery();
+          
+            while (rs.next()) {
+                Pedido ped = new Pedido();
+                ped.setIdPedido(rs.getInt("idPedido"));
+                mesa = md.ObtenerMesasId(rs.getInt("idMesa"));
+                ped.setMesa(mesa);
+                ped.setNombreMesero(rs.getString("nombreMesero"));
+                ped.setFechaHora(rs.getTimestamp("fechaHora").toLocalDateTime());
+                ped.setCobrada(rs.getBoolean("cobrada"));
+                ped.setEstado(rs.getString("estado"));
+                mesero.add(ped);
+            
+            }
+            
+            ps.close();
+
+        }catch (SQLException ex) {
+
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla pedidos" + ex.getMessage());
+
+        }
+
+        return mesero;
+    
+    }
+     
+        public List<Pedido> listarPedidoFecha(LocalDate fecha){
+        
+        List<Pedido> listaFecha = new ArrayList<>();
+    
+        try {
+            
+            String sql = "SELECT * FROM Pedido WHERE fechaHora= ? ";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+          
+            while (rs.next()) {
+                Pedido ped = new Pedido();
+                ped.setIdPedido(rs.getInt("idPedido"));
+                mesa = md.ObtenerMesasId(rs.getInt("idMesa"));
+                ped.setMesa(mesa);
+                ped.setNombreMesero(rs.getString("nombreMesero"));
+                ped.setFechaHora(rs.getTimestamp("fechaHora").toLocalDateTime());
+                ped.setCobrada(rs.getBoolean("cobrada"));
+                ped.setEstado(rs.getString("estado"));
+                listaFecha.add(ped);
+            
+            }
+            
+            ps.close();
+
+        }catch (SQLException ex) {
+
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla pedidos" + ex.getMessage());
+
+        }
+
+        return listaFecha;
+    
+    } 
+        
+        public List<Pedido> listarPedidoFechaDia(LocalDateTime fechad){
+        
+        List<Pedido> listaFechaD = new ArrayList<>();
+    
+        try {
+            
+            String sql = "SELECT * FROM Pedido WHERE fechaHora = ? ";
+            PreparedStatement ps = con.prepareStatement(sql);
+
+            ResultSet rs = ps.executeQuery();
+          
+            while (rs.next()) {
+                Pedido ped = new Pedido();
+                ped.setIdPedido(rs.getInt("idPedido"));
+                mesa = md.ObtenerMesasId(rs.getInt("idMesa"));
+                ped.setMesa(mesa);
+                ped.setNombreMesero(rs.getString("nombreMesero"));
+                ped.setFechaHora(rs.getTimestamp("fechaHora").toLocalDateTime());
+                ped.setCobrada(rs.getBoolean("cobrada"));
+                ped.setEstado(rs.getString("estado"));
+                listaFechaD.add(ped);
+            
+            }
+            
+            ps.close();
+
+        }catch (SQLException ex) {
+
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla pedidos" + ex.getMessage());
+
+        }
+
+        return listaFechaD;
+    
+    } 
+     
+    
+    
 }

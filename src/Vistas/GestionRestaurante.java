@@ -74,6 +74,11 @@ public class GestionRestaurante extends javax.swing.JFrame {
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Gestionar");
+        jMenu2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu2ActionPerformed(evt);
+            }
+        });
 
         jmPedidos.setText("Pedidos");
         jmPedidos.addActionListener(new java.awt.event.ActionListener() {
@@ -153,7 +158,15 @@ public class GestionRestaurante extends javax.swing.JFrame {
     }//GEN-LAST:event_jmMesasActionPerformed
 
     private void jmPedidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmPedidosActionPerformed
-      
+
+        escritorio.removeAll();
+        escritorio.repaint();
+        ListarPedidos ll = new ListarPedidos();
+        ll.setVisible(true);
+        escritorio.add(ll);
+        escritorio.moveToFront(ll);
+        
+        
     }//GEN-LAST:event_jmPedidosActionPerformed
 
     private void jMenu3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu3ActionPerformed
@@ -176,6 +189,11 @@ public class GestionRestaurante extends javax.swing.JFrame {
         escritorio.moveToFront(pp);
         
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenu2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu2ActionPerformed
+        // TODO add your handling code here:
+     
+    }//GEN-LAST:event_jMenu2ActionPerformed
 
    
     public static void main(String args[]) {
