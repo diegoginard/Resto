@@ -466,6 +466,9 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
         });
         jScrollPane1.setViewportView(jtPedidos);
 
+        jScrollPane2.setForeground(new java.awt.Color(102, 255, 102));
+
+        jtPedidoProd.setForeground(new java.awt.Color(102, 255, 51));
         jtPedidoProd.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -1224,7 +1227,11 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jbQuitarActionPerformed
 
     private void jbCobrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCobrarActionPerformed
-        // TODO add your handling code here:
+        
+        Ticket newframe = new Ticket();
+        newframe.setVisible(true);
+        
+        
     }//GEN-LAST:event_jbCobrarActionPerformed
 
     private void jtBProductoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtBProductoMouseClicked
@@ -1234,7 +1241,7 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jtBProductoMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JDesktopPane jDesktopPane1;
+    public javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
