@@ -1128,14 +1128,19 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jtBProductoKeyReleased
 
     private void jbAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAgregarActionPerformed
-
+        PedidoProductoData ppdd = new PedidoProductoData();
+        ProductoData pdd = new ProductoData();
+        Producto pro = new Producto();
+        Pedido pedi = new Pedido();
+        
+        
         int fila = jtProducto.getSelectedRow();
         int idProducto = (int) jtProducto.getValueAt(fila, 0);
         pro = pdat.ObtenerPrductoId(idProducto);
         pp.setProducto(pro);
         int idPe = Integer.parseInt(jtID.getText());
         ped = pd.obtenerPedidoId(idPe);
-        ped.setImporte(Double.parseDouble(jtTotal.getText()));
+        
         pp.setPedido(pd.obtenerPedidoId(idPe));
         pp.setCantidad(Integer.parseInt(jsCantidad.getValue().toString()));
         pp.setImporte(pro.getPrecio());
@@ -1147,14 +1152,15 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
 
             pdat.ModificarProducto(pro);
             ppd.crearPedProd(pp);
-            pd.modificarPedido(ped);
             cargarPedidoProducto(idPe);
+            ped.setImporte(Double.parseDouble(jtTotal.getText()));
+            pd.modificarPedido(ped);
+           
             cargarProducto();
             cargarPedido(ped.getMesa().getNumero());
         } else {
 
             JOptionPane.showMessageDialog(rootPane, "No hay stock del producto");
-
         }
     }//GEN-LAST:event_jbAgregarActionPerformed
 
