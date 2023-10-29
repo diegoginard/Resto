@@ -1073,8 +1073,8 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
 
         ped.setNombreMesero(jcMesero.getSelectedItem() + "");
         String text = jtFechaHora.getText();
-        LocalDateTime dateTime = LocalDateTime.parse(text, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
-        ped.setFechaHora(dateTime);
+//        LocalDateTime dateTime = LocalDateTime.parse(text, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+//        ped.setFechaHora(dateTime);
         mesa = md.ObtenerMesasId(Integer.parseInt(jtNmesa.getText()));
         ped.setMesa(mesa);
         ped.setEstado(jcEstadoPedido.getSelectedItem() + "");
@@ -1106,6 +1106,8 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
         jtID.setText(jtPedidos.getValueAt(fila, 0) + "");
         jcMesero.setSelectedItem(jtPedidos.getValueAt(fila, 2));
         jcEstadoPedido.setSelectedItem(jtPedidos.getValueAt(fila, 5));
+        jtFechaHora.setText(jtPedidos.getValueAt(fila, 3)+"");
+        jcEstadoPedido.setSelectedItem(jtPedidos.getValueAt(fila, 6));
         cargarPedidoProducto(Integer.parseInt(jtID.getText()));
 
     }//GEN-LAST:event_jtPedidosMouseClicked
@@ -1344,8 +1346,8 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
         modelo1.setRowCount(0);
         jbCrearPed.setEnabled(true);
         LocalDateTime now = LocalDateTime.now();
-        String formattedDateTime = now.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
-        jtFechaHora.setText(formattedDateTime);
+//        String formattedDateTime = now.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+//        jtFechaHora.setText(formattedDateTime);
         jtNmesa.setEditable(false);
 
     }

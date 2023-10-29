@@ -15,6 +15,14 @@ public class Pedido {
     public Pedido() {
     }
 
+    public Pedido(Mesa mesa, String nombreMesero, boolean cobrada, double Importe, String estado) {
+        this.mesa = mesa;
+        this.nombreMesero = nombreMesero;
+        this.cobrada = cobrada;
+        this.Importe = Importe;
+        this.estado = estado;
+    }
+
     public Pedido(int idPedido) {
         this.idPedido = idPedido;
     }

@@ -33,7 +33,8 @@ public class PedidoData {
             System.out.println(ped.getNombreMesero());
             ps.setString(1, ped.getNombreMesero());
             ps.setInt(2,ped.getMesa().getIdMesa());
-            ps.setTimestamp(3, Timestamp.valueOf(ped.getFechaHora()));
+            ps.setTimestamp(3, Timestamp.valueOf(LocalDateTime.now()));
+            System.out.println(Timestamp.valueOf(LocalDateTime.now()));
             ps.setBoolean(4, false);
             ps.setDouble(5, ped.getImporte());
             ps.setString(6, "PENDIENTE");
