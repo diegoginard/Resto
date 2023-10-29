@@ -208,12 +208,7 @@ public class PedidoData {
         
         }
     }
-    
-    
-    
-    
-    
-    
+ 
     public Pedido obtenerPedidoId (int id){
        try {
             
@@ -245,10 +240,7 @@ public class PedidoData {
 
         return ped; 
     }
-    
-    
-    
-    
+ 
      public List<Pedido> listarPedidoMesero(String meseroN){
         
         List<Pedido> mesero = new ArrayList<>();
@@ -354,8 +346,5 @@ public class PedidoData {
 
         return listaFechaD;
     
-    } 
-     
-    
-    
+    }     
 }

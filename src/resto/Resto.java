@@ -37,7 +37,7 @@ public class Resto {
 //            LocalDateTime.of(2023, 10, 10, 11, 00),
 //            true, 0, "pendiente");
 //       Pedido ped1 = new Pedido(2);
-//       PedidoData ped = new PedidoData();
+       PedidoData ped = new PedidoData();
 //       ped.guardarPedido(p1); //Funciona
 //       pd.eliminarPedido(4);
 //       System.out.println(pd.BuscarProductos("H")); //Funciona

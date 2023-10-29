@@ -4,6 +4,7 @@ package Vistas;
 import BaseDatos.*;
 import Entidades.*;
 import java.awt.Color;
+import java.awt.EventQueue;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.time.LocalDateTime;
@@ -1149,6 +1150,7 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
             pd.modificarPedido(ped);
             cargarPedidoProducto(idPe);
             cargarProducto();
+            cargarPedido(ped.getMesa().getNumero());
         } else {
 
             JOptionPane.showMessageDialog(rootPane, "No hay stock del producto");
@@ -1164,28 +1166,45 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
 
         PedidoProductoData ppdd = new PedidoProductoData();
         ProductoData pdd = new ProductoData();
-        Producto p = new Producto();
-
+        Producto pro = new Producto();
+        Pedido pedi = new Pedido();
+        
         int fila = jtPedidoProd.getSelectedRow();
-        int id = (int) jtPedidoProd.getValueAt(fila, 0);
-        int idProducto = (int) jtPedidoProd.getValueAt(fila, 2);
-        ppdd.eliminarPedidoProducto(id);
-        p = pdat.ObtenerPrductoId(idProducto);
-        int cantidad = (int) jtPedidoProd.getValueAt(fila, 5);
-        int stockTotal = p.getStock();
-        p.setStock(stockTotal + cantidad);
-        JOptionPane.showMessageDialog(rootPane, stockTotal);
-        pdd.ModificarProducto(p);
-      
-        int idPe =Integer.parseInt(jtID.getText());
-        cargarPedidoProducto(idPe);
-        cargarProducto();
+        int filaP = jtPedidos.getSelectedRow();
+        
+        
+        try {
+            
+            int id = (int) jtPedidoProd.getValueAt(fila, 0);
+            int idP = (int) jtPedidos.getValueAt(filaP, 0);
+            int idProducto = (int) jtPedidoProd.getValueAt(fila, 2);
+            ppdd.eliminarPedidoProducto(id); //Elimina producto
+            cargarPedidoProducto(idP);
+
+            pedi = pd.obtenerPedidoId(idP);
+            pedi.setImporte(Double.parseDouble(jtTotal.getText()));
+            pd.modificarPedido(pedi);
+
+            pro = pdat.ObtenerPrductoId(idProducto);
+            int cantidad = (int) jtPedidoProd.getValueAt(fila, 5);
+            int stockTotal = pro.getStock();
+            pro.setStock(stockTotal + cantidad);
+            pdd.ModificarProducto(pro);
+
+            cargarProducto();
+            cargarPedido(pedi.getMesa().getNumero());
+            
+        } catch (Exception ex) {
+
+            JOptionPane.showMessageDialog(rootPane, "Debe seleccionar un producto"+ex);
+
+        }
     }//GEN-LAST:event_jbQuitarActionPerformed
 
     private void jbCobrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCobrarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jbCobrarActionPerformed
- 
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel1;
