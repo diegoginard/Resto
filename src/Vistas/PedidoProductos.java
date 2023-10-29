@@ -1133,6 +1133,8 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
         pro = pdat.ObtenerPrductoId(idProducto);
         pp.setProducto(pro);
         int idPe = Integer.parseInt(jtID.getText());
+        ped = pd.obtenerPedidoId(idPe);
+        ped.setImporte(Double.parseDouble(jtTotal.getText()));
         pp.setPedido(pd.obtenerPedidoId(idPe));
         pp.setCantidad(Integer.parseInt(jsCantidad.getValue().toString()));
         pp.setImporte(pro.getPrecio());
@@ -1144,6 +1146,7 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
 
             pdat.ModificarProducto(pro);
             ppd.crearPedProd(pp);
+            pd.modificarPedido(ped);
             cargarPedidoProducto(idPe);
             cargarProducto();
         } else {
