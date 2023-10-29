@@ -466,9 +466,6 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
         });
         jScrollPane1.setViewportView(jtPedidos);
 
-        jScrollPane2.setForeground(new java.awt.Color(102, 255, 102));
-
-        jtPedidoProd.setForeground(new java.awt.Color(102, 255, 51));
         jtPedidoProd.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -1082,15 +1079,19 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
 
     private void jbCrearPedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCrearPedActionPerformed
 
+        Mesa mesa = new Mesa();
         ped.setNombreMesero(jcMesero.getSelectedItem() + "");
         String text = jtFechaHora.getText();
 //        LocalDateTime dateTime = LocalDateTime.parse(text, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
 //        ped.setFechaHora(dateTime);
         mesa = md.ObtenerMesasId(Integer.parseInt(jtNmesa.getText()));
+        mesa.setEstadoMesa("OCUPADO");
         ped.setMesa(mesa);
         ped.setEstado(jcEstadoPedido.getSelectedItem() + "");
         pd.guardarPedido(ped);
+        md.modificarMesa(mesa);
         cargarPedido(mesa.getIdMesa());
+        
         jlMesa1.setIcon(icoR);
     }//GEN-LAST:event_jbCrearPedActionPerformed
 
@@ -1227,9 +1228,6 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jbQuitarActionPerformed
 
     private void jbCobrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCobrarActionPerformed
-        
-        Ticket newframe = new Ticket();
-        newframe.setVisible(true);
         
         
     }//GEN-LAST:event_jbCobrarActionPerformed
