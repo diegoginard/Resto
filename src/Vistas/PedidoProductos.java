@@ -1079,15 +1079,19 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
 
     private void jbCrearPedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCrearPedActionPerformed
 
+        Mesa mesa = new Mesa();
         ped.setNombreMesero(jcMesero.getSelectedItem() + "");
         String text = jtFechaHora.getText();
 //        LocalDateTime dateTime = LocalDateTime.parse(text, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
 //        ped.setFechaHora(dateTime);
         mesa = md.ObtenerMesasId(Integer.parseInt(jtNmesa.getText()));
+        mesa.setEstadoMesa("OCUPADO");
         ped.setMesa(mesa);
         ped.setEstado(jcEstadoPedido.getSelectedItem() + "");
         pd.guardarPedido(ped);
+        md.modificarMesa(mesa);
         cargarPedido(mesa.getIdMesa());
+        
         jlMesa1.setIcon(icoR);
     }//GEN-LAST:event_jbCrearPedActionPerformed
 
@@ -1224,7 +1228,8 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jbQuitarActionPerformed
 
     private void jbCobrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCobrarActionPerformed
-        // TODO add your handling code here:
+        
+        
     }//GEN-LAST:event_jbCobrarActionPerformed
 
     private void jtBProductoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtBProductoMouseClicked
@@ -1234,7 +1239,7 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jtBProductoMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JDesktopPane jDesktopPane1;
+    public javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
