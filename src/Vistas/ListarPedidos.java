@@ -205,21 +205,24 @@ public class ListarPedidos extends javax.swing.JInternalFrame {
         
         switch (elegir){
             
-            case "MESERO":{
+            case "MESERO":
                 
+                modelo.setRowCount(0);
                 jtNMesero.setEnabled(true);
  
                 break;
                
-            }
             case "FECHA":
                 
+                modelo.setRowCount(0);
                 jdFecha.setEnabled(true);
                 
             default:
                 
+                modelo.setRowCount(0);
                 jtNMesero.setEnabled(false);
                 jdFecha.setEnabled(false);
+                cargarPedidos();
                 
         }  
     }//GEN-LAST:event_jcElegirItemStateChanged

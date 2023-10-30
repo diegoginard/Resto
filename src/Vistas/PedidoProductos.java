@@ -88,7 +88,6 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel9 = new javax.swing.JLabel();
         ImageIcon icono = new ImageIcon(getClass().getResource("/Recursos/arqueo-de-caja.jpg"));
         Image imagen = icono.getImage();
         escritorio2 = new javax.swing.JDesktopPane(){
@@ -559,11 +558,6 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
                 jtBProductoMouseClicked(evt);
             }
         });
-        jtBProducto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtBProductoActionPerformed(evt);
-            }
-        });
         jtBProducto.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jtBProductoKeyReleased(evt);
@@ -822,7 +816,7 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
                         .addGroup(escritorio2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(escritorio2Layout.createSequentialGroup()
                                 .addGap(48, 48, 48)
-                                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE)
+                                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
                                 .addGap(18, 18, 18)
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, escritorio2Layout.createSequentialGroup()
@@ -936,14 +930,10 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(escritorio2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel9))
+                .addGap(6, 6, 6))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(597, Short.MAX_VALUE)
-                .addComponent(jLabel9))
             .addComponent(escritorio2, javax.swing.GroupLayout.Alignment.TRAILING)
         );
 
@@ -1082,9 +1072,6 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
 
         Mesa mesa = new Mesa();
         ped.setNombreMesero(jTextField1.getText());
-//        String text = jtFechaHora.getText();
-//        LocalDateTime dateTime = LocalDateTime.parse(text, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
-//        ped.setFechaHora(dateTime);
         mesa = md.ObtenerMesasId(Integer.parseInt(jtNmesa.getText()));
         mesa.setEstadoMesa("OCUPADO");
         ped.setMesa(mesa);
@@ -1187,10 +1174,6 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_jbAgregarActionPerformed
 
-    private void jtBProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtBProductoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtBProductoActionPerformed
-
     private void jbQuitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbQuitarActionPerformed
 
         PedidoProductoData ppdd = new PedidoProductoData();
@@ -1199,7 +1182,7 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
         Pedido pedi = new Pedido();
 
         int fila = jtPedidoProd.getSelectedRow();
-        int filaP = jtPedidos.getSelectedRow();
+//        int filaP = jtPedidos.getSelectedRow();
 
         try {
 
@@ -1280,7 +1263,6 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -1422,16 +1404,14 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
             total += pp.getImporte();
 
         }
+        
         jtTotal.setText(total + "");
     }
     
     private void iniciarMesas(){
 
         modelo1.setRowCount(0);
-        jbCrearPed.setEnabled(true);
-//        LocalDateTime now = LocalDateTime.now();
-//        String formattedDateTime = now.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
-//        jtFechaHora.setText(formattedDateTime);
+        jbCrearPed.setEnabled(true);   
         jtNmesa.setEditable(false);
         jtID.setEditable(false);
 

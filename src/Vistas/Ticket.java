@@ -6,9 +6,7 @@ import Entidades.PedidoProducto;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
-import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-
 
 public class Ticket extends javax.swing.JFrame {
     
@@ -34,8 +32,6 @@ public class Ticket extends javax.swing.JFrame {
             int idP = Integer.parseInt(idRecibida);
             cargarPedido(idP);
         }
-        
-        
     }
     
     private DefaultTableModel modelo = new DefaultTableModel() {
