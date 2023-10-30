@@ -1168,7 +1168,7 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
             int stock = prod.getStock() - pepro.getCantidad();
             prod.setStock(stock);
 
-            if (stock > 0) {
+            if (stock >= 0) {
 
                 ppd.crearPedProd(pepro);
                 pdat.ModificarProducto(prod);
@@ -1240,13 +1240,15 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
         
         Mesa mesa = md.ObtenerMesasId(idM);
         Pedido pedido = pd.obtenerPedidoId(idP);
+
         
-        if (pedido.getEstado().equalsIgnoreCase("PENDIENTE")) {
+        if (pedido.getEstado().equalsIgnoreCase("ENTREGADO")) {
             
             mesa.setEstadoMesa("LIBRE");
             md.modificarMesa(mesa);
 
             pedido.setCobrada(true);
+            pedido.setImporte(Integer.parseInt(jtTotal.getText()));
             pd.modificarPedido(pedido);
 
             cargarPedido(idP);
