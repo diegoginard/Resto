@@ -765,24 +765,19 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
                                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(escritorio2Layout.createSequentialGroup()
                                 .addGroup(escritorio2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(escritorio2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, escritorio2Layout.createSequentialGroup()
-                                            .addGap(144, 144, 144)
-                                            .addComponent(jtID, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jtNmesa, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                        .addGroup(escritorio2Layout.createSequentialGroup()
-                                            .addGroup(escritorio2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addGroup(escritorio2Layout.createSequentialGroup()
-                                                    .addGap(230, 230, 230)
-                                                    .addGroup(escritorio2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                        .addComponent(jcEstadoMesa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                                .addGroup(escritorio2Layout.createSequentialGroup()
-                                                    .addGap(249, 249, 249)
-                                                    .addComponent(jLabel2)))
-                                            .addGap(8, 35, Short.MAX_VALUE)))
+                                    .addGroup(escritorio2Layout.createSequentialGroup()
+                                        .addGap(144, 144, 144)
+                                        .addComponent(jtID, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(84, 84, 84)
+                                        .addComponent(jtNmesa, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(escritorio2Layout.createSequentialGroup()
+                                        .addGap(230, 230, 230)
+                                        .addGroup(escritorio2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jcEstadoMesa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(escritorio2Layout.createSequentialGroup()
+                                        .addGap(249, 249, 249)
+                                        .addComponent(jLabel2))
                                     .addGroup(escritorio2Layout.createSequentialGroup()
                                         .addComponent(jLabel1)
                                         .addGap(74, 74, 74)
@@ -1238,6 +1233,18 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jbQuitarActionPerformed
 
     private void jbCobrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCobrarActionPerformed
+        
+        int fila = jtPedidos.getSelectedRow();
+        int idM = (int) jtPedidos.getValueAt(fila,1);
+        int idP = (int) jtPedidos.getValueAt(fila,0);
+        
+        Mesa mesa = md.ObtenerMesasId(idM);
+        mesa.setEstadoMesa("LIBRE");
+        md.modificarMesa(mesa);
+        
+        Pedido pedido = pd.obtenerPedidoId(idP);
+        pedido.setCobrada(true);
+        pd.modificarPedido(pedido);
         
         String texto =jtID.getText();
         Ticket newframe  = new Ticket(texto);
