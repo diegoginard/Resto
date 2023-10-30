@@ -1,7 +1,6 @@
 
 package Vistas;
 
-import BaseDatos.PedidoData;
 import BaseDatos.PedidoProductoData;
 import Entidades.PedidoProducto;
 import java.time.LocalDate;
@@ -12,15 +11,25 @@ import javax.swing.table.DefaultTableModel;
 
 public class Ticket extends javax.swing.JFrame {
     
-    PedidoData pd = new PedidoData();
     PedidoProductoData ppd = new PedidoProductoData();
+    private String idRecibida;
+    private int id = Integer.parseInt(idRecibida);
     
     public Ticket() {
+        
         initComponents();
         this.setLocationRelativeTo(null);
         armarCabeceraProdPed();
         jtFecha.setText(LocalDate.now()+"");
         jtHora.setText(LocalTime.now()+"");
+        cargarPedido(id);
+    }
+
+    public Ticket(String idPed)  {
+        
+        this.idRecibida = idPed;
+        this.id = Integer.parseInt(idRecibida);
+        
     }
     
     private DefaultTableModel modelo = new DefaultTableModel() {
@@ -30,8 +39,10 @@ public class Ticket extends javax.swing.JFrame {
 
             return false;
         }
-
     };
+    
+    
+    
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -222,7 +233,7 @@ public class Ticket extends javax.swing.JFrame {
 
 
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
+        
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
@@ -289,9 +300,9 @@ public class Ticket extends javax.swing.JFrame {
 
         for (PedidoProducto pp : pedidoP) {
 
-            modelo.addRow(new Object[]{pp.getIdPedidoProducto(), pp.getPedido().getIdPedido(), 
-                pp.getProducto().getNombre(), pp.getImporte(), pp.getCantidad()
+            modelo.addRow(new Object[]{pp.getProducto().getNombre(), pp.getImporte(), pp.getCantidad()
                 });
+                
         }
     }
 }
