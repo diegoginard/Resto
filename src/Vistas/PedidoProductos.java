@@ -1248,7 +1248,7 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
             md.modificarMesa(mesa);
 
             pedido.setCobrada(true);
-            pedido.setImporte(Integer.parseInt(jtTotal.getText()));
+            pedido.setImporte(Double.parseDouble(jtTotal.getText()));
             pd.modificarPedido(pedido);
 
             cargarPedido(idP);
