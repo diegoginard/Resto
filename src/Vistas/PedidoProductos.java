@@ -1246,6 +1246,8 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
         pedido.setCobrada(true);
         pd.modificarPedido(pedido);
         
+        cargarPedido(idP);
+        
         String texto =jtID.getText();
         Ticket newframe  = new Ticket(texto);
         newframe.setVisible(true);
