@@ -13,7 +13,7 @@ public class Ticket extends javax.swing.JFrame {
     
     PedidoProductoData ppd = new PedidoProductoData();
     private String idRecibida;
-    private int id = Integer.parseInt(idRecibida);
+//    private int id = Integer.parseInt(idRecibida);
     
     public Ticket() {
         
@@ -22,13 +22,13 @@ public class Ticket extends javax.swing.JFrame {
         armarCabeceraProdPed();
         jtFecha.setText(LocalDate.now()+"");
         jtHora.setText(LocalTime.now()+"");
-        cargarPedido(id);
+//        cargarPedido(id);
     }
 
     public Ticket(String idPed)  {
         
         this.idRecibida = idPed;
-        this.id = Integer.parseInt(idRecibida);
+//        this.id = Integer.parseInt(idRecibida);
         
     }
     
@@ -93,7 +93,6 @@ public class Ticket extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jtTicket);
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/iconos/Imagen de WhatsApp 2023-10-29 a las 21.26.28_1f2672c2.jpg"))); // NOI18N
-        jButton1.setPreferredSize(new java.awt.Dimension(68, 96));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         jLabel5.setText("Telefono :    45282658");
@@ -142,13 +141,15 @@ public class Ticket extends javax.swing.JFrame {
                             .addComponent(jLabel3)
                             .addComponent(jLabel2)
                             .addComponent(jLabel1))
-                        .addGap(165, 165, 165)
-                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
+                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                                .addGap(165, 165, 165)
                                 .addComponent(jLabel4)
-                                .addGap(14, 14, 14))
-                            .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(36, 36, 36))
+                                .addGap(50, 50, 50))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(67, 67, 67))))
                     .addGroup(jDesktopPane1Layout.createSequentialGroup()
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -191,17 +192,19 @@ public class Ticket extends javax.swing.JFrame {
                         .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(32, 32, 32))
                     .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addGap(1, 1, 1)
+                        .addComponent(jLabel9))
+                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
                         .addComponent(jLabel4)
                         .addGap(34, 34, 34)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(23, 23, 23))
-                    .addComponent(jtHora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addGap(1, 1, 1)
-                        .addComponent(jLabel9)))
+                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
+                                .addComponent(jtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(23, 23, 23))
+                            .addComponent(jtHora, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)

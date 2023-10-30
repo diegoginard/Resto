@@ -41,6 +41,7 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
         TransparenciaBotones();
         jbCrearPed.setEnabled(false);
         jlMesa1.setIcon(icoV);
+        jtPedidoProd.setModel(modelo2);
     }
  
     private DefaultTableModel modelo1 = new DefaultTableModel(){
@@ -84,6 +85,11 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
         jbCobrar.setContentAreaFilled(false);
         jbCobrar.setBorderPainted(false);         
         
+    }
+    
+    public void nuevatabla(){
+        modelo2 = new DefaultTableModel();
+        jtPedidoProd.setModel(modelo2);
     }
     
     @SuppressWarnings("unchecked")
@@ -1229,9 +1235,14 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
 
     private void jbCobrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCobrarActionPerformed
         
-        String texto =jtID.getText();
-        Ticket newframe  = new Ticket(texto);
+//        String texto =jtID.getText();
+        Ticket newframe  = new Ticket();
         newframe.setVisible(true);
+        this.dispose();
+        for(int i = 0; i<jtPedidoProd.getRowCount(); i ++){
+//        String Datos[] = new String (6);
+    
+}
         
     }//GEN-LAST:event_jbCobrarActionPerformed
 
