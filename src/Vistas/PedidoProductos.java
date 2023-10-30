@@ -164,8 +164,6 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
         setBorder(null);
         setTitle("Gestion Pedidos");
 
-        escritorio2.setForeground(new java.awt.Color(255, 255, 255));
-
         jlMesa24.setFont(new java.awt.Font("Arial Black", 1, 36)); // NOI18N
         jlMesa24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
         jlMesa24.setText("24");
@@ -482,26 +480,20 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
         jScrollPane2.setViewportView(jtPedidoProd);
 
         jLabel3.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Pedidos x Mesa");
 
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Productos x Pedido");
 
         jLabel1.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Mesero");
 
         jLabel2.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Numero de Mesa");
 
         jLabel4.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Fecha y hora");
 
         jLabel6.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Estado pedido");
 
         jcEstadoPedido.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "PENDIENTE", "ENTREGADO", "CANCELADO" }));
@@ -521,7 +513,6 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
         });
 
         jLabel8.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("ID Pedido");
 
         jcMesero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CARLOS", "MARTIN", "FABIAN", "MARIA" }));
@@ -582,17 +573,14 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
         });
 
         jLabel11.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Estado de Mesa");
 
         jcEstadoMesa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "LIBRE", "OCUPADO" }));
 
         jLabel12.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Total");
 
         jLabel13.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("Cantidad");
 
         jsCantidad.setModel(new javax.swing.SpinnerNumberModel(1, 1, 99, 1));
@@ -607,7 +595,6 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
         });
 
         jLabel14.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("Mesas");
         jLabel14.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jLabel14.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -744,22 +731,22 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
                 .addGroup(escritorio2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(escritorio2Layout.createSequentialGroup()
                         .addGroup(escritorio2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, escritorio2Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(148, 148, 148))
                             .addGroup(escritorio2Layout.createSequentialGroup()
                                 .addGroup(escritorio2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(escritorio2Layout.createSequentialGroup()
                                         .addGap(18, 18, 18)
                                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(escritorio2Layout.createSequentialGroup()
-                                        .addGap(136, 136, 136)
-                                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(escritorio2Layout.createSequentialGroup()
                                         .addGap(12, 12, 12)
-                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(21, 21, 21))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, escritorio2Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(148, 148, 148)))
+                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(escritorio2Layout.createSequentialGroup()
+                                        .addGap(138, 138, 138)
+                                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(21, 21, 21)))
                         .addGroup(escritorio2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(escritorio2Layout.createSequentialGroup()
                                 .addGroup(escritorio2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -896,7 +883,9 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
                                         .addComponent(jbAgregar))
                                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(escritorio2Layout.createSequentialGroup()
-                                .addGap(81, 81, 81)
+                                .addGap(32, 32, 32)
+                                .addComponent(jLabel5)
+                                .addGap(33, 33, 33)
                                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(escritorio2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -928,8 +917,7 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
                             .addComponent(jlMesa13, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jlMesa14, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jlMesa15, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jlMesa16, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5))
+                            .addComponent(jlMesa16, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(escritorio2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jlMesa17, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
