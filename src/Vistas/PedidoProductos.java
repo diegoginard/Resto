@@ -1228,8 +1228,8 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jbQuitarActionPerformed
 
     private void jbCobrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCobrarActionPerformed
-        
-        
+        Ticket newframe  = new Ticket();
+        newframe.setVisible(true);
     }//GEN-LAST:event_jbCobrarActionPerformed
 
     private void jtBProductoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtBProductoMouseClicked
