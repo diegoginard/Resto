@@ -28,9 +28,9 @@ public class Ticket extends javax.swing.JFrame {
         armarCabeceraProdPed();
         jtFecha.setText(LocalDate.now()+"");
         jtHora.setText(LocalTime.now()+"");
+        
         if (idRecibida != null) {
             
-            JOptionPane.showMessageDialog(rootPane, idRecibida);
             int idP = Integer.parseInt(idRecibida);
             cargarPedido(idP);
         }

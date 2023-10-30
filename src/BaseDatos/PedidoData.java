@@ -247,9 +247,9 @@ public class PedidoData {
     
         try {
             
-            String sql = "SELECT * FROM Pedido WHERE nombreMesero = ? ";
+            String sql = "SELECT * FROM Pedido WHERE nombreMesero LIKE ?";
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setString(1, meseroN);
+            ps.setString(1, meseroN + "%"); // Configura el primer parámetro con el valor de búsqueda
             ResultSet rs = ps.executeQuery();
           
             while (rs.next()) {
@@ -259,6 +259,7 @@ public class PedidoData {
                 ped.setMesa(mesa);
                 ped.setNombreMesero(rs.getString("nombreMesero"));
                 ped.setFechaHora(rs.getTimestamp("fechaHora").toLocalDateTime());
+                ped.setImporte(rs.getDouble("importe"));
                 ped.setCobrada(rs.getBoolean("cobrada"));
                 ped.setEstado(rs.getString("estado"));
                 mesero.add(ped);

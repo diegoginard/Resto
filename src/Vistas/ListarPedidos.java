@@ -3,7 +3,9 @@ package Vistas;
 
 import BaseDatos.PedidoData;
 import Entidades.Pedido;
+import java.time.LocalDateTime;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class ListarPedidos extends javax.swing.JInternalFrame {
@@ -15,7 +17,8 @@ public class ListarPedidos extends javax.swing.JInternalFrame {
         initComponents();
         armarCabecera();
         cargarPedidos();
-        
+        jtNMesero.setEnabled(false);
+        jdFecha.setEnabled(false);
     }
     
     private DefaultTableModel modelo = new DefaultTableModel(){
@@ -38,15 +41,15 @@ public class ListarPedidos extends javax.swing.JInternalFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        PorFecha = new com.toedter.calendar.JDateChooser();
+        jdFecha = new com.toedter.calendar.JDateChooser();
         jButton1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtPedido = new javax.swing.JTable();
         jButton2 = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jtNMesero = new javax.swing.JTextField();
+        jcElegir = new javax.swing.JComboBox<>();
         jtIngresos = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
+        jtNMesero = new javax.swing.JTextField();
 
         setPreferredSize(new java.awt.Dimension(488, 589));
 
@@ -85,9 +88,20 @@ public class ListarPedidos extends javax.swing.JInternalFrame {
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "TODOS", "MESERO", "COBRADO", "ESTADO", "IMPORTES", "FECHA" }));
+        jcElegir.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "TODOS", "MESERO", "COBRADO", "ESTADO", "IMPORTES", "FECHA" }));
+        jcElegir.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jcElegirItemStateChanged(evt);
+            }
+        });
 
         jLabel5.setText("Ingresos Totales");
+
+        jtNMesero.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jtNMeseroKeyReleased(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -113,12 +127,12 @@ public class ListarPedidos extends javax.swing.JInternalFrame {
                                 .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(PorFecha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jdFecha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(PorDia, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jtNMesero, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jtNMesero, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(166, 166, 166)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jcElegir, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -139,19 +153,15 @@ public class ListarPedidos extends javax.swing.JInternalFrame {
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(53, 53, 53)
-                        .addComponent(jLabel2)
-                        .addGap(18, 18, 18))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jtNMesero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(28, 28, 28)))
+                .addComponent(jcElegir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(50, 50, 50)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel2)
+                    .addComponent(jtNMesero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel3)
-                    .addComponent(PorFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jdFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(PorDia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -189,12 +199,41 @@ public class ListarPedidos extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_jButton2MouseClicked
 
+    private void jcElegirItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jcElegirItemStateChanged
+        
+        String elegir = (String) jcElegir.getSelectedItem();
+        
+        switch (elegir){
+            
+            case "MESERO":{
+                
+                jtNMesero.setEnabled(true);
+ 
+                break;
+               
+            }
+            case "FECHA":
+                
+                jdFecha.setEnabled(true);
+                
+            default:
+                
+                jtNMesero.setEnabled(false);
+                jdFecha.setEnabled(false);
+                
+        }  
+    }//GEN-LAST:event_jcElegirItemStateChanged
+
+    private void jtNMeseroKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtNMeseroKeyReleased
+        
+        pedidoMesero(jtNMesero.getText());
+        
+    }//GEN-LAST:event_jtNMeseroKeyReleased
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.toedter.calendar.JDateChooser PorDia;
-    private com.toedter.calendar.JDateChooser PorFecha;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -202,6 +241,8 @@ public class ListarPedidos extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JComboBox<String> jcElegir;
+    private com.toedter.calendar.JDateChooser jdFecha;
     private javax.swing.JTextField jtIngresos;
     private javax.swing.JTextField jtNMesero;
     private javax.swing.JTable jtPedido;
@@ -233,4 +274,38 @@ public class ListarPedidos extends javax.swing.JInternalFrame {
 
         }
     }
+    
+    private void pedidoMesero(String mesero){
+        
+        double total = 0.0;
+        modelo.setRowCount(0);
+        List<Pedido> pedido = pd.listarPedidoMesero(mesero);
+
+        for (Pedido pe : pedido) {
+
+            modelo.addRow(new Object[]{pe.getIdPedido(), pe.getMesa().getNumero(),
+                pe.getNombreMesero(), pe.getFechaHora(),pe.isCobrada(),pe.getImporte(), pe.getEstado()});
+            total += pe.getImporte();
+        }
+        
+         jtIngresos.setText(total + "");
+         
+    } 
+    
+    private void pedidoFecha(LocalDateTime fechad){
+        
+        double total = 0.0;
+        modelo.setRowCount(0);
+        List<Pedido> pedido = pd.listarPedidoFechaDia(fechad);
+
+        for (Pedido pe : pedido) {
+
+            modelo.addRow(new Object[]{pe.getIdPedido(), pe.getMesa().getNumero(),
+                pe.getNombreMesero(), pe.getFechaHora(),pe.isCobrada(),pe.getImporte(), pe.getEstado()});
+            total += pe.getImporte();
+        }
+        
+         jtIngresos.setText(total + "");
+         
+    } 
 }
