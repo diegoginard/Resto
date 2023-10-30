@@ -1233,31 +1233,39 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jbQuitarActionPerformed
 
     private void jbCobrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCobrarActionPerformed
-        
+
         int fila = jtPedidos.getSelectedRow();
-        int idM = (int) jtPedidos.getValueAt(fila,1);
-        int idP = (int) jtPedidos.getValueAt(fila,0);
+        int idM = (int) jtPedidos.getValueAt(fila, 1);
+        int idP = (int) jtPedidos.getValueAt(fila, 0);
         
         Mesa mesa = md.ObtenerMesasId(idM);
-        mesa.setEstadoMesa("LIBRE");
-        md.modificarMesa(mesa);
-        
         Pedido pedido = pd.obtenerPedidoId(idP);
-        pedido.setCobrada(true);
-        pd.modificarPedido(pedido);
         
-        cargarPedido(idP);
+        if (pedido.getEstado().equalsIgnoreCase("PENDIENTE")) {
+            
+            mesa.setEstadoMesa("LIBRE");
+            md.modificarMesa(mesa);
+
+            pedido.setCobrada(true);
+            pd.modificarPedido(pedido);
+
+            cargarPedido(idP);
+
+            String texto = jtID.getText();
+            Ticket newframe = new Ticket(texto);
+            newframe.setVisible(true);
+            
+        }else {
         
-        String texto =jtID.getText();
-        Ticket newframe  = new Ticket(texto);
-        newframe.setVisible(true);
+            JOptionPane.showMessageDialog(rootPane, "No se puede cobrar, hay un pedido pendiente");
         
+        }
     }//GEN-LAST:event_jbCobrarActionPerformed
 
     private void jtBProductoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtBProductoMouseClicked
-       
+
         jtBProducto.setText("");
-        
+
     }//GEN-LAST:event_jtBProductoMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
