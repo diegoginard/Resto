@@ -235,24 +235,7 @@ public class AdministraMesas extends javax.swing.JInternalFrame {
 
         mesa.setNumero(Integer.parseInt(jtNumero.getText()));
         mesa.setCapacidad(Integer.parseInt(jtCapacidad.getText()));
-        int index = jcEstado.getSelectedIndex();
-        String estado = "";
-        
-        if (index == 1) {
-
-            estado = "LIBRE";
-            
-        } else if (index == 2) {
-
-            estado = "OCUPADO";
-            
-        } else if (index == 3) {
-
-            estado = "PENDIENTE";
-            
-        }
-        
-        mesa.setEstadoMesa(estado);
+        mesa.setEstadoMesa(jcEstado.getSelectedItem()+"");
         md.crearMesa(mesa);
         cargarLista();
 
