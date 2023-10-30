@@ -302,14 +302,18 @@ public class Ticket extends javax.swing.JFrame {
  
  private void cargarPedido(int id){
      
+     double total = 0.0;
      List<PedidoProducto> pedidoP = ppd.BuscarProductosxIdPedido(id);
 
         for (PedidoProducto pp : pedidoP) {
 
-            modelo.addRow(new Object[]{pp.getProducto().getNombre(), pp.getCantidad(), pp.getImporte()
-                });
-                
+            modelo.addRow(new Object[]{pp.getProducto().getNombre(), pp.getCantidad(), pp.getImporte()});
+            total += pp.getImporte();
+            
         }
+        
+        jtTotal.setText(total + "");
+        
     }
 }
 
