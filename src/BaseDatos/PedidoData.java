@@ -319,9 +319,9 @@ public class PedidoData {
     
         try {
             
-            String sql = "SELECT * FROM Pedido WHERE fechaHora = ? ";
+            String sql = "SELECT * FROM Pedido WHERE DATE(fechaHora) = ? ";
             PreparedStatement ps = con.prepareStatement(sql);
-
+            ps.setTimestamp(1, Timestamp.valueOf(fechad));
             ResultSet rs = ps.executeQuery();
           
             while (rs.next()) {

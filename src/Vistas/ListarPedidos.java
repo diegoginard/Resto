@@ -3,7 +3,9 @@ package Vistas;
 
 import BaseDatos.PedidoData;
 import Entidades.Pedido;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -19,6 +21,7 @@ public class ListarPedidos extends javax.swing.JInternalFrame {
         cargarPedidos();
         jtNMesero.setEnabled(false);
         jdFecha.setEnabled(false);
+        
     }
     
     private DefaultTableModel modelo = new DefaultTableModel(){
@@ -27,8 +30,8 @@ public class ListarPedidos extends javax.swing.JInternalFrame {
         public boolean  isCellEditable(int rowIndex, int columnIndex ){
             
             return false;
+            
         }
-
     };
     
     @SuppressWarnings("unchecked")
@@ -65,6 +68,12 @@ public class ListarPedidos extends javax.swing.JInternalFrame {
         jLabel1.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Listar Pedido");
+
+        jdFecha.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jdFechaPropertyChange(evt);
+            }
+        });
 
         jButton1.setText("Buscar");
 
@@ -217,6 +226,8 @@ public class ListarPedidos extends javax.swing.JInternalFrame {
                 modelo.setRowCount(0);
                 jdFecha.setEnabled(true);
                 
+                break;
+                
             default:
                 
                 modelo.setRowCount(0);
@@ -232,6 +243,17 @@ public class ListarPedidos extends javax.swing.JInternalFrame {
         pedidoMesero(jtNMesero.getText());
         
     }//GEN-LAST:event_jtNMeseroKeyReleased
+
+    private void jdFechaPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jdFechaPropertyChange
+        
+        if (jdFecha.getDate()!= null) {
+            LocalDate localDate = jdFecha.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+            LocalDateTime localDateTime = localDate.atTime(00, 0);
+
+            pedidoFecha(localDateTime);
+            
+        }
+    }//GEN-LAST:event_jdFechaPropertyChange
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.toedter.calendar.JDateChooser PorDia;
