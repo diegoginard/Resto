@@ -47,9 +47,6 @@ public class Ticket extends javax.swing.JFrame {
         }
     };
     
-    
-    
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -71,7 +68,7 @@ public class Ticket extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jtHora = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Semibold", 1, 36)); // NOI18N
         jLabel1.setText("RESTO");
@@ -309,7 +306,7 @@ public class Ticket extends javax.swing.JFrame {
 
         for (PedidoProducto pp : pedidoP) {
 
-            modelo.addRow(new Object[]{pp.getProducto().getNombre(), pp.getImporte(), pp.getCantidad()
+            modelo.addRow(new Object[]{pp.getProducto().getNombre(), pp.getCantidad(), pp.getImporte()
                 });
                 
         }
