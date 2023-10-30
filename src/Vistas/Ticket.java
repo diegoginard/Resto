@@ -1,13 +1,20 @@
 
 package Vistas;
 
+import BaseDatos.PedidoData;
+import BaseDatos.PedidoProductoData;
+import Entidades.PedidoProducto;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
 
 public class Ticket extends javax.swing.JFrame {
-
+    
+    PedidoData pd = new PedidoData();
+    PedidoProductoData ppd = new PedidoProductoData();
+    
     public Ticket() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -274,6 +281,18 @@ public class Ticket extends javax.swing.JFrame {
         modelo.addColumn("IMPORTE");
         jtTicket.setModel(modelo);
 
+    }
+ 
+ private void cargarPedido(int id){
+     
+     List<PedidoProducto> pedidoP = ppd.BuscarProductosxIdPedido(id);
+
+        for (PedidoProducto pp : pedidoP) {
+
+            modelo.addRow(new Object[]{pp.getIdPedidoProducto(), pp.getPedido().getIdPedido(), 
+                pp.getProducto().getNombre(), pp.getImporte(), pp.getCantidad()
+                });
+        }
     }
 }
 

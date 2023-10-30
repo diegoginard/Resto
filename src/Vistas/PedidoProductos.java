@@ -1381,7 +1381,7 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
         }
     }
 
-    private void cargarPedidoProducto(int id) {
+    public void cargarPedidoProducto(int id) {
 
         modelo2.setRowCount(0);
         double total = 0.0;
