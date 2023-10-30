@@ -1235,14 +1235,9 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
 
     private void jbCobrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCobrarActionPerformed
         
-//        String texto =jtID.getText();
-        Ticket newframe  = new Ticket();
+        String texto =jtID.getText();
+        Ticket newframe  = new Ticket(texto);
         newframe.setVisible(true);
-        this.dispose();
-        for(int i = 0; i<jtPedidoProd.getRowCount(); i ++){
-//        String Datos[] = new String (6);
-    
-}
         
     }//GEN-LAST:event_jbCobrarActionPerformed
 

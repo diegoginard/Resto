@@ -6,29 +6,35 @@ import Entidades.PedidoProducto;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 
 public class Ticket extends javax.swing.JFrame {
     
     PedidoProductoData ppd = new PedidoProductoData();
+    
     private String idRecibida;
-//    private int id = Integer.parseInt(idRecibida);
     
     public Ticket() {
-        
+
+    }
+
+    public Ticket(String idPed) {
+
+        this.idRecibida = idPed;
         initComponents();
         this.setLocationRelativeTo(null);
         armarCabeceraProdPed();
         jtFecha.setText(LocalDate.now()+"");
         jtHora.setText(LocalTime.now()+"");
-//        cargarPedido(id);
-    }
-
-    public Ticket(String idPed)  {
+        if (idRecibida != null) {
+            
+            JOptionPane.showMessageDialog(rootPane, idRecibida);
+            int idP = Integer.parseInt(idRecibida);
+            cargarPedido(idP);
+        }
         
-        this.idRecibida = idPed;
-//        this.id = Integer.parseInt(idRecibida);
         
     }
     
