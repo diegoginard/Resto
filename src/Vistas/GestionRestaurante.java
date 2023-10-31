@@ -190,7 +190,7 @@ public class GestionRestaurante extends javax.swing.JFrame {
         
         escritorio.removeAll();
         escritorio.repaint();
-        PedidoProductos pp = new PedidoProductos();
+        restoView pp = new restoView();
         pp.setVisible(true);
         escritorio.add(pp);
         escritorio.moveToFront(pp);
