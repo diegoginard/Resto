@@ -833,7 +833,7 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
 
     private void jtMesasPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jtMesasPropertyChange
         
-     
+      
     }//GEN-LAST:event_jtMesasPropertyChange
 
     private void jtMeseroKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtMeseroKeyPressed
