@@ -43,7 +43,7 @@ public class AdministraMenus extends JInternalFrame {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
-        ImageIcon icono = new ImageIcon(getClass().getResource("/Recursos/menu-hambur.jpg"));
+        ImageIcon icono = new ImageIcon(getClass().getResource("/Recursos/iconos/FONDO14.jpg"));
         Image imagen = icono.getImage();
         escritorio = new javax.swing.JDesktopPane(){
 
@@ -97,10 +97,11 @@ public class AdministraMenus extends JInternalFrame {
         });
         escritorio.add(jtId, new org.netbeans.lib.awtextra.AbsoluteConstraints(147, 50, 38, -1));
 
-        jLabel6.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Arial Black", 0, 20)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 204, 0));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("Administracion de Menus");
-        escritorio.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(81, 3, 301, 28));
+        jLabel6.setText("ADMINISTRACION DE MENUS");
+        escritorio.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, 340, 28));
         escritorio.add(jtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(147, 86, 163, -1));
 
         jtPrecio.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -117,6 +118,8 @@ public class AdministraMenus extends JInternalFrame {
         });
         escritorio.add(jtStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(334, 50, 41, -1));
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI Semibold", 1, 16)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 204, 0));
         jLabel1.setText("Id");
         escritorio.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 50, -1, 24));
 
@@ -140,10 +143,13 @@ public class AdministraMenus extends JInternalFrame {
 
         escritorio.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, -1, 184));
 
+        jLabel2.setFont(new java.awt.Font("Segoe UI Semibold", 1, 16)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 204, 0));
         jLabel2.setText("Nombre");
         escritorio.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 90, -1, -1));
 
         jbCrear.setText("Crear");
+        jbCrear.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jbCrear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbCrearActionPerformed(evt);
@@ -151,6 +157,8 @@ public class AdministraMenus extends JInternalFrame {
         });
         escritorio.add(jbCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(91, 211, -1, -1));
 
+        jLabel3.setFont(new java.awt.Font("Segoe UI Semibold", 1, 16)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 204, 0));
         jLabel3.setText("Precio");
         escritorio.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 126, -1, -1));
 
@@ -162,12 +170,18 @@ public class AdministraMenus extends JInternalFrame {
         });
         escritorio.add(jbModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 211, -1, -1));
 
+        jLabel4.setFont(new java.awt.Font("Segoe UI Semibold", 1, 16)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 204, 0));
         jLabel4.setText("Stock");
         escritorio.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 54, -1, -1));
 
+        jLabel5.setFont(new java.awt.Font("Segoe UI Semibold", 1, 16)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 204, 0));
         jLabel5.setText("Estado");
         escritorio.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(283, 126, -1, -1));
 
+        jLabel7.setFont(new java.awt.Font("Segoe UI Semibold", 1, 16)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 204, 0));
         jLabel7.setText("Buscar");
         escritorio.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 252, -1, -1));
 
@@ -224,6 +238,8 @@ public class AdministraMenus extends JInternalFrame {
         });
         escritorio.add(jcBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(208, 247, 97, -1));
 
+        jLabel8.setFont(new java.awt.Font("Segoe UI Semibold", 1, 16)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 204, 0));
         jLabel8.setText("Categoria");
         escritorio.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 167, -1, -1));
 
