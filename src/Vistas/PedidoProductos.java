@@ -1015,7 +1015,8 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
     }
     
     private void iniciarMesas(){
-
+        
+        modelo2.setRowCount(0);
         modelo1.setRowCount(0);
         jbCrearPed.setEnabled(true);   
         jtNmesa.setEditable(false);
