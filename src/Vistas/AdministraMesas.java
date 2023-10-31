@@ -37,7 +37,7 @@ public class AdministraMesas extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        ImageIcon icono = new ImageIcon(getClass().getResource("/Recursos/mesas-bar.jpg"));
+        ImageIcon icono = new ImageIcon(getClass().getResource("/Recursos/iconos/FONDO14.jpg"));
         Image imagen = icono.getImage();
         escritorio = new javax.swing.JDesktopPane(){
 
@@ -67,6 +67,7 @@ public class AdministraMesas extends javax.swing.JInternalFrame {
         jtBuscar = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jcElegir = new javax.swing.JComboBox<>();
+        jPanel1 = new javax.swing.JPanel();
 
         setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         setTitle("Administra Salon");
@@ -98,7 +99,7 @@ public class AdministraMesas extends javax.swing.JInternalFrame {
         });
         jScrollPane1.setViewportView(jtListaMesas);
 
-        escritorio.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, 480, 140));
+        escritorio.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, 470, 200));
 
         jbCrear.setText("Crear");
         jbCrear.addActionListener(new java.awt.event.ActionListener() {
@@ -133,13 +134,13 @@ public class AdministraMesas extends javax.swing.JInternalFrame {
         escritorio.add(jbSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 220, 70, -1));
 
         jLabel1.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Activo");
         escritorio.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 180, 45, -1));
         escritorio.add(jrActivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 170, -1, -1));
 
         jLabel4.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Numero");
         escritorio.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, -1, -1));
 
@@ -151,7 +152,7 @@ public class AdministraMesas extends javax.swing.JInternalFrame {
         escritorio.add(jtNumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 120, 40, -1));
 
         jLabel5.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Estado ");
         escritorio.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 130, -1, -1));
 
@@ -166,7 +167,7 @@ public class AdministraMesas extends javax.swing.JInternalFrame {
         escritorio.add(jtCapacidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 70, 40, -1));
 
         jLabel6.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Capacidad");
         escritorio.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 80, -1, -1));
 
@@ -178,13 +179,13 @@ public class AdministraMesas extends javax.swing.JInternalFrame {
         escritorio.add(jtId, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 70, 40, -1));
 
         jLabel3.setBackground(new java.awt.Color(51, 51, 51));
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("ID Mesa");
         escritorio.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, -1, -1));
 
         jLabel2.setBackground(new java.awt.Color(0, 0, 0));
         jLabel2.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("ADMINISTRACION DE MESAS");
         escritorio.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, -1, -1));
 
@@ -195,7 +196,7 @@ public class AdministraMesas extends javax.swing.JInternalFrame {
         });
         escritorio.add(jtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 270, 70, -1));
 
-        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Bucar");
         escritorio.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 270, -1, -1));
 
@@ -207,6 +208,21 @@ public class AdministraMesas extends javax.swing.JInternalFrame {
         });
         escritorio.add(jcElegir, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 270, -1, -1));
 
+        jPanel1.setBackground(new java.awt.Color(30, 30, 30));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 280, Short.MAX_VALUE)
+        );
+
+        escritorio.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 400, 280));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -215,7 +231,7 @@ public class AdministraMesas extends javax.swing.JInternalFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(escritorio, javax.swing.GroupLayout.PREFERRED_SIZE, 468, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(escritorio, javax.swing.GroupLayout.DEFAULT_SIZE, 629, Short.MAX_VALUE)
         );
 
         pack();
@@ -350,6 +366,7 @@ public class AdministraMesas extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton jbBorrar;
     private javax.swing.JButton jbCrear;

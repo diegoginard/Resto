@@ -25,7 +25,7 @@ public class GestionRestaurante extends javax.swing.JFrame {
     private void initComponents() {
 
         jMenuItem4 = new javax.swing.JMenuItem();
-        ImageIcon icono = new ImageIcon(getClass().getResource("/Recursos/resto.jpg"));
+        ImageIcon icono = new ImageIcon(getClass().getResource("/Recursos/FOODDRINKS.JPG"));
         Image imagen = icono.getImage();
         escritorio = new javax.swing.JDesktopPane(){
 
