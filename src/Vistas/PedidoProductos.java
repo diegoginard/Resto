@@ -5,6 +5,7 @@ import BaseDatos.*;
 import Entidades.*;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.event.KeyEvent;
 import java.time.LocalDateTime;
 import java.util.List;
 import javax.swing.*;
@@ -142,7 +143,7 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
         jsCantidad = new javax.swing.JSpinner();
         jbCobrar = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        jtMesero = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
         jtMesas = new javax.swing.JTable();
@@ -238,6 +239,17 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
             }
         });
 
+        jtID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtIDActionPerformed(evt);
+            }
+        });
+        jtID.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jtIDKeyPressed(evt);
+            }
+        });
+
         jLabel8.setBackground(new java.awt.Color(102, 102, 102));
         jLabel8.setFont(new java.awt.Font("Segoe UI Semibold", 1, 16)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
@@ -329,6 +341,12 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
         jLabel14.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabel14.setInheritsPopupMenu(false);
 
+        jtMesero.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jtMeseroKeyPressed(evt);
+            }
+        });
+
         jLabel7.setFont(new java.awt.Font("Segoe UI Semibold", 1, 16)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Cobrar");
@@ -386,7 +404,7 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
         escritorio2.setLayer(jsCantidad, javax.swing.JLayeredPane.DEFAULT_LAYER);
         escritorio2.setLayer(jbCobrar, javax.swing.JLayeredPane.DEFAULT_LAYER);
         escritorio2.setLayer(jLabel14, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        escritorio2.setLayer(jTextField1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        escritorio2.setLayer(jtMesero, javax.swing.JLayeredPane.DEFAULT_LAYER);
         escritorio2.setLayer(jLabel7, javax.swing.JLayeredPane.DEFAULT_LAYER);
         escritorio2.setLayer(jScrollPane4, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
@@ -410,14 +428,11 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
                     .addGroup(escritorio2Layout.createSequentialGroup()
                         .addGroup(escritorio2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, escritorio2Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(138, 138, 138))
                             .addGroup(escritorio2Layout.createSequentialGroup()
                                 .addGroup(escritorio2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(escritorio2Layout.createSequentialGroup()
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(escritorio2Layout.createSequentialGroup()
                                         .addGap(12, 12, 12)
                                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -465,7 +480,7 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
                                         .addComponent(jbCobrar, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(escritorio2Layout.createSequentialGroup()
                                         .addGroup(escritorio2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jtMesero, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(jLabel1))
                                         .addGroup(escritorio2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(escritorio2Layout.createSequentialGroup()
@@ -512,7 +527,7 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
                                 .addGroup(escritorio2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jcEstadoPedido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jcEstadoMesa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jtMesero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(39, 39, 39)
                                 .addGroup(escritorio2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel2)
@@ -732,7 +747,7 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
 
         int id = Integer.parseInt(jtNmesa.getText());
         ped.setIdPedido(Integer.parseInt(jtID.getText()));
-        ped.setNombreMesero(jTextField1.getText());
+        ped.setNombreMesero(jtMesero.getText());
         ped.setEstado(jcEstadoPedido.getSelectedItem() + "");
         pd.modificarEstadoPedido(ped);
         cargarPedido(id);
@@ -748,7 +763,7 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
     private void jbCrearPedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCrearPedActionPerformed
 
         Mesa mesa = new Mesa();
-        ped.setNombreMesero(jTextField1.getText());
+        ped.setNombreMesero(jtMesero.getText());
         mesa = md.ObtenerMesasId(Integer.parseInt(jtNmesa.getText()));
         mesa.setEstadoMesa("OCUPADO");
         ped.setMesa(mesa);
@@ -764,7 +779,7 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
 
         int fila = jtPedidos.getSelectedRow();
         jtID.setText(jtPedidos.getValueAt(fila, 0) + "");
-        jTextField1.setText((String)jtPedidos.getValueAt(fila, 2));
+        jtMesero.setText((String)jtPedidos.getValueAt(fila, 2));
         jcEstadoPedido.setSelectedItem(jtPedidos.getValueAt(fila, 5));
         jtFechaHora.setText(jtPedidos.getValueAt(fila, 3)+"");
         jcEstadoPedido.setSelectedItem(jtPedidos.getValueAt(fila, 6));
@@ -772,30 +787,32 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jtPedidosMouseClicked
 
     private void jlMesaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlMesaMouseClicked
-
-        iniciarMesas();
-        Mesa mesa = md.ObtenerMesasId(1);
-        jcEstadoMesa.setSelectedItem(mesa.getEstadoMesa());
-
-        if(mesa.getEstadoMesa().equalsIgnoreCase("OCUPADO")){
-
-            jlMesa.setIcon(icoR);
-
-        }else{
-
-            jlMesa.setIcon(icoV);
-
-        }
-        cargarPedido(1);
-        jtNmesa.setText(1+"");
-
+//
+//        iniciarMesas();
+//        Mesa mesa = md.ObtenerMesasId(1);
+//        jcEstadoMesa.setSelectedItem(mesa.getEstadoMesa());
+//        
+//        if(mesa.getEstadoMesa().equalsIgnoreCase("OCUPADO")){
+//
+//            jlMesa.setIcon(icoR);
+//
+//        }else{
+//
+//            jlMesa.setIcon(icoV);
+//
+//        }
+//        cargarPedido(1);
+//        jtNmesa.setText(1+"");
+//
     }//GEN-LAST:event_jlMesaMouseClicked
 
     private void jtMesasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtMesasMouseClicked
+        
         iniciarMesas();
         int fila = (int) jtMesas.getSelectedRow();
         int id = (int) jtMesas.getValueAt(fila, 0);
         Mesa mesa = md.ObtenerMesasId(id);
+        jtNmesa.setText(mesa.getNumero()+"");
         jlMesa.setText(mesa.getNumero() + "");
         if (mesa.getEstadoMesa().equals("LIBRE")) {
             jlMesa.setIcon(icoV);
@@ -810,8 +827,24 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
      
     }//GEN-LAST:event_jtMesasPropertyChange
 
+    private void jtMeseroKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtMeseroKeyPressed
+        
+        soloLetras(evt);
+        
+    }//GEN-LAST:event_jtMeseroKeyPressed
+
+    private void jtIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtIDActionPerformed
+       
+    }//GEN-LAST:event_jtIDActionPerformed
+
+    private void jtIDKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtIDKeyPressed
+       
+        soloNumeros(evt);
+        
+    }//GEN-LAST:event_jtIDKeyPressed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JDesktopPane escritorio2;
+    public javax.swing.JDesktopPane escritorio2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -828,7 +861,6 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JButton jbAgregar;
     private javax.swing.JButton jbBorrar;
     private javax.swing.JButton jbCobrar;
@@ -844,6 +876,7 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jtFechaHora;
     private javax.swing.JTextField jtID;
     private javax.swing.JTable jtMesas;
+    private javax.swing.JTextField jtMesero;
     private javax.swing.JTextField jtNmesa;
     private javax.swing.JTable jtPedidoProd;
     private javax.swing.JTable jtPedidos;
@@ -970,5 +1003,33 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
         jtNmesa.setEditable(false);
         jtID.setEditable(false);
 
+    }
+    
+     private void soloLetras(KeyEvent evt) {
+
+        char validar = evt.getKeyChar();
+
+        if (Character.isDigit(validar)) {
+
+            getToolkit().beep();
+            evt.consume();
+
+            JOptionPane.showMessageDialog(rootPane, "Ingrese solo letras");
+
+        }
+    }
+     
+     private void soloNumeros(KeyEvent evt){
+        
+        char validar = evt.getKeyChar();
+        
+        if(Character.isLetter(validar)){
+            
+            getToolkit().beep();
+            evt.consume();
+            
+            JOptionPane.showMessageDialog(rootPane, "Ingrese solo numeros");
+            
+        }
     }
 }

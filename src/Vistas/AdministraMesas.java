@@ -316,31 +316,31 @@ public class AdministraMesas extends javax.swing.JInternalFrame {
             case "idMesa":
                 
                 modelo.setRowCount(0);
-                md.BuscarMesasId(buscar);
+                mesasxId(buscar);
                 break;
             
             case "Numero":
                 
                 modelo.setRowCount(0);
-                md.BuscarMesasNumero(buscar);
+                mesasxNumero(buscar);
                 break;
             
             case "Sillas":
                 
                 modelo.setRowCount(0);
-                md.BuscarMesasCapacidad(buscar);
+                mesasxSillas(buscar);
                 break;
                 
             case "Activas":
                 
                 modelo.setRowCount(0);
-                md.BuscarMesasActivo(buscar);
+                mesasActivas(buscar);
                 break;
                 
             case "Estado":
                 
                 modelo.setRowCount(0);
-                md.BuscarMesasEstado(buscar);
+                mesasxEstado(buscar);
                 break;
                 
             default:
@@ -428,5 +428,70 @@ public class AdministraMesas extends javax.swing.JInternalFrame {
        jtCapacidad.setText("");
        jrActivo.setSelected(false);
        
+    }
+    
+    private void mesasxId(String buscar){
+
+        modelo.setRowCount(0);
+        List<Mesa> mesa = md.BuscarMesasId(buscar);
+
+        for (Mesa me : mesa) {
+
+            modelo.addRow(new Object[]{me.getIdMesa(), me.getNumero(),
+                me.getEstadoMesa(), me.getCapacidad(), me.getActivo() });
+
+        }
+    }
+    
+    private void mesasxNumero(String buscar){
+
+        modelo.setRowCount(0);
+        List<Mesa> mesa = md.BuscarMesasNumero(buscar);
+
+        for (Mesa me : mesa) {
+
+            modelo.addRow(new Object[]{me.getIdMesa(), me.getNumero(),
+                me.getEstadoMesa(), me.getCapacidad(), me.getActivo() });
+
+        }
+    }
+    
+    private void mesasxSillas(String buscar){
+
+        modelo.setRowCount(0);
+        List<Mesa> mesa = md.BuscarMesasCapacidad(buscar);
+
+        for (Mesa me : mesa) {
+
+            modelo.addRow(new Object[]{me.getIdMesa(), me.getNumero(),
+                me.getEstadoMesa(), me.getCapacidad(), me.getActivo() });
+
+        }
+    }
+    
+     private void mesasxEstado(String buscar){
+
+        modelo.setRowCount(0);
+        List<Mesa> mesa = md.BuscarMesasEstado(buscar);
+
+        for (Mesa me : mesa) {
+
+            modelo.addRow(new Object[]{me.getIdMesa(), me.getNumero(),
+                me.getEstadoMesa(), me.getCapacidad(), me.getActivo() });
+
+        }
+    }
+     
+    private void mesasActivas(String buscar){
+
+        modelo.setRowCount(0);
+        List<Mesa> mesa = md.BuscarMesasActivo(buscar);
+
+        for (Mesa me : mesa) {
+
+            modelo.addRow(new Object[]{me.getIdMesa(), me.getNumero(),
+                me.getEstadoMesa(), me.getCapacidad(), me.getActivo() });
+
+        }
     }
 }
