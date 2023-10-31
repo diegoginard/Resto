@@ -378,5 +378,40 @@ public class PedidoData {
         }
 
     return pedidos;
-}
+    
+    }
+    
+    public List<Pedido> listarPedidosDeMesaEnFechaYRangoHorario(int idMesa, LocalDate fecha, LocalDateTime horaInicio, LocalDateTime horaFin) {
+    List<Pedido> pedidos = new ArrayList<>();
+
+    try {
+        
+        String sql = "SELECT * FROM Pedido WHERE idMesa = ? AND DATE(fechaHora) = ? AND TIME(fechaHora) BETWEEN ? AND ?";
+        PreparedStatement ps = con.prepareStatement(sql);
+        ps.setInt(1, idMesa);
+        ps.setDate(2, Date.valueOf(fecha));
+        ps.setTimestamp(3, Timestamp.valueOf(horaInicio));
+        ps.setTimestamp(4, Timestamp.valueOf(horaFin));
+        ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                Pedido ped = new Pedido();
+                ped.setIdPedido(rs.getInt("idPedido"));
+                mesa = md.ObtenerMesasId(rs.getInt("idMesa"));
+                ped.setMesa(mesa);
+                ped.setNombreMesero(rs.getString("nombreMesero"));
+                ped.setFechaHora(rs.getTimestamp("fechaHora").toLocalDateTime());
+                ped.setCobrada(rs.getBoolean("cobrada"));
+                ped.setEstado(rs.getString("estado"));
+                pedidos.add(ped);
+            }
+
+            ps.close();
+        } catch (SQLException ex) {
+
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla pedidos: " + ex.getMessage());
+        }
+
+        return pedidos;
+    }
 }
