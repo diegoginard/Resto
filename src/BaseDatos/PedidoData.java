@@ -347,5 +347,36 @@ public class PedidoData {
 
         return listaFechaD;
     
-    }     
+    }  
+        
+    public List<Pedido> listarPedidosCobradosPorMeseroEnElDia(String Mesero, LocalDate fecha) {
+    
+        List<Pedido> pedidos = new ArrayList<>();
+
+    try {
+        String sql = "SELECT * FROM Pedido WHERE nombreMesero = ? AND DATE(fechaHora) = ? AND cobrada = true";
+        PreparedStatement ps = con.prepareStatement(sql);
+        ps.setString(1, Mesero);
+        ps.setDate(2, Date.valueOf(fecha));
+        ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                Pedido ped = new Pedido();
+                ped.setIdPedido(rs.getInt("idPedido"));
+                mesa = md.ObtenerMesasId(rs.getInt("idMesa"));
+                ped.setMesa(mesa);
+                ped.setNombreMesero(rs.getString("nombreMesero"));
+                ped.setFechaHora(rs.getTimestamp("fechaHora").toLocalDateTime());
+                ped.setCobrada(rs.getBoolean("cobrada"));
+                ped.setEstado(rs.getString("estado"));
+                pedidos.add(ped);
+            }
+
+            ps.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla pedidos: " + ex.getMessage());
+        }
+
+    return pedidos;
+}
 }

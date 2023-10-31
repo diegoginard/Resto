@@ -21,6 +21,8 @@ public class ListarPedidos extends javax.swing.JInternalFrame {
         cargarPedidos();
         jtNMesero.setEnabled(false);
         jdFecha.setEnabled(false);
+        jdMDia.setEnabled(false);
+        jtMDia.setEnabled(false);
         
     }
     
@@ -40,7 +42,7 @@ public class ListarPedidos extends javax.swing.JInternalFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        PorDia = new com.toedter.calendar.JDateChooser();
+        jdMDia = new com.toedter.calendar.JDateChooser();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -48,11 +50,11 @@ public class ListarPedidos extends javax.swing.JInternalFrame {
         jButton1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtPedido = new javax.swing.JTable();
-        jButton2 = new javax.swing.JButton();
         jcElegir = new javax.swing.JComboBox<>();
         jtIngresos = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jtNMesero = new javax.swing.JTextField();
+        jtMDia = new javax.swing.JTextField();
 
         setPreferredSize(new java.awt.Dimension(488, 589));
 
@@ -63,7 +65,7 @@ public class ListarPedidos extends javax.swing.JInternalFrame {
         jLabel3.setText("Por Fecha");
 
         jLabel4.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
-        jLabel4.setText("Por Cobrado en el Dia");
+        jLabel4.setText("Mesero por dia");
 
         jLabel1.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -76,6 +78,11 @@ public class ListarPedidos extends javax.swing.JInternalFrame {
         });
 
         jButton1.setText("Buscar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jtPedido.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -90,14 +97,7 @@ public class ListarPedidos extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(jtPedido);
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/ico pedido/anular_48.png"))); // NOI18N
-        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton2MouseClicked(evt);
-            }
-        });
-
-        jcElegir.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "TODOS", "MESERO", "COBRADO", "ESTADO", "IMPORTES", "FECHA" }));
+        jcElegir.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "TODOS", "MESERO", "MESEROxDIA", "ESTADO", "IMPORTES", "FECHA" }));
         jcElegir.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 jcElegirItemStateChanged(evt);
@@ -119,26 +119,27 @@ public class ListarPedidos extends javax.swing.JInternalFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 480, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(47, 47, 47)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(8, 8, 8))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jtMDia)
+                        .addGap(18, 18, 18)
+                        .addComponent(jdMDia, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(33, 33, 33))
+                    .addComponent(jdFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtNMesero, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jdFecha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(PorDia, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jtNMesero, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(47, 47, 47)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(166, 166, 166)
                         .addComponent(jcElegir, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -147,20 +148,18 @@ public class ListarPedidos extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addGap(69, 69, 69))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jtIngresos, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(95, 95, 95))))
+                        .addGap(95, 95, 95))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addGap(173, 173, 173))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29)
                 .addComponent(jcElegir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(50, 50, 50)
@@ -173,8 +172,10 @@ public class ListarPedidos extends javax.swing.JInternalFrame {
                     .addComponent(jdFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(PorDia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
+                    .addComponent(jdMDia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel4)
+                        .addComponent(jtMDia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton1)
                 .addGap(18, 18, 18)
@@ -202,12 +203,6 @@ public class ListarPedidos extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-
-        dispose();
-
-    }//GEN-LAST:event_jButton2MouseClicked
-
     private void jcElegirItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jcElegirItemStateChanged
         
         String elegir = (String) jcElegir.getSelectedItem();
@@ -218,6 +213,9 @@ public class ListarPedidos extends javax.swing.JInternalFrame {
                 
                 modelo.setRowCount(0);
                 jtNMesero.setEnabled(true);
+                jdFecha.setEnabled(true);
+                jtMDia.setEnabled(false);
+                jdMDia.setEnabled(false);
  
                 break;
                
@@ -225,6 +223,18 @@ public class ListarPedidos extends javax.swing.JInternalFrame {
                 
                 modelo.setRowCount(0);
                 jdFecha.setEnabled(true);
+                jtMDia.setEnabled(false);
+                jdMDia.setEnabled(false);
+                jtNMesero.setEnabled(false);
+                
+                break;
+            
+            case "MESEROxDIA":
+                
+                modelo.setRowCount(0);
+                jdMDia.setEnabled(true);
+                jtMDia.setEnabled(true);
+                jtNMesero.setEnabled(false);
                 
                 break;
                 
@@ -233,6 +243,8 @@ public class ListarPedidos extends javax.swing.JInternalFrame {
                 modelo.setRowCount(0);
                 jtNMesero.setEnabled(false);
                 jdFecha.setEnabled(false);
+                jdMDia.setEnabled(false);
+                jtMDia.setEnabled(false);
                 cargarPedidos();
                 
         }  
@@ -255,10 +267,20 @@ public class ListarPedidos extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_jdFechaPropertyChange
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+            
+            
+        if (jdMDia.getDate() != null && jtMDia.getText() != null){
+            
+           String mesero = jtMDia.getText();
+           LocalDate fecha = jdMDia.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+           pedidoMeseroDia(mesero,fecha);
+           
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private com.toedter.calendar.JDateChooser PorDia;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -268,7 +290,9 @@ public class ListarPedidos extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JComboBox<String> jcElegir;
     private com.toedter.calendar.JDateChooser jdFecha;
+    private com.toedter.calendar.JDateChooser jdMDia;
     private javax.swing.JTextField jtIngresos;
+    private javax.swing.JTextField jtMDia;
     private javax.swing.JTextField jtNMesero;
     private javax.swing.JTable jtPedido;
     // End of variables declaration//GEN-END:variables
@@ -322,6 +346,23 @@ public class ListarPedidos extends javax.swing.JInternalFrame {
         double total = 0.0;
         modelo.setRowCount(0);
         List<Pedido> pedido = pd.listarPedidoFechaDia(fechad);
+
+        for (Pedido pe : pedido) {
+
+            modelo.addRow(new Object[]{pe.getIdPedido(), pe.getMesa().getNumero(),
+                pe.getNombreMesero(), pe.getFechaHora(),pe.isCobrada(),pe.getImporte(), pe.getEstado()});
+            total += pe.getImporte();
+        }
+        
+         jtIngresos.setText(total + "");
+         
+    } 
+    
+    private void pedidoMeseroDia(String mesero,LocalDate fecha){
+        
+        double total = 0.0;
+        modelo.setRowCount(0);
+        List<Pedido> pedido = pd.listarPedidosCobradosPorMeseroEnElDia(mesero,fecha);
 
         for (Pedido pe : pedido) {
 
