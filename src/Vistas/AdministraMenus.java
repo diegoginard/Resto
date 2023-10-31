@@ -637,21 +637,7 @@ public class AdministraMenus extends JInternalFrame {
             
         }
     }
-    
-//    private void soloLetras(KeyEvent evt) {
-//        
-//        char validar = evt.getKeyChar();
-//
-//        if (Character.isDigit(validar)) {
-//
-//            getToolkit().beep();
-//            evt.consume();
-//
-//            JOptionPane.showMessageDialog(rootPane, "Ingrese solo letras");
-//
-//        }
-//    }
-    
+
     private void limpiar(){
     
         jbCrear.setEnabled(true);

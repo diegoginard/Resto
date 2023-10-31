@@ -187,7 +187,7 @@
     <Container class="javax.swing.JDesktopPane" name="jDesktopPane1">
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JDesktopPane(){&#xa;&#xa;    public void paintComponent(Graphics g){&#xa;&#xa;        g.drawImage(imagen,0,0,getWidth(),getHeight(),this);&#xa;    }&#xa;&#xa;}"/>
-        <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="ImageIcon icono = new ImageIcon(getClass().getResource(&quot;/Recursos/iconos/FONDO14.jpg&quot;));&#xa;Image imagen = icono.getImage();"/>
+        <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="ImageIcon icono = new ImageIcon(getClass().getResource(&quot;/Recursos/FONDO15.jpg&quot;));&#xa;Image imagen = icono.getImage();"/>
       </AuxValues>
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
@@ -206,13 +206,12 @@
     <Component class="javax.swing.JComboBox" name="jcElegir">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="6">
+          <StringArray count="5">
             <StringItem index="0" value="TODOS"/>
             <StringItem index="1" value="MESERO"/>
             <StringItem index="2" value="MESEROxDIA"/>
-            <StringItem index="3" value="ESTADO"/>
-            <StringItem index="4" value="IMPORTES"/>
-            <StringItem index="5" value="FECHA"/>
+            <StringItem index="3" value="FECHA"/>
+            <StringItem index="4" value="MESAxDIA/HORA"/>
           </StringArray>
         </Property>
       </Properties>
@@ -234,6 +233,7 @@
     <Component class="javax.swing.JTextField" name="jtNMesero">
       <Events>
         <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jtNMeseroKeyReleased"/>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jtNMeseroKeyTyped"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
@@ -258,6 +258,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jtMDia">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jtMDiaKeyTyped"/>
+      </Events>
     </Component>
     <Component class="com.toedter.calendar.JDateChooser" name="jdMDia">
     </Component>
@@ -274,6 +277,9 @@
     <Component class="com.toedter.calendar.JDateChooser" name="jdDia">
     </Component>
     <Component class="javax.swing.JTextField" name="jtIdmesa">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jtIdmesaKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel6">
       <Properties>

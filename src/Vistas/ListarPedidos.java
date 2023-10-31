@@ -5,6 +5,7 @@ import BaseDatos.PedidoData;
 import Entidades.Pedido;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.event.KeyEvent;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
@@ -35,6 +36,11 @@ public class ListarPedidos extends javax.swing.JInternalFrame {
         jdMDia.setEnabled(false);
         jtMDia.setEnabled(false);
         jbBuscar.setEnabled(false);
+        jtIdmesa.setEnabled(false);
+        jdDia.setEnabled(false);
+        jsHoraInicio.setEnabled(false);
+        jsHoraFin.setEnabled(false);
+        jbBuscar1.setEnabled(false);
 
         try {
 
@@ -80,7 +86,7 @@ public class ListarPedidos extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        ImageIcon icono = new ImageIcon(getClass().getResource("/Recursos/iconos/FONDO14.jpg"));
+        ImageIcon icono = new ImageIcon(getClass().getResource("/Recursos/FONDO15.jpg"));
         Image imagen = icono.getImage();
         jDesktopPane1 = new javax.swing.JDesktopPane(){
 
@@ -127,7 +133,7 @@ public class ListarPedidos extends javax.swing.JInternalFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Listar Pedido");
 
-        jcElegir.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "TODOS", "MESERO", "MESEROxDIA", "ESTADO", "IMPORTES", "FECHA" }));
+        jcElegir.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "TODOS", "MESERO", "MESEROxDIA", "FECHA", "MESAxDIA/HORA" }));
         jcElegir.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 jcElegirItemStateChanged(evt);
@@ -140,6 +146,9 @@ public class ListarPedidos extends javax.swing.JInternalFrame {
         jtNMesero.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jtNMeseroKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtNMeseroKeyTyped(evt);
             }
         });
 
@@ -155,9 +164,21 @@ public class ListarPedidos extends javax.swing.JInternalFrame {
         jLabel4.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         jLabel4.setText("Mesero por dia");
 
+        jtMDia.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtMDiaKeyTyped(evt);
+            }
+        });
+
         jLabel7.setText("Nº Mesa");
 
         jLabel8.setText("Dia");
+
+        jtIdmesa.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtIdmesaKeyTyped(evt);
+            }
+        });
 
         jLabel6.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         jLabel6.setText("Mesa x dia/hora");
@@ -344,9 +365,14 @@ public class ListarPedidos extends javax.swing.JInternalFrame {
 
                 modelo.setRowCount(0);
                 jtNMesero.setEnabled(true);
-                jdFecha.setEnabled(true);
+                jdFecha.setEnabled(false);
                 jtMDia.setEnabled(false);
                 jdMDia.setEnabled(false);
+                jtIdmesa.setEnabled(false);
+                jdDia.setEnabled(false);
+                jsHoraInicio.setEnabled(false);
+                jsHoraFin.setEnabled(false);
+                jbBuscar1.setEnabled(false);
 
                 break;
 
@@ -357,6 +383,11 @@ public class ListarPedidos extends javax.swing.JInternalFrame {
                 jtMDia.setEnabled(false);
                 jdMDia.setEnabled(false);
                 jtNMesero.setEnabled(false);
+                jtIdmesa.setEnabled(false);
+                jdDia.setEnabled(false);
+                jsHoraInicio.setEnabled(false);
+                jsHoraFin.setEnabled(false);
+                jbBuscar1.setEnabled(false);
 
                 break;
 
@@ -367,47 +398,73 @@ public class ListarPedidos extends javax.swing.JInternalFrame {
                 jdMDia.setEnabled(true);
                 jtMDia.setEnabled(true);
                 jtNMesero.setEnabled(false);
+                jtIdmesa.setEnabled(false);
+                jdDia.setEnabled(false);
+                jsHoraInicio.setEnabled(false);
+                jsHoraFin.setEnabled(false);
+                jbBuscar1.setEnabled(false);
+                jdFecha.setEnabled(false);
 
                 break;
-                
+
+            case "MESAxDIA/HORA":
+
+                modelo.setRowCount(0);
+                jtIdmesa.setEnabled(true);
+                jdDia.setEnabled(true);
+                jsHoraInicio.setEnabled(true);
+                jsHoraFin.setEnabled(true);
+                jbBuscar1.setEnabled(true);
+                jbBuscar.setEnabled(false);
+                jdMDia.setEnabled(false);
+                jtMDia.setEnabled(false);
+                jtNMesero.setEnabled(false);
+                jdFecha.setEnabled(false);
+
+                break;
+
             default:
-                
+
                 modelo.setRowCount(0);
                 jtNMesero.setEnabled(false);
                 jdFecha.setEnabled(false);
                 jdMDia.setEnabled(false);
                 jtMDia.setEnabled(false);
+                jtIdmesa.setEnabled(false);
+                jdDia.setEnabled(false);
+                jsHoraInicio.setEnabled(false);
+                jsHoraFin.setEnabled(false);
+                jbBuscar1.setEnabled(false);
                 cargarPedidos();
-                
-        }  
+
+        }
     }//GEN-LAST:event_jcElegirItemStateChanged
 
     private void jtNMeseroKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtNMeseroKeyReleased
-        
+
         pedidoMesero(jtNMesero.getText());
-        
+
     }//GEN-LAST:event_jtNMeseroKeyReleased
 
     private void jdFechaPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jdFechaPropertyChange
-        
-        if (jdFecha.getDate()!= null) {
+
+        if (jdFecha.getDate() != null) {
             LocalDate localDate = jdFecha.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
             LocalDateTime localDateTime = localDate.atTime(00, 0);
 
             pedidoFecha(localDateTime);
-            
+
         }
     }//GEN-LAST:event_jdFechaPropertyChange
 
     private void jbBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBuscarActionPerformed
-            
-            
-        if (jdMDia.getDate() != null && jtMDia.getText() != null){
-            
-           String mesero = jtMDia.getText();
-           LocalDate fecha = jdMDia.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-           pedidoMeseroDia(mesero,fecha);
-           
+
+        if (jdMDia.getDate() != null && jtMDia.getText() != null) {
+
+            String mesero = jtMDia.getText();
+            LocalDate fecha = jdMDia.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+            pedidoMeseroDia(mesero, fecha);
+
         }
     }//GEN-LAST:event_jbBuscarActionPerformed
 
@@ -448,6 +505,24 @@ public class ListarPedidos extends javax.swing.JInternalFrame {
         dispose();
         
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jtNMeseroKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtNMeseroKeyTyped
+        
+        soloLetras(evt);
+        
+    }//GEN-LAST:event_jtNMeseroKeyTyped
+
+    private void jtMDiaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtMDiaKeyTyped
+        
+        soloLetras(evt);
+        
+    }//GEN-LAST:event_jtMDiaKeyTyped
+
+    private void jtIdmesaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtIdmesaKeyTyped
+        
+        soloNumeros(evt);
+        
+    }//GEN-LAST:event_jtIdmesaKeyTyped
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
@@ -564,11 +639,39 @@ public class ListarPedidos extends javax.swing.JInternalFrame {
         for (Pedido pe : pedido) {
 
             modelo.addRow(new Object[]{pe.getIdPedido(), pe.getMesa().getNumero(),
-                pe.getNombreMesero(), pe.getFechaHora(),pe.isCobrada(),pe.getImporte(), pe.getEstado()});
+                pe.getNombreMesero(), pe.getFechaHora(), pe.isCobrada(), pe.getImporte(), pe.getEstado()});
             total += pe.getImporte();
         }
+
+        jtIngresos.setText(total + "");
+
+    }
+
+    private void soloLetras(KeyEvent evt) {
+
+        char validar = evt.getKeyChar();
+
+        if (Character.isDigit(validar)) {
+
+            getToolkit().beep();
+            evt.consume();
+
+            JOptionPane.showMessageDialog(rootPane, "Ingrese solo letras");
+
+        }
+    }
+    
+     private void soloNumeros(KeyEvent evt){
         
-         jtIngresos.setText(total + "");
-         
-    } 
+        char validar = evt.getKeyChar();
+        
+        if(Character.isLetter(validar)){
+            
+            getToolkit().beep();
+            evt.consume();
+            
+            JOptionPane.showMessageDialog(rootPane, "Ingrese solo numeros");
+            
+        }
+    }
 }
