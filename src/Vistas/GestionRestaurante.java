@@ -5,6 +5,9 @@ import BaseDatos.Conexion;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.sql.Connection;
+import java.text.ParseException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 
 public class GestionRestaurante extends javax.swing.JFrame {
@@ -159,12 +162,16 @@ public class GestionRestaurante extends javax.swing.JFrame {
 
     private void jmPedidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmPedidosActionPerformed
 
-        escritorio.removeAll();
-        escritorio.repaint();
-        ListarPedidos ll = new ListarPedidos();
-        ll.setVisible(true);
-        escritorio.add(ll);
-        escritorio.moveToFront(ll);
+        try {
+            escritorio.removeAll();
+            escritorio.repaint();
+            ListarPedidos ll = new ListarPedidos();
+            ll.setVisible(true);
+            escritorio.add(ll);
+            escritorio.moveToFront(ll);
+        } catch (ParseException ex) {
+            Logger.getLogger(GestionRestaurante.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
         
     }//GEN-LAST:event_jmPedidosActionPerformed
