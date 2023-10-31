@@ -421,7 +421,7 @@ public class ListarPedidos extends javax.swing.JInternalFrame {
 
         } else {
 
-            JOptionPane.showMessageDialog(rootPane, "Ingrese todo los datos");
+            JOptionPane.showMessageDialog(rootPane, "Ingrese todos los datos");
 
         }
     }//GEN-LAST:event_jbBuscar1ActionPerformed

@@ -318,7 +318,7 @@ public class PedidoData {
         List<Pedido> listaFechaD = new ArrayList<>();
     
         try {
-            
+        
             String sql = "SELECT * FROM Pedido WHERE DATE(fechaHora) = ? ";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setTimestamp(1, Timestamp.valueOf(fechad));
@@ -331,6 +331,7 @@ public class PedidoData {
                 ped.setMesa(mesa);
                 ped.setNombreMesero(rs.getString("nombreMesero"));
                 ped.setFechaHora(rs.getTimestamp("fechaHora").toLocalDateTime());
+                ped.setImporte(rs.getDouble("importe"));
                 ped.setCobrada(rs.getBoolean("cobrada"));
                 ped.setEstado(rs.getString("estado"));
                 listaFechaD.add(ped);
