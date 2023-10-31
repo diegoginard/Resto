@@ -18,7 +18,7 @@ public class AdministraMesas extends javax.swing.JInternalFrame {
         initComponents();
         armarCabecera();
         cargarLista();
-    
+        jtBuscar.setEnabled(false);
     }
 
     private DefaultTableModel modelo = new DefaultTableModel(){
@@ -200,6 +200,11 @@ public class AdministraMesas extends javax.swing.JInternalFrame {
         escritorio.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 270, -1, -1));
 
         jcElegir.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "...........", "idMesa", "Numero", "Estado", "Sillas", "Activas", " " }));
+        jcElegir.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jcElegirItemStateChanged(evt);
+            }
+        });
         escritorio.add(jcElegir, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 270, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -328,6 +333,12 @@ public class AdministraMesas extends javax.swing.JInternalFrame {
         
         }
     }//GEN-LAST:event_jtBuscarKeyReleased
+
+    private void jcElegirItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jcElegirItemStateChanged
+        
+        jtBuscar.setEnabled(true);
+        
+    }//GEN-LAST:event_jcElegirItemStateChanged
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
