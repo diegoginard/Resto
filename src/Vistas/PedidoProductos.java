@@ -218,6 +218,15 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Fecha y hora");
 
+        jtFechaHora.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jtFechaHoraKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtFechaHoraKeyTyped(evt);
+            }
+        });
+
         jLabel6.setBackground(new java.awt.Color(102, 102, 102));
         jLabel6.setFont(new java.awt.Font("Segoe UI Semibold", 1, 16)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -842,6 +851,15 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
         soloNumeros(evt);
         
     }//GEN-LAST:event_jtIDKeyPressed
+
+    private void jtFechaHoraKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtFechaHoraKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtFechaHoraKeyPressed
+
+    private void jtFechaHoraKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtFechaHoraKeyTyped
+        
+        soloNumeros(evt);
+    }//GEN-LAST:event_jtFechaHoraKeyTyped
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JDesktopPane escritorio2;
