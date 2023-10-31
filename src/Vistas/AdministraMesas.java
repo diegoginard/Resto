@@ -384,7 +384,7 @@ public class AdministraMesas extends javax.swing.JInternalFrame {
 
     private void cargarLista() {
 
-        List<Mesa> mesas = md.listarTodasLasMesas();
+        List<Mesa> mesas = md.listarMesas();
         modelo.setRowCount(0);
 
         for (Mesa me : mesas) {
