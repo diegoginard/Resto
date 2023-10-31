@@ -142,6 +142,38 @@ public class MesaData {
     
     }
     
+    public List<Mesa> listarTodasLasMesas(){
+        
+        List<Mesa> Mesas = new ArrayList<>();
+    
+        try {
+            
+            String sql = "SELECT * FROM mesa ";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            
+            while (rs.next()) {
+                Mesa mesa = new Mesa();
+                mesa.setIdMesa(rs.getInt("idMesa"));
+                mesa.setNumero(rs.getInt("numero"));
+                mesa.setEstadoMesa(rs.getString("estadoMesa"));
+                mesa.setCapacidad(rs.getInt("capacidad"));
+                mesa.setActivo(Boolean.TRUE);
+                Mesas.add(mesa);
+            
+            }
+            
+            ps.close();
+
+        }catch (SQLException ex) {
+
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla mesa" + ex.getMessage());
+
+        }
+
+        return Mesas;
+    
+    }
       public Mesa ObtenerMesasId(int id){
     
         try {
@@ -404,29 +436,29 @@ public class MesaData {
     
     }
     
-    public void modificarMesaEstado(int id, String estado){
-        
-        String sql = "UPDATE mesa SET estadoMesa = ? WHERE idMesa = ?";
-        
-        try {
-            
-            PreparedStatement ps= con.prepareStatement(sql);
-
-            ps.setString(1, estado);
-            ps.setInt(2, id);
-            
-            int exito= ps.executeUpdate();
-            
-            if (exito==1) {
-                
+//    public void modificarMesaEstado(int id, String estado){
+//        
+//        String sql = "UPDATE mesa SET estadoMesa = ? WHERE idMesa = ?";
+//        
+//        try {
+//            
+//            PreparedStatement ps= con.prepareStatement(sql);
+//
+//            ps.setString(1, estado);
+//            ps.setInt(2, id);
+//            
+//            int exito= ps.executeUpdate();
+//            
+//            if (exito==1) {
+//                
 //                JOptionPane.showMessageDialog(null, "Mesa Modificada");
-           
-            }
-            
-        } catch (SQLException ex) {
-            
-            JOptionPane.showMessageDialog(null,"Error al acceder a la tabla"+ex.getMessage());
-        
-        }
-    }
+//           
+//            }
+//            
+//        } catch (SQLException ex) {
+//            
+//            JOptionPane.showMessageDialog(null,"Error al acceder a la tabla"+ex.getMessage());
+//        
+//        }
+//    }
 }

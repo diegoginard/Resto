@@ -50,7 +50,6 @@ public class restoView extends javax.swing.JInternalFrame {
         jcMesas = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
         jbACrearPedido = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
         jpProducto = new javax.swing.JPanel();
 
         escritorio.setBackground(new java.awt.Color(35, 35, 35));
@@ -162,8 +161,6 @@ public class restoView extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel5.setText("Agregar Productos");
-
         javax.swing.GroupLayout jpMesaMeseroLayout = new javax.swing.GroupLayout(jpMesaMesero);
         jpMesaMesero.setLayout(jpMesaMeseroLayout);
         jpMesaMeseroLayout.setHorizontalGroup(
@@ -174,16 +171,15 @@ public class restoView extends javax.swing.JInternalFrame {
                         .addGap(30, 30, 30)
                         .addGroup(jpMesaMeseroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5))
-                        .addGap(38, 38, 38)
+                            .addComponent(jLabel4))
+                        .addGap(99, 99, 99)
                         .addGroup(jpMesaMeseroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jcMesas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jcMeseros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jpMesaMeseroLayout.createSequentialGroup()
-                        .addGap(39, 39, 39)
+                        .addGap(50, 50, 50)
                         .addComponent(jbACrearPedido)))
-                .addContainerGap(621, Short.MAX_VALUE))
+                .addContainerGap(253, Short.MAX_VALUE))
         );
         jpMesaMeseroLayout.setVerticalGroup(
             jpMesaMeseroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -196,11 +192,9 @@ public class restoView extends javax.swing.JInternalFrame {
                 .addGroup(jpMesaMeseroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jcMesas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
-                .addGap(18, 18, 18)
-                .addComponent(jLabel5)
-                .addGap(18, 18, 18)
+                .addGap(53, 53, 53)
                 .addComponent(jbACrearPedido)
-                .addContainerGap(570, Short.MAX_VALUE))
+                .addContainerGap(319, Short.MAX_VALUE))
         );
 
         ventanas.addTab("tab1", jpMesaMesero);
@@ -211,11 +205,11 @@ public class restoView extends javax.swing.JInternalFrame {
         jpProducto.setLayout(jpProductoLayout);
         jpProductoLayout.setHorizontalGroup(
             jpProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 881, Short.MAX_VALUE)
+            .addGap(0, 517, Short.MAX_VALUE)
         );
         jpProductoLayout.setVerticalGroup(
             jpProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 739, Short.MAX_VALUE)
+            .addGap(0, 499, Short.MAX_VALUE)
         );
 
         ventanas.addTab("tab2", jpProducto);
@@ -230,7 +224,7 @@ public class restoView extends javax.swing.JInternalFrame {
             .addGroup(escritorioLayout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(ventanas))
+                .addComponent(ventanas, javax.swing.GroupLayout.DEFAULT_SIZE, 519, Short.MAX_VALUE))
         );
         escritorioLayout.setVerticalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -290,7 +284,6 @@ public class restoView extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton jbACrearPedido;
     private javax.swing.JButton jbAgregarAPedido;
