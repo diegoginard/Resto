@@ -66,7 +66,7 @@ public class AdministraMesas extends javax.swing.JInternalFrame {
         jLabel2 = new javax.swing.JLabel();
         jtBuscar = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jcElegir = new javax.swing.JComboBox<>();
 
         setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         setTitle("Administra Salon");
@@ -199,8 +199,8 @@ public class AdministraMesas extends javax.swing.JInternalFrame {
         jLabel7.setText("Bucar");
         escritorio.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 270, -1, -1));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "...........", "idMesa", "Numero", "Libres ", "Ocuadas", "Cantidad", "Activo", " " }));
-        escritorio.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 270, -1, -1));
+        jcElegir.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "...........", "idMesa", "Numero", "Estado", "Sillas", "Activas", " " }));
+        escritorio.add(jcElegir, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 270, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -286,14 +286,52 @@ public class AdministraMesas extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jbModificarActionPerformed
 
     private void jtBuscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtBuscarKeyReleased
+
+        String elegir = jcElegir.getSelectedItem() + "";
+        String buscar = jtBuscar.getText();
         
+        switch(elegir){
         
+            case "idMesa":
+                
+                modelo.setRowCount(0);
+                md.BuscarMesasId(buscar);
+                break;
+            
+            case "Numero":
+                
+                modelo.setRowCount(0);
+                md.BuscarMesasNumero(buscar);
+                break;
+            
+            case "Sillas":
+                
+                modelo.setRowCount(0);
+                md.BuscarMesasCapacidad(buscar);
+                break;
+                
+            case "Activas":
+                
+                modelo.setRowCount(0);
+                md.BuscarMesasActivo(buscar);
+                break;
+                
+            case "Estado":
+                
+                modelo.setRowCount(0);
+                md.BuscarMesasEstado(buscar);
+                break;
+                
+            default:
+                
+                cargarLista();
+        
+        }
     }//GEN-LAST:event_jtBuscarKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane escritorio;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -306,6 +344,7 @@ public class AdministraMesas extends javax.swing.JInternalFrame {
     private javax.swing.JButton jbCrear;
     private javax.swing.JButton jbModificar;
     private javax.swing.JButton jbSalir;
+    private javax.swing.JComboBox<String> jcElegir;
     private javax.swing.JComboBox<String> jcEstado;
     private javax.swing.JRadioButton jrActivo;
     private javax.swing.JTextField jtBuscar;

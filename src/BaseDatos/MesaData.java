@@ -230,6 +230,40 @@ public class MesaData {
     
     }
     
+    public List<Mesa> BuscarMesasEstado(String buscar){
+        
+        List <Mesa> mesasEstado = new ArrayList();
+        
+        try {
+            
+            String sql = "SELECT * FROM mesa WHERE estadoMesa LIKE ?";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, buscar + "%"); // Configura el primer parámetro con el valor de búsqueda
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+
+                Mesa mesa = new Mesa();
+                mesa.setIdMesa(rs.getInt("idMesa"));
+                mesa.setNumero(rs.getInt("numero"));
+                mesa.setEstadoMesa(rs.getString("estadoMesa"));
+                mesa.setCapacidad(rs.getInt("capacidad"));
+                mesa.setActivo(rs.getBoolean("activo"));
+                mesasEstado.add(mesa);
+
+            }
+
+            ps.close();
+
+        } catch (SQLException ex) {
+
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Mesa" + ex.getMessage());
+
+        }
+        
+        return mesasEstado;
+    }
+    
     public List<Mesa> BuscarMesasCapacidad(String buscar){
         
         List <Mesa> mesasNumero = new ArrayList();
