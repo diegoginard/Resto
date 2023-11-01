@@ -544,9 +544,7 @@ public class restoView extends javax.swing.JInternalFrame {
         
         ventanas.setSelectedIndex(3);
         
-        Mesa mesa = (Mesa) jcMesasPedido.getSelectedItem();
-        int Nmesa = mesa.getIdMesa();
-        cargarPedido(Nmesa);
+        pedidoxMesa();
         
     }//GEN-LAST:event_jbAgregarAPedidoActionPerformed
 
@@ -686,9 +684,7 @@ public class restoView extends javax.swing.JInternalFrame {
 
     private void jcMesasPedidoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jcMesasPedidoItemStateChanged
         
-        Mesa mesa = (Mesa) jcMesasPedido.getSelectedItem();
-        int Nmesa = mesa.getIdMesa();
-        cargarPedido(Nmesa);
+        pedidoxMesa();
         
     }//GEN-LAST:event_jcMesasPedidoItemStateChanged
 
@@ -842,5 +838,13 @@ public class restoView extends javax.swing.JInternalFrame {
                 pe.getNombreMesero(), pe.getFechaHora(),pe.isCobrada(),pe.getImporte(), pe.getEstado()});
 
         }   
+    }
+    
+    private void pedidoxMesa(){
+    
+        Mesa mesa = (Mesa) jcMesasPedido.getSelectedItem();
+        int Nmesa = mesa.getIdMesa();
+        cargarPedido(Nmesa);
+    
     }
 }
