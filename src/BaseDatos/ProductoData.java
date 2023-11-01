@@ -288,7 +288,7 @@ public class ProductoData {
         return productos;
 
     }
-     
+    
     public List<Producto> listarProductos(){
         
         List<Producto> productos = new ArrayList<>();
@@ -296,6 +296,41 @@ public class ProductoData {
         try {
             
             String sql = "SELECT * FROM producto WHERE estadoProducto = 1 ";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            
+            while (rs.next()) {
+                
+                Producto prod = new Producto();
+                prod.setIdProducto(rs.getInt("idProducto"));
+                prod.setNombre(rs.getString("nombreProducto"));
+                prod.setPrecio(rs.getDouble("precio"));
+                prod.setStock(rs.getInt("stock"));
+                prod.setEstado(rs.getBoolean("estadoProducto"));
+                prod.setCategoria(rs.getString("categoria"));
+                productos.add(prod);
+            
+            }
+            
+            ps.close();
+
+        }catch (SQLException ex) {
+
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla producto" + ex.getMessage());
+
+        }
+
+        return productos;
+    
+    }
+     
+    public List<Producto> listarTodosLosProductos(){
+        
+        List<Producto> productos = new ArrayList<>();
+        
+        try {
+            
+            String sql = "SELECT * FROM producto";
             PreparedStatement ps = con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             

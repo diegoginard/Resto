@@ -19,6 +19,7 @@ public class AdministraMesas extends javax.swing.JInternalFrame {
         armarCabecera();
         cargarLista();
         jtBuscar.setEnabled(false);
+        jtId.setEnabled(false);
     }
 
     private DefaultTableModel modelo = new DefaultTableModel(){
@@ -315,31 +316,31 @@ public class AdministraMesas extends javax.swing.JInternalFrame {
         
             case "idMesa":
                 
-                modelo.setRowCount(0);
+//                modelo.setRowCount(0);
                 mesasxId(buscar);
                 break;
             
             case "Numero":
                 
-                modelo.setRowCount(0);
+//                modelo.setRowCount(0);
                 mesasxNumero(buscar);
                 break;
             
             case "Sillas":
                 
-                modelo.setRowCount(0);
+//                modelo.setRowCount(0);
                 mesasxSillas(buscar);
                 break;
                 
             case "Activas":
                 
-                modelo.setRowCount(0);
+//                modelo.setRowCount(0);
                 mesasActivas(buscar);
                 break;
                 
             case "Estado":
                 
-                modelo.setRowCount(0);
+//                modelo.setRowCount(0);
                 mesasxEstado(buscar);
                 break;
                 

@@ -601,7 +601,7 @@ public class AdministraMenus extends JInternalFrame {
 
  private void cargarLista() {
 
-        List<Producto> menus = pd.listarProductos();
+        List<Producto> menus = pd.listarTodosLosProductos();
         modelo.setRowCount(0);
 
         for (Producto pro : menus) {
