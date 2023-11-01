@@ -30,9 +30,9 @@ public class PedidoData {
             pstmt.setString(1, pedido.getNombreMesero());
             pstmt.setInt(2, pedido.getMesa().getIdMesa());
             pstmt.setTimestamp(3, Timestamp.valueOf(LocalDateTime.now()));
-            pstmt.setBoolean(4, pedido.isCobrada());
+            pstmt.setBoolean(4, false);
             pstmt.setDouble(5, pedido.getImporte());
-            pstmt.setString(6, pedido.getEstado());
+            pstmt.setString(6, "PENDIENTE");
             pstmt.executeUpdate();
 
             ResultSet generatedKeys = pstmt.getGeneratedKeys();
