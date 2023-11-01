@@ -65,6 +65,8 @@ public class restoView extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
+        buttonGroup2 = new javax.swing.ButtonGroup();
         ventanas = new javax.swing.JTabbedPane();
         jpInicio = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
@@ -98,6 +100,20 @@ public class restoView extends javax.swing.JInternalFrame {
         jlMesa = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jpPedidos = new javax.swing.JPanel();
+        jLabel11 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
+        jRadioButton1 = new javax.swing.JRadioButton();
+        jRadioButton2 = new javax.swing.JRadioButton();
+        jRadioButton3 = new javax.swing.JRadioButton();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
+        jTextField4 = new javax.swing.JTextField();
+        jButton3 = new javax.swing.JButton();
+        jLabel16 = new javax.swing.JLabel();
 
         setClosable(true);
         try {
@@ -197,7 +213,7 @@ public class restoView extends javax.swing.JInternalFrame {
                 .addComponent(jbCobrarMesa)
                 .addGap(18, 18, 18)
                 .addComponent(jbAgregarAPedido)
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addContainerGap(120, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jpInicioLayout = new javax.swing.GroupLayout(jpInicio);
@@ -283,7 +299,7 @@ public class restoView extends javax.swing.JInternalFrame {
                 .addComponent(jLabel5)
                 .addGap(18, 18, 18)
                 .addComponent(jbACrearPedido)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 278, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 346, Short.MAX_VALUE)
                 .addComponent(jbMenu)
                 .addContainerGap())
         );
@@ -445,21 +461,121 @@ public class restoView extends javax.swing.JInternalFrame {
                             .addComponent(jtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel10))
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE))
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
         ventanas.addTab("tab2", jpProducto);
 
+        jLabel11.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel11.setText("Cancelar Pedido");
+
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Buscar_48.png"))); // NOI18N
+
+        jLabel12.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        jLabel12.setText("n° Mesa :");
+
+        jLabel13.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        jLabel13.setText("Buscar Por :");
+
+        jLabel14.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        jLabel14.setText("N° Mesero");
+
+        jLabel15.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        jLabel15.setText("N° Pedido");
+
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/ico pedido/anular_48.png"))); // NOI18N
+
+        jLabel16.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        jLabel16.setText("Cancelar");
+
         javax.swing.GroupLayout jpPedidosLayout = new javax.swing.GroupLayout(jpPedidos);
         jpPedidos.setLayout(jpPedidosLayout);
         jpPedidosLayout.setHorizontalGroup(
             jpPedidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(jpPedidosLayout.createSequentialGroup()
+                .addGap(290, 290, 290)
+                .addComponent(jLabel13)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jpPedidosLayout.createSequentialGroup()
+                .addGroup(jpPedidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jpPedidosLayout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addGroup(jpPedidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jpPedidosLayout.createSequentialGroup()
+                                .addGroup(jpPedidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(jpPedidosLayout.createSequentialGroup()
+                                        .addGroup(jpPedidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel15)
+                                            .addComponent(jLabel14))
+                                        .addGap(65, 65, 65)
+                                        .addGroup(jpPedidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(jpPedidosLayout.createSequentialGroup()
+                                        .addComponent(jLabel12)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(67, 67, 67)
+                                .addGroup(jpPedidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jRadioButton1)
+                                    .addGroup(jpPedidosLayout.createSequentialGroup()
+                                        .addGroup(jpPedidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jRadioButton2, javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jRadioButton3, javax.swing.GroupLayout.Alignment.LEADING))
+                                        .addGap(103, 103, 103)
+                                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(jpPedidosLayout.createSequentialGroup()
+                                .addGap(152, 152, 152)
+                                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jpPedidosLayout.createSequentialGroup()
+                        .addGap(333, 333, 333)
+                        .addComponent(jLabel16)
+                        .addGap(32, 32, 32)
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(137, Short.MAX_VALUE))
         );
         jpPedidosLayout.setVerticalGroup(
             jpPedidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(jpPedidosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel13)
+                .addGap(36, 36, 36)
+                .addGroup(jpPedidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jpPedidosLayout.createSequentialGroup()
+                        .addGroup(jpPedidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jpPedidosLayout.createSequentialGroup()
+                                .addGroup(jpPedidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel12))
+                                .addGap(40, 40, 40)
+                                .addGroup(jpPedidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel15)
+                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(33, 33, 33)
+                                .addGroup(jpPedidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel14)))
+                            .addGroup(jpPedidosLayout.createSequentialGroup()
+                                .addGap(54, 54, 54)
+                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(58, 58, 58)
+                        .addGroup(jpPedidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jpPedidosLayout.createSequentialGroup()
+                                .addGap(13, 13, 13)
+                                .addComponent(jLabel16)))
+                        .addContainerGap(99, Short.MAX_VALUE))
+                    .addGroup(jpPedidosLayout.createSequentialGroup()
+                        .addComponent(jRadioButton1)
+                        .addGap(36, 36, 36)
+                        .addComponent(jRadioButton2)
+                        .addGap(29, 29, 29)
+                        .addComponent(jRadioButton3)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
 
         ventanas.addTab("tab3", jpPedidos);
@@ -625,9 +741,19 @@ public class restoView extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -637,8 +763,14 @@ public class restoView extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JRadioButton jRadioButton2;
+    private javax.swing.JRadioButton jRadioButton3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField4;
     private javax.swing.JButton jbACrearPedido;
     private javax.swing.JButton jbAgregarAPedido;
     private javax.swing.JButton jbCancelarPedido;
