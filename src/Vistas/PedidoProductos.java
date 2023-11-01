@@ -309,6 +309,11 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
                 jtBProductoMouseClicked(evt);
             }
         });
+        jtBProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtBProductoActionPerformed(evt);
+            }
+        });
         jtBProducto.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jtBProductoKeyReleased(evt);
@@ -859,6 +864,10 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
         
         soloNumeros(evt);
     }//GEN-LAST:event_jtFechaHoraKeyTyped
+
+    private void jtBProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtBProductoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtBProductoActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JDesktopPane escritorio2;
