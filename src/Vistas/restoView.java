@@ -104,6 +104,7 @@ public class restoView extends javax.swing.JInternalFrame {
         } catch (java.beans.PropertyVetoException e1) {
             e1.printStackTrace();
         }
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(21, 21, 21));
 
@@ -175,11 +176,11 @@ public class restoView extends javax.swing.JInternalFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(300, 300, 300)
                 .addComponent(jLabel2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(321, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(237, 237, 237)
                 .addComponent(jLabel1)
-                .addContainerGap(254, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -203,16 +204,14 @@ public class restoView extends javax.swing.JInternalFrame {
         jpInicio.setLayout(jpInicioLayout);
         jpInicioLayout.setHorizontalGroup(
             jpInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jpInicioLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jpInicioLayout.setVerticalGroup(
             jpInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        ventanas.addTab("tab4", jpInicio);
+        ventanas.addTab("Inicio", jpInicio);
 
         jpMesaMesero.setBackground(new java.awt.Color(153, 153, 153));
 
@@ -273,7 +272,7 @@ public class restoView extends javax.swing.JInternalFrame {
                 .addContainerGap(316, Short.MAX_VALUE))
         );
 
-        ventanas.addTab("tab1", jpMesaMesero);
+        ventanas.addTab("Crear Pedido", jpMesaMesero);
 
         jpProducto.setBackground(new java.awt.Color(113, 113, 113));
 
@@ -434,7 +433,7 @@ public class restoView extends javax.swing.JInternalFrame {
                 .addContainerGap())
         );
 
-        ventanas.addTab("tab2", jpProducto);
+        ventanas.addTab("Agregar Productos", jpProducto);
 
         javax.swing.GroupLayout jpPedidosLayout = new javax.swing.GroupLayout(jpPedidos);
         jpPedidos.setLayout(jpPedidosLayout);
@@ -447,20 +446,9 @@ public class restoView extends javax.swing.JInternalFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        ventanas.addTab("tab3", jpPedidos);
+        ventanas.addTab("Elegir Pedido", jpPedidos);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(ventanas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(ventanas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
+        getContentPane().add(ventanas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
