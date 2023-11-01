@@ -674,7 +674,6 @@ public class PedidoProductos extends javax.swing.JInternalFrame {
         Pedido pedi = new Pedido();
 
         int fila = jtPedidoProd.getSelectedRow();
-        //        int filaP = jtPedidos.getSelectedRow();
 
         try {
 

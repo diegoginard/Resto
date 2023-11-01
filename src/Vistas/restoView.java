@@ -280,7 +280,7 @@ public class restoView extends javax.swing.JInternalFrame {
       Mesa mesa = (Mesa) jcMesas.getSelectedItem();
       ped.setMesa(mesa);
       ped.setNombreMesero(jcMeseros.getSelectedItem()+"");
-      pd.guardarPedido(ped);
+      
     }//GEN-LAST:event_jbACrearPedidoActionPerformed
 
 

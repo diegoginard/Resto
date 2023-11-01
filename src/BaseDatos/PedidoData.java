@@ -21,7 +21,31 @@ public class PedidoData {
         
         con = Conexion.getConexion();
     }
-        
+    public int GuardarPedidoID(Pedido pedido) {
+        int idGenerado = -1; // Valor por defecto si no se puede obtener el ID generado
+
+        try {
+            String sql = "INSERT INTO pedido (nombreMesero, IdMesa, fechaHora, cobrada, importe, estado) VALUES (?, ?, ?, ?, ?, ?)";
+            PreparedStatement pstmt = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            pstmt.setString(1, pedido.getNombreMesero());
+            pstmt.setInt(2, pedido.getMesa().getIdMesa());
+            pstmt.setTimestamp(3, Timestamp.valueOf(pedido.getFechaHora()));
+            pstmt.setBoolean(4, pedido.isCobrada());
+            pstmt.setDouble(5, pedido.getImporte());
+            pstmt.setString(6, pedido.getEstado());
+            pstmt.executeUpdate();
+
+            ResultSet generatedKeys = pstmt.getGeneratedKeys();
+            if (generatedKeys.next()) {
+                idGenerado = generatedKeys.getInt(1); // Obtiene el ID generado
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return idGenerado;
+    }
+    
     public void guardarPedido(Pedido ped) {
 
         String sql = "INSERT INTO pedido (nombreMesero, IdMesa, fechaHora , cobrada , importe, estado) VALUES (?,?,?,?,?,?)";
@@ -30,7 +54,6 @@ public class PedidoData {
 
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             
-            System.out.println(ped.getNombreMesero());
             ps.setString(1, ped.getNombreMesero());
             ps.setInt(2,ped.getMesa().getIdMesa());
             ps.setTimestamp(3, Timestamp.valueOf(LocalDateTime.now()));
@@ -40,7 +63,7 @@ public class PedidoData {
             ps.setString(6, "PENDIENTE");
             ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
-
+            
             if (rs.next()) {
 
                 ped.setIdPedido(rs.getInt(1));
