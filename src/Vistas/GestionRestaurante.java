@@ -83,7 +83,7 @@ public class GestionRestaurante extends javax.swing.JFrame {
             }
         });
 
-        jmPedidos.setText("Pedidos");
+        jmPedidos.setText("Lista de Pedidos");
         jmPedidos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jmPedidosActionPerformed(evt);
@@ -132,7 +132,7 @@ public class GestionRestaurante extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(escritorio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(escritorio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -163,14 +163,18 @@ public class GestionRestaurante extends javax.swing.JFrame {
     private void jmPedidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmPedidosActionPerformed
 
         try {
+            
             escritorio.removeAll();
             escritorio.repaint();
             ListarPedidos ll = new ListarPedidos();
             ll.setVisible(true);
             escritorio.add(ll);
             escritorio.moveToFront(ll);
+            
         } catch (ParseException ex) {
+            
             Logger.getLogger(GestionRestaurante.class.getName()).log(Level.SEVERE, null, ex);
+            
         }
         
         
