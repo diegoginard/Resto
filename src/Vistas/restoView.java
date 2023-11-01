@@ -602,7 +602,9 @@ public class restoView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jbTomarPedidoActionPerformed
 
     private void jbCancelarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCancelarPedidoActionPerformed
-        // TODO add your handling code here:
+
+
+        ventanas.setSelectedIndex(3);
     }//GEN-LAST:event_jbCancelarPedidoActionPerformed
 
     private void jbCobrarMesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCobrarMesaActionPerformed
