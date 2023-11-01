@@ -23,25 +23,29 @@ public class restoView extends javax.swing.JInternalFrame {
     PedidoData pd = new PedidoData();
     ProductoData pdat = new ProductoData();
     PedidoProductoData ppd = new PedidoProductoData();
-    
+
     public restoView() {
-        
+
         initComponents();
         cargarMesas();
         armarCabeceraProd();
         armarCabeceraProdPed();
-         armarCabeceraPed();
+        armarCabeceraPed();
         cargarProducto();
         ventanas.setEnabled(false);
         jtID.setEnabled(false);
+        jbAgregarQuitar.setEnabled(false);
+        jbEntregar.setEnabled(false);
+        jbEntregar.setEnabled(false); 
+        jbCancelar.setEnabled(false);
         
     }
-    
- private DefaultTableModel modelo3 = new DefaultTableModel(){
+
+    private DefaultTableModel modelo3 = new DefaultTableModel() {
 
         @Override
-        public boolean  isCellEditable(int rowIndex, int columnIndex ){
-            
+        public boolean isCellEditable(int rowIndex, int columnIndex) {
+
             return false;
         }
 
@@ -87,6 +91,13 @@ public class restoView extends javax.swing.JInternalFrame {
         jbTomarPedido = new javax.swing.JButton();
         jbAgregarAPedido = new javax.swing.JButton();
         jbCobrarMesa = new javax.swing.JButton();
+        jpMesaMesero = new javax.swing.JPanel();
+        jcMeseros = new javax.swing.JComboBox<>();
+        jLabel3 = new javax.swing.JLabel();
+        jcMesas = new javax.swing.JComboBox<>();
+        jLabel4 = new javax.swing.JLabel();
+        jbACrearPedido = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
         jpProducto = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jtBProducto = new javax.swing.JTextField();
@@ -109,13 +120,10 @@ public class restoView extends javax.swing.JInternalFrame {
         jtPedidos = new javax.swing.JTable();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        jpMesaMesero = new javax.swing.JPanel();
-        jcMeseros = new javax.swing.JComboBox<>();
-        jLabel3 = new javax.swing.JLabel();
-        jcMesas = new javax.swing.JComboBox<>();
-        jLabel4 = new javax.swing.JLabel();
-        jbACrearPedido = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
+        jbCancelar = new javax.swing.JButton();
+        jbAgregarQuitar = new javax.swing.JButton();
+        jbCobrar = new javax.swing.JButton();
+        jbEntregar = new javax.swing.JButton();
 
         setClosable(true);
         try {
@@ -224,6 +232,68 @@ public class restoView extends javax.swing.JInternalFrame {
         );
 
         ventanas.addTab("Inicio", jpInicio);
+
+        jpMesaMesero.setBackground(new java.awt.Color(153, 153, 153));
+
+        jcMeseros.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "seleccionar", "CARLOS", "MARTIN", "FABIAN", "MARIA" }));
+
+        jLabel3.setText("Mesero");
+
+        jLabel4.setText("Mesas");
+
+        jbACrearPedido.setText("Crear Pedido");
+        jbACrearPedido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbACrearPedidoActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setText("Agregar Productos");
+
+        javax.swing.GroupLayout jpMesaMeseroLayout = new javax.swing.GroupLayout(jpMesaMesero);
+        jpMesaMesero.setLayout(jpMesaMeseroLayout);
+        jpMesaMeseroLayout.setHorizontalGroup(
+            jpMesaMeseroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpMesaMeseroLayout.createSequentialGroup()
+                .addGroup(jpMesaMeseroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jpMesaMeseroLayout.createSequentialGroup()
+                        .addGap(39, 39, 39)
+                        .addComponent(jbACrearPedido))
+                    .addGroup(jpMesaMeseroLayout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addGroup(jpMesaMeseroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel5)
+                            .addGroup(jpMesaMeseroLayout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addGap(98, 98, 98)
+                                .addComponent(jcMeseros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jpMesaMeseroLayout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addGap(104, 104, 104)
+                                .addComponent(jcMesas, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                .addContainerGap(454, Short.MAX_VALUE))
+        );
+        jpMesaMeseroLayout.setVerticalGroup(
+            jpMesaMeseroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpMesaMeseroLayout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addGroup(jpMesaMeseroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3)
+                    .addComponent(jcMeseros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jpMesaMeseroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jpMesaMeseroLayout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(jLabel4))
+                    .addComponent(jcMesas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel5)
+                .addGap(18, 18, 18)
+                .addComponent(jbACrearPedido)
+                .addContainerGap(370, Short.MAX_VALUE))
+        );
+
+        ventanas.addTab("Crear Pedido", jpMesaMesero);
 
         jpProducto.setBackground(new java.awt.Color(113, 113, 113));
 
@@ -423,6 +493,24 @@ public class restoView extends javax.swing.JInternalFrame {
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
         jLabel15.setText("SELECIONA UNA MESA");
 
+        jbCancelar.setText("Cancelar Pedido");
+        jbCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbCancelarActionPerformed(evt);
+            }
+        });
+
+        jbAgregarQuitar.setText("Agregar / Quitar Productos");
+        jbAgregarQuitar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbAgregarQuitarActionPerformed(evt);
+            }
+        });
+
+        jbCobrar.setText("Cobrar Pedido");
+
+        jbEntregar.setText("Entregar Pedido");
+
         javax.swing.GroupLayout jpPedidosLayout = new javax.swing.GroupLayout(jpPedidos);
         jpPedidos.setLayout(jpPedidosLayout);
         jpPedidosLayout.setHorizontalGroup(
@@ -430,21 +518,31 @@ public class restoView extends javax.swing.JInternalFrame {
             .addGroup(jpPedidosLayout.createSequentialGroup()
                 .addGroup(jpPedidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jpPedidosLayout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addGroup(jpPedidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jpPedidosLayout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(39, 39, 39)
-                                .addComponent(jcMesasPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(jpPedidosLayout.createSequentialGroup()
                         .addGap(96, 96, 96)
                         .addComponent(jLabel15))
                     .addGroup(jpPedidosLayout.createSequentialGroup()
-                        .addGap(105, 105, 105)
-                        .addComponent(jLabel14)))
-                .addContainerGap(340, Short.MAX_VALUE))
+                        .addGap(28, 28, 28)
+                        .addGroup(jpPedidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jpPedidosLayout.createSequentialGroup()
+                                .addComponent(jbCobrar, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(34, 34, 34)
+                                .addComponent(jbCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jpPedidosLayout.createSequentialGroup()
+                                .addGroup(jpPedidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jpPedidosLayout.createSequentialGroup()
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(39, 39, 39)
+                                        .addComponent(jcMesasPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jpPedidosLayout.createSequentialGroup()
+                                        .addGap(77, 77, 77)
+                                        .addComponent(jLabel14)))
+                                .addGap(41, 41, 41)
+                                .addGroup(jpPedidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jbAgregarQuitar, javax.swing.GroupLayout.DEFAULT_SIZE, 205, Short.MAX_VALUE)
+                                    .addComponent(jbEntregar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
+                .addContainerGap(94, Short.MAX_VALUE))
         );
         jpPedidosLayout.setVerticalGroup(
             jpPedidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -455,76 +553,25 @@ public class restoView extends javax.swing.JInternalFrame {
                 .addGroup(jpPedidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jcMesasPedido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(17, 17, 17)
+                .addGap(14, 14, 14)
                 .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(229, Short.MAX_VALUE))
+                .addGroup(jpPedidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jpPedidosLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jpPedidosLayout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addComponent(jbAgregarQuitar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jbEntregar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(63, 63, 63)
+                .addGroup(jpPedidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jbCobrar, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jbCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(105, Short.MAX_VALUE))
         );
 
         ventanas.addTab("Elegir Pedido", jpPedidos);
-
-        jpMesaMesero.setBackground(new java.awt.Color(153, 153, 153));
-
-        jcMeseros.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "seleccionar", "CARLOS", "MARTIN", "FABIAN", "MARIA" }));
-
-        jLabel3.setText("Mesero");
-
-        jLabel4.setText("Mesas");
-
-        jbACrearPedido.setText("Crear Pedido");
-        jbACrearPedido.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbACrearPedidoActionPerformed(evt);
-            }
-        });
-
-        jLabel5.setText("Agregar Productos");
-
-        javax.swing.GroupLayout jpMesaMeseroLayout = new javax.swing.GroupLayout(jpMesaMesero);
-        jpMesaMesero.setLayout(jpMesaMeseroLayout);
-        jpMesaMeseroLayout.setHorizontalGroup(
-            jpMesaMeseroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jpMesaMeseroLayout.createSequentialGroup()
-                .addGroup(jpMesaMeseroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jpMesaMeseroLayout.createSequentialGroup()
-                        .addGap(39, 39, 39)
-                        .addComponent(jbACrearPedido))
-                    .addGroup(jpMesaMeseroLayout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addGroup(jpMesaMeseroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel5)
-                            .addGroup(jpMesaMeseroLayout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addGap(98, 98, 98)
-                                .addComponent(jcMeseros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jpMesaMeseroLayout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addGap(104, 104, 104)
-                                .addComponent(jcMesas, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                .addContainerGap(454, Short.MAX_VALUE))
-        );
-        jpMesaMeseroLayout.setVerticalGroup(
-            jpMesaMeseroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jpMesaMeseroLayout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addGroup(jpMesaMeseroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addComponent(jcMeseros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jpMesaMeseroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jpMesaMeseroLayout.createSequentialGroup()
-                        .addGap(3, 3, 3)
-                        .addComponent(jLabel4))
-                    .addComponent(jcMesas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jLabel5)
-                .addGap(18, 18, 18)
-                .addComponent(jbACrearPedido)
-                .addContainerGap(370, Short.MAX_VALUE))
-        );
-
-        ventanas.addTab("Crear Pedido", jpMesaMesero);
 
         getContentPane().add(ventanas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 710, -1));
 
@@ -702,6 +749,14 @@ public class restoView extends javax.swing.JInternalFrame {
          ventanas.setSelectedIndex(2);
     }//GEN-LAST:event_jtPedidosMouseClicked
 
+    private void jbAgregarQuitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAgregarQuitarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbAgregarQuitarActionPerformed
+
+    private void jbCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCancelarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbCancelarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane jDesktopPane1;
@@ -723,7 +778,11 @@ public class restoView extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JButton jbACrearPedido;
     private javax.swing.JButton jbAgregarAPedido;
+    private javax.swing.JButton jbAgregarQuitar;
+    private javax.swing.JButton jbCancelar;
+    private javax.swing.JButton jbCobrar;
     private javax.swing.JButton jbCobrarMesa;
+    private javax.swing.JButton jbEntregar;
     private javax.swing.JButton jbTomarPedido;
     private javax.swing.JButton jbVolverMenu;
     private javax.swing.JComboBox<Mesa> jcMesas;
@@ -837,7 +896,9 @@ public class restoView extends javax.swing.JInternalFrame {
             total += pp.getImporte();
 
         }
+        
         jtTotal.setText(total + "");
+        
     }
     
     private void cargarPedido(int id) {
