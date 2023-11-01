@@ -78,7 +78,7 @@ public class PedidoData {
 
                 ped.setIdPedido(rs.getInt(1));
 
-                JOptionPane.showMessageDialog(null, "Pedido Guardado ");
+              //  JOptionPane.showMessageDialog(null, "Pedido Guardado ");
 
             }
 
@@ -129,7 +129,7 @@ public class PedidoData {
             
             if (exito==1) {
                 
-                JOptionPane.showMessageDialog(null, "Pedido Modificado");
+               // JOptionPane.showMessageDialog(null, "Pedido Modificado");
            
             }
             

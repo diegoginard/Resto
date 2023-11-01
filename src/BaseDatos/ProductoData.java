@@ -36,7 +36,7 @@ public class ProductoData {
 
                pro.setIdProducto(rs.getInt(1));
                 
-               JOptionPane.showMessageDialog(null, "Producto Guardado ");
+             //  JOptionPane.showMessageDialog(null, "Producto Guardado ");
             
             }
             
@@ -98,7 +98,7 @@ public class ProductoData {
             
             if (exito==1) {
                 
-                JOptionPane.showMessageDialog(null, "Producto Modificado");
+               // JOptionPane.showMessageDialog(null, "Producto Modificado");
            
             }
             
