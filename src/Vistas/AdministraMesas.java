@@ -299,7 +299,7 @@ public class AdministraMesas extends javax.swing.JInternalFrame {
         mesa.setEstadoMesa(jcEstado.getSelectedItem()+"");
         mesa.setCapacidad(Integer.parseInt(jtCapacidad.getText()));
         mesa.setActivo(jrActivo.isSelected());
-   
+        JOptionPane.showMessageDialog(rootPane, jrActivo.isSelected());
         md.modificarMesa(mesa);
         cargarLista();
         limpiar();
@@ -384,7 +384,7 @@ public class AdministraMesas extends javax.swing.JInternalFrame {
 
     private void cargarLista() {
 
-        List<Mesa> mesas = md.listarMesas();
+        List<Mesa> mesas = md.listarTodasLasMesas();
         modelo.setRowCount(0);
 
         for (Mesa me : mesas) {

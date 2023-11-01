@@ -82,7 +82,7 @@ public class MesaData {
     
     public void modificarMesa(Mesa mesa){
    
-        String sql = "UPDATE mesa SET idMesa= ?, numero = ?, estadoMesa = ?, capacidad = ? WHERE idMesa = ?";
+        String sql = "UPDATE mesa SET idMesa= ?, numero = ?, estadoMesa = ?, capacidad = ?, activo = ? WHERE idMesa = ?";
         
         try {
             
@@ -92,7 +92,8 @@ public class MesaData {
             ps.setInt(2, mesa.getNumero());
             ps.setString(3, mesa.getEstadoMesa());
             ps.setInt(4, mesa.getCapacidad());
-            ps.setInt(5, mesa.getIdMesa());
+            ps.setBoolean(5, mesa.getActivo());
+            ps.setInt(6, mesa.getIdMesa());
             
             int exito= ps.executeUpdate();
             
@@ -125,7 +126,40 @@ public class MesaData {
                 mesa.setNumero(rs.getInt("numero"));
                 mesa.setEstadoMesa(rs.getString("estadoMesa"));
                 mesa.setCapacidad(rs.getInt("capacidad"));
-                mesa.setActivo(Boolean.TRUE);
+                mesa.setActivo(rs.getBoolean("activo"));
+                Mesas.add(mesa);
+            
+            }
+            
+            ps.close();
+
+        }catch (SQLException ex) {
+
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla mesa" + ex.getMessage());
+
+        }
+
+        return Mesas;
+    
+    }
+    
+    public List<Mesa> listarTodasLasMesas(){
+        
+        List<Mesa> Mesas = new ArrayList<>();
+    
+        try {
+            
+            String sql = "SELECT * FROM mesa";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            
+            while (rs.next()) {
+                Mesa mesa = new Mesa();
+                mesa.setIdMesa(rs.getInt("idMesa"));
+                mesa.setNumero(rs.getInt("numero"));
+                mesa.setEstadoMesa(rs.getString("estadoMesa"));
+                mesa.setCapacidad(rs.getInt("capacidad"));
+                mesa.setActivo(rs.getBoolean("activo"));
                 Mesas.add(mesa);
             
             }
