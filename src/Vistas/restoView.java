@@ -470,6 +470,11 @@ public class restoView extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jtPedidos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jtPedidosMouseClicked(evt);
+            }
+        });
         jScrollPane3.setViewportView(jtPedidos);
 
         jLabel14.setFont(new java.awt.Font("Segoe UI Semibold", 1, 24)); // NOI18N
@@ -687,6 +692,19 @@ public class restoView extends javax.swing.JInternalFrame {
         pedidoxMesa();
         
     }//GEN-LAST:event_jcMesasPedidoItemStateChanged
+
+    private void jtPedidosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtPedidosMouseClicked
+        
+        int fila = jtPedidos.getSelectedRow();
+        int idPedido = (int) jtPedidos.getValueAt(fila, 0);
+        
+        int Nmesa = (int) jtPedidos.getValueAt(fila, 1);
+        cargarPedidoProducto(idPedido);
+        jtID.setText(idPedido+"");
+        jlMesa.setText(Nmesa+"");
+        
+         ventanas.setSelectedIndex(2);
+    }//GEN-LAST:event_jtPedidosMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
