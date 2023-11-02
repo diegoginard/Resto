@@ -32,6 +32,8 @@ public class restoView extends javax.swing.JInternalFrame {
         armarCabeceraProdPed();
         armarCabeceraPed();
         cargarProducto();
+        armarCabeceraEstadoMesas();
+        CargarEstadoMesas();
         ventanas.setEnabled(false);
         jtID.setEnabled(false);
         jbAgregarQuitar.setEnabled(false);
@@ -69,6 +71,16 @@ public class restoView extends javax.swing.JInternalFrame {
 
     };
  
+  private DefaultTableModel modelo4 = new DefaultTableModel() {
+
+        @Override
+        public boolean isCellEditable(int rowIndex, int columnIndex) {
+
+            return false;
+        }
+
+    };
+ 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -91,6 +103,7 @@ public class restoView extends javax.swing.JInternalFrame {
         jbTomarPedido = new javax.swing.JButton();
         jbAgregarAPedido = new javax.swing.JButton();
         jbCobrarMesa = new javax.swing.JButton();
+        jbEstadoMesas = new javax.swing.JButton();
         jpMesaMesero = new javax.swing.JPanel();
         ImageIcon icono2 = new ImageIcon(getClass().getResource("/Recursos/FONDO5.jpg"));
         Image imagen2 = icono2.getImage();
@@ -161,6 +174,11 @@ public class restoView extends javax.swing.JInternalFrame {
         jcMesasPedido = new javax.swing.JComboBox<>();
         jbInicio = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jDesktopPane2 = new javax.swing.JDesktopPane();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jtEstadoMesas = new javax.swing.JTable();
+        jLabel13 = new javax.swing.JLabel();
 
         setClosable(true);
         try {
@@ -213,11 +231,23 @@ public class restoView extends javax.swing.JInternalFrame {
             }
         });
 
+        jbEstadoMesas.setBackground(new java.awt.Color(40, 40, 40));
+        jbEstadoMesas.setFont(new java.awt.Font("Segoe UI Historic", 1, 24)); // NOI18N
+        jbEstadoMesas.setForeground(new java.awt.Color(255, 255, 255));
+        jbEstadoMesas.setText("ESTADO DE MESAS");
+        jbEstadoMesas.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jbEstadoMesas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbEstadoMesasActionPerformed(evt);
+            }
+        });
+
         jDesktopPane1.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jbTomarPedido, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jbAgregarAPedido, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jbCobrarMesa, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(jbEstadoMesas, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
@@ -238,7 +268,8 @@ public class restoView extends javax.swing.JInternalFrame {
                             .addComponent(jbCobrarMesa, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(jbTomarPedido, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jbAgregarAPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(jbAgregarAPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jbEstadoMesas, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(419, Short.MAX_VALUE))
         );
         jDesktopPane1Layout.setVerticalGroup(
@@ -248,13 +279,15 @@ public class restoView extends javax.swing.JInternalFrame {
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 113, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 118, Short.MAX_VALUE)
                 .addComponent(jbTomarPedido)
                 .addGap(13, 13, 13)
                 .addComponent(jbAgregarAPedido)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jbCobrarMesa)
-                .addGap(109, 109, 109))
+                .addGap(18, 18, 18)
+                .addComponent(jbEstadoMesas)
+                .addGap(53, 53, 53))
         );
 
         javax.swing.GroupLayout jpInicioLayout = new javax.swing.GroupLayout(jpInicio);
@@ -801,6 +834,61 @@ public class restoView extends javax.swing.JInternalFrame {
 
         ventanas.addTab("Elegir Pedido", jpPedidos);
 
+        jtEstadoMesas.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane4.setViewportView(jtEstadoMesas);
+
+        jLabel13.setText("jLabel13");
+
+        jDesktopPane2.setLayer(jScrollPane4, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane2.setLayer(jLabel13, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        javax.swing.GroupLayout jDesktopPane2Layout = new javax.swing.GroupLayout(jDesktopPane2);
+        jDesktopPane2.setLayout(jDesktopPane2Layout);
+        jDesktopPane2Layout.setHorizontalGroup(
+            jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDesktopPane2Layout.createSequentialGroup()
+                .addGroup(jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jDesktopPane2Layout.createSequentialGroup()
+                        .addGap(152, 152, 152)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jDesktopPane2Layout.createSequentialGroup()
+                        .addGap(200, 200, 200)
+                        .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(283, Short.MAX_VALUE))
+        );
+        jDesktopPane2Layout.setVerticalGroup(
+            jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane2Layout.createSequentialGroup()
+                .addGap(42, 42, 42)
+                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 434, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(44, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jDesktopPane2)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jDesktopPane2)
+        );
+
+        ventanas.addTab("Mesas", jPanel2);
+
         getContentPane().add(ventanas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 710, -1));
 
         pack();
@@ -1027,37 +1115,6 @@ public class restoView extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_jbACrearPedidoActionPerformed
 
-    private void jbCobrarMesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCobrarMesaActionPerformed
-        
-        ventanas.setSelectedIndex(3);
-        jbAgregarQuitar.setEnabled(false);
-        jbEntregar.setEnabled(false);
-        jbCancelar.setEnabled(false);
-        jbCobrar.setEnabled(true);
-        Mesa mesa = (Mesa) jcMesasPedido.getSelectedItem();
-        cargarPedidoEntregado(mesa.getIdMesa());
-        
-    }//GEN-LAST:event_jbCobrarMesaActionPerformed
-
-    private void jbAgregarAPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAgregarAPedidoActionPerformed
-
-        ventanas.setSelectedIndex(3);
-
-        jbAgregarQuitar.setEnabled(true);
-        jbEntregar.setEnabled(true);
-        jbCancelar.setEnabled(true);
-        jbCobrar.setEnabled(false);
-        pedidoxMesa();
-
-    }//GEN-LAST:event_jbAgregarAPedidoActionPerformed
-
-    private void jbTomarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbTomarPedidoActionPerformed
-
-        ventanas.setSelectedIndex(1);
-        
-
-    }//GEN-LAST:event_jbTomarPedidoActionPerformed
-
     private void jbInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbInicioActionPerformed
        
         ventanas.setSelectedIndex(0);
@@ -1104,6 +1161,40 @@ public class restoView extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jbCobrarMesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCobrarMesaActionPerformed
+
+        ventanas.setSelectedIndex(3);
+        jbAgregarQuitar.setEnabled(false);
+        jbEntregar.setEnabled(false);
+        jbCancelar.setEnabled(false);
+        jbCobrar.setEnabled(true);
+        Mesa mesa = (Mesa) jcMesasPedido.getSelectedItem();
+        cargarPedidoEntregado(mesa.getIdMesa());
+
+    }//GEN-LAST:event_jbCobrarMesaActionPerformed
+
+    private void jbAgregarAPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAgregarAPedidoActionPerformed
+
+        ventanas.setSelectedIndex(3);
+
+        jbAgregarQuitar.setEnabled(true);
+        jbEntregar.setEnabled(true);
+        jbCancelar.setEnabled(true);
+        jbCobrar.setEnabled(false);
+        pedidoxMesa();
+    }//GEN-LAST:event_jbAgregarAPedidoActionPerformed
+
+    private void jbTomarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbTomarPedidoActionPerformed
+
+        ventanas.setSelectedIndex(1);
+
+    }//GEN-LAST:event_jbTomarPedidoActionPerformed
+
+    private void jbEstadoMesasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEstadoMesasActionPerformed
+        
+        ventanas.setSelectedIndex(4);
+    }//GEN-LAST:event_jbEstadoMesasActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane agregarproductos;
@@ -1111,10 +1202,12 @@ public class restoView extends javax.swing.JInternalFrame {
     private javax.swing.JDesktopPane elegirpedido;
     private javax.swing.JButton jButton1;
     private javax.swing.JDesktopPane jDesktopPane1;
+    private javax.swing.JDesktopPane jDesktopPane2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
@@ -1126,9 +1219,11 @@ public class restoView extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JButton jbACrearPedido;
     private javax.swing.JButton jbAgregarAPedido;
     private javax.swing.JButton jbAgregarQuitar;
@@ -1136,6 +1231,7 @@ public class restoView extends javax.swing.JInternalFrame {
     private javax.swing.JButton jbCobrar;
     private javax.swing.JButton jbCobrarMesa;
     private javax.swing.JButton jbEntregar;
+    private javax.swing.JButton jbEstadoMesas;
     private javax.swing.JButton jbInicio;
     private javax.swing.JButton jbIrPedidos;
     private javax.swing.JButton jbTomarPedido;
@@ -1149,6 +1245,7 @@ public class restoView extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jpPedidos;
     private javax.swing.JPanel jpProducto;
     private javax.swing.JTextField jtBProducto;
+    private javax.swing.JTable jtEstadoMesas;
     private javax.swing.JTextField jtID;
     private javax.swing.JTable jtPedidoProd;
     private javax.swing.JTable jtPedidos;
@@ -1196,6 +1293,8 @@ public class restoView extends javax.swing.JInternalFrame {
         jtProducto.setModel(modelo3);
 
     }
+    
+    
     private void armarCabeceraProdPed() {
         
         modelo2.addColumn("PP");
@@ -1205,6 +1304,14 @@ public class restoView extends javax.swing.JInternalFrame {
         modelo2.addColumn(" $ ");
         modelo2.addColumn("Cant");
         jtPedidoProd.setModel(modelo2);
+
+    }
+    
+     private void armarCabeceraEstadoMesas() {
+        
+        modelo4.addColumn("Numero");
+        modelo4.addColumn("Estado");
+        jtEstadoMesas.setModel(modelo4);
 
     }
     
@@ -1301,5 +1408,17 @@ public class restoView extends javax.swing.JInternalFrame {
         int Nmesa = mesa.getIdMesa();
         cargarPedidoPediente(Nmesa);
     
+    }
+    
+    private void CargarEstadoMesas() {
+
+        modelo1.setRowCount(0);
+        List<Mesa> mesas = md.listarMesas();
+
+        for (Mesa me : mesas) {
+
+            modelo4.addRow(new Object[]{me.getNumero(), me.getEstadoMesa()});
+
+        }   
     }
 }
