@@ -97,7 +97,7 @@ public class MesaData {
             
             int exito= ps.executeUpdate();
             
-            if (exito==1) {
+            if (exito == 1) {
                 
 //                JOptionPane.showMessageDialog(null, "Mesa Modificada");
            
