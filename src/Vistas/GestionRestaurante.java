@@ -13,12 +13,12 @@ import javax.swing.ImageIcon;
 public class GestionRestaurante extends javax.swing.JFrame {
     
     private Connection con = null;
+  
     
     public GestionRestaurante() {
         
         initComponents();
         con = Conexion.getConexion();
-        
         this.setLocationRelativeTo(null);
         
     }
