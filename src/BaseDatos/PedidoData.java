@@ -99,7 +99,6 @@ public class PedidoData {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, idPedido);
             ps.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Pedido eliminado ");
             ps.close();
 
         } catch (SQLException ex) {
@@ -168,7 +167,7 @@ public class PedidoData {
 
         }catch (SQLException ex) {
 
-            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla pedidos" + ex.getMessage());
+//            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla pedidos" + ex.getMessage());
 
         }
 
@@ -206,7 +205,7 @@ public class PedidoData {
 
         }catch (SQLException ex) {
 
-            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla pedidos" + ex.getMessage());
+//            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla pedidos" + ex.getMessage());
 
         }
 
@@ -244,7 +243,7 @@ public class PedidoData {
 
         }catch (SQLException ex) {
 
-            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla pedidos" + ex.getMessage());
+//            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla pedidos" + ex.getMessage());
 
         }
 
@@ -282,7 +281,7 @@ public class PedidoData {
 
         }catch (SQLException ex) {
 
-            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla pedidos" + ex.getMessage());
+//            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla pedidos" + ex.getMessage());
 
         }
 
@@ -307,7 +306,7 @@ public class PedidoData {
             
             if (exito==1) {
                 
-                JOptionPane.showMessageDialog(null, "Pedido Modificado");
+//                JOptionPane.showMessageDialog(null, "Pedido Modificado");
            
             }
             
@@ -343,7 +342,7 @@ public class PedidoData {
 
         }catch (SQLException ex) {
 
-            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla" + ex.getMessage());
+//            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla" + ex.getMessage());
 
         }
 
@@ -379,7 +378,7 @@ public class PedidoData {
 
         }catch (SQLException ex) {
 
-            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla pedidos" + ex.getMessage());
+//            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla pedidos" + ex.getMessage());
 
         }
 
@@ -414,7 +413,7 @@ public class PedidoData {
 
         }catch (SQLException ex) {
 
-            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla pedidos" + ex.getMessage());
+//            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla pedidos" + ex.getMessage());
 
         }
 
@@ -451,7 +450,7 @@ public class PedidoData {
 
         }catch (SQLException ex) {
 
-            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla pedidos" + ex.getMessage());
+//            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla pedidos" + ex.getMessage());
 
         }
 
@@ -484,7 +483,9 @@ public class PedidoData {
 
             ps.close();
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla pedidos: " + ex.getMessage());
+            
+//            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla pedidos: " + ex.getMessage());
+            
         }
 
     return pedidos;
@@ -505,6 +506,7 @@ public class PedidoData {
         ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
+                
                 Pedido ped = new Pedido();
                 ped.setIdPedido(rs.getInt("idPedido"));
                 mesa = md.ObtenerMesasId(rs.getInt("idMesa"));
@@ -517,9 +519,11 @@ public class PedidoData {
             }
 
             ps.close();
+            
         } catch (SQLException ex) {
 
-            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla pedidos: " + ex.getMessage());
+//            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla pedidos: " + ex.getMessage());
+            
         }
 
         return pedidos;
@@ -537,7 +541,9 @@ public class PedidoData {
             if (rs.next()) {
                 
                 int cantidadPedidosPendientes = rs.getInt(1);
+                
 //                JOptionPane.showMessageDialog(null, cantidadPedidosPendientes);
+
                 return cantidadPedidosPendientes > 0; // Si hay al menos un pedido pendiente, no se puede modificar a "LIBRE"
             }
 
@@ -546,6 +552,7 @@ public class PedidoData {
         } catch (SQLException ex) {
             
             JOptionPane.showMessageDialog(null, "Error al verificar el estado del pedido: " + ex.getMessage());
+            
         }
 
         return false; // Si ocurre un error, se asume que no se puede modificar el pedido

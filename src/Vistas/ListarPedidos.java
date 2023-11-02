@@ -421,6 +421,7 @@ public class ListarPedidos extends javax.swing.JInternalFrame {
                 jsHoraInicio.setEnabled(false);
                 jsHoraFin.setEnabled(false);
                 jbBuscar1.setEnabled(false);
+                cargarPedidos();
 
                 break;
 
@@ -436,6 +437,7 @@ public class ListarPedidos extends javax.swing.JInternalFrame {
                 jsHoraInicio.setEnabled(false);
                 jsHoraFin.setEnabled(false);
                 jbBuscar1.setEnabled(false);
+                cargarPedidos();
 
                 break;
 
@@ -452,6 +454,7 @@ public class ListarPedidos extends javax.swing.JInternalFrame {
                 jsHoraFin.setEnabled(false);
                 jbBuscar1.setEnabled(false);
                 jdFecha.setEnabled(false);
+                cargarPedidos();
 
                 break;
 
@@ -468,6 +471,7 @@ public class ListarPedidos extends javax.swing.JInternalFrame {
                 jtMDia.setEnabled(false);
                 jtNMesero.setEnabled(false);
                 jdFecha.setEnabled(false);
+                cargarPedidos();
 
                 break;
 
