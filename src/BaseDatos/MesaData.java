@@ -99,7 +99,7 @@ public class MesaData {
             
             if (exito==1) {
                 
-                JOptionPane.showMessageDialog(null, "Mesa Modificada");
+//                JOptionPane.showMessageDialog(null, "Mesa Modificada");
            
             }
             

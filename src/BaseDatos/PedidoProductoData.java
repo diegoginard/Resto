@@ -39,6 +39,7 @@ public class PedidoProductoData {
         try {
 
             if (! pedprod.getPedido().isCobrada()){
+                
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
             ps.setInt(1, pedprod.getPedido().getIdPedido());
@@ -47,12 +48,13 @@ public class PedidoProductoData {
             ps.setDouble(4, total);
             ps.setBoolean(5, true);
             ps.executeUpdate();
-            ResultSet rs = ps.getGeneratedKeys(); 
+            ResultSet rs = ps.getGeneratedKeys();
+            
              if (rs.next()) {
 
                 pedprod.setIdPedidoProducto(rs.getInt(1));
 
-                JOptionPane.showMessageDialog(null, "Producto agregado al pedido");
+//                JOptionPane.showMessageDialog(null, "Producto agregado al pedido");
             }
 
             ps.close();
@@ -118,7 +120,7 @@ public class PedidoProductoData {
             
             if(exito >= 1){
                 
-            JOptionPane.showMessageDialog(null, "Producto Eliminado");
+//            JOptionPane.showMessageDialog(null, "Producto Eliminado");
             
             }else{
                 

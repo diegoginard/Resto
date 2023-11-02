@@ -890,6 +890,7 @@ public class restoView extends javax.swing.JInternalFrame {
             ped.setNombreMesero(jcMeseros.getSelectedItem() + "");
             int idPedido = pd.GuardarPedidoID(ped);
             mesa.setEstadoMesa("OCUPADO");
+            md.modificarMesa(mesa);
             jlMesa.setText(mesa.getNumero()+"");
             jtID.setText(idPedido + "");
             cargarPedidoProducto(idPedido);

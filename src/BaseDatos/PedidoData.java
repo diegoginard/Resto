@@ -129,7 +129,7 @@ public class PedidoData {
             
             if (exito==1) {
                 
-                JOptionPane.showMessageDialog(null, "Pedido Modificado");
+//                JOptionPane.showMessageDialog(null, "Pedido Modificado");
            
             }
             
