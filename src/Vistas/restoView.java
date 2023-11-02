@@ -767,6 +767,9 @@ public class restoView extends javax.swing.JInternalFrame {
         jbAgregarQuitar.setEnabled(true);
         jbEntregar.setEnabled(true); 
         jbCancelar.setEnabled(true);
+        Mesa mesa = (Mesa) jcMesasPedido.getSelectedItem();
+        int idMesa = mesa.getIdMesa();
+        cargarPedidoPediente(idMesa);
 
     }//GEN-LAST:event_jbIrPedidosActionPerformed
 
@@ -949,8 +952,8 @@ public class restoView extends javax.swing.JInternalFrame {
             int idMesa = (int) jtPedidos.getValueAt(fila, 1);
             Mesa mesa = md.ObtenerMesasId(idMesa);
             Pedido pedido = pd.obtenerPedidoId(idPedido);
-            
-            if (pd.pasarAlibre(idMesa)) {
+            JOptionPane.showMessageDialog(rootPane, pd.pasarAlibre(idMesa));
+            if (!pd.pasarAlibre(idMesa)) {
                 
                 mesa.setEstadoMesa("LIBRE");
                 md.modificarMesa(mesa);

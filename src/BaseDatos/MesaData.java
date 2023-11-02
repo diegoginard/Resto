@@ -121,6 +121,7 @@ public class MesaData {
             ResultSet rs = ps.executeQuery();
             
             while (rs.next()) {
+                
                 Mesa mesa = new Mesa();
                 mesa.setIdMesa(rs.getInt("idMesa"));
                 mesa.setNumero(rs.getInt("numero"));
@@ -154,6 +155,7 @@ public class MesaData {
             ResultSet rs = ps.executeQuery();
             
             while (rs.next()) {
+                
                 Mesa mesa = new Mesa();
                 mesa.setIdMesa(rs.getInt("idMesa"));
                 mesa.setNumero(rs.getInt("numero"));

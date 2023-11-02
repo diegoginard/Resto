@@ -529,7 +529,7 @@ public class PedidoData {
         
         try {
             
-            String sql = "SELECT COUNT(*) FROM Pedido WHERE idMesa = ? AND cobrado = 'PENDIENTE'";
+            String sql = "SELECT COUNT(*) FROM Pedido WHERE idMesa = ? AND estado = 'PENDIENTE'";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, idMesa);
             ResultSet rs = ps.executeQuery();
@@ -541,10 +541,12 @@ public class PedidoData {
             }
 
             ps.close();
+            
         } catch (SQLException ex) {
+            
             JOptionPane.showMessageDialog(null, "Error al verificar el estado del pedido: " + ex.getMessage());
         }
 
-        return true; // Si ocurre un error, se asume que no se puede modificar el pedido
+        return false; // Si ocurre un error, se asume que no se puede modificar el pedido
     }
 }
