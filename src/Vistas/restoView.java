@@ -175,10 +175,20 @@ public class restoView extends javax.swing.JInternalFrame {
         jbInicio = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jDesktopPane2 = new javax.swing.JDesktopPane();
+        ImageIcon icono5 = new ImageIcon(getClass().getResource("/Recursos/FONDO4.jpg"));
+        Image imagen5 = icono5.getImage();
+        jDesktopPane2 = new javax.swing.JDesktopPane(){
+            public void paintComponent(Graphics g){
+
+                g.drawImage(imagen5,0,0,getWidth(),getHeight(),this);
+
+            }
+
+        };
+        jLabel13 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
         jtEstadoMesas = new javax.swing.JTable();
-        jLabel13 = new javax.swing.JLabel();
+        jbInicio1 = new javax.swing.JButton();
 
         setClosable(true);
         try {
@@ -436,10 +446,11 @@ public class restoView extends javax.swing.JInternalFrame {
         jtID.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
         jtID.setText("ID");
 
+        jlMesa.setBackground(new java.awt.Color(51, 51, 51));
         jlMesa.setFont(new java.awt.Font("Segoe UI Black", 1, 36)); // NOI18N
-        jlMesa.setForeground(new java.awt.Color(102, 102, 102));
+        jlMesa.setForeground(new java.awt.Color(0, 255, 255));
         jlMesa.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jlMesa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa60.png"))); // NOI18N
+        jlMesa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
         jlMesa.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         jtPedidoProd.setModel(new javax.swing.table.DefaultTableModel(
@@ -834,6 +845,12 @@ public class restoView extends javax.swing.JInternalFrame {
 
         ventanas.addTab("Elegir Pedido", jpPedidos);
 
+        jLabel13.setBackground(new java.awt.Color(51, 51, 51));
+        jLabel13.setFont(new java.awt.Font("Segoe UI Semibold", 1, 36)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel13.setText("ESTADO DE MESAS");
+        jLabel13.setOpaque(true);
+
         jtEstadoMesas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -847,10 +864,20 @@ public class restoView extends javax.swing.JInternalFrame {
         ));
         jScrollPane4.setViewportView(jtEstadoMesas);
 
-        jLabel13.setText("jLabel13");
+        jbInicio1.setBackground(new java.awt.Color(30, 30, 30));
+        jbInicio1.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
+        jbInicio1.setForeground(new java.awt.Color(102, 255, 0));
+        jbInicio1.setText("IR A INICIO");
+        jbInicio1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jbInicio1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbInicio1ActionPerformed(evt);
+            }
+        });
 
-        jDesktopPane2.setLayer(jScrollPane4, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane2.setLayer(jLabel13, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane2.setLayer(jScrollPane4, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane2.setLayer(jbInicio1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jDesktopPane2Layout = new javax.swing.GroupLayout(jDesktopPane2);
         jDesktopPane2.setLayout(jDesktopPane2Layout);
@@ -859,21 +886,27 @@ public class restoView extends javax.swing.JInternalFrame {
             .addGroup(jDesktopPane2Layout.createSequentialGroup()
                 .addGroup(jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jDesktopPane2Layout.createSequentialGroup()
-                        .addGap(152, 152, 152)
+                        .addGap(195, 195, 195)
                         .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jDesktopPane2Layout.createSequentialGroup()
-                        .addGap(200, 200, 200)
-                        .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(283, Short.MAX_VALUE))
+                        .addGap(175, 175, 175)
+                        .addComponent(jLabel13)))
+                .addContainerGap(218, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane2Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jbInicio1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25))
         );
         jDesktopPane2Layout.setVerticalGroup(
             jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane2Layout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(jDesktopPane2Layout.createSequentialGroup()
+                .addGap(115, 115, 115)
+                .addComponent(jLabel13)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 434, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jbInicio1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(28, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -1195,6 +1228,10 @@ public class restoView extends javax.swing.JInternalFrame {
         ventanas.setSelectedIndex(4);
     }//GEN-LAST:event_jbEstadoMesasActionPerformed
 
+    private void jbInicio1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbInicio1ActionPerformed
+       ventanas.setSelectedIndex(0);
+    }//GEN-LAST:event_jbInicio1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane agregarproductos;
@@ -1233,6 +1270,7 @@ public class restoView extends javax.swing.JInternalFrame {
     private javax.swing.JButton jbEntregar;
     private javax.swing.JButton jbEstadoMesas;
     private javax.swing.JButton jbInicio;
+    private javax.swing.JButton jbInicio1;
     private javax.swing.JButton jbIrPedidos;
     private javax.swing.JButton jbTomarPedido;
     private javax.swing.JButton jbVolverMenu;
