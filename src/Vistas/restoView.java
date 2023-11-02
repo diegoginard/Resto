@@ -35,6 +35,7 @@ public class restoView extends javax.swing.JInternalFrame {
         ventanas.setEnabled(false);
         jtID.setEnabled(false);
         jbAgregarQuitar.setEnabled(false);
+        jbEntregar.setEnabled(false);
         jbEntregar.setEnabled(false); 
         jbCancelar.setEnabled(false);
         jbCobrar.setEnabled(false);
@@ -92,7 +93,17 @@ public class restoView extends javax.swing.JInternalFrame {
         jbAgregarAPedido = new javax.swing.JButton();
         jbCobrarMesa = new javax.swing.JButton();
         jpMesaMesero = new javax.swing.JPanel();
-        jDesktopPane2 = new javax.swing.JDesktopPane();
+        ImageIcon icono2 = new ImageIcon(getClass().getResource("/Recursos/iconos/FONDO11.jpg"));
+        Image imagen2 = icono2.getImage();
+        jDesktopPane2 = new javax.swing.JDesktopPane(){
+
+            public void paintComponent(Graphics g){
+
+                g.drawImage(imagen2,0,0,getWidth(),getHeight(),this);
+
+            }
+
+        };
         jbACrearPedido = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -465,19 +476,6 @@ public class restoView extends javax.swing.JInternalFrame {
                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
                 .addGroup(jDesktopPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jDesktopPane3Layout.createSequentialGroup()
-                        .addGap(59, 59, 59)
-                        .addComponent(jtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18))
-                    .addGroup(jDesktopPane3Layout.createSequentialGroup()
-                        .addGroup(jDesktopPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jDesktopPane3Layout.createSequentialGroup()
-                                .addGap(41, 41, 41)
-                                .addComponent(jLabel9))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane3Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jlMesa)))
-                        .addGap(23, 23, 23))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane3Layout.createSequentialGroup()
                         .addGap(46, 46, 46)
                         .addGroup(jDesktopPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -486,7 +484,20 @@ public class restoView extends javax.swing.JInternalFrame {
                                 .addGap(18, 18, 18))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane3Layout.createSequentialGroup()
                                 .addComponent(jtBProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(32, 32, 32)))))
+                                .addGap(32, 32, 32))))
+                    .addGroup(jDesktopPane3Layout.createSequentialGroup()
+                        .addGroup(jDesktopPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jDesktopPane3Layout.createSequentialGroup()
+                                .addGap(59, 59, 59)
+                                .addComponent(jtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jDesktopPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jDesktopPane3Layout.createSequentialGroup()
+                                    .addGap(41, 41, 41)
+                                    .addComponent(jLabel9))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane3Layout.createSequentialGroup()
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jlMesa))))
+                        .addGap(23, 23, 23)))
                 .addGroup(jDesktopPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -520,11 +531,6 @@ public class restoView extends javax.swing.JInternalFrame {
         });
 
         jbEntregar.setText("Entregar Pedido");
-        jbEntregar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbEntregarActionPerformed(evt);
-            }
-        });
 
         jbCancelar.setText("Cancelar Pedido");
         jbCancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -586,15 +592,16 @@ public class restoView extends javax.swing.JInternalFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane4Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jbCobrar, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(380, 380, 380))
+                .addGap(42, 42, 42)
+                .addComponent(jbCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(133, 133, 133))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane4Layout.createSequentialGroup()
                 .addGap(40, 40, 40)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 96, Short.MAX_VALUE)
-                .addGroup(jDesktopPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jbAgregarQuitar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jbCancelar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jbEntregar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jDesktopPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jbEntregar, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jbAgregarQuitar, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18))
             .addGroup(jDesktopPane4Layout.createSequentialGroup()
                 .addGap(95, 95, 95)
@@ -626,15 +633,15 @@ public class restoView extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jDesktopPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jDesktopPane4Layout.createSequentialGroup()
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(61, 61, 61)
-                        .addComponent(jbCobrar, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jDesktopPane4Layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
                         .addComponent(jbAgregarQuitar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jbEntregar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jbCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(29, 29, 29)
+                        .addComponent(jbEntregar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(61, 61, 61)
+                .addGroup(jDesktopPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jbCobrar, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jbCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(99, Short.MAX_VALUE))
         );
 
@@ -672,9 +679,6 @@ public class restoView extends javax.swing.JInternalFrame {
         
         ventanas.setSelectedIndex(3);
         
-        jbAgregarQuitar.setEnabled(true);
-        jbEntregar.setEnabled(true); 
-        jbCancelar.setEnabled(true);
         pedidoxMesa();
         
     }//GEN-LAST:event_jbAgregarAPedidoActionPerformed
@@ -820,10 +824,20 @@ public class restoView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jcMesasPedidoItemStateChanged
 
     private void jtPedidosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtPedidosMouseClicked
-               
+        
+        int fila = jtPedidos.getSelectedRow();
+        int idPedido = (int) jtPedidos.getValueAt(fila, 0);
+        
+        int Nmesa = (int) jtPedidos.getValueAt(fila, 1);
+        cargarPedidoProducto(idPedido);
+        jtID.setText(idPedido+"");
+        jlMesa.setText(Nmesa+"");
+        
+         ventanas.setSelectedIndex(2);
     }//GEN-LAST:event_jtPedidosMouseClicked
 
     private void jbAgregarQuitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAgregarQuitarActionPerformed
+<<<<<<< HEAD
 
         int fila = jtPedidos.getSelectedRow();
 
@@ -885,6 +899,15 @@ public class restoView extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_jbEntregarActionPerformed
 
+=======
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbAgregarQuitarActionPerformed
+
+    private void jbCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCancelarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbCancelarActionPerformed
+
+>>>>>>> parent of 3459a4d (cxbv)
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane jDesktopPane1;
@@ -1045,24 +1068,11 @@ public class restoView extends javax.swing.JInternalFrame {
         }   
     }
     
-    private void cargarPedidoPediente(int id) {
-
-        modelo1.setRowCount(0);
-        List<Pedido> pedido = pd.listarPedidosMesaPendientes(id);
-
-        for (Pedido pe : pedido) {
-
-            modelo1.addRow(new Object[]{pe.getIdPedido(), pe.getMesa().getNumero(),
-                pe.getNombreMesero(), pe.getFechaHora(),pe.isCobrada(),pe.getImporte(), pe.getEstado()});
-
-        }   
-    }
-    
     private void pedidoxMesa(){
     
         Mesa mesa = (Mesa) jcMesasPedido.getSelectedItem();
         int Nmesa = mesa.getIdMesa();
-        cargarPedidoPediente(Nmesa);
+        cargarPedido(Nmesa);
     
     }
 }
