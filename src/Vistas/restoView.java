@@ -764,9 +764,9 @@ public class restoView extends javax.swing.JInternalFrame {
     private void jbIrPedidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbIrPedidosActionPerformed
 
         ventanas.setSelectedIndex(3);
-        jbAgregarQuitar.setEnabled(false);
-        jbEntregar.setEnabled(false); 
-        jbCancelar.setEnabled(false);
+        jbAgregarQuitar.setEnabled(true);
+        jbEntregar.setEnabled(true); 
+        jbCancelar.setEnabled(true);
 
     }//GEN-LAST:event_jbIrPedidosActionPerformed
 
