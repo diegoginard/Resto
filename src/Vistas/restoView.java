@@ -99,6 +99,7 @@ public class restoView extends javax.swing.JInternalFrame {
         jLabel3 = new javax.swing.JLabel();
         jcMeseros = new javax.swing.JComboBox<>();
         jcMesas = new javax.swing.JComboBox<>();
+        jButton1 = new javax.swing.JButton();
         jpProducto = new javax.swing.JPanel();
         jDesktopPane3 = new javax.swing.JDesktopPane();
         jLabel8 = new javax.swing.JLabel();
@@ -255,33 +256,46 @@ public class restoView extends javax.swing.JInternalFrame {
 
         jcMeseros.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "seleccionar", "CARLOS", "MARTIN", "FABIAN", "MARIA" }));
 
+        jButton1.setText("Cancelar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         jDesktopPane2.setLayer(jbACrearPedido, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane2.setLayer(jLabel5, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane2.setLayer(jLabel4, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane2.setLayer(jLabel3, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane2.setLayer(jcMeseros, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane2.setLayer(jcMesas, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane2.setLayer(jButton1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jDesktopPane2Layout = new javax.swing.GroupLayout(jDesktopPane2);
         jDesktopPane2.setLayout(jDesktopPane2Layout);
         jDesktopPane2Layout.setHorizontalGroup(
             jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jDesktopPane2Layout.createSequentialGroup()
-                .addGap(37, 37, 37)
                 .addGroup(jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jDesktopPane2Layout.createSequentialGroup()
-                        .addGap(9, 9, 9)
-                        .addComponent(jbACrearPedido))
-                    .addComponent(jLabel5)
+                        .addGap(37, 37, 37)
+                        .addGroup(jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jDesktopPane2Layout.createSequentialGroup()
+                                .addGap(9, 9, 9)
+                                .addComponent(jbACrearPedido))
+                            .addComponent(jLabel5)
+                            .addGroup(jDesktopPane2Layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addGap(98, 98, 98)
+                                .addComponent(jcMeseros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jDesktopPane2Layout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addGap(104, 104, 104)
+                                .addComponent(jcMesas, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jDesktopPane2Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(98, 98, 98)
-                        .addComponent(jcMeseros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jDesktopPane2Layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addGap(104, 104, 104)
-                        .addComponent(jcMesas, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(438, Short.MAX_VALUE))
+                        .addGap(280, 280, 280)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(309, Short.MAX_VALUE))
         );
         jDesktopPane2Layout.setVerticalGroup(
             jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -300,7 +314,9 @@ public class restoView extends javax.swing.JInternalFrame {
                 .addComponent(jLabel5)
                 .addGap(18, 18, 18)
                 .addComponent(jbACrearPedido)
-                .addContainerGap(328, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 244, Short.MAX_VALUE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(44, 44, 44))
         );
 
         javax.swing.GroupLayout jpMesaMeseroLayout = new javax.swing.GroupLayout(jpMesaMesero);
@@ -974,8 +990,15 @@ public class restoView extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_jbCobrarActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        
+        ventanas.setSelectedIndex(0);
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JDesktopPane jDesktopPane2;
     private javax.swing.JDesktopPane jDesktopPane3;
