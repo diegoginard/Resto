@@ -844,25 +844,45 @@ public class restoView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jbAgregarQuitarActionPerformed
 
     private void jbCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCancelarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jbCancelarActionPerformed
 
-    private void jbEntregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEntregarActionPerformed
-        
         int fila = jtPedidos.getSelectedRow();
 
-        if (fila == 0) {
-            
+        if (fila >= 0) {
+
             int idPedido = (int) jtPedidos.getValueAt(fila, 0);
-            Pedido pedido = pd.obtenerPedidoId(fila);
+            int idMesa = (int) jtPedidos.getValueAt(fila, 1);
+            Pedido pedido = pd.obtenerPedidoId(idPedido);
             pedido.setEstado("CANCELADO");
-            
+            pd.modificarEstadoPedido(pedido);
+
+            cargarPedidoPediente(idMesa);
+
         } else {
 
             JOptionPane.showMessageDialog(rootPane, "Debe seleccionar un pedido de la tabla");
 
         }
-        
+    }//GEN-LAST:event_jbCancelarActionPerformed
+
+    private void jbEntregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEntregarActionPerformed
+
+        int fila = jtPedidos.getSelectedRow();
+
+        if (fila >= 0) {
+
+            int idPedido = (int) jtPedidos.getValueAt(fila, 0);
+            int idMesa = (int) jtPedidos.getValueAt(fila, 1);
+            Pedido pedido = pd.obtenerPedidoId(idPedido);
+            pedido.setEstado("ENTREGADO");
+            pd.modificarEstadoPedido(pedido);
+
+            cargarPedidoPediente(idMesa);
+
+        } else {
+
+            JOptionPane.showMessageDialog(rootPane, "Debe seleccionar un pedido de la tabla");
+
+        }
     }//GEN-LAST:event_jbEntregarActionPerformed
 
 
@@ -913,8 +933,8 @@ public class restoView extends javax.swing.JInternalFrame {
     private javax.swing.JTabbedPane ventanas;
     // End of variables declaration//GEN-END:variables
 
-    private void armarCabeceraPed(){
-        
+    private void armarCabeceraPed() {
+
         modelo1.addColumn("ID");
         modelo1.addColumn("M");
         modelo1.addColumn("Nombre");
