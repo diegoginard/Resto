@@ -524,4 +524,27 @@ public class PedidoData {
 
         return pedidos;
     }
+    
+    public boolean pasarAlibre(int idMesa) {
+        
+        try {
+            
+            String sql = "SELECT COUNT(*) FROM Pedido WHERE idMesa = ? AND cobrado = 'PENDIENTE'";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, idMesa);
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                
+                int cantidadPedidosPendientes = rs.getInt(1);
+                return cantidadPedidosPendientes > 0; // Si hay al menos un pedido pendiente, no se puede modificar a "LIBRE"
+            }
+
+            ps.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al verificar el estado del pedido: " + ex.getMessage());
+        }
+
+        return true; // Si ocurre un error, se asume que no se puede modificar el pedido
+    }
 }

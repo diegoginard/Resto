@@ -937,17 +937,25 @@ public class restoView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jbInicioActionPerformed
 
     private void jbCobrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCobrarActionPerformed
-        
+
         int fila = jtPedidos.getSelectedRow();
 
         if (fila >= 0) {
 
             int idPedido = (int) jtPedidos.getValueAt(fila, 0);
             int idMesa = (int) jtPedidos.getValueAt(fila, 1);
+            Mesa mesa = md.ObtenerMesasId(idMesa);
             Pedido pedido = pd.obtenerPedidoId(idPedido);
+            
+            if (pd.pasarAlibre(idMesa)) {
+                
+                mesa.setEstadoMesa("LIBRE");
+                md.modificarMesa(mesa);
+                
+            }
+            
             pedido.setCobrada(true);
             pd.modificarEstadoPedido(pedido);
-
             cargarPedidoPediente(idMesa);
             String texto = idPedido + "";
             Ticket newframe = new Ticket(texto);
