@@ -115,6 +115,7 @@ public class restoView extends javax.swing.JInternalFrame {
         jtTotal = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         jbVolverMenu = new javax.swing.JButton();
+        jbIrPedidos = new javax.swing.JButton();
         jpPedidos = new javax.swing.JPanel();
         jDesktopPane4 = new javax.swing.JDesktopPane();
         jbAgregarQuitar = new javax.swing.JButton();
@@ -127,6 +128,7 @@ public class restoView extends javax.swing.JInternalFrame {
         jLabel15 = new javax.swing.JLabel();
         jcMesasPedido = new javax.swing.JComboBox<>();
         jLabel11 = new javax.swing.JLabel();
+        jbInicio = new javax.swing.JButton();
 
         setClosable(true);
         try {
@@ -392,10 +394,17 @@ public class restoView extends javax.swing.JInternalFrame {
 
         jLabel10.setText("TOTAL");
 
-        jbVolverMenu.setText("Volver al Menu");
+        jbVolverMenu.setText("Ir al Menu");
         jbVolverMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbVolverMenuActionPerformed(evt);
+            }
+        });
+
+        jbIrPedidos.setText("Ir a Pedidos");
+        jbIrPedidos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbIrPedidosActionPerformed(evt);
             }
         });
 
@@ -411,6 +420,7 @@ public class restoView extends javax.swing.JInternalFrame {
         jDesktopPane3.setLayer(jtTotal, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane3.setLayer(jLabel10, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane3.setLayer(jbVolverMenu, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane3.setLayer(jbIrPedidos, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jDesktopPane3Layout = new javax.swing.GroupLayout(jDesktopPane3);
         jDesktopPane3.setLayout(jDesktopPane3Layout);
@@ -442,20 +452,21 @@ public class restoView extends javax.swing.JInternalFrame {
                 .addGroup(jDesktopPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane3Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(jDesktopPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane3Layout.createSequentialGroup()
-                                .addComponent(jLabel10)
-                                .addGap(47, 47, 47)
-                                .addComponent(jtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(35, 35, 35))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane3Layout.createSequentialGroup()
-                                .addComponent(jbVolverMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(287, 287, 287))))
+                        .addComponent(jLabel10)
+                        .addGap(44, 44, 44)
+                        .addComponent(jtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(34, 34, 34))
                     .addGroup(jDesktopPane3Layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(jDesktopPane3Layout.createSequentialGroup()
+                .addGap(96, 96, 96)
+                .addComponent(jbVolverMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jbIrPedidos, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(107, 107, 107))
         );
         jDesktopPane3Layout.setVerticalGroup(
             jDesktopPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -465,19 +476,6 @@ public class restoView extends javax.swing.JInternalFrame {
                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
                 .addGroup(jDesktopPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jDesktopPane3Layout.createSequentialGroup()
-                        .addGap(59, 59, 59)
-                        .addComponent(jtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18))
-                    .addGroup(jDesktopPane3Layout.createSequentialGroup()
-                        .addGroup(jDesktopPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jDesktopPane3Layout.createSequentialGroup()
-                                .addGap(41, 41, 41)
-                                .addComponent(jLabel9))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane3Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jlMesa)))
-                        .addGap(23, 23, 23))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane3Layout.createSequentialGroup()
                         .addGap(46, 46, 46)
                         .addGroup(jDesktopPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -486,17 +484,32 @@ public class restoView extends javax.swing.JInternalFrame {
                                 .addGap(18, 18, 18))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane3Layout.createSequentialGroup()
                                 .addComponent(jtBProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(32, 32, 32)))))
+                                .addGap(32, 32, 32))))
+                    .addGroup(jDesktopPane3Layout.createSequentialGroup()
+                        .addGroup(jDesktopPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jDesktopPane3Layout.createSequentialGroup()
+                                .addGap(59, 59, 59)
+                                .addComponent(jtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jDesktopPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jDesktopPane3Layout.createSequentialGroup()
+                                    .addGap(41, 41, 41)
+                                    .addComponent(jLabel9))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane3Layout.createSequentialGroup()
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jlMesa))))
+                        .addGap(23, 23, 23)))
                 .addGroup(jDesktopPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jDesktopPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jtTotal, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jbVolverMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
+                .addGroup(jDesktopPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel10))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                .addGroup(jDesktopPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jbVolverMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jbIrPedidos, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(38, 38, 38))
         );
 
         javax.swing.GroupLayout jpProductoLayout = new javax.swing.GroupLayout(jpProducto);
@@ -569,6 +582,13 @@ public class restoView extends javax.swing.JInternalFrame {
 
         jLabel11.setText("Mesa");
 
+        jbInicio.setText("Ir a Inicio");
+        jbInicio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbInicioActionPerformed(evt);
+            }
+        });
+
         jDesktopPane4.setLayer(jbAgregarQuitar, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane4.setLayer(jbEntregar, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane4.setLayer(jbCancelar, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -578,24 +598,12 @@ public class restoView extends javax.swing.JInternalFrame {
         jDesktopPane4.setLayer(jLabel15, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane4.setLayer(jcMesasPedido, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane4.setLayer(jLabel11, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane4.setLayer(jbInicio, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jDesktopPane4Layout = new javax.swing.GroupLayout(jDesktopPane4);
         jDesktopPane4.setLayout(jDesktopPane4Layout);
         jDesktopPane4Layout.setHorizontalGroup(
             jDesktopPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane4Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jbCobrar, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(380, 380, 380))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane4Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 96, Short.MAX_VALUE)
-                .addGroup(jDesktopPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jbAgregarQuitar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jbCancelar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jbEntregar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18))
             .addGroup(jDesktopPane4Layout.createSequentialGroup()
                 .addGap(95, 95, 95)
                 .addGroup(jDesktopPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -611,6 +619,23 @@ public class restoView extends javax.swing.JInternalFrame {
                                 .addGap(35, 35, 35)
                                 .addComponent(jLabel14)))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(jDesktopPane4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jDesktopPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jDesktopPane4Layout.createSequentialGroup()
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jDesktopPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jbAgregarQuitar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jbCancelar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jbEntregar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18))
+                    .addGroup(jDesktopPane4Layout.createSequentialGroup()
+                        .addGap(0, 75, Short.MAX_VALUE)
+                        .addComponent(jbInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(50, 50, 50)
+                        .addComponent(jbCobrar, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(167, 167, 167))))
         );
         jDesktopPane4Layout.setVerticalGroup(
             jDesktopPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -625,17 +650,18 @@ public class restoView extends javax.swing.JInternalFrame {
                 .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jDesktopPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jDesktopPane4Layout.createSequentialGroup()
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(61, 61, 61)
-                        .addComponent(jbCobrar, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jDesktopPane4Layout.createSequentialGroup()
                         .addComponent(jbAgregarQuitar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jbEntregar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jbCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(99, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
+                .addGroup(jDesktopPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jbInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jbCobrar, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(50, 50, 50))
         );
 
         javax.swing.GroupLayout jpPedidosLayout = new javax.swing.GroupLayout(jpPedidos);
@@ -658,56 +684,112 @@ public class restoView extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jbTomarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbTomarPedidoActionPerformed
-     
-        ventanas.setSelectedIndex(1);
-        
-    }//GEN-LAST:event_jbTomarPedidoActionPerformed
+    private void jcMesasPedidoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jcMesasPedidoItemStateChanged
 
-    private void jbCobrarMesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCobrarMesaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jbCobrarMesaActionPerformed
-
-    private void jbAgregarAPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAgregarAPedidoActionPerformed
-        
-        ventanas.setSelectedIndex(3);
-        
-        jbAgregarQuitar.setEnabled(true);
-        jbEntregar.setEnabled(true); 
-        jbCancelar.setEnabled(true);
         pedidoxMesa();
-        
-    }//GEN-LAST:event_jbAgregarAPedidoActionPerformed
 
-    private void jbACrearPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbACrearPedidoActionPerformed
-      
-        if (jcMeseros.getSelectedIndex() != 0) {
+    }//GEN-LAST:event_jcMesasPedidoItemStateChanged
+
+    private void jtPedidosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtPedidosMouseClicked
+
+    }//GEN-LAST:event_jtPedidosMouseClicked
+
+    private void jbCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCancelarActionPerformed
+
+        int fila = jtPedidos.getSelectedRow();
+
+        if (fila >= 0) {
+
+            int idPedido = (int) jtPedidos.getValueAt(fila, 0);
+            int idMesa = (int) jtPedidos.getValueAt(fila, 1);
+            Pedido pedido = pd.obtenerPedidoId(idPedido);
+            pedido.setEstado("CANCELADO");
+            pd.modificarEstadoPedido(pedido);
+
+            cargarPedidoPediente(idMesa);
+
+        } else {
+
+            JOptionPane.showMessageDialog(rootPane, "Debe seleccionar un pedido de la tabla");
+
+        }
+    }//GEN-LAST:event_jbCancelarActionPerformed
+
+    private void jbEntregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEntregarActionPerformed
+
+        int fila = jtPedidos.getSelectedRow();
+
+        if (fila >= 0) {
+
+            int idPedido = (int) jtPedidos.getValueAt(fila, 0);
+            int idMesa = (int) jtPedidos.getValueAt(fila, 1);
+            Pedido pedido = pd.obtenerPedidoId(idPedido);
+            pedido.setEstado("ENTREGADO");
+            pd.modificarEstadoPedido(pedido);
+
+            cargarPedidoPediente(idMesa);
+
+        } else {
+
+            JOptionPane.showMessageDialog(rootPane, "Debe seleccionar un pedido de la tabla");
+
+        }
+    }//GEN-LAST:event_jbEntregarActionPerformed
+
+    private void jbAgregarQuitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAgregarQuitarActionPerformed
+
+        int fila = jtPedidos.getSelectedRow();
+
+        if (fila == 0) {
+            int idPedido = (int) jtPedidos.getValueAt(fila, 0);
+
+            int Nmesa = (int) jtPedidos.getValueAt(fila, 1);
+            cargarPedidoProducto(idPedido);
+            jtID.setText(idPedido + "");
+            jlMesa.setText(Nmesa + "");
 
             ventanas.setSelectedIndex(2);
-            Pedido ped = new Pedido();
-            Mesa mesa = (Mesa) jcMesas.getSelectedItem();
-            ped.setMesa(mesa);
-            ped.setNombreMesero(jcMeseros.getSelectedItem() + "");
-            int idPedido = pd.GuardarPedidoID(ped);
-            jlMesa.setText(mesa.getNumero()+"");
-            jtID.setText(idPedido + "");
-            cargarPedidoProducto(idPedido);
-            
-        }else{
-            
-            JOptionPane.showMessageDialog(rootPane, "Debe elegir un mesero");
-            
+        } else {
+
+            JOptionPane.showMessageDialog(rootPane, "Debe seleccionar un pedido de la tabla");
+
         }
-    }//GEN-LAST:event_jbACrearPedidoActionPerformed
+    }//GEN-LAST:event_jbAgregarQuitarActionPerformed
+
+    private void jbIrPedidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbIrPedidosActionPerformed
+
+        ventanas.setSelectedIndex(3);
+
+    }//GEN-LAST:event_jbIrPedidosActionPerformed
+
+    private void jbVolverMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbVolverMenuActionPerformed
+
+        ventanas.setSelectedIndex(0);
+
+    }//GEN-LAST:event_jbVolverMenuActionPerformed
+
+    private void jtBProductoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtBProductoKeyPressed
+
+        modelo3.setRowCount(0);
+        String buscar = jtBProducto.getText();
+        List<Producto> buscarNombre = pdat.BuscarProductosNombre(buscar);
+
+        for (Producto pro : buscarNombre) {
+
+            modelo3.addRow(new Object[]{pro.getIdProducto(),
+                pro.getNombre(), pro.getPrecio(), pro.getStock(), pro.isEstado(), pro.getCategoria()});
+
+        }
+    }//GEN-LAST:event_jtBProductoKeyPressed
 
     private void jtBProductoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtBProductoMouseClicked
-       
+
         jtBProducto.setText("");
-        
+
     }//GEN-LAST:event_jtBProductoMouseClicked
 
     private void jtProductoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtProductoMouseClicked
-      
+
         Pedido pedi = new Pedido();
         PedidoProducto pepro = new PedidoProducto();
         Producto prod = new Producto();
@@ -752,7 +834,7 @@ public class restoView extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(rootPane, "Debe seleccionar un producto");
 
         }
-                    
+
     }//GEN-LAST:event_jtProductoMouseClicked
 
     private void jtPedidoProdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtPedidoProdMouseClicked
@@ -790,100 +872,54 @@ public class restoView extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(rootPane, "Debe seleccionar un producto");
 
         }
-
     }//GEN-LAST:event_jtPedidoProdMouseClicked
 
-    private void jbVolverMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbVolverMenuActionPerformed
-        
-        ventanas.setSelectedIndex(0);
-        
-    }//GEN-LAST:event_jbVolverMenuActionPerformed
+    private void jbACrearPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbACrearPedidoActionPerformed
 
-    private void jtBProductoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtBProductoKeyPressed
-        
-        modelo3.setRowCount(0);
-        String buscar = jtBProducto.getText();
-        List<Producto> buscarNombre = pdat.BuscarProductosNombre(buscar);
-
-        for (Producto pro : buscarNombre) {
-
-            modelo3.addRow(new Object[]{pro.getIdProducto(),
-                pro.getNombre(), pro.getPrecio(), pro.getStock(), pro.isEstado(), pro.getCategoria()});
-
-        }
-    }//GEN-LAST:event_jtBProductoKeyPressed
-
-    private void jcMesasPedidoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jcMesasPedidoItemStateChanged
-        
-        pedidoxMesa();
-        
-    }//GEN-LAST:event_jcMesasPedidoItemStateChanged
-
-    private void jtPedidosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtPedidosMouseClicked
-               
-    }//GEN-LAST:event_jtPedidosMouseClicked
-
-    private void jbAgregarQuitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAgregarQuitarActionPerformed
-
-        int fila = jtPedidos.getSelectedRow();
-
-        if (fila == 0) {
-            int idPedido = (int) jtPedidos.getValueAt(fila, 0);
-
-            int Nmesa = (int) jtPedidos.getValueAt(fila, 1);
-            cargarPedidoProducto(idPedido);
-            jtID.setText(idPedido + "");
-            jlMesa.setText(Nmesa + "");
+        if (jcMeseros.getSelectedIndex() != 0) {
 
             ventanas.setSelectedIndex(2);
-        } else {
+            Pedido ped = new Pedido();
+            Mesa mesa = (Mesa) jcMesas.getSelectedItem();
+            ped.setMesa(mesa);
+            ped.setNombreMesero(jcMeseros.getSelectedItem() + "");
+            int idPedido = pd.GuardarPedidoID(ped);
+            jlMesa.setText(mesa.getNumero()+"");
+            jtID.setText(idPedido + "");
+            cargarPedidoProducto(idPedido);
 
-            JOptionPane.showMessageDialog(rootPane, "Debe seleccionar un pedido de la tabla");
+        }else{
 
-        }
-    }//GEN-LAST:event_jbAgregarQuitarActionPerformed
-
-    private void jbCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCancelarActionPerformed
-
-        int fila = jtPedidos.getSelectedRow();
-
-        if (fila >= 0) {
-
-            int idPedido = (int) jtPedidos.getValueAt(fila, 0);
-            int idMesa = (int) jtPedidos.getValueAt(fila, 1);
-            Pedido pedido = pd.obtenerPedidoId(idPedido);
-            pedido.setEstado("CANCELADO");
-            pd.modificarEstadoPedido(pedido);
-
-            cargarPedidoPediente(idMesa);
-
-        } else {
-
-            JOptionPane.showMessageDialog(rootPane, "Debe seleccionar un pedido de la tabla");
+            JOptionPane.showMessageDialog(rootPane, "Debe elegir un mesero");
 
         }
-    }//GEN-LAST:event_jbCancelarActionPerformed
+    }//GEN-LAST:event_jbACrearPedidoActionPerformed
 
-    private void jbEntregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEntregarActionPerformed
+    private void jbCobrarMesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCobrarMesaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbCobrarMesaActionPerformed
 
-        int fila = jtPedidos.getSelectedRow();
+    private void jbAgregarAPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAgregarAPedidoActionPerformed
 
-        if (fila >= 0) {
+        ventanas.setSelectedIndex(3);
 
-            int idPedido = (int) jtPedidos.getValueAt(fila, 0);
-            int idMesa = (int) jtPedidos.getValueAt(fila, 1);
-            Pedido pedido = pd.obtenerPedidoId(idPedido);
-            pedido.setEstado("ENTREGADO");
-            pd.modificarEstadoPedido(pedido);
+        jbAgregarQuitar.setEnabled(true);
+        jbEntregar.setEnabled(true);
+        jbCancelar.setEnabled(true);
+        pedidoxMesa();
 
-            cargarPedidoPediente(idMesa);
+    }//GEN-LAST:event_jbAgregarAPedidoActionPerformed
 
-        } else {
+    private void jbTomarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbTomarPedidoActionPerformed
 
-            JOptionPane.showMessageDialog(rootPane, "Debe seleccionar un pedido de la tabla");
+        ventanas.setSelectedIndex(1);
 
-        }
-    }//GEN-LAST:event_jbEntregarActionPerformed
+    }//GEN-LAST:event_jbTomarPedidoActionPerformed
+
+    private void jbInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbInicioActionPerformed
+       
+        ventanas.setSelectedIndex(0);
+    }//GEN-LAST:event_jbInicioActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -914,6 +950,8 @@ public class restoView extends javax.swing.JInternalFrame {
     private javax.swing.JButton jbCobrar;
     private javax.swing.JButton jbCobrarMesa;
     private javax.swing.JButton jbEntregar;
+    private javax.swing.JButton jbInicio;
+    private javax.swing.JButton jbIrPedidos;
     private javax.swing.JButton jbTomarPedido;
     private javax.swing.JButton jbVolverMenu;
     private javax.swing.JComboBox<Mesa> jcMesas;
