@@ -98,7 +98,7 @@ public class ProductoData {
             
             if (exito==1) {
                 
-                JOptionPane.showMessageDialog(null, "Producto Modificado");
+//                JOptionPane.showMessageDialog(null, "Producto Modificado");
            
             }
             
