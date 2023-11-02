@@ -394,7 +394,7 @@ public class restoView extends javax.swing.JInternalFrame {
 
         jLabel10.setText("TOTAL");
 
-        jbVolverMenu.setText("Ir al Menu");
+        jbVolverMenu.setText("Ir a Inicio");
         jbVolverMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbVolverMenuActionPerformed(evt);
@@ -525,7 +525,7 @@ public class restoView extends javax.swing.JInternalFrame {
 
         ventanas.addTab("Agregar Productos", jpProducto);
 
-        jbAgregarQuitar.setText("Agregar / Quitar Productos");
+        jbAgregarQuitar.setText("Ver Productos del Pedido");
         jbAgregarQuitar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbAgregarQuitarActionPerformed(evt);
@@ -547,6 +547,11 @@ public class restoView extends javax.swing.JInternalFrame {
         });
 
         jbCobrar.setText("Cobrar Pedido");
+        jbCobrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbCobrarActionPerformed(evt);
+            }
+        });
 
         jtPedidos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -633,9 +638,9 @@ public class restoView extends javax.swing.JInternalFrame {
                     .addGroup(jDesktopPane4Layout.createSequentialGroup()
                         .addGap(0, 75, Short.MAX_VALUE)
                         .addComponent(jbInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(50, 50, 50)
+                        .addGap(67, 67, 67)
                         .addComponent(jbCobrar, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(167, 167, 167))))
+                        .addGap(150, 150, 150))))
         );
         jDesktopPane4Layout.setVerticalGroup(
             jDesktopPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -740,7 +745,7 @@ public class restoView extends javax.swing.JInternalFrame {
 
         int fila = jtPedidos.getSelectedRow();
 
-        if (fila == 0) {
+        if (fila >= 0) {
             int idPedido = (int) jtPedidos.getValueAt(fila, 0);
 
             int Nmesa = (int) jtPedidos.getValueAt(fila, 1);
@@ -896,7 +901,15 @@ public class restoView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jbACrearPedidoActionPerformed
 
     private void jbCobrarMesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCobrarMesaActionPerformed
-        // TODO add your handling code here:
+        
+        ventanas.setSelectedIndex(3);
+        jbAgregarQuitar.setEnabled(false);
+        jbEntregar.setEnabled(false);
+        jbCancelar.setEnabled(false);
+        jbCobrar.setEnabled(true);
+        Mesa mesa = (Mesa) jcMesasPedido.getSelectedItem();
+        cargarPedidoEntregado(mesa.getIdMesa());
+        
     }//GEN-LAST:event_jbCobrarMesaActionPerformed
 
     private void jbAgregarAPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAgregarAPedidoActionPerformed
@@ -920,6 +933,30 @@ public class restoView extends javax.swing.JInternalFrame {
        
         ventanas.setSelectedIndex(0);
     }//GEN-LAST:event_jbInicioActionPerformed
+
+    private void jbCobrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCobrarActionPerformed
+        
+        int fila = jtPedidos.getSelectedRow();
+
+        if (fila >= 0) {
+
+            int idPedido = (int) jtPedidos.getValueAt(fila, 0);
+            int idMesa = (int) jtPedidos.getValueAt(fila, 1);
+            Pedido pedido = pd.obtenerPedidoId(idPedido);
+            pedido.setCobrada(true);
+            pd.modificarEstadoPedido(pedido);
+
+            cargarPedidoPediente(idMesa);
+            String texto = idPedido + "";
+            Ticket newframe = new Ticket(texto);
+            newframe.setVisible(true);
+
+        } else {
+
+            JOptionPane.showMessageDialog(rootPane, "Debe seleccionar un pedido de la tabla");
+
+        }
+    }//GEN-LAST:event_jbCobrarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1087,6 +1124,19 @@ public class restoView extends javax.swing.JInternalFrame {
 
         modelo1.setRowCount(0);
         List<Pedido> pedido = pd.listarPedidosMesaPendientes(id);
+
+        for (Pedido pe : pedido) {
+
+            modelo1.addRow(new Object[]{pe.getIdPedido(), pe.getMesa().getNumero(),
+                pe.getNombreMesero(), pe.getFechaHora(),pe.isCobrada(),pe.getImporte(), pe.getEstado()});
+
+        }   
+    }
+    
+    private void cargarPedidoEntregado(int id) {
+
+        modelo1.setRowCount(0);
+        List<Pedido> pedido = pd.listarPedidosMesaEntregadas(id);
 
         for (Pedido pe : pedido) {
 

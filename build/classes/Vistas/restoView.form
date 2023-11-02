@@ -627,7 +627,7 @@
                 </Component>
                 <Component class="javax.swing.JButton" name="jbVolverMenu">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Ir al Menu"/>
+                    <Property name="text" type="java.lang.String" value="Ir a Inicio"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbVolverMenuActionPerformed"/>
@@ -712,9 +712,9 @@
                               <Group type="102" alignment="1" attributes="0">
                                   <EmptySpace min="0" pref="75" max="32767" attributes="0"/>
                                   <Component id="jbInicio" min="-2" pref="205" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
                                   <Component id="jbCobrar" min="-2" pref="205" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="167" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="150" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -756,7 +756,7 @@
               <SubComponents>
                 <Component class="javax.swing.JButton" name="jbAgregarQuitar">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Agregar / Quitar Productos"/>
+                    <Property name="text" type="java.lang.String" value="Ver Productos del Pedido"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbAgregarQuitarActionPerformed"/>
@@ -782,6 +782,9 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Cobrar Pedido"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbCobrarActionPerformed"/>
+                  </Events>
                 </Component>
                 <Container class="javax.swing.JScrollPane" name="jScrollPane3">
 

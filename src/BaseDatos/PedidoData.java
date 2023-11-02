@@ -251,6 +251,44 @@ public class PedidoData {
         return Pedidos;
     
     }
+    
+    public List<Pedido> listarPedidosMesaEntregadas(int id){
+        
+        List<Pedido> Pedidos = new ArrayList<>();
+    
+        try {
+            
+            String sql = "SELECT * FROM Pedido WHERE idMesa = ? AND cobrada = false AND estado = 'ENTREGADO'";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1,id);
+            ResultSet rs = ps.executeQuery();
+          
+            while (rs.next()) {
+                
+                Pedido ped = new Pedido();
+                ped.setIdPedido(rs.getInt("idPedido"));
+                mesa = md.ObtenerMesasId(rs.getInt("idMesa"));
+                ped.setMesa(mesa);
+                ped.setNombreMesero(rs.getString("nombreMesero"));
+                ped.setFechaHora(rs.getTimestamp("fechaHora").toLocalDateTime());
+                ped.setCobrada(rs.getBoolean("cobrada"));
+                ped.setImporte(rs.getDouble("importe"));
+                ped.setEstado(rs.getString("estado"));
+                Pedidos.add(ped);
+            
+            }
+            
+            ps.close();
+
+        }catch (SQLException ex) {
+
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla pedidos" + ex.getMessage());
+
+        }
+
+        return Pedidos;
+    
+    }
     public void modificarEstadoPedido(Pedido pe){
         
         String sql = "UPDATE pedido SET  nombreMesero = ? , "
