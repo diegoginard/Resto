@@ -529,14 +529,15 @@ public class PedidoData {
         
         try {
             
-            String sql = "SELECT COUNT(*) FROM Pedido WHERE idMesa = ? AND estado = 'PENDIENTE'";
+            String sql = "SELECT COUNT(*) FROM Pedido WHERE idMesa = ? AND estado = 'PENDIENTE' AND cobrada = false ";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, idMesa);
             ResultSet rs = ps.executeQuery();
-
+            
             if (rs.next()) {
                 
                 int cantidadPedidosPendientes = rs.getInt(1);
+//                JOptionPane.showMessageDialog(null, cantidadPedidosPendientes);
                 return cantidadPedidosPendientes > 0; // Si hay al menos un pedido pendiente, no se puede modificar a "LIBRE"
             }
 

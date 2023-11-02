@@ -902,7 +902,9 @@ public class restoView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jtPedidoProdMouseClicked
 
     private void jbACrearPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbACrearPedidoActionPerformed
-
+        
+        jbIrPedidos.setEnabled(false);
+        
         if (jcMeseros.getSelectedIndex() != 0) {
 
             ventanas.setSelectedIndex(2);
@@ -943,6 +945,7 @@ public class restoView extends javax.swing.JInternalFrame {
         jbAgregarQuitar.setEnabled(true);
         jbEntregar.setEnabled(true);
         jbCancelar.setEnabled(true);
+        jbCobrar.setEnabled(false);
         pedidoxMesa();
 
     }//GEN-LAST:event_jbAgregarAPedidoActionPerformed
@@ -950,6 +953,7 @@ public class restoView extends javax.swing.JInternalFrame {
     private void jbTomarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbTomarPedidoActionPerformed
 
         ventanas.setSelectedIndex(1);
+        
 
     }//GEN-LAST:event_jbTomarPedidoActionPerformed
 
@@ -968,6 +972,9 @@ public class restoView extends javax.swing.JInternalFrame {
             int idMesa = (int) jtPedidos.getValueAt(fila, 1);
             Mesa mesa = md.ObtenerMesasId(idMesa);
             Pedido pedido = pd.obtenerPedidoId(idPedido);
+            JOptionPane.showMessageDialog(rootPane, pd.pasarAlibre(idMesa));
+            pedido.setCobrada(true);
+            pd.modificarEstadoPedido(pedido);
             
             if (!pd.pasarAlibre(idMesa)) {
                 
@@ -976,13 +983,13 @@ public class restoView extends javax.swing.JInternalFrame {
                 
             }
             
-            pedido.setCobrada(true);
-            pd.modificarEstadoPedido(pedido);
+            
             cargarPedidoPediente(idMesa);
             String texto = idPedido + "";
             Ticket newframe = new Ticket(texto);
             newframe.setVisible(true);
-
+            ventanas.setSelectedIndex(0);
+            
         } else {
 
             JOptionPane.showMessageDialog(rootPane, "Debe seleccionar un pedido de la tabla");
