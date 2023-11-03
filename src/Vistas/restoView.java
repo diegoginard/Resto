@@ -33,7 +33,7 @@ public class restoView extends javax.swing.JInternalFrame {
         armarCabeceraPed();
         cargarProducto();
         armarCabeceraEstadoMesas();
-        CargarEstadoMesas();
+        
         ventanas.setEnabled(false);
         jtID.setEnabled(false);
         jbAgregarQuitar.setEnabled(false);
@@ -264,28 +264,26 @@ public class restoView extends javax.swing.JInternalFrame {
         jDesktopPane1Layout.setHorizontalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                .addGap(29, 29, 29)
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                        .addGap(41, 41, 41)
+                        .addGap(26, 26, 26)
                         .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addGap(68, 68, 68))
                             .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)))
-                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jbCobrarMesa, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jbTomarPedido, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jbAgregarAPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jbEstadoMesas, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(419, Short.MAX_VALUE))
+                    .addComponent(jbCobrarMesa, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jbTomarPedido, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jbAgregarAPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jbEstadoMesas, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(405, Short.MAX_VALUE))
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                .addGap(32, 32, 32)
+                .addGap(34, 34, 34)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
@@ -297,7 +295,7 @@ public class restoView extends javax.swing.JInternalFrame {
                 .addComponent(jbCobrarMesa)
                 .addGap(18, 18, 18)
                 .addComponent(jbEstadoMesas)
-                .addGap(53, 53, 53))
+                .addGap(51, 51, 51))
         );
 
         javax.swing.GroupLayout jpInicioLayout = new javax.swing.GroupLayout(jpInicio);
@@ -1226,6 +1224,8 @@ public class restoView extends javax.swing.JInternalFrame {
     private void jbEstadoMesasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEstadoMesasActionPerformed
         
         ventanas.setSelectedIndex(4);
+        CargarEstadoMesas();
+        
     }//GEN-LAST:event_jbEstadoMesasActionPerformed
 
     private void jbInicio1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbInicio1ActionPerformed
@@ -1450,7 +1450,7 @@ public class restoView extends javax.swing.JInternalFrame {
     
     private void CargarEstadoMesas() {
 
-        modelo1.setRowCount(0);
+        modelo4.setRowCount(0);
         List<Mesa> mesas = md.listarMesas();
 
         for (Mesa me : mesas) {
