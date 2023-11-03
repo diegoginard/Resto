@@ -10,21 +10,37 @@ import javax.swing.table.*;
 
 public class restoView extends javax.swing.JInternalFrame {
     
-    public class CenteredTableCellRenderer extends DefaultTableCellRenderer {
+    public class CentrarCeldas extends DefaultTableCellRenderer {
         
-        public CenteredTableCellRenderer() {
+        public CentrarCeldas() {
             
             setHorizontalAlignment(JLabel.CENTER);
-            
+            setBackground(Color.GREEN);
+
         }
 
-    @Override
-    public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
-       
-        return super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
-        
+        @Override
+        public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
+
+            Component c = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+
+            String Estado = (String) table.getValueAt(row, 1);
+
+            if ("OCUPADO".equals(Estado)) {
+
+                c.setBackground(Color.RED);
+                c.setForeground(Color.WHITE);
+
+            } else {
+
+                c.setBackground(Color.GREEN);
+                c.setForeground(Color.BLACK);
+
+            }
+
+            return c;
+        }
     }
-}
 
     MesaData md = new MesaData();
     PedidoData pd = new PedidoData();
@@ -723,11 +739,6 @@ public class restoView extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jtPedidos.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jtPedidosMouseClicked(evt);
-            }
-        });
         jScrollPane3.setViewportView(jtPedidos);
 
         jLabel14.setFont(new java.awt.Font("Segoe UI Semibold", 1, 24)); // NOI18N
@@ -939,10 +950,6 @@ public class restoView extends javax.swing.JInternalFrame {
         pedidoxMesa();
 
     }//GEN-LAST:event_jcMesasPedidoItemStateChanged
-
-    private void jtPedidosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtPedidosMouseClicked
-
-    }//GEN-LAST:event_jtPedidosMouseClicked
 
     private void jbCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCancelarActionPerformed
 
@@ -1470,7 +1477,7 @@ public class restoView extends javax.swing.JInternalFrame {
 
         for (int i = 0; i < modelo4.getColumnCount(); i++) {
             
-            jtEstadoMesas.getColumnModel().getColumn(i).setCellRenderer(new CenteredTableCellRenderer());
+            jtEstadoMesas.getColumnModel().getColumn(i).setCellRenderer(new CentrarCeldas());
             
         }
     }
