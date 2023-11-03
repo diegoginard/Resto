@@ -855,7 +855,6 @@ public class restoView extends javax.swing.JInternalFrame {
         jLabel13.setFont(new java.awt.Font("Segoe UI Semibold", 1, 36)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(0, 153, 153));
         jLabel13.setText("ESTADO DE MESAS");
-        jLabel13.setOpaque(true);
 
         jtEstadoMesas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

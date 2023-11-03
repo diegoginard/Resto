@@ -1198,7 +1198,6 @@
                       <Color blue="99" green="99" red="0" type="rgb"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="ESTADO DE MESAS"/>
-                    <Property name="opaque" type="boolean" value="true"/>
                   </Properties>
                 </Component>
                 <Container class="javax.swing.JScrollPane" name="jScrollPane4">
