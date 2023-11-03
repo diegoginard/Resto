@@ -1178,7 +1178,6 @@ public class restoView extends javax.swing.JInternalFrame {
             int idMesa = (int) jtPedidos.getValueAt(fila, 1);
             Mesa mesa = md.ObtenerMesasId(idMesa);
             Pedido pedido = pd.obtenerPedidoId(idPedido);
-            JOptionPane.showMessageDialog(rootPane, pd.pasarAlibre(idMesa));
             pedido.setCobrada(true);
             pd.modificarEstadoPedido(pedido);
             
@@ -1188,13 +1187,12 @@ public class restoView extends javax.swing.JInternalFrame {
                 md.modificarMesa(mesa);
                 
             }
-            
-            
-            cargarPedidoPediente(idMesa);
+          
             String texto = idPedido + "";
             Ticket newframe = new Ticket(texto);
             newframe.setVisible(true);
-            ventanas.setSelectedIndex(0);
+            cargarPedidoEntregado(idMesa);
+//            ventanas.setSelectedIndex(0);
             
         } else {
 
