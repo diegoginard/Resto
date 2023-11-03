@@ -465,7 +465,7 @@ public class restoView extends javax.swing.JInternalFrame {
         jLabel8.setText("PRODUCTOS EN PEDIDO");
 
         jtID.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
-        jtID.setForeground(new java.awt.Color(51, 51, 51));
+        jtID.setForeground(new java.awt.Color(153, 153, 153));
         jtID.setText("ID");
         jtID.setCaretColor(new java.awt.Color(51, 51, 51));
 
