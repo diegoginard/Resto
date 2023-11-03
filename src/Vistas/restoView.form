@@ -278,7 +278,7 @@
                               <Component id="jLabel12" min="-2" pref="241" max="-2" attributes="0"/>
                               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="275" max="32767" attributes="0"/>
+                          <EmptySpace pref="273" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -565,7 +565,7 @@
                                   <Component id="jScrollPane1" min="-2" pref="345" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="jScrollPane2" min="-2" pref="332" max="-2" attributes="0"/>
-                                  <EmptySpace pref="9" max="32767" attributes="0"/>
+                                  <EmptySpace pref="7" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -646,6 +646,9 @@
                       <Font name="Segoe UI" size="12" style="2"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="ID"/>
+                    <Property name="caretColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="33" green="33" red="33" type="rgb"/>
+                    </Property>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jlMesa">
@@ -865,7 +868,7 @@
                               </Group>
                               <Component id="jScrollPane3" alignment="0" min="-2" pref="349" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="74" max="32767" attributes="0"/>
+                          <EmptySpace pref="72" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jbEntregar" alignment="1" min="-2" pref="205" max="-2" attributes="0"/>
                               <Component id="jbAgregarQuitar" alignment="1" min="-2" pref="205" max="-2" attributes="0"/>
@@ -1159,7 +1162,7 @@
                                   <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace pref="218" max="32767" attributes="0"/>
+                          <EmptySpace pref="216" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -1212,6 +1215,10 @@
                             <Column editable="true" title="Title 4" type="java.lang.Object"/>
                           </Table>
                         </Property>
+                        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                          <Color id="Cursor Por defecto"/>
+                        </Property>
+                        <Property name="name" type="java.lang.String" value="" noResource="true"/>
                       </Properties>
                     </Component>
                   </SubComponents>

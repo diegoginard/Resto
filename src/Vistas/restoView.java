@@ -1,23 +1,30 @@
 
 package Vistas;
 
-import BaseDatos.MesaData;
-import BaseDatos.PedidoData;
-import BaseDatos.PedidoProductoData;
-import BaseDatos.ProductoData;
-import Entidades.Mesa;
-import Entidades.Pedido;
-import Entidades.PedidoProducto;
-import Entidades.Producto;
-import java.awt.Graphics;
-import java.awt.Image;
+import BaseDatos.*;
+import Entidades.*;
+import java.awt.*;
 import java.util.List;
-import javax.swing.ImageIcon;
-import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
+import javax.swing.*;
+import javax.swing.table.*;
 
 public class restoView extends javax.swing.JInternalFrame {
+    
+    public class CenteredTableCellRenderer extends DefaultTableCellRenderer {
+        
+        public CenteredTableCellRenderer() {
+            
+            setHorizontalAlignment(JLabel.CENTER);
+            
+        }
+
+    @Override
+    public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
+       
+        return super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+        
+    }
+}
 
     MesaData md = new MesaData();
     PedidoData pd = new PedidoData();
@@ -408,7 +415,7 @@ public class restoView extends javax.swing.JInternalFrame {
                 .addGroup(crearpedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(275, Short.MAX_VALUE))
+                .addContainerGap(273, Short.MAX_VALUE))
         );
         crearpedidoLayout.setVerticalGroup(
             crearpedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -443,6 +450,7 @@ public class restoView extends javax.swing.JInternalFrame {
 
         jtID.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
         jtID.setText("ID");
+        jtID.setCaretColor(new java.awt.Color(51, 51, 51));
 
         jlMesa.setBackground(new java.awt.Color(51, 51, 51));
         jlMesa.setFont(new java.awt.Font("Segoe UI Black", 1, 36)); // NOI18N
@@ -601,7 +609,7 @@ public class restoView extends javax.swing.JInternalFrame {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(9, Short.MAX_VALUE))))
+                        .addContainerGap(7, Short.MAX_VALUE))))
             .addGroup(agregarproductosLayout.createSequentialGroup()
                 .addGap(105, 105, 105)
                 .addComponent(jbVolverMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -771,7 +779,7 @@ public class restoView extends javax.swing.JInternalFrame {
                         .addGap(77, 77, 77)
                         .addComponent(jLabel14))
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
                 .addGroup(elegirpedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jbEntregar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jbAgregarQuitar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -860,6 +868,8 @@ public class restoView extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jtEstadoMesas.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jtEstadoMesas.setName(""); // NOI18N
         jScrollPane4.setViewportView(jtEstadoMesas);
 
         jbInicio1.setBackground(new java.awt.Color(30, 30, 30));
@@ -889,7 +899,7 @@ public class restoView extends javax.swing.JInternalFrame {
                     .addGroup(jDesktopPane2Layout.createSequentialGroup()
                         .addGap(175, 175, 175)
                         .addComponent(jLabel13)))
-                .addContainerGap(218, Short.MAX_VALUE))
+                .addContainerGap(216, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane2Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jbInicio1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1457,6 +1467,12 @@ public class restoView extends javax.swing.JInternalFrame {
 
             modelo4.addRow(new Object[]{me.getNumero(), me.getEstadoMesa()});
 
-        }   
+        }
+
+        for (int i = 0; i < modelo4.getColumnCount(); i++) {
+            
+            jtEstadoMesas.getColumnModel().getColumn(i).setCellRenderer(new CenteredTableCellRenderer());
+            
+        }
     }
 }
