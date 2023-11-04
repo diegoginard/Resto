@@ -336,7 +336,7 @@ public class restoView extends javax.swing.JInternalFrame {
                 .addComponent(jLabel1)
                 .addGap(60, 60, 60)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
                 .addComponent(jbTomarPedido)
                 .addGap(13, 13, 13)
                 .addComponent(jbAgregarAPedido)
@@ -357,7 +357,7 @@ public class restoView extends javax.swing.JInternalFrame {
             jpInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpInicioLayout.createSequentialGroup()
                 .addComponent(jDesktopPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 54, Short.MAX_VALUE))
+                .addGap(0, 52, Short.MAX_VALUE))
         );
 
         ventanas.addTab("", jpInicio);
@@ -891,6 +891,8 @@ public class restoView extends javax.swing.JInternalFrame {
         jLabel13.setText("ESTADO DE MESAS");
         jLabel13.setOpaque(true);
 
+        jScrollPane4.setVerifyInputWhenFocusTarget(false);
+
         jtEstadoMesas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -904,6 +906,12 @@ public class restoView extends javax.swing.JInternalFrame {
         ));
         jtEstadoMesas.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jtEstadoMesas.setName(""); // NOI18N
+        jtEstadoMesas.setRowSelectionAllowed(true);
+        jtEstadoMesas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jtEstadoMesasMouseClicked(evt);
+            }
+        });
         jScrollPane4.setViewportView(jtEstadoMesas);
 
         jbInicio1.setBackground(new java.awt.Color(30, 30, 30));
@@ -934,8 +942,8 @@ public class restoView extends javax.swing.JInternalFrame {
                 .addComponent(jbInicio1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31))
             .addGroup(jDesktopPane2Layout.createSequentialGroup()
-                .addGap(210, 210, 210)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(226, 226, 226)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jDesktopPane2Layout.setVerticalGroup(
@@ -943,11 +951,11 @@ public class restoView extends javax.swing.JInternalFrame {
             .addGroup(jDesktopPane2Layout.createSequentialGroup()
                 .addGap(67, 67, 67)
                 .addComponent(jLabel13)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38)
+                .addGap(44, 44, 44)
                 .addComponent(jbInicio1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(74, Short.MAX_VALUE))
+                .addContainerGap(66, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jpMesasLayout = new javax.swing.GroupLayout(jpMesas);
@@ -956,7 +964,7 @@ public class restoView extends javax.swing.JInternalFrame {
             jpMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpMesasLayout.createSequentialGroup()
                 .addComponent(jDesktopPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 1, Short.MAX_VALUE))
         );
         jpMesasLayout.setVerticalGroup(
             jpMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1269,8 +1277,22 @@ public class restoView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jbEstadoMesasActionPerformed
 
     private void jbInicio1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbInicio1ActionPerformed
-       ventanas.setSelectedIndex(0);
+       
+        ventanas.setSelectedIndex(0);
+        
     }//GEN-LAST:event_jbInicio1ActionPerformed
+
+    private void jtEstadoMesasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtEstadoMesasMouseClicked
+        
+        ventanas.setSelectedIndex(3);
+        int fila = jtEstadoMesas.getSelectedRow();
+        Mesa mesa = md.ObtenerMesasId((int) jtEstadoMesas.getValueAt(fila, 0));
+        jcMesasPedido.setSelectedIndex(mesa.getNumero()-1);
+        jbAgregarQuitar.setEnabled(true);
+        jbEntregar.setEnabled(true);
+        jbCancelar.setEnabled(true);
+        
+    }//GEN-LAST:event_jtEstadoMesasMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
