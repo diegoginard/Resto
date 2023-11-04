@@ -5,12 +5,15 @@ import BaseDatos.PedidoProductoData;
 import Entidades.PedidoProducto;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
 public class Ticket extends javax.swing.JFrame {
     
     PedidoProductoData ppd = new PedidoProductoData();
+    LocalTime horaActual = LocalTime.now();
+    DateTimeFormatter formato = DateTimeFormatter.ofPattern("HH:mm"); // Formato de hora sin segundos
     
     private String idRecibida;
     
@@ -25,7 +28,7 @@ public class Ticket extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         armarCabeceraProdPed();
         jtFecha.setText(LocalDate.now()+"");
-        jtHora.setText(LocalTime.now()+"");
+        jtHora.setText(horaActual.format(formato));
         
         if (idRecibida != null) {
             
