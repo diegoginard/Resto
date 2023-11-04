@@ -8,6 +8,7 @@ import java.awt.Image;
 import java.awt.event.KeyEvent;
 import java.util.*;
 import javax.swing.*;
+import javax.swing.plaf.basic.BasicInternalFrameUI;
 import javax.swing.table.*;
 
 public class AdministraMenus extends JInternalFrame {
@@ -17,6 +18,11 @@ public class AdministraMenus extends JInternalFrame {
         initComponents();
         armarCabecera();
         cargarLista();
+  
+        // Desactiva la barra de título del JInternalFrame
+        BasicInternalFrameUI ui = (BasicInternalFrameUI) getUI();
+        ui.setNorthPane(null);
+        
         jbBorrar.setEnabled(false);
         jbModificar.setEnabled(false);
         jtBuscar.setEnabled(false);
@@ -79,7 +85,7 @@ public class AdministraMenus extends JInternalFrame {
         jcCategoria = new javax.swing.JComboBox<>();
         jcCategoria2 = new javax.swing.JComboBox<>();
 
-        setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        setBorder(null);
 
         escritorio.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         escritorio.setToolTipText("");
@@ -262,7 +268,7 @@ public class AdministraMenus extends JInternalFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(escritorio, javax.swing.GroupLayout.PREFERRED_SIZE, 562, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(escritorio, javax.swing.GroupLayout.DEFAULT_SIZE, 566, Short.MAX_VALUE)
         );
 
         pack();

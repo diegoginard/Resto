@@ -39,6 +39,7 @@ public class IniciarSalon extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jmMenu = new javax.swing.JMenu();
         jmMenuInicio = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jmPedidos = new javax.swing.JMenuItem();
         jmMesas = new javax.swing.JMenuItem();
@@ -51,11 +52,11 @@ public class IniciarSalon extends javax.swing.JFrame {
         escritorio.setLayout(escritorioLayout);
         escritorioLayout.setHorizontalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1000, Short.MAX_VALUE)
+            .addGap(0, 1008, Short.MAX_VALUE)
         );
         escritorioLayout.setVerticalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 579, Short.MAX_VALUE)
+            .addGap(0, 661, Short.MAX_VALUE)
         );
 
         jmMenu.setText("Salon");
@@ -67,6 +68,14 @@ public class IniciarSalon extends javax.swing.JFrame {
             }
         });
         jmMenu.add(jmMenuInicio);
+
+        jMenuItem1.setText("jMenuItem1");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jmMenu.add(jMenuItem1);
 
         jMenuBar1.add(jmMenu);
 
@@ -123,25 +132,25 @@ public class IniciarSalon extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jmPedidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmPedidosActionPerformed
-        
-         try {
-            
+
+        try {
+
             escritorio.removeAll();
             escritorio.repaint();
             ListarPedidos ll = new ListarPedidos();
             ll.setVisible(true);
             escritorio.add(ll);
             escritorio.moveToFront(ll);
-            
+
         } catch (ParseException ex) {
-            
+
             Logger.getLogger(IniciarSalon.class.getName()).log(Level.SEVERE, null, ex);
-            
+
         }
     }//GEN-LAST:event_jmPedidosActionPerformed
 
     private void jmMesasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmMesasActionPerformed
-        
+
         escritorio.removeAll();
         escritorio.repaint();
         AdministraMesas me = new AdministraMesas();
@@ -179,6 +188,15 @@ public class IniciarSalon extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jmSalirMouseClicked
 
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        escritorio.removeAll();
+        escritorio.repaint();
+        prueba rv = new prueba();
+        rv.setVisible(true);
+        escritorio.add(rv);
+        escritorio.moveToFront(rv);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
     public static void main(String args[]) {
        
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -195,6 +213,7 @@ public class IniciarSalon extends javax.swing.JFrame {
     private javax.swing.JDesktopPane escritorio;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenu jmMenu;
     private javax.swing.JMenuItem jmMenuInicio;
     private javax.swing.JMenuItem jmMenus;

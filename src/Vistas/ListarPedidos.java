@@ -20,6 +20,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerDateModel;
+import javax.swing.plaf.basic.BasicInternalFrameUI;
 import javax.swing.table.DefaultTableModel;
 
 public class ListarPedidos extends javax.swing.JInternalFrame {
@@ -31,6 +32,11 @@ public class ListarPedidos extends javax.swing.JInternalFrame {
         initComponents();
         armarCabecera();
         cargarPedidos();
+
+        // Desactiva la barra de título del JInternalFrame
+        BasicInternalFrameUI ui = (BasicInternalFrameUI) getUI();
+        ui.setNorthPane(null);
+        
         jtNMesero.setEnabled(false);
         jdFecha.setEnabled(false);
         jdMDia.setEnabled(false);
@@ -121,6 +127,7 @@ public class ListarPedidos extends javax.swing.JInternalFrame {
         jtIngresos = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
 
+        setBorder(null);
         try {
             setSelected(true);
         } catch (java.beans.PropertyVetoException e1) {
@@ -294,7 +301,7 @@ public class ListarPedidos extends javax.swing.JInternalFrame {
                         .addComponent(jdMDia, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jbBuscar)))
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 98, Short.MAX_VALUE))
             .addGroup(jDesktopPane1Layout.createSequentialGroup()
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jDesktopPane1Layout.createSequentialGroup()
@@ -339,7 +346,7 @@ public class ListarPedidos extends javax.swing.JInternalFrame {
                     .addGroup(jDesktopPane1Layout.createSequentialGroup()
                         .addGap(207, 207, 207)
                         .addComponent(jcElegir, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(13, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

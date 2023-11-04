@@ -8,6 +8,7 @@ import java.awt.Image;
 import java.awt.event.KeyEvent;
 import java.util.*;
 import javax.swing.*;
+import javax.swing.plaf.basic.BasicInternalFrameUI;
 import javax.swing.table.*;
 
 
@@ -18,6 +19,11 @@ public class AdministraMesas extends javax.swing.JInternalFrame {
         initComponents();
         armarCabecera();
         cargarLista();
+         
+        // Desactiva la barra de título del JInternalFrame
+        BasicInternalFrameUI ui = (BasicInternalFrameUI) getUI();
+        ui.setNorthPane(null);
+        
         jtBuscar.setEnabled(false);
         jtId.setEnabled(false);
     }
@@ -70,8 +76,9 @@ public class AdministraMesas extends javax.swing.JInternalFrame {
         jcElegir = new javax.swing.JComboBox<>();
         jPanel1 = new javax.swing.JPanel();
 
-        setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        setBorder(null);
         setTitle("Administra Salon");
+        setPreferredSize(null);
         addContainerListener(new java.awt.event.ContainerAdapter() {
             public void componentAdded(java.awt.event.ContainerEvent evt) {
                 formComponentAdded(evt);
@@ -80,6 +87,7 @@ public class AdministraMesas extends javax.swing.JInternalFrame {
 
         escritorio.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         escritorio.setForeground(new java.awt.Color(0, 0, 0));
+        escritorio.setPreferredSize(null);
         escritorio.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jtListaMesas.setModel(new javax.swing.table.DefaultTableModel(
@@ -100,7 +108,7 @@ public class AdministraMesas extends javax.swing.JInternalFrame {
         });
         jScrollPane1.setViewportView(jtListaMesas);
 
-        escritorio.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, 470, 200));
+        escritorio.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 470, 200));
 
         jbCrear.setText("Crear");
         jbCrear.addActionListener(new java.awt.event.ActionListener() {
@@ -228,11 +236,13 @@ public class AdministraMesas extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(escritorio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 493, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(escritorio, javax.swing.GroupLayout.PREFERRED_SIZE, 508, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(escritorio, javax.swing.GroupLayout.DEFAULT_SIZE, 629, Short.MAX_VALUE)
+            .addComponent(escritorio, javax.swing.GroupLayout.DEFAULT_SIZE, 546, Short.MAX_VALUE)
         );
 
         pack();
