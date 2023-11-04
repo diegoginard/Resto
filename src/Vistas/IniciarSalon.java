@@ -168,8 +168,8 @@ public class IniciarSalon extends javax.swing.JFrame {
 
         try {
 
-            escritorio.removeAll();
-            escritorio.repaint();
+//            escritorio.removeAll();
+//            escritorio.repaint();
             ListarPedidos ll = new ListarPedidos();
             ll.setVisible(true);
             escritorio.add(ll);
@@ -184,8 +184,8 @@ public class IniciarSalon extends javax.swing.JFrame {
 
     private void jmMesasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmMesasActionPerformed
 
-        escritorio.removeAll();
-        escritorio.repaint();
+//        escritorio.removeAll();
+//        escritorio.repaint();
         AdministraMesas me = new AdministraMesas();
         me.setVisible(true);
         escritorio.add(me);
@@ -195,8 +195,8 @@ public class IniciarSalon extends javax.swing.JFrame {
 
     private void jmMenusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmMenusActionPerformed
         
-        escritorio.removeAll();
-        escritorio.repaint();
+//        escritorio.removeAll();
+//        escritorio.repaint();
         AdministraMenus am = new AdministraMenus();
         am.setVisible(true);
         escritorio.add(am);
