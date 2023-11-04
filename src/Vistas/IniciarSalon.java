@@ -10,15 +10,14 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 
-public class GestionRestaurante extends javax.swing.JFrame {
+public class IniciarSalon extends javax.swing.JFrame {
     
     private Connection con = null;
     
-    public GestionRestaurante() {
+    public IniciarSalon() {
         
         initComponents();
         con = Conexion.getConexion();
-        
         this.setLocationRelativeTo(null);
         
     }
@@ -27,7 +26,6 @@ public class GestionRestaurante extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jMenuItem4 = new javax.swing.JMenuItem();
         ImageIcon icono = new ImageIcon(getClass().getResource("/Recursos/FOODDRINKS.JPG"));
         Image imagen = icono.getImage();
         escritorio = new javax.swing.JDesktopPane(){
@@ -39,49 +37,40 @@ public class GestionRestaurante extends javax.swing.JFrame {
             }
         };
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        jmMenu = new javax.swing.JMenu();
+        jmMenuInicio = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jmPedidos = new javax.swing.JMenuItem();
         jmMesas = new javax.swing.JMenuItem();
         jmMenus = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
-
-        jMenuItem4.setText("jMenuItem4");
+        jmSalir = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        escritorio.setPreferredSize(new java.awt.Dimension(1100, 657));
 
         javax.swing.GroupLayout escritorioLayout = new javax.swing.GroupLayout(escritorio);
         escritorio.setLayout(escritorioLayout);
         escritorioLayout.setHorizontalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1100, Short.MAX_VALUE)
+            .addGap(0, 1000, Short.MAX_VALUE)
         );
         escritorioLayout.setVerticalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 657, Short.MAX_VALUE)
+            .addGap(0, 579, Short.MAX_VALUE)
         );
 
-        jMenu1.setText("Salon");
+        jmMenu.setText("Salon");
 
-        jMenuItem1.setText("Iniciar");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        jmMenuInicio.setText("Iniciar Salon");
+        jmMenuInicio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                jmMenuInicioActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem1);
+        jmMenu.add(jmMenuInicio);
 
-        jMenuBar1.add(jMenu1);
+        jMenuBar1.add(jmMenu);
 
-        jMenu2.setText("Gestionar");
-        jMenu2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu2ActionPerformed(evt);
-            }
-        });
+        jMenu2.setText("Gestionar Salon");
 
         jmPedidos.setText("Lista de Pedidos");
         jmPedidos.addActionListener(new java.awt.event.ActionListener() {
@@ -109,18 +98,13 @@ public class GestionRestaurante extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu2);
 
-        jMenu3.setText("Salir");
-        jMenu3.addMouseListener(new java.awt.event.MouseAdapter() {
+        jmSalir.setText("Salir");
+        jmSalir.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu3MouseClicked(evt);
+                jmSalirMouseClicked(evt);
             }
         });
-        jMenu3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu3ActionPerformed(evt);
-            }
-        });
-        jMenuBar1.add(jMenu3);
+        jMenuBar1.add(jmSalir);
 
         setJMenuBar(jMenuBar1);
 
@@ -128,26 +112,33 @@ public class GestionRestaurante extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(escritorio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(escritorio)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(escritorio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(escritorio)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jmMenusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmMenusActionPerformed
+    private void jmPedidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmPedidosActionPerformed
         
-        escritorio.removeAll();
-        escritorio.repaint();
-        AdministraMenus am = new AdministraMenus();
-        am.setVisible(true);
-        escritorio.add(am);
-        escritorio.moveToFront(am);
-        
-    }//GEN-LAST:event_jmMenusActionPerformed
+         try {
+            
+            escritorio.removeAll();
+            escritorio.repaint();
+            ListarPedidos ll = new ListarPedidos();
+            ll.setVisible(true);
+            escritorio.add(ll);
+            escritorio.moveToFront(ll);
+            
+        } catch (ParseException ex) {
+            
+            Logger.getLogger(IniciarSalon.class.getName()).log(Level.SEVERE, null, ex);
+            
+        }
+    }//GEN-LAST:event_jmPedidosActionPerformed
 
     private void jmMesasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmMesasActionPerformed
         
@@ -160,73 +151,55 @@ public class GestionRestaurante extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jmMesasActionPerformed
 
-    private void jmPedidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmPedidosActionPerformed
-
-        try {
-            
-            escritorio.removeAll();
-            escritorio.repaint();
-            ListarPedidos ll = new ListarPedidos();
-            ll.setVisible(true);
-            escritorio.add(ll);
-            escritorio.moveToFront(ll);
-            
-        } catch (ParseException ex) {
-            
-            Logger.getLogger(GestionRestaurante.class.getName()).log(Level.SEVERE, null, ex);
-            
-        }
-        
-        
-    }//GEN-LAST:event_jmPedidosActionPerformed
-
-    private void jMenu3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu3ActionPerformed
-
-    }//GEN-LAST:event_jMenu3ActionPerformed
-
-    private void jMenu3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu3MouseClicked
-
-        dispose();
-        
-    }//GEN-LAST:event_jMenu3MouseClicked
-
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void jmMenusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmMenusActionPerformed
         
         escritorio.removeAll();
         escritorio.repaint();
-        restoView pp = new restoView();
-        pp.setVisible(true);
-        escritorio.add(pp);
-        escritorio.moveToFront(pp);
+        AdministraMenus am = new AdministraMenus();
+        am.setVisible(true);
+        escritorio.add(am);
+        escritorio.moveToFront(am);
         
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_jmMenusActionPerformed
 
-    private void jMenu2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu2ActionPerformed
-        // TODO add your handling code here:
-     
-    }//GEN-LAST:event_jMenu2ActionPerformed
+    private void jmMenuInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmMenuInicioActionPerformed
+        
+        escritorio.removeAll();
+        escritorio.repaint();
+        restoView rv = new restoView();
+        rv.setVisible(true);
+        escritorio.add(rv);
+        escritorio.moveToFront(rv);
+        
+    }//GEN-LAST:event_jmMenuInicioActionPerformed
 
-   
+    private void jmSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jmSalirMouseClicked
+        
+        System.exit(0);
+        
+    }//GEN-LAST:event_jmSalirMouseClicked
+
     public static void main(String args[]) {
        
-        
         java.awt.EventQueue.invokeLater(new Runnable() {
+           
             public void run() {
-                new GestionRestaurante().setVisible(true);
+                
+                new IniciarSalon().setVisible(true);
+                
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane escritorio;
-    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenu jmMenu;
+    private javax.swing.JMenuItem jmMenuInicio;
     private javax.swing.JMenuItem jmMenus;
     private javax.swing.JMenuItem jmMesas;
     private javax.swing.JMenuItem jmPedidos;
+    private javax.swing.JMenu jmSalir;
     // End of variables declaration//GEN-END:variables
 }
