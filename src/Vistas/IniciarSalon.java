@@ -2,6 +2,7 @@
 package Vistas;
 
 import BaseDatos.Conexion;
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Point;
@@ -13,12 +14,15 @@ import java.text.ParseException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import javax.swing.JMenuBar;
 
 public class IniciarSalon extends javax.swing.JFrame {
     
     private Connection con = null;
     private Point initialClick;
     
+        
+
     public IniciarSalon() {
 
         setUndecorated(true); // Oculta la decoración (barra de título)
@@ -90,8 +94,11 @@ public class IniciarSalon extends javax.swing.JFrame {
         );
         escritorioLayout.setVerticalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 661, Short.MAX_VALUE)
+            .addGap(0, 663, Short.MAX_VALUE)
         );
+
+        jMenuBar1.setBorder(null);
+        jMenuBar1.setForeground(new java.awt.Color(255, 255, 255));
 
         jmMenu.setText("Salon");
 
