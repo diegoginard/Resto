@@ -4,6 +4,10 @@ package Vistas;
 import BaseDatos.Conexion;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.Point;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionAdapter;
 import java.sql.Connection;
 import java.text.ParseException;
 import java.util.logging.Level;
@@ -13,15 +17,18 @@ import javax.swing.ImageIcon;
 public class IniciarSalon extends javax.swing.JFrame {
     
     private Connection con = null;
+    private Point initialClick;
     
     public IniciarSalon() {
-        
+
+        setUndecorated(true); // Oculta la decoración (barra de título)
         initComponents();
         con = Conexion.getConexion();
         this.setLocationRelativeTo(null);
-        
+
     }
 
+   
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -46,6 +53,34 @@ public class IniciarSalon extends javax.swing.JFrame {
         jmSalir = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                formMouseClicked(evt);
+            }
+        });
+
+        escritorio.addMouseListener(new MouseAdapter() {
+            public void mousePressed(MouseEvent e) {
+                initialClick = e.getPoint();
+            }
+        });
+
+        escritorio.addMouseMotionListener(new MouseMotionAdapter() {
+
+            public void mouseDragged(MouseEvent e) {
+
+                int thisX = getLocation().x;
+                int thisY = getLocation().y;
+
+                int xMoved = (thisX + e.getX()) - (thisX + initialClick.x);
+                int yMoved = (thisY + e.getY()) - (thisY + initialClick.y);
+
+                int X = thisX + xMoved;
+                int Y = thisY + yMoved;
+                setLocation(X, Y);
+
+            }
+        });
 
         javax.swing.GroupLayout escritorioLayout = new javax.swing.GroupLayout(escritorio);
         escritorio.setLayout(escritorioLayout);
@@ -178,6 +213,10 @@ public class IniciarSalon extends javax.swing.JFrame {
         System.exit(0);
         
     }//GEN-LAST:event_jmSalirMouseClicked
+
+    private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
+        
+    }//GEN-LAST:event_formMouseClicked
 
     public static void main(String args[]) {
        

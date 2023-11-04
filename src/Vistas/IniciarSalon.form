@@ -69,6 +69,9 @@
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
     <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
   </SyntheticProperties>
+  <Events>
+    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="formMouseClicked"/>
+  </Events>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
@@ -98,6 +101,7 @@
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JDesktopPane(){&#xa;&#xa;    public void paintComponent(Graphics g){&#xa;&#xa;        g.drawImage(imagen,0,0,getWidth(),getHeight(),this);&#xa;&#xa;    }&#xa;}"/>
         <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="ImageIcon icono = new ImageIcon(getClass().getResource(&quot;/Recursos/FOODDRINKS.JPG&quot;));&#xa;Image imagen = icono.getImage();"/>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="escritorio.addMouseListener(new MouseAdapter() {&#xa;            public void mousePressed(MouseEvent e) {&#xa;                initialClick = e.getPoint();&#xa;            }&#xa;        });&#xa;&#xa;escritorio.addMouseMotionListener(new MouseMotionAdapter() {&#xa;&#xa;    public void mouseDragged(MouseEvent e) {&#xa;&#xa;        int thisX = getLocation().x;&#xa;        int thisY = getLocation().y;&#xa;&#xa;        int xMoved = (thisX + e.getX()) - (thisX + initialClick.x);&#xa;        int yMoved = (thisY + e.getY()) - (thisY + initialClick.y);&#xa;&#xa;        int X = thisX + xMoved;&#xa;        int Y = thisY + yMoved;&#xa;        setLocation(X, Y);&#xa;&#xa;    }&#xa;});"/>
       </AuxValues>
 
       <Layout>
