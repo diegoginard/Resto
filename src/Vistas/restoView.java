@@ -50,7 +50,7 @@ public class restoView extends javax.swing.JInternalFrame {
         }
     }
 
-    // Define un renderizador personalizado
+    // Define un renderizador personalizado para las celdas de la tabla mesa
     DefaultListCellRenderer renderer = new DefaultListCellRenderer() {
         public Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
             Component component = super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
