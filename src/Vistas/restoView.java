@@ -1073,7 +1073,8 @@ public class restoView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jbAgregarQuitarActionPerformed
 
     private void jbIrPedidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbIrPedidosActionPerformed
-
+        
+        cargarMesas();
         ventanas.setSelectedIndex(3);
         jbAgregarQuitar.setEnabled(true);
         jbEntregar.setEnabled(true); 
@@ -1250,7 +1251,7 @@ public class restoView extends javax.swing.JInternalFrame {
             Ticket newframe = new Ticket(texto);
             newframe.setVisible(true);
             cargarPedidoEntregado(idMesa);
-//            ventanas.setSelectedIndex(0);
+            cargarMesas();
             
         } else {
 
@@ -1266,7 +1267,8 @@ public class restoView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jbCobrarMesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCobrarMesaActionPerformed
-
+        
+        cargarMesas();
         ventanas.setSelectedIndex(3);
         jbAgregarQuitar.setEnabled(false);
         jbEntregar.setEnabled(false);
@@ -1278,9 +1280,9 @@ public class restoView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jbCobrarMesaActionPerformed
 
     private void jbAgregarAPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAgregarAPedidoActionPerformed
-
+        
+        cargarMesas();
         ventanas.setSelectedIndex(3);
-
         jbAgregarQuitar.setEnabled(true);
         jbEntregar.setEnabled(true);
         jbCancelar.setEnabled(true);
@@ -1291,6 +1293,7 @@ public class restoView extends javax.swing.JInternalFrame {
     private void jbTomarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbTomarPedidoActionPerformed
 
         ventanas.setSelectedIndex(1);
+        cargarMesas();
 
     }//GEN-LAST:event_jbTomarPedidoActionPerformed
 
@@ -1309,6 +1312,7 @@ public class restoView extends javax.swing.JInternalFrame {
 
     private void jtEstadoMesasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtEstadoMesasMouseClicked
         
+        cargarMesas();
         ventanas.setSelectedIndex(3);
         int fila = jtEstadoMesas.getSelectedRow();
         Mesa mesa = md.ObtenerMesasId((int) jtEstadoMesas.getValueAt(fila, 0));
@@ -1441,9 +1445,10 @@ public class restoView extends javax.swing.JInternalFrame {
     }
     
     private void cargarMesas() {
-
+        
+        
+        jcMesas.removeAllItems();
         List<Mesa> cblistarMesas = md.listarMesas();
-        jcMesasPedido.setRenderer(renderer);
         jcMesas.setRenderer(renderer);
         
         for (int i = 0; i < cblistarMesas.size(); i++) {
@@ -1452,7 +1457,10 @@ public class restoView extends javax.swing.JInternalFrame {
                     cblistarMesas.get(i).getActivo()));
 
         }
-
+        
+        jcMesasPedido.removeAllItems();
+        jcMesasPedido.setRenderer(renderer);
+        
         for (int i = 0; i < cblistarMesas.size(); i++) {
 
             jcMesasPedido.addItem(new Mesa(cblistarMesas.get(i).getIdMesa(), cblistarMesas.get(i).getNumero(), cblistarMesas.get(i).getEstadoMesa(), cblistarMesas.get(i).getCapacidad(),
@@ -1529,14 +1537,26 @@ public class restoView extends javax.swing.JInternalFrame {
         }   
     }
     
-    private void pedidoxMesa(){
-    
+    private void pedidoxMesa() {
+
         Mesa mesa = (Mesa) jcMesasPedido.getSelectedItem();
-        int Nmesa = mesa.getIdMesa();
-        cargarPedidoPediente(Nmesa);
-    
+
+        if (mesa != null) {
+            
+            if (!jbCobrar.isEnabled()) {
+                
+                int Nmesa = mesa.getIdMesa();
+                cargarPedidoPediente(Nmesa);
+                
+            }else{
+                
+                int Nmesa = mesa.getIdMesa();
+                cargarPedidoEntregado(Nmesa);
+                
+            }
+        }
     }
-    
+
     private void CargarEstadoMesas() {
 
         modelo4.setRowCount(0);
