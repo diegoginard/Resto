@@ -3,20 +3,45 @@ package Vistas;
 
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
-
 
 public class Login extends javax.swing.JFrame {
 
-   
     public Login() {
         
         initComponents();
         this.setLocationRelativeTo(null); 
         setIconImage(getIconImage());
+        
+         // Agregar un ActionListener al botón "Login"
+        jbEntrar.addActionListener(new ActionListener() {
+            
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                
+                login(); // Método para manejar el inicio de sesión
+                
+            }
+        });
+
+        // Agregar un KeyAdapter al campo de contraseña
+        jpContraseña.addKeyListener(new KeyAdapter() {
+            
+            @Override
+            public void keyPressed(KeyEvent e) {
+                
+                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+                    login(); // Método para manejar el inicio de sesión
+                    
+                }
+            }
+        });
     }
-    
-    
+
     @Override
     public Image getIconImage(){
         
@@ -25,7 +50,6 @@ public class Login extends javax.swing.JFrame {
         return retValue;
     }
 
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -85,31 +109,35 @@ public class Login extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    
+    private void login() {
+        
+        String Usuario = "admin";
+        String Contraseña = "admin";
 
-    private void jbEntrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbEntrarMouseClicked
-
-        String Usuario ="admin";
-        String Contraseña="admin";
-
-        String Pass=new String(jpContraseña.getPassword());
+        String Pass = new String(jpContraseña.getPassword());
 
         if (jtUsuario.getText().isEmpty() || jpContraseña.getText().isEmpty()) {
             
             JOptionPane.showMessageDialog(this, "Nose Permiten Casillas Vacias");
-
-            return;
             
-        } else if (jtUsuario.getText().equals(Usuario) && jpContraseña.getText().equals(Contraseña)) {
+        } else if (jtUsuario.getText().equals(Usuario) && Pass.equals(Contraseña)) {
             
             IniciarSalon is = new IniciarSalon();
             is.setVisible(true);
             dispose();
 
+            
         } else {
             
             JOptionPane.showMessageDialog(this, "Error al Entrar Usuario y/o Contraseña Incorrecta");
-            
         }
+    }
+    
+    private void jbEntrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbEntrarMouseClicked
+        
+        login();
+        
     }//GEN-LAST:event_jbEntrarMouseClicked
 
     public static void main(String args[]) {
