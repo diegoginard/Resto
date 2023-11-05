@@ -1079,6 +1079,7 @@ public class restoView extends javax.swing.JInternalFrame {
         jbAgregarQuitar.setEnabled(true);
         jbEntregar.setEnabled(true); 
         jbCancelar.setEnabled(true);
+        jbCobrar.setEnabled(false);
         Mesa mesa = (Mesa) jcMesasPedido.getSelectedItem();
         int idMesa = mesa.getIdMesa();
         cargarPedidoPediente(idMesa);
