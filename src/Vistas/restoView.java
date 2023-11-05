@@ -975,7 +975,7 @@ public class restoView extends javax.swing.JInternalFrame {
                 .addComponent(jbInicio1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31))
             .addGroup(jDesktopPane2Layout.createSequentialGroup()
-                .addGap(212, 212, 212)
+                .addGap(206, 206, 206)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
