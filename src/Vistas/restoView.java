@@ -50,6 +50,31 @@ public class restoView extends javax.swing.JInternalFrame {
         }
     }
 
+    // Define un renderizador personalizado
+    DefaultListCellRenderer renderer = new DefaultListCellRenderer() {
+        public Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
+            Component component = super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
+
+            if (value instanceof Mesa) {
+                
+                Mesa mesa = (Mesa) value;
+                
+                if (mesa.getEstadoMesa().equals("OCUPADO")) {
+                    
+                    component.setBackground(Color.RED);
+                    component.setForeground(Color.WHITE);
+                    
+                } else {
+                    
+                    component.setBackground(Color.GREEN);
+                    
+                }
+            }
+
+            return component;
+        }
+    };
+
     MesaData md = new MesaData();
     PedidoData pd = new PedidoData();
     ProductoData pdat = new ProductoData();
@@ -70,12 +95,12 @@ public class restoView extends javax.swing.JInternalFrame {
         ui.setNorthPane(null);
 
         ventanas.setUI(new BasicTabbedPaneUI() {
-            
+
             @Override
             protected int calculateTabAreaHeight(int tabPlacement, int horizRunCount, int maxTabHeight) {
-                
+
                 return 0; // Configura la altura de la zona de pestañas a 0 para ocultarlas
-                
+
             }
         });
 
@@ -85,7 +110,7 @@ public class restoView extends javax.swing.JInternalFrame {
         jbEntregar.setEnabled(false);
         jbCancelar.setEnabled(false);
         jbCobrar.setEnabled(false);
-        
+
     }
 
     private DefaultTableModel modelo3 = new DefaultTableModel() {
@@ -1418,7 +1443,9 @@ public class restoView extends javax.swing.JInternalFrame {
     private void cargarMesas() {
 
         List<Mesa> cblistarMesas = md.listarMesas();
-
+        jcMesasPedido.setRenderer(renderer);
+        jcMesas.setRenderer(renderer);
+        
         for (int i = 0; i < cblistarMesas.size(); i++) {
 
             jcMesas.addItem(new Mesa(cblistarMesas.get(i).getIdMesa(), cblistarMesas.get(i).getNumero(), cblistarMesas.get(i).getEstadoMesa(), cblistarMesas.get(i).getCapacidad(),
