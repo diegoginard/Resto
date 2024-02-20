@@ -1,0 +1,1 @@
+EXPRESSION#>ant -f C:\Users\ARcade\Documents\GitHub\Resto -Dnb.internal.action.name=rebuild -Xlint:unchecked clean jar

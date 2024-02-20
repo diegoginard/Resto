@@ -233,7 +233,7 @@ public class MesaData {
     
     public List<Mesa> BuscarMesasNumero(String buscar){
         
-        List <Mesa> mesasNumero = new ArrayList();
+        List <Mesa> mesasNumero = new ArrayList<>();
         
         try {
             
@@ -268,7 +268,7 @@ public class MesaData {
     
     public List<Mesa> BuscarMesasEstado(String buscar){
         
-        List <Mesa> mesasEstado = new ArrayList();
+        List <Mesa> mesasEstado = new ArrayList<>();
         
         try {
             
@@ -302,7 +302,7 @@ public class MesaData {
     
     public List<Mesa> BuscarMesasCapacidad(String buscar){
         
-        List <Mesa> mesasNumero = new ArrayList();
+        List <Mesa> mesasNumero = new ArrayList<>();
         
         try {
             
@@ -337,7 +337,7 @@ public class MesaData {
     
     public List<Mesa> BuscarMesasEstadoMesa(String buscar){
         
-        List <Mesa> mesasNumero = new ArrayList();
+        List <Mesa> mesasNumero = new ArrayList<>();
         
         try {
             
@@ -372,7 +372,7 @@ public class MesaData {
     
     public List<Mesa> BuscarMesasActivo(String buscar){
         
-        List <Mesa> mesasNumero = new ArrayList();
+        List <Mesa> mesasNumero = new ArrayList<>();
         
         try {
             
@@ -407,7 +407,7 @@ public class MesaData {
     
     public List<Mesa> BuscarMesasId(String buscar){
         
-        List <Mesa> mesasNumero = new ArrayList();
+        List <Mesa> mesasNumero = new ArrayList<>();
         
         try {
             

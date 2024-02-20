@@ -45,7 +45,7 @@ public class Login extends javax.swing.JFrame {
     @Override
     public Image getIconImage(){
         
-        Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("Recursos/icons8_lock_2_256.png"));
+        Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("Recursos/Lock.png"));
     
         return retValue;
     }
@@ -68,12 +68,12 @@ public class Login extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jbEntrar.setText("Entrar");
-        jbEntrar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jbEntrarMouseClicked(evt);
+        jbEntrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbEntrarActionPerformed(evt);
             }
         });
-        jPanel1.add(jbEntrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(178, 226, 80, 40));
+        jPanel1.add(jbEntrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 230, 80, 40));
         jPanel1.add(jpContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(227, 164, 180, -1));
 
         jLabel2.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
@@ -117,7 +117,7 @@ public class Login extends javax.swing.JFrame {
 
         String Pass = new String(jpContraseña.getPassword());
 
-        if (jtUsuario.getText().isEmpty() || jpContraseña.getText().isEmpty()) {
+        if (jtUsuario.getText().isEmpty() || jpContraseña.getPassword().length == 0) {
             
             JOptionPane.showMessageDialog(this, "Nose Permiten Casillas Vacias");
             
@@ -134,11 +134,11 @@ public class Login extends javax.swing.JFrame {
         }
     }
     
-    private void jbEntrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbEntrarMouseClicked
+    private void jbEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEntrarActionPerformed
         
         login();
         
-    }//GEN-LAST:event_jbEntrarMouseClicked
+    }//GEN-LAST:event_jbEntrarActionPerformed
 
     public static void main(String args[]) {
      

@@ -11,11 +11,7 @@ import javax.swing.plaf.basic.BasicTabbedPaneUI;
 import javax.swing.table.*;
 
 public class restoView extends javax.swing.JInternalFrame {
-    
-    Icon icoR = new ImageIcon(getClass().getResource("/Recursos/mesa-rojo.png"));
-    Icon icoV = new ImageIcon(getClass().getResource("/Recursos/mesa-verde.png"));
-    
-    
+ 
     public class ajustarCeldas extends DefaultTableCellRenderer {
         
         public ajustarCeldas() {
@@ -52,6 +48,7 @@ public class restoView extends javax.swing.JInternalFrame {
 
     // Define un renderizador personalizado para las celdas de la tabla mesa
     DefaultListCellRenderer renderer = new DefaultListCellRenderer() {
+        
         public Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
             Component component = super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
 
@@ -157,7 +154,7 @@ public class restoView extends javax.swing.JInternalFrame {
 
         ventanas = new javax.swing.JTabbedPane();
         jpInicio = new javax.swing.JPanel();
-        ImageIcon icono = new ImageIcon(getClass().getResource("/Recursos/INICIO.jpg"));
+        ImageIcon icono = new ImageIcon(getClass().getResource("/Recursos/Salon.jpg"));
         Image imagen = icono.getImage();
         jDesktopPane1 = new javax.swing.JDesktopPane(){
 
@@ -175,7 +172,7 @@ public class restoView extends javax.swing.JInternalFrame {
         jbCobrarMesa = new javax.swing.JButton();
         jbEstadoMesas = new javax.swing.JButton();
         jpMesaMesero = new javax.swing.JPanel();
-        ImageIcon icono2 = new ImageIcon(getClass().getResource("/Recursos/FONDO5.jpg"));
+        ImageIcon icono2 = new ImageIcon(getClass().getResource("/Recursos/CrearPedido.jpg"));
         Image imagen2 = icono2.getImage();
         crearpedido = new javax.swing.JDesktopPane(){
 
@@ -195,7 +192,7 @@ public class restoView extends javax.swing.JInternalFrame {
         jButton1 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jpProducto = new javax.swing.JPanel();
-        ImageIcon icono3 = new ImageIcon(getClass().getResource("/Recursos/FONDO19.jpg"));
+        ImageIcon icono3 = new ImageIcon(getClass().getResource("/Recursos/AgregarProducto.jpg"));
         Image imagen3 = icono3.getImage();
         agregarproductos = new javax.swing.JDesktopPane(){
 
@@ -223,7 +220,7 @@ public class restoView extends javax.swing.JInternalFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jpPedidos = new javax.swing.JPanel();
-        ImageIcon icono4 = new ImageIcon(getClass().getResource("/Recursos/PIZZA.jpg"));
+        ImageIcon icono4 = new ImageIcon(getClass().getResource("/Recursos/AgregarPedido.jpg"));
         Image imagen4 = icono4.getImage();
         elegirpedido = new javax.swing.JDesktopPane(){
 
@@ -245,7 +242,7 @@ public class restoView extends javax.swing.JInternalFrame {
         jbInicio = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
         jpMesas = new javax.swing.JPanel();
-        ImageIcon icono5 = new ImageIcon(getClass().getResource("/Recursos/FONDO4.jpg"));
+        ImageIcon icono5 = new ImageIcon(getClass().getResource("/Recursos/EstadoMesas.jpg"));
         Image imagen5 = icono5.getImage();
         jDesktopPane2 = new javax.swing.JDesktopPane(){
             public void paintComponent(Graphics g){
@@ -279,7 +276,7 @@ public class restoView extends javax.swing.JInternalFrame {
         jLabel1.setForeground(new java.awt.Color(204, 153, 0));
         jLabel1.setText("BIENVENIDOS");
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Logo Pizzería Ilustración Blanco Negro (1).png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Logo.png"))); // NOI18N
 
         jbTomarPedido.setBackground(new java.awt.Color(40, 40, 40));
         jbTomarPedido.setFont(new java.awt.Font("Segoe UI Historic", 1, 24)); // NOI18N
@@ -350,8 +347,8 @@ public class restoView extends javax.swing.JInternalFrame {
                                 .addComponent(jbAgregarAPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jbEstadoMesas, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                        .addGap(112, 112, 112)
-                        .addComponent(jLabel2)))
+                        .addGap(114, 114, 114)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(342, Short.MAX_VALUE))
         );
         jDesktopPane1Layout.setVerticalGroup(
@@ -359,9 +356,9 @@ public class restoView extends javax.swing.JInternalFrame {
             .addGroup(jDesktopPane1Layout.createSequentialGroup()
                 .addGap(34, 34, 34)
                 .addComponent(jLabel1)
-                .addGap(60, 60, 60)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 91, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(jbTomarPedido)
                 .addGap(13, 13, 13)
                 .addComponent(jbAgregarAPedido)
@@ -382,7 +379,7 @@ public class restoView extends javax.swing.JInternalFrame {
             jpInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpInicioLayout.createSequentialGroup()
                 .addComponent(jDesktopPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 66, Short.MAX_VALUE))
+                .addGap(0, 159, Short.MAX_VALUE))
         );
 
         ventanas.addTab("", jpInicio);
@@ -489,7 +486,7 @@ public class restoView extends javax.swing.JInternalFrame {
                     .addGroup(crearpedidoLayout.createSequentialGroup()
                         .addGap(102, 102, 102)
                         .addComponent(jLabel12)))
-                .addContainerGap(441, Short.MAX_VALUE))
+                .addContainerGap(348, Short.MAX_VALUE))
         );
         crearpedidoLayout.setVerticalGroup(
             crearpedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -498,7 +495,7 @@ public class restoView extends javax.swing.JInternalFrame {
                 .addComponent(jLabel12)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(208, Short.MAX_VALUE))
+                .addContainerGap(194, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jpMesaMeseroLayout = new javax.swing.GroupLayout(jpMesaMesero);
@@ -640,9 +637,9 @@ public class restoView extends javax.swing.JInternalFrame {
         agregarproductosLayout.setHorizontalGroup(
             agregarproductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(agregarproductosLayout.createSequentialGroup()
-                .addGap(0, 30, Short.MAX_VALUE)
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jLabel7)
-                .addGap(26, 26, 26)
+                .addGap(18, 18, 18)
                 .addComponent(jtBProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(118, 118, 118)
                 .addComponent(jlMesa, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -689,23 +686,26 @@ public class restoView extends javax.swing.JInternalFrame {
                 .addGroup(agregarproductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
-                .addGap(25, 25, 25)
-                .addGroup(agregarproductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(agregarproductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(agregarproductosLayout.createSequentialGroup()
-                        .addComponent(jLabel9)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(agregarproductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(agregarproductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jLabel5)
-                                .addComponent(jtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(agregarproductosLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(agregarproductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jlMesa)
-                            .addComponent(jtBProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(91, 91, 91)))
+                            .addGroup(agregarproductosLayout.createSequentialGroup()
+                                .addComponent(jLabel9)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(agregarproductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(31, 31, 31))
+                            .addGroup(agregarproductosLayout.createSequentialGroup()
+                                .addGroup(agregarproductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jlMesa)
+                                    .addComponent(jtBProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(91, 91, 91))))
+                    .addGroup(agregarproductosLayout.createSequentialGroup()
+                        .addGap(44, 44, 44)
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(agregarproductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(agregarproductosLayout.createSequentialGroup()
                         .addGap(2, 2, 2)
@@ -854,15 +854,15 @@ public class restoView extends javax.swing.JInternalFrame {
                         .addComponent(jbAgregarQuitar, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(elegirpedidoLayout.createSequentialGroup()
                         .addGroup(elegirpedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(elegirpedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jLabel15)
-                                .addGroup(elegirpedidoLayout.createSequentialGroup()
-                                    .addGap(21, 21, 21)
+                            .addGroup(elegirpedidoLayout.createSequentialGroup()
+                                .addGap(21, 21, 21)
+                                .addGroup(elegirpedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel15)
                                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(elegirpedidoLayout.createSequentialGroup()
                                 .addGap(63, 63, 63)
                                 .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 164, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
                         .addGroup(elegirpedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jbEntregar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jbCancelar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -885,9 +885,8 @@ public class restoView extends javax.swing.JInternalFrame {
                             .addComponent(jbAgregarQuitar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(15, 15, 15))
                     .addGroup(elegirpedidoLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
-                        .addComponent(jLabel11)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel11)))
                 .addGroup(elegirpedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(elegirpedidoLayout.createSequentialGroup()
                         .addGap(25, 25, 25)
@@ -901,7 +900,7 @@ public class restoView extends javax.swing.JInternalFrame {
                         .addComponent(jbCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(34, 34, 34)
                 .addComponent(jbCobrar, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
                 .addComponent(jbInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24))
         );
@@ -969,7 +968,7 @@ public class restoView extends javax.swing.JInternalFrame {
             .addGroup(jDesktopPane2Layout.createSequentialGroup()
                 .addGap(185, 185, 185)
                 .addComponent(jLabel13)
-                .addGap(0, 333, Short.MAX_VALUE))
+                .addGap(0, 240, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jbInicio1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -988,7 +987,7 @@ public class restoView extends javax.swing.JInternalFrame {
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(9, 9, 9)
                 .addComponent(jbInicio1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(92, Short.MAX_VALUE))
+                .addContainerGap(78, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jpMesasLayout = new javax.swing.GroupLayout(jpMesas);

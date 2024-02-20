@@ -49,7 +49,7 @@ public class AdministraMenus extends JInternalFrame {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
-        ImageIcon icono = new ImageIcon(getClass().getResource("/Recursos/FMENU.jpg"));
+        ImageIcon icono = new ImageIcon(getClass().getResource("/Recursos/AdministrarMenu.jpg"));
         Image imagen = icono.getImage();
         escritorio = new javax.swing.JDesktopPane(){
 

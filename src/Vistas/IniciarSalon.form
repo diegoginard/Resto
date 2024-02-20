@@ -71,6 +71,9 @@
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="iconImage" type="java.awt.Image" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+      <Connection component="Form" name="iconImage" type="property"/>
+    </Property>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="menuBar" type="java.lang.String" value="jMenuBar1"/>
@@ -108,7 +111,7 @@
     <Container class="javax.swing.JDesktopPane" name="escritorio">
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JDesktopPane(){&#xa;&#xa;    public void paintComponent(Graphics g){&#xa;&#xa;        g.drawImage(imagen,0,0,getWidth(),getHeight(),this);&#xa;&#xa;    }&#xa;}"/>
-        <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="ImageIcon icono = new ImageIcon(getClass().getResource(&quot;/Recursos/FOODDRINKS.JPG&quot;));&#xa;Image imagen = icono.getImage();"/>
+        <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="URL imageUrl = getClass().getResource(&quot;/Recursos/Inicio1.jpg&quot;);&#xa;ImageIcon icono = new ImageIcon(imageUrl);&#xa;Image imagen = icono.getImage();"/>
         <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="escritorio.addMouseListener(new MouseAdapter() {&#xa;            public void mousePressed(MouseEvent e) {&#xa;                initialClick = e.getPoint();&#xa;            }&#xa;        });&#xa;&#xa;escritorio.addMouseMotionListener(new MouseMotionAdapter() {&#xa;&#xa;    public void mouseDragged(MouseEvent e) {&#xa;&#xa;        int thisX = getLocation().x;&#xa;        int thisY = getLocation().y;&#xa;&#xa;        int xMoved = (thisX + e.getX()) - (thisX + initialClick.x);&#xa;        int yMoved = (thisY + e.getY()) - (thisY + initialClick.y);&#xa;&#xa;        int X = thisX + xMoved;&#xa;        int Y = thisY + yMoved;&#xa;        setLocation(X, Y);&#xa;&#xa;    }&#xa;});"/>
       </AuxValues>
 

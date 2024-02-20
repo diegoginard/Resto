@@ -56,9 +56,6 @@ public class AdministraMesas extends javax.swing.JInternalFrame {
         };
         jScrollPane1 = new javax.swing.JScrollPane();
         jtListaMesas = new javax.swing.JTable();
-        jbCrear = new javax.swing.JButton();
-        jbModificar = new javax.swing.JButton();
-        jbBorrar = new javax.swing.JButton();
         jbSalir = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jrActivo = new javax.swing.JRadioButton();
@@ -75,10 +72,12 @@ public class AdministraMesas extends javax.swing.JInternalFrame {
         jLabel7 = new javax.swing.JLabel();
         jcElegir = new javax.swing.JComboBox<>();
         jPanel1 = new javax.swing.JPanel();
+        jbBorrar = new javax.swing.JButton();
+        jbModificar = new javax.swing.JButton();
+        jbCrear = new javax.swing.JButton();
 
         setBorder(null);
         setTitle("Administra Salon");
-        setPreferredSize(null);
         addContainerListener(new java.awt.event.ContainerAdapter() {
             public void componentAdded(java.awt.event.ContainerEvent evt) {
                 formComponentAdded(evt);
@@ -87,7 +86,6 @@ public class AdministraMesas extends javax.swing.JInternalFrame {
 
         escritorio.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         escritorio.setForeground(new java.awt.Color(0, 0, 0));
-        escritorio.setPreferredSize(null);
         escritorio.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jtListaMesas.setModel(new javax.swing.table.DefaultTableModel(
@@ -108,31 +106,7 @@ public class AdministraMesas extends javax.swing.JInternalFrame {
         });
         jScrollPane1.setViewportView(jtListaMesas);
 
-        escritorio.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 470, 200));
-
-        jbCrear.setText("Crear");
-        jbCrear.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbCrearActionPerformed(evt);
-            }
-        });
-        escritorio.add(jbCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, 70, -1));
-
-        jbModificar.setText("Modificar");
-        jbModificar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbModificarActionPerformed(evt);
-            }
-        });
-        escritorio.add(jbModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 220, 90, -1));
-
-        jbBorrar.setText("Borrar");
-        jbBorrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbBorrarActionPerformed(evt);
-            }
-        });
-        escritorio.add(jbBorrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 220, 80, -1));
+        escritorio.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 470, 180));
 
         jbSalir.setText("Salir");
         jbSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -140,7 +114,7 @@ public class AdministraMesas extends javax.swing.JInternalFrame {
                 jbSalirActionPerformed(evt);
             }
         });
-        escritorio.add(jbSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 220, 70, -1));
+        escritorio.add(jbSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 510, 70, -1));
 
         jLabel1.setBackground(new java.awt.Color(0, 0, 0));
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -219,15 +193,49 @@ public class AdministraMesas extends javax.swing.JInternalFrame {
 
         jPanel1.setBackground(new java.awt.Color(30, 30, 30));
 
+        jbBorrar.setText("Borrar");
+        jbBorrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbBorrarActionPerformed(evt);
+            }
+        });
+
+        jbModificar.setText("Modificar");
+        jbModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbModificarActionPerformed(evt);
+            }
+        });
+
+        jbCrear.setText("Crear");
+        jbCrear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbCrearActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(jbCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                .addComponent(jbModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(46, 46, 46)
+                .addComponent(jbBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 280, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(198, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jbBorrar)
+                    .addComponent(jbModificar)
+                    .addComponent(jbCrear))
+                .addGap(58, 58, 58))
         );
 
         escritorio.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 400, 280));

@@ -6,9 +6,11 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Point;
+import java.awt.Toolkit;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
+import java.net.URL;
 import java.sql.Connection;
 import java.text.ParseException;
 import java.util.logging.Level;
@@ -17,14 +19,13 @@ import javax.swing.ImageIcon;
 import javax.swing.JMenuBar;
 
 public class IniciarSalon extends javax.swing.JFrame {
-    
+
     private Connection con = null;
     private Point initialClick;
-    
-        
 
     public IniciarSalon() {
-
+        
+        getIconImage();
         setUndecorated(true); // Oculta la decoración (barra de título)
         initComponents();
         con = Conexion.getConexion();
@@ -32,12 +33,12 @@ public class IniciarSalon extends javax.swing.JFrame {
 
     }
 
-   
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        ImageIcon icono = new ImageIcon(getClass().getResource("/Recursos/FOODDRINKS.JPG"));
+        URL imageUrl = getClass().getResource("/Recursos/Inicio1.jpg");
+        ImageIcon icono = new ImageIcon(imageUrl);
         Image imagen = icono.getImage();
         escritorio = new javax.swing.JDesktopPane(){
 
@@ -57,6 +58,7 @@ public class IniciarSalon extends javax.swing.JFrame {
         jmSalir = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setIconImage(getIconImage());
         addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 formMouseClicked(evt);
@@ -182,6 +184,12 @@ public class IniciarSalon extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jmPedidosActionPerformed
 
+    @Override
+    public Image getIconImage() {
+        Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("Recursos/hamburguesa.png"));
+        return retValue;
+    }
+    
     private void jmMesasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmMesasActionPerformed
 
 //        escritorio.removeAll();
@@ -190,7 +198,7 @@ public class IniciarSalon extends javax.swing.JFrame {
         me.setVisible(true);
         escritorio.add(me);
         escritorio.moveToFront(me);
-        
+
     }//GEN-LAST:event_jmMesasActionPerformed
 
     private void jmMenusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmMenusActionPerformed
@@ -226,7 +234,7 @@ public class IniciarSalon extends javax.swing.JFrame {
     }//GEN-LAST:event_formMouseClicked
 
     public static void main(String args[]) {
-       
+        
         java.awt.EventQueue.invokeLater(new Runnable() {
            
             public void run() {
