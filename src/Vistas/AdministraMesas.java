@@ -44,7 +44,7 @@ public class AdministraMesas extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        ImageIcon icono = new ImageIcon(getClass().getResource("/Recursos/iconos/FONDO14.jpg"));
+        ImageIcon icono = new ImageIcon(getClass().getResource("/Recursos/AdministrarMesas.jpg"));
         Image imagen = icono.getImage();
         escritorio = new javax.swing.JDesktopPane(){
 

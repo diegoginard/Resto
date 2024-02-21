@@ -602,7 +602,7 @@ public class restoView extends javax.swing.JInternalFrame {
         jbIrPedidos.setBackground(new java.awt.Color(102, 102, 102));
         jbIrPedidos.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
         jbIrPedidos.setForeground(new java.awt.Color(102, 255, 0));
-        jbIrPedidos.setText("IR A PEDIDOS");
+        jbIrPedidos.setText("ENVIAR PEDIDO");
         jbIrPedidos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbIrPedidosActionPerformed(evt);
@@ -639,7 +639,7 @@ public class restoView extends javax.swing.JInternalFrame {
             .addGroup(agregarproductosLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jLabel7)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jtBProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(118, 118, 118)
                 .addComponent(jlMesa, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -669,15 +669,15 @@ public class restoView extends javax.swing.JInternalFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, agregarproductosLayout.createSequentialGroup()
                         .addGap(9, 9, 9)
                         .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
                         .addComponent(jLabel8)))
                 .addGap(34, 34, 34))
             .addGroup(agregarproductosLayout.createSequentialGroup()
                 .addGap(105, 105, 105)
                 .addComponent(jbVolverMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jbIrPedidos, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(98, 98, 98))
+                .addComponent(jbIrPedidos, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(76, 76, 76))
         );
         agregarproductosLayout.setVerticalGroup(
             agregarproductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -688,7 +688,7 @@ public class restoView extends javax.swing.JInternalFrame {
                     .addComponent(jLabel6))
                 .addGroup(agregarproductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(agregarproductosLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(6, 6, Short.MAX_VALUE)
                         .addGroup(agregarproductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(agregarproductosLayout.createSequentialGroup()
                                 .addComponent(jLabel9)
@@ -703,7 +703,7 @@ public class restoView extends javax.swing.JInternalFrame {
                                     .addComponent(jtBProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(91, 91, 91))))
                     .addGroup(agregarproductosLayout.createSequentialGroup()
-                        .addGap(44, 44, 44)
+                        .addGap(28, 28, 28)
                         .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(agregarproductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

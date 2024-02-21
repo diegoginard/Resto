@@ -92,7 +92,7 @@ public class ListarPedidos extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        ImageIcon icono = new ImageIcon(getClass().getResource("/Recursos/FMENU.jpg"));
+        ImageIcon icono = new ImageIcon(getClass().getResource("/Recursos/AdministrarMenu.jpg"));
         Image imagen = icono.getImage();
         jDesktopPane1 = new javax.swing.JDesktopPane(){
 

@@ -119,7 +119,7 @@ public class Login extends javax.swing.JFrame {
 
         if (jtUsuario.getText().isEmpty() || jpContraseña.getPassword().length == 0) {
             
-            JOptionPane.showMessageDialog(this, "Nose Permiten Casillas Vacias");
+            JOptionPane.showMessageDialog(null, "No se Permiten Casillas Vacias");
             
         } else if (jtUsuario.getText().equals(Usuario) && Pass.equals(Contraseña)) {
             
@@ -127,7 +127,6 @@ public class Login extends javax.swing.JFrame {
             is.setVisible(true);
             dispose();
 
-            
         } else {
             
             JOptionPane.showMessageDialog(this, "Error al Entrar Usuario y/o Contraseña Incorrecta");
