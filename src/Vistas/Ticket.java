@@ -94,7 +94,7 @@ public class Ticket extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jtTicket);
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/iconos/Imagen de WhatsApp 2023-10-29 a las 21.26.28_1f2672c2.jpg"))); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa60.png"))); // NOI18N
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         jLabel5.setText("Telefono :    45282658");

@@ -207,7 +207,7 @@
         <Component class="javax.swing.JButton" name="jButton1">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Recursos/iconos/Imagen de WhatsApp 2023-10-29 a las 21.26.28_1f2672c2.jpg"/>
+              <Image iconType="3" name="/Recursos/mesa60.png"/>
             </Property>
           </Properties>
         </Component>
