@@ -6,4 +6,18 @@ Este software ha sido desarrollado utilizando **NetBeans** como entorno de desar
 - **Java (JDK 17)**: Lenguaje de programación principal.
 - **NetBeans IDE**: Herramienta utilizada para el desarrollo.
 
-Este sistema tiene como objetivo optimizar y simplificar la operación de bares mediante una interfaz intuitiva y funcional, garantizando una experiencia de gestión eficiente.
+### Capturas de pantalla
+
+#### Pantalla Login
+![Pantalla principal](images/login.png)
+
+#### Pantalla de inicio
+![Gestión de inventarios](images/inicio.png)
+
+#### Pantalla de esta de mesas
+![Gestión de inventarios](images/mesas.png)
+
+### Funcionalidades
+- Estado de mesas
+- Administración de pedidos
+- Reportes detallados
