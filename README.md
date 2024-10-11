@@ -5,7 +5,9 @@ Este software ha sido desarrollado utilizando **NetBeans** como entorno de desar
 ### Tecnologías utilizadas:
 - **Java (JDK 17)**: Lenguaje de programación principal.
 - **NetBeans IDE**: Herramienta utilizada para el desarrollo.
-
+- **MySQL**: Sistema de gestión de base de datos utilizado para almacenar y gestionar la información.
+- **JDBC (Java Database Connectivity)**: Utilizado para la conexión e interacción con la base de datos MySQL.
+  
 ### Capturas de pantalla
 
 #### Pantalla Login
