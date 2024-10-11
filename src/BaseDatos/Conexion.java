@@ -9,10 +9,10 @@ import javax.swing.JOptionPane;
 
 public class Conexion {
     
-    private static final String URL="jdbc:mariadb://localhost/";
+    private static final String URL="jdbc:mysql://localhost:3306/";
     private static final String DB="resto";
     private static final String USUARIO="root";
-    private static final String PASSWORD="";
+    private static final String PASSWORD="admin";
     private static Connection connection;
     
     private Conexion(){
@@ -25,7 +25,7 @@ public class Conexion {
 
             try {
 
-                Class.forName("org.mariadb.jdbc.Driver");
+                Class.forName("com.mysql.cj.jdbc.Driver");
 
                 connection = DriverManager.getConnection(URL + DB, USUARIO, PASSWORD);
 
