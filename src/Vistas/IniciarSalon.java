@@ -2,7 +2,6 @@
 package Vistas;
 
 import BaseDatos.Conexion;
-import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Point;
@@ -22,7 +21,18 @@ public class IniciarSalon extends javax.swing.JFrame {
 
     private Connection con = null;
     private Point initialClick;
-
+    public String nombre;
+    public String apellido;
+    
+    // Método para recibir el nombre y apellido
+    public void recibirDatos(String nombre, String apellido) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        jLnombre.setText(nombre +"  "+ apellido);
+        
+    }
+    
+    
     public IniciarSalon() {
         
         getIconImage();
@@ -30,7 +40,7 @@ public class IniciarSalon extends javax.swing.JFrame {
         initComponents();
         con = Conexion.getConexion();
         this.setLocationRelativeTo(null);
-
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -48,6 +58,7 @@ public class IniciarSalon extends javax.swing.JFrame {
 
             }
         };
+        jLnombre = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jmMenu = new javax.swing.JMenu();
         jmMenuInicio = new javax.swing.JMenuItem();
@@ -91,15 +102,27 @@ public class IniciarSalon extends javax.swing.JFrame {
             }
         });
 
+        jLnombre.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        jLnombre.setForeground(new java.awt.Color(255, 255, 255));
+        jLnombre.setText("Nombre");
+
+        escritorio.setLayer(jLnombre, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
         javax.swing.GroupLayout escritorioLayout = new javax.swing.GroupLayout(escritorio);
         escritorio.setLayout(escritorioLayout);
         escritorioLayout.setHorizontalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1008, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, escritorioLayout.createSequentialGroup()
+                .addContainerGap(788, Short.MAX_VALUE)
+                .addComponent(jLnombre, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(57, 57, 57))
         );
         escritorioLayout.setVerticalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 663, Short.MAX_VALUE)
+            .addGroup(escritorioLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLnombre, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(639, Short.MAX_VALUE))
         );
 
         jMenuBar1.setBorder(null);
@@ -198,12 +221,13 @@ public class IniciarSalon extends javax.swing.JFrame {
     
     private void jmMenuInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmMenuInicioActionPerformed
         
-        escritorio.removeAll();
-        escritorio.repaint();
+//        escritorio.removeAll();
+//        escritorio.repaint();
         restoView rv = new restoView();
         rv.setVisible(true);
         escritorio.add(rv);
         escritorio.moveToFront(rv);
+        
         
     }//GEN-LAST:event_jmMenuInicioActionPerformed
 
@@ -278,6 +302,7 @@ public class IniciarSalon extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane escritorio;
+    private javax.swing.JLabel jLnombre;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu jMgestpers;
     private javax.swing.JMenu jMgestsal;

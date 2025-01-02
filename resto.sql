@@ -81,7 +81,12 @@ CREATE TABLE `usuario` (
   `password` varchar(50) DEFAULT NULL,
   `nombre` varchar(50) DEFAULT NULL,
   `apellido` varchar(50) DEFAULT NULL,
+  `edad` int NOT NULL,
+  `dni` int NOT NULL UNIQUE,
+  `telefono` int NOT NULL,
+  `fechaNacimiento` DATE DEFAULT NULL,
+  `activo` tinyint(1) NOT NULL,
   PRIMARY KEY (`idUsuario`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
-INSERT INTO `usuario` VALUES (1,'admin','admin','user','pass'),(2,'prueba','1234','prueba','prueba');
+INSERT INTO `usuario` VALUES (NULL,'admin','admin','user','pass',30,2222222,370411111,'1978-11-27',1);

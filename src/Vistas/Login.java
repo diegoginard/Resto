@@ -12,7 +12,9 @@ import java.awt.event.KeyEvent;
 import javax.swing.JFrame;
 
 public class Login extends JFrame {
-
+    
+    public String nombre;
+    public String apellido;
     private Connection con = null;
 
     public Login() {
@@ -162,6 +164,9 @@ public class Login extends JFrame {
 
             Utilidades.mostrarDialogoTemporal("", "¡Inicio de sesión exitoso! Bienvenido, " + usuario.getNombre(), 2000);
             IniciarSalon is = new IniciarSalon(); // Lógica para abrir la siguiente ventana
+            nombre = usuario.getNombre();
+            apellido = usuario.getApellido();
+            is.recibirDatos(nombre, apellido); // Enviar los datos
             is.setVisible(true);
             dispose();
 
