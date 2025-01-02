@@ -4,6 +4,10 @@ package Vistas;
 import BaseDatos.UsuarioData;
 import Entidades.Usuario;
 import java.awt.event.KeyEvent;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import static java.time.temporal.TemporalQueries.localDate;
+import java.util.Date;
 import java.util.List;
 import javax.swing.JInternalFrame;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
@@ -63,7 +67,7 @@ public class AdministrarUsuario extends JInternalFrame {
         jTpassword = new javax.swing.JTextField();
         jTapellido = new javax.swing.JTextField();
         jLactivo = new javax.swing.JLabel();
-        jTtelefono1 = new javax.swing.JTextField();
+        jTtelefono = new javax.swing.JTextField();
         jBsalir = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTBusuario = new javax.swing.JTable();
@@ -233,16 +237,16 @@ public class AdministrarUsuario extends JInternalFrame {
         jLactivo.setText("Activo");
         jPanel2.add(jLactivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, 50, 30));
 
-        jTtelefono1.setBackground(new java.awt.Color(51, 51, 51));
-        jTtelefono1.setForeground(new java.awt.Color(255, 255, 255));
-        jTtelefono1.setBorder(null);
-        jTtelefono1.setCaretColor(new java.awt.Color(255, 255, 255));
-        jTtelefono1.addKeyListener(new java.awt.event.KeyAdapter() {
+        jTtelefono.setBackground(new java.awt.Color(51, 51, 51));
+        jTtelefono.setForeground(new java.awt.Color(255, 255, 255));
+        jTtelefono.setBorder(null);
+        jTtelefono.setCaretColor(new java.awt.Color(255, 255, 255));
+        jTtelefono.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTtelefono1KeyTyped(evt);
+                jTtelefonoKeyTyped(evt);
             }
         });
-        jPanel2.add(jTtelefono1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 200, 120, 20));
+        jPanel2.add(jTtelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 200, 120, 20));
 
         jBsalir.setBackground(new java.awt.Color(51, 51, 51));
         jBsalir.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
@@ -332,13 +336,29 @@ public class AdministrarUsuario extends JInternalFrame {
         jTid.setText(jTBusuario.getValueAt(fila,0) + "");
         jTusuario.setText(jTBusuario.getValueAt(fila,1) + "");
         jTpassword.setText(jTBusuario.getValueAt(fila,2) + "");
+        jTnombre.setText(jTBusuario.getValueAt(fila,3) + "");
+        jTapellido.setText(jTBusuario.getValueAt(fila,4) + "");
+        jTedad.setText(jTBusuario.getValueAt(fila,5) + "");
+        jTdni.setText(jTBusuario.getValueAt(fila,6) + "");
+        jTtelefono.setText(jTBusuario.getValueAt(fila,7) + "");
+
+        // Convertir java.util.Date a java.sql.Date
+        Object value = jTBusuario.getValueAt(fila, 8);
+        // Convertir LocalDate a java.util.Date
+        LocalDate localDate = (LocalDate) value;
+        Date utilDate = Date.from(localDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
+        // Asignar la fecha al JDateChooser
+        jDCfechaNac.setDate(utilDate);
+        
+        jRactivo.setSelected((boolean)jTBusuario.getValueAt(fila,9));
+        
     }//GEN-LAST:event_jTBusuarioMouseClicked
 
-    private void jTtelefono1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTtelefono1KeyTyped
+    private void jTtelefonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTtelefonoKeyTyped
         
         soloNumeros(evt);
         
-    }//GEN-LAST:event_jTtelefono1KeyTyped
+    }//GEN-LAST:event_jTtelefonoKeyTyped
 
     private void jBsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBsalirActionPerformed
         
@@ -374,7 +394,7 @@ public class AdministrarUsuario extends JInternalFrame {
     private javax.swing.JTextField jTid;
     private javax.swing.JTextField jTnombre;
     private javax.swing.JTextField jTpassword;
-    private javax.swing.JTextField jTtelefono1;
+    private javax.swing.JTextField jTtelefono;
     private javax.swing.JTextField jTusuario;
     // End of variables declaration//GEN-END:variables
 
@@ -436,5 +456,4 @@ public class AdministrarUsuario extends JInternalFrame {
             
         }
     }
-
 }
