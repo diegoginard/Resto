@@ -87,6 +87,7 @@ public class AdministraMenus extends JInternalFrame {
 
         setBorder(null);
 
+        escritorio.setBackground(new java.awt.Color(50, 50, 50));
         escritorio.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         escritorio.setToolTipText("");
         escritorio.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());

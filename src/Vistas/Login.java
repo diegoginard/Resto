@@ -1,52 +1,53 @@
 
 package Vistas;
 
+import BaseDatos.Conexion;
+import java.sql.Connection;
+import BaseDatos.UsuarioData;
+import Entidades.Usuario;
 import java.awt.Image;
 import java.awt.Toolkit;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import javax.swing.JOptionPane;
+import javax.swing.JFrame;
 
-public class Login extends javax.swing.JFrame {
+public class Login extends JFrame {
+
+    private Connection con = null;
 
     public Login() {
-        
-        initComponents();
-        this.setLocationRelativeTo(null); 
-        setIconImage(getIconImage());
-        
-         // Agregar un ActionListener al botón "Login"
-        jbEntrar.addActionListener(new ActionListener() {
-            
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                
-                login(); // Método para manejar el inicio de sesión
-                
-            }
-        });
 
+        con = Conexion.getConexion();
+        initComponents();
+        this.setLocationRelativeTo(null); //El jframe se inicia en el centro de la pantalla.
+        setIconImage(getIconImage()); //se inicia el icono en la barra de titulo.
+        
         // Agregar un KeyAdapter al campo de contraseña
         jpContraseña.addKeyListener(new KeyAdapter() {
-            
+
             @Override
             public void keyPressed(KeyEvent e) {
-                
+
                 if (e.getKeyCode() == KeyEvent.VK_ENTER) {
                     login(); // Método para manejar el inicio de sesión
-                    
+
                 }
             }
         });
     }
 
+    /**
+     * Sobrescribe el método getIconImage para establecer el icono de la
+     * ventana. Carga una imagen desde los recursos del proyecto utilizando la
+     * ruta especificada.
+     *
+     * @return Un objeto Image que representa el icono de la ventana.
+     */
     @Override
-    public Image getIconImage(){
-        
+    public Image getIconImage() {
+
         Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("Recursos/Lock.png"));
-    
+
         return retValue;
     }
 
@@ -54,47 +55,79 @@ public class Login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jRadioButton1 = new javax.swing.JRadioButton();
         jPanel1 = new javax.swing.JPanel();
         jbEntrar = new javax.swing.JButton();
+        jbconex = new javax.swing.JButton();
         jpContraseña = new javax.swing.JPasswordField();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        jLcontraseña = new javax.swing.JLabel();
+        jLusuario = new javax.swing.JLabel();
         jtUsuario = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        jLiniSecion = new javax.swing.JLabel();
+        jLfondo = new javax.swing.JLabel();
+
+        jRadioButton1.setText("jRadioButton1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jbEntrar.setBackground(new java.awt.Color(35, 42, 68));
+        jbEntrar.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        jbEntrar.setForeground(new java.awt.Color(204, 204, 204));
         jbEntrar.setText("Entrar");
+        jbEntrar.setMaximumSize(new java.awt.Dimension(81, 22));
+        jbEntrar.setMinimumSize(new java.awt.Dimension(81, 22));
+        jbEntrar.setName(""); // NOI18N
         jbEntrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbEntrarActionPerformed(evt);
             }
         });
-        jPanel1.add(jbEntrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 230, 80, 40));
-        jPanel1.add(jpContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(227, 164, 180, -1));
+        jPanel1.add(jbEntrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 230, 110, 40));
 
-        jLabel2.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Contraseña");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(53, 164, -1, -1));
+        jbconex.setBackground(new java.awt.Color(35, 42, 68));
+        jbconex.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        jbconex.setForeground(new java.awt.Color(204, 204, 204));
+        jbconex.setText("Conexion");
+        jbconex.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbconexActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jbconex, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, 100, 40));
 
-        jLabel1.setBackground(java.awt.Color.white);
-        jLabel1.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Usuario ");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(53, 104, -1, -1));
-        jPanel1.add(jtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(227, 104, 180, -1));
+        jpContraseña.setBackground(new java.awt.Color(35, 42, 68));
+        jpContraseña.setForeground(new java.awt.Color(211, 211, 211));
+        jpContraseña.setBorder(null);
+        jpContraseña.setCaretColor(new java.awt.Color(255, 255, 255));
+        jPanel1.add(jpContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 160, 180, 20));
 
-        jLabel4.setFont(new java.awt.Font("Californian FB", 1, 24)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Iniciar Seción");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 40, -1, -1));
+        jLcontraseña.setFont(new java.awt.Font("Roboto Medium", 1, 24)); // NOI18N
+        jLcontraseña.setForeground(new java.awt.Color(255, 255, 255));
+        jLcontraseña.setText("Contraseña");
+        jPanel1.add(jLcontraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, -1, -1));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/segurity.png"))); // NOI18N
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 470, 310));
+        jLusuario.setBackground(java.awt.Color.white);
+        jLusuario.setFont(new java.awt.Font("Roboto Medium", 1, 24)); // NOI18N
+        jLusuario.setForeground(new java.awt.Color(255, 255, 255));
+        jLusuario.setText("Usuario ");
+        jPanel1.add(jLusuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, -1, -1));
+
+        jtUsuario.setBackground(new java.awt.Color(35, 42, 68));
+        jtUsuario.setForeground(new java.awt.Color(211, 211, 211));
+        jtUsuario.setBorder(null);
+        jtUsuario.setCaretColor(new java.awt.Color(255, 255, 255));
+        jtUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        jPanel1.add(jtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 100, 180, 20));
+
+        jLiniSecion.setFont(new java.awt.Font("Roboto Medium", 1, 24)); // NOI18N
+        jLiniSecion.setForeground(new java.awt.Color(255, 255, 255));
+        jLiniSecion.setText("Iniciar Seción");
+        jPanel1.add(jLiniSecion, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 40, -1, -1));
+
+        jLfondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/segurity.png"))); // NOI18N
+        jPanel1.add(jLfondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 470, 310));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -109,54 +142,69 @@ public class Login extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
+
     private void login() {
-        
-        String Usuario = "admin";
-        String Contraseña = "admin";
 
-        String Pass = new String(jpContraseña.getPassword());
+        String usuarioIngresado = jtUsuario.getText();
+        String contraseñaIngresada = new String(jpContraseña.getPassword());
 
-        if (jtUsuario.getText().isEmpty() || jpContraseña.getPassword().length == 0) {
-            
-            JOptionPane.showMessageDialog(null, "No se Permiten Casillas Vacias");
-            
-        } else if (jtUsuario.getText().equals(Usuario) && Pass.equals(Contraseña)) {
-            
-            IniciarSalon is = new IniciarSalon();
+        // Verificar campos vacíos
+        if (usuarioIngresado.isEmpty() || contraseñaIngresada.isEmpty()) {
+            Utilidades.mostrarDialogoTemporal("", "No se permiten campos vacíos.", 2000);
+            return;
+        }
+
+        // Buscar usuario en la base de datos
+        UsuarioData usuarioData = new UsuarioData();
+        Usuario usuario = usuarioData.buscarUsuario(usuarioIngresado, contraseñaIngresada);
+
+        if (usuario != null) {
+
+            Utilidades.mostrarDialogoTemporal("", "¡Inicio de sesión exitoso! Bienvenido, " + usuario.getNombre(), 2000);
+            IniciarSalon is = new IniciarSalon(); // Lógica para abrir la siguiente ventana
             is.setVisible(true);
             dispose();
 
         } else {
-            
-            JOptionPane.showMessageDialog(this, "Error al Entrar Usuario y/o Contraseña Incorrecta");
+
+            Utilidades.mostrarDialogoTemporal("", "Usuario o contraseña incorrectos.", 2000);
+
         }
     }
-    
+
     private void jbEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEntrarActionPerformed
-        
+
         login();
-        
+
     }//GEN-LAST:event_jbEntrarActionPerformed
 
+    private void jbconexActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbconexActionPerformed
+        
+        AdministrarConexion ac = new AdministrarConexion();
+        ac.setVisible(true);
+        
+    }//GEN-LAST:event_jbconexActionPerformed
+
     public static void main(String args[]) {
-     
+
         java.awt.EventQueue.invokeLater(new Runnable() {
-            
+
             public void run() {
                 new Login().setVisible(true);
-                
+
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLcontraseña;
+    private javax.swing.JLabel jLfondo;
+    private javax.swing.JLabel jLiniSecion;
+    private javax.swing.JLabel jLusuario;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JButton jbEntrar;
+    private javax.swing.JButton jbconex;
     private javax.swing.JPasswordField jpContraseña;
     private javax.swing.JTextField jtUsuario;
     // End of variables declaration//GEN-END:variables

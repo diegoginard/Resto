@@ -10,7 +10,8 @@ import Entidades.Pedido;
 import Entidades.PedidoProducto;
 import Entidades.Producto;
 import java.time.LocalDateTime;
-
+import Entidades.Usuario;
+import BaseDatos.UsuarioData;
 
 public class Resto {
 
@@ -25,7 +26,7 @@ public class Resto {
 //       pd.ModificarProducto(pro); //Funciona
 //       pd.eliminarProducto(5);  //Funciona
 //       MesaData md = new MesaData();
-//       System.out.println(md.listarMesasId(1));       
+//       System.out.println(md.ObtenerMesasId(1));       
 //       System.out.println(md.listarMesas()); //Funciona
 //       Mesa mesa= new Mesa(2,2,"LIBRE",6,true);
 //       md.crearMesa(mesa);  //Funciona
@@ -37,7 +38,7 @@ public class Resto {
 //            LocalDateTime.of(2023, 10, 10, 11, 00),
 //            true, 0, "pendiente");
 //       Pedido ped1 = new Pedido(2);
-       PedidoData ped = new PedidoData();
+//       PedidoData ped = new PedidoData();
 //       ped.guardarPedido(p1); //Funciona
 //       pd.eliminarPedido(4);
 //       System.out.println(pd.BuscarProductos("H")); //Funciona
@@ -49,6 +50,11 @@ public class Resto {
 //       PedidoProducto pedp = new PedidoProducto(ped1,pro,4,pro.getPrecio());
 //       PedidoProductoData ppd = new PedidoProductoData();
 //       ppd.crearPedProd(pedp);
-//       System.out.println(ppd.BuscarProductosxIdPedido(2));
+//       System.out.println(ppd.BuscarProductosxIdPedido    
+//       Usuario usu = new Usuario("admin","1234","prueba","prueba");
+//       UsuarioData usud = new UsuarioData();
+//       usud.crearUsuario(usu);
+//       System.out.println(usud.listarUsuarios());
+     
     }
 }

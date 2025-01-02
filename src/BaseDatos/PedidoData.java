@@ -3,12 +3,12 @@ package BaseDatos;
 
 import Entidades.Mesa;
 import Entidades.Pedido;
+import Vistas.Utilidades;
 import java.sql.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.JOptionPane;
 
 public class PedidoData {
     
@@ -23,13 +23,10 @@ public class PedidoData {
     }
     public int GuardarPedidoID(Pedido pedido) {
         
-        int idGenerado = -1; // Valor por defecto si no se puede obtener el ID generado
-
+        int idGenerado = -1;
         try {
-            
             String sql = "INSERT INTO pedido (nombreMesero, IdMesa, fechaHora, cobrada, importe, estado) VALUES (?, ?, ?, ?, ?, ?)";
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-            
             ps.setString(1, pedido.getNombreMesero());
             ps.setInt(2, pedido.getMesa().getIdMesa());
             ps.setTimestamp(3, Timestamp.valueOf(LocalDateTime.now()));
@@ -39,103 +36,68 @@ public class PedidoData {
             ps.executeUpdate();
 
             ResultSet rs = ps.getGeneratedKeys();
-            
             if (rs.next()) {
-                
-                idGenerado = rs.getInt(1); // Obtiene el ID generado
-                
+                idGenerado = rs.getInt(1);
             }
-            
-        } catch (Exception e) {
-            
-            e.printStackTrace();
-            
+        } catch (Exception ex) {
+            Utilidades.mostrarDialogoTemporal("Base de datos", "Error al acceder a la tabla Pedido" + ex.getMessage(), 2000);
         }
-
         return idGenerado;
-        
     }
-    
+
     public void guardarPedido(Pedido ped) {
-
         String sql = "INSERT INTO pedido (nombreMesero, IdMesa, fechaHora , cobrada , importe, estado) VALUES (?,?,?,?,?,?)";
-
         try {
-
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-            
             ps.setString(1, ped.getNombreMesero());
-            ps.setInt(2,ped.getMesa().getIdMesa());
+            ps.setInt(2, ped.getMesa().getIdMesa());
             ps.setTimestamp(3, Timestamp.valueOf(LocalDateTime.now()));
-            System.out.println(Timestamp.valueOf(LocalDateTime.now()));
             ps.setBoolean(4, false);
             ps.setDouble(5, ped.getImporte());
             ps.setString(6, "PENDIENTE");
             ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
-            
             if (rs.next()) {
-
                 ped.setIdPedido(rs.getInt(1));
-
-                JOptionPane.showMessageDialog(null, "Pedido Guardado ");
-
+                Utilidades.mostrarDialogoTemporal("Base de datos", "Pedido Guardado", 2000);
             }
-
             ps.close();
-
         } catch (SQLException ex) {
-
-            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla " + ex.getMessage());
-
+            Utilidades.mostrarDialogoTemporal("Base de datos", "Error al acceder a la Pedido" + ex.getMessage(), 2000);
         }
     }
 
     public void eliminarPedido(int idPedido) {
-
+        
         String sql = "DELETE FROM pedido WHERE idPedido = ?";
-
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, idPedido);
             ps.executeUpdate();
+            Utilidades.mostrarDialogoTemporal("Base de datos", "Pedido eliminado correctamente", 2000);
             ps.close();
-
         } catch (SQLException ex) {
-
-            JOptionPane.showMessageDialog(null, "No se pudo acceder a la tabla pedidos " + ex.getMessage());
+            Utilidades.mostrarDialogoTemporal("Base de datos", "No se pudo acceder a la tabla Pedido" + ex.getMessage(), 2000);
         }
     }
-    
-    public void modificarPedido(Pedido pe){
-        
-        String sql = "UPDATE pedido SET idPedido = ? , idMesa = ? , nombreMesero = ? , "
-                + "fechaHora = ? , cobrada = ? , importe = ? , estado = ? WHERE idPedido = ?";
-        
-        try {
-            
-            PreparedStatement ps= con.prepareStatement(sql);
 
+    public void modificarPedido(Pedido pe) {
+        
+        String sql = "UPDATE pedido SET idPedido = ? , idMesa = ? , nombreMesero = ? , fechaHora = ? , cobrada = ? , importe = ? , estado = ? WHERE idPedido = ?";
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, pe.getIdPedido());
             ps.setInt(2, pe.getMesa().getIdMesa());
             ps.setString(3, pe.getNombreMesero());
-            ps.setTimestamp(4,Timestamp.valueOf(pe.getFechaHora()));
+            ps.setTimestamp(4, Timestamp.valueOf(pe.getFechaHora()));
             ps.setBoolean(5, pe.isCobrada());
             ps.setDouble(6, pe.getImporte());
             ps.setString(7, pe.getEstado());
-            ps.setInt(8,pe.getIdPedido());
-            int exito= ps.executeUpdate();
-            
-            if (exito==1) {
-                
-//                JOptionPane.showMessageDialog(null, "Pedido Modificado");
-           
-            }
-            
+            ps.setInt(8, pe.getIdPedido());
+            ps.executeUpdate();
+//            Utilidades.mostrarDialogoTemporal("Base de datos", "Pedido modificado correctamente", 2000);
         } catch (SQLException ex) {
-            
-            JOptionPane.showMessageDialog(null,"Error al acceder a la tabla Pedido"+ex.getMessage());
-        
+            Utilidades.mostrarDialogoTemporal("Base de datos", "Error al acceder a la tabla Pedido" + ex.getMessage(), 2000);
         }
     }
     
@@ -167,7 +129,7 @@ public class PedidoData {
 
         }catch (SQLException ex) {
 
-//            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla pedidos" + ex.getMessage());
+           Utilidades.mostrarDialogoTemporal("Base de datos", "Error al acceder a la tabla Pedido" + ex.getMessage(), 2000);
 
         }
 
@@ -205,7 +167,7 @@ public class PedidoData {
 
         }catch (SQLException ex) {
 
-//            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla pedidos" + ex.getMessage());
+            Utilidades.mostrarDialogoTemporal("Base de datos", "Error al acceder a la tabla Pedido" + ex.getMessage(), 2000);
 
         }
 
@@ -243,7 +205,7 @@ public class PedidoData {
 
         }catch (SQLException ex) {
 
-//            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla pedidos" + ex.getMessage());
+            Utilidades.mostrarDialogoTemporal("Base de datos", "Error al acceder a la tabla Pedido" + ex.getMessage(), 2000);
 
         }
 
@@ -281,7 +243,7 @@ public class PedidoData {
 
         }catch (SQLException ex) {
 
-//            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla pedidos" + ex.getMessage());
+            Utilidades.mostrarDialogoTemporal("Base de datos", "Error al acceder a la tabla Pedido" + ex.getMessage(), 2000);
 
         }
 
@@ -306,13 +268,13 @@ public class PedidoData {
             
             if (exito==1) {
                 
-//                JOptionPane.showMessageDialog(null, "Pedido Modificado");
+                Utilidades.mostrarDialogoTemporal("Base de datos", "Pedido modificado", 2000);
            
             }
             
         } catch (SQLException ex) {
             
-            JOptionPane.showMessageDialog(null,"Error al acceder a la tabla Pedido"+ex.getMessage());
+            Utilidades.mostrarDialogoTemporal("Base de datos", "Error al acceder a la tabla Pedido" + ex.getMessage(), 2000);
         
         }
     }
@@ -342,7 +304,7 @@ public class PedidoData {
 
         }catch (SQLException ex) {
 
-//            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla" + ex.getMessage());
+            Utilidades.mostrarDialogoTemporal("Base de datos", "Error al acceder a la tabla Pedido" + ex.getMessage(), 2000);
 
         }
 
@@ -378,7 +340,7 @@ public class PedidoData {
 
         }catch (SQLException ex) {
 
-//            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla pedidos" + ex.getMessage());
+            Utilidades.mostrarDialogoTemporal("Base de datos", "Error al acceder a la tabla Pedido" + ex.getMessage(), 2000);
 
         }
 
@@ -413,7 +375,7 @@ public class PedidoData {
 
         }catch (SQLException ex) {
 
-//            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla pedidos" + ex.getMessage());
+            Utilidades.mostrarDialogoTemporal("Base de datos", "Error al acceder a la tabla Pedido" + ex.getMessage(), 2000);
 
         }
 
@@ -450,7 +412,7 @@ public class PedidoData {
 
         }catch (SQLException ex) {
 
-//            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla pedidos" + ex.getMessage());
+            Utilidades.mostrarDialogoTemporal("Base de datos", "Error al acceder a la tabla Pedido" + ex.getMessage(), 2000);
 
         }
 
@@ -484,7 +446,7 @@ public class PedidoData {
             ps.close();
         } catch (SQLException ex) {
             
-//            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla pedidos: " + ex.getMessage());
+            Utilidades.mostrarDialogoTemporal("Base de datos", "Error al acceder a la tabla Pedido" + ex.getMessage(), 2000);
             
         }
 
@@ -522,7 +484,7 @@ public class PedidoData {
             
         } catch (SQLException ex) {
 
-//            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla pedidos: " + ex.getMessage());
+            Utilidades.mostrarDialogoTemporal("Base de datos", "Error al acceder a la tabla Pedido" + ex.getMessage(), 2000);
             
         }
 
@@ -542,7 +504,7 @@ public class PedidoData {
                 
                 int cantidadPedidosPendientes = rs.getInt(1);
                 
-//                JOptionPane.showMessageDialog(null, cantidadPedidosPendientes);
+               Utilidades.mostrarDialogoTemporal("Pedidos pendientes", cantidadPedidosPendientes + "", 2000);
 
                 return cantidadPedidosPendientes > 0; // Si hay al menos un pedido pendiente, no se puede modificar a "LIBRE"
             }
@@ -551,7 +513,7 @@ public class PedidoData {
             
         } catch (SQLException ex) {
             
-            JOptionPane.showMessageDialog(null, "Error al verificar el estado del pedido: " + ex.getMessage());
+            Utilidades.mostrarDialogoTemporal("Base de datos", "Error al acceder a la tabla Pedido" + ex.getMessage(), 2000);
             
         }
 

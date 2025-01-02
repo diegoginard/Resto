@@ -1,9 +1,8 @@
 
 package BaseDatos;
 
-import Entidades.Pedido;
 import Entidades.PedidoProducto;
-import Entidades.Producto;
+import Vistas.Utilidades;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -11,16 +10,13 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.JOptionPane;
 
 
 public class PedidoProductoData {
 
     private Connection con = null;
-    Pedido ped = new Pedido();
-    PedidoData pd = new PedidoData();
-    Producto pro = new Producto();
-    ProductoData pdat = new ProductoData();
+    private PedidoData pd = new PedidoData();
+    private ProductoData pdat = new ProductoData();
     
     public PedidoProductoData(){
     
@@ -54,21 +50,19 @@ public class PedidoProductoData {
 
                 pedprod.setIdPedidoProducto(rs.getInt(1));
 
-//                JOptionPane.showMessageDialog(null, "Producto agregado al pedido");
             }
 
             ps.close();
 
             } else {
-                JOptionPane.showMessageDialog(null, "Pedido cobrado, debe generar uno nuevo");
-            }
                 
-            
+                Utilidades.mostrarDialogoTemporal("Base de datos", "Pedido cobrado, debe generar uno nuevo", 2000);
+                
+            }
 
-           
         } catch (SQLException ex) {
 
-            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla " + ex.getMessage());
+            Utilidades.mostrarDialogoTemporal("Base de datos", "Error al acceder a la tabla PedidoProducto " + ex.getMessage(), 2000);
 
         }
     }
@@ -101,7 +95,7 @@ public class PedidoProductoData {
 
         }catch (SQLException ex) {
 
-            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla pedidos" + ex.getMessage());
+            Utilidades.mostrarDialogoTemporal("Base de datos", "Error al acceder a la tabla PedidoProducto " + ex.getMessage(), 2000);
 
         }
 
@@ -120,11 +114,11 @@ public class PedidoProductoData {
             
             if(exito >= 1){
                 
-//            JOptionPane.showMessageDialog(null, "Producto Eliminado");
+                Utilidades.mostrarDialogoTemporal("Base de datos", "Producto Eliminado", 2000);
             
             }else{
                 
-                JOptionPane.showMessageDialog(null, "No se encontro el producto");
+                Utilidades.mostrarDialogoTemporal("Base de datos", "No se encontro el producto", 2000);
             
             }
             
@@ -132,7 +126,7 @@ public class PedidoProductoData {
             
         } catch (SQLException ex) {
             
-            JOptionPane.showMessageDialog(null, " Error al Eliminar la tabla" + ex.getMessage());
+            Utilidades.mostrarDialogoTemporal("Base de datos", "Error al acceder a la tabla PedidoProducto " + ex.getMessage(), 2000);
 
         }
     }

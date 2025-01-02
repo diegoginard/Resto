@@ -16,7 +16,7 @@ import java.text.ParseException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
-import javax.swing.JMenuBar;
+
 
 public class IniciarSalon extends javax.swing.JFrame {
 
@@ -51,10 +51,13 @@ public class IniciarSalon extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jmMenu = new javax.swing.JMenu();
         jmMenuInicio = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
+        jMgestsal = new javax.swing.JMenu();
         jmPedidos = new javax.swing.JMenuItem();
         jmMesas = new javax.swing.JMenuItem();
         jmMenus = new javax.swing.JMenuItem();
+        jMgestpers = new javax.swing.JMenu();
+        jMmozos = new javax.swing.JMenuItem();
+        jMusuarios = new javax.swing.JMenuItem();
         jmSalir = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -114,7 +117,8 @@ public class IniciarSalon extends javax.swing.JFrame {
 
         jMenuBar1.add(jmMenu);
 
-        jMenu2.setText("Gestionar Salon");
+        jMgestsal.setText("Gestionar Salon");
+        jMgestsal.setName("Mozos"); // NOI18N
 
         jmPedidos.setText("Lista de Pedidos");
         jmPedidos.addActionListener(new java.awt.event.ActionListener() {
@@ -122,7 +126,7 @@ public class IniciarSalon extends javax.swing.JFrame {
                 jmPedidosActionPerformed(evt);
             }
         });
-        jMenu2.add(jmPedidos);
+        jMgestsal.add(jmPedidos);
 
         jmMesas.setText("Mesas");
         jmMesas.addActionListener(new java.awt.event.ActionListener() {
@@ -130,7 +134,7 @@ public class IniciarSalon extends javax.swing.JFrame {
                 jmMesasActionPerformed(evt);
             }
         });
-        jMenu2.add(jmMesas);
+        jMgestsal.add(jmMesas);
 
         jmMenus.setText("Menus");
         jmMenus.addActionListener(new java.awt.event.ActionListener() {
@@ -138,9 +142,29 @@ public class IniciarSalon extends javax.swing.JFrame {
                 jmMenusActionPerformed(evt);
             }
         });
-        jMenu2.add(jmMenus);
+        jMgestsal.add(jmMenus);
 
-        jMenuBar1.add(jMenu2);
+        jMenuBar1.add(jMgestsal);
+
+        jMgestpers.setText("Gestionar Personal");
+
+        jMmozos.setLabel("Mozos");
+        jMmozos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMmozosActionPerformed(evt);
+            }
+        });
+        jMgestpers.add(jMmozos);
+
+        jMusuarios.setText("Usuarios");
+        jMusuarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMusuariosActionPerformed(evt);
+            }
+        });
+        jMgestpers.add(jMusuarios);
+
+        jMenuBar1.add(jMgestpers);
 
         jmSalir.setText("Salir");
         jmSalir.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -166,52 +190,12 @@ public class IniciarSalon extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jmPedidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmPedidosActionPerformed
-
-        try {
-
-//            escritorio.removeAll();
-//            escritorio.repaint();
-            ListarPedidos ll = new ListarPedidos();
-            ll.setVisible(true);
-            escritorio.add(ll);
-            escritorio.moveToFront(ll);
-
-        } catch (ParseException ex) {
-
-            Logger.getLogger(IniciarSalon.class.getName()).log(Level.SEVERE, null, ex);
-
-        }
-    }//GEN-LAST:event_jmPedidosActionPerformed
-
     @Override
     public Image getIconImage() {
         Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("Recursos/hamburguesa.png"));
         return retValue;
     }
     
-    private void jmMesasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmMesasActionPerformed
-
-//        escritorio.removeAll();
-//        escritorio.repaint();
-        AdministraMesas me = new AdministraMesas();
-        me.setVisible(true);
-        escritorio.add(me);
-        escritorio.moveToFront(me);
-
-    }//GEN-LAST:event_jmMesasActionPerformed
-
-    private void jmMenusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmMenusActionPerformed
-        
-//        escritorio.removeAll();
-//        escritorio.repaint();
-        AdministraMenus am = new AdministraMenus();
-        am.setVisible(true);
-        escritorio.add(am);
-        escritorio.moveToFront(am);
-        
-    }//GEN-LAST:event_jmMenusActionPerformed
-
     private void jmMenuInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmMenuInicioActionPerformed
         
         escritorio.removeAll();
@@ -233,6 +217,53 @@ public class IniciarSalon extends javax.swing.JFrame {
         
     }//GEN-LAST:event_formMouseClicked
 
+    private void jmMenusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmMenusActionPerformed
+
+        //        escritorio.removeAll();
+        //        escritorio.repaint();
+        AdministraMenus am = new AdministraMenus();
+        am.setVisible(true);
+        escritorio.add(am);
+        escritorio.moveToFront(am);
+
+    }//GEN-LAST:event_jmMenusActionPerformed
+
+    private void jmMesasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmMesasActionPerformed
+
+        //        escritorio.removeAll();
+        //        escritorio.repaint();
+        AdministraMesas me = new AdministraMesas();
+        me.setVisible(true);
+        escritorio.add(me);
+        escritorio.moveToFront(me);
+    }//GEN-LAST:event_jmMesasActionPerformed
+
+    private void jmPedidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmPedidosActionPerformed
+
+        try {
+
+            //            escritorio.removeAll();
+            //            escritorio.repaint();
+            ListarPedidos ll = new ListarPedidos();
+            ll.setVisible(true);
+            escritorio.add(ll);
+            escritorio.moveToFront(ll);
+
+        } catch (ParseException ex) {
+
+            Logger.getLogger(IniciarSalon.class.getName()).log(Level.SEVERE, null, ex);
+
+        }
+    }//GEN-LAST:event_jmPedidosActionPerformed
+
+    private void jMmozosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMmozosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMmozosActionPerformed
+
+    private void jMusuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMusuariosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMusuariosActionPerformed
+
     public static void main(String args[]) {
         
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -247,8 +278,11 @@ public class IniciarSalon extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane escritorio;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenu jMgestpers;
+    private javax.swing.JMenu jMgestsal;
+    private javax.swing.JMenuItem jMmozos;
+    private javax.swing.JMenuItem jMusuarios;
     private javax.swing.JMenu jmMenu;
     private javax.swing.JMenuItem jmMenuInicio;
     private javax.swing.JMenuItem jmMenus;

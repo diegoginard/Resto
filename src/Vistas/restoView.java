@@ -349,7 +349,7 @@ public class restoView extends javax.swing.JInternalFrame {
                     .addGroup(jDesktopPane1Layout.createSequentialGroup()
                         .addGap(114, 114, 114)
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(342, Short.MAX_VALUE))
+                .addContainerGap(404, Short.MAX_VALUE))
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -513,14 +513,18 @@ public class restoView extends javax.swing.JInternalFrame {
 
         jpProducto.setBackground(new java.awt.Color(113, 113, 113));
 
+        agregarproductos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         jLabel8.setFont(new java.awt.Font("Slender", 1, 30)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Agrega un Producto");
+        agregarproductos.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(379, 37, 293, 33));
 
         jtID.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
         jtID.setForeground(new java.awt.Color(153, 153, 153));
         jtID.setText("ID");
         jtID.setCaretColor(new java.awt.Color(51, 51, 51));
+        agregarproductos.add(jtID, new org.netbeans.lib.awtextra.AbsoluteConstraints(524, 176, 35, -1));
 
         jlMesa.setBackground(new java.awt.Color(51, 51, 51));
         jlMesa.setFont(new java.awt.Font("Segoe UI Black", 1, 36)); // NOI18N
@@ -528,6 +532,7 @@ public class restoView extends javax.swing.JInternalFrame {
         jlMesa.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jlMesa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa-icon.png"))); // NOI18N
         jlMesa.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        agregarproductos.add(jlMesa, new org.netbeans.lib.awtextra.AbsoluteConstraints(369, 100, 72, -1));
 
         jtPedidoProd.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -547,6 +552,8 @@ public class restoView extends javax.swing.JInternalFrame {
         });
         jScrollPane2.setViewportView(jtPedidoProd);
 
+        agregarproductos.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(369, 227, 332, 261));
+
         jtProducto.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -565,9 +572,12 @@ public class restoView extends javax.swing.JInternalFrame {
         });
         jScrollPane1.setViewportView(jtProducto);
 
+        agregarproductos.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 227, 345, 261));
+
         jLabel6.setFont(new java.awt.Font("Slender", 1, 30)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Elegi un Producto");
+        agregarproductos.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 37, -1, -1));
 
         jtBProducto.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
         jtBProducto.setText("Ingrese el nombre del producto");
@@ -581,12 +591,16 @@ public class restoView extends javax.swing.JInternalFrame {
                 jtBProductoKeyPressed(evt);
             }
         });
+        agregarproductos.add(jtBProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(85, 129, 207, -1));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/BuscarProductos.png"))); // NOI18N
+        agregarproductos.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 115, -1, -1));
+        agregarproductos.add(jtTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(571, 500, 104, -1));
 
         jLabel10.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("TOTAL");
+        agregarproductos.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 500, -1, -1));
 
         jbVolverMenu.setBackground(new java.awt.Color(102, 102, 102));
         jbVolverMenu.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -598,6 +612,7 @@ public class restoView extends javax.swing.JInternalFrame {
                 jbVolverMenuActionPerformed(evt);
             }
         });
+        agregarproductos.add(jbVolverMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(105, 528, 141, 42));
 
         jbIrPedidos.setBackground(new java.awt.Color(102, 102, 102));
         jbIrPedidos.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
@@ -608,127 +623,25 @@ public class restoView extends javax.swing.JInternalFrame {
                 jbIrPedidosActionPerformed(evt);
             }
         });
+        agregarproductos.add(jbIrPedidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(482, 529, 204, 42));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("N° Mesa");
+        agregarproductos.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(369, 176, -1, -1));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("ID Pedido");
-
-        agregarproductos.setLayer(jLabel8, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        agregarproductos.setLayer(jtID, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        agregarproductos.setLayer(jlMesa, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        agregarproductos.setLayer(jScrollPane2, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        agregarproductos.setLayer(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        agregarproductos.setLayer(jLabel6, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        agregarproductos.setLayer(jtBProducto, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        agregarproductos.setLayer(jLabel7, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        agregarproductos.setLayer(jtTotal, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        agregarproductos.setLayer(jLabel10, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        agregarproductos.setLayer(jbVolverMenu, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        agregarproductos.setLayer(jbIrPedidos, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        agregarproductos.setLayer(jLabel5, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        agregarproductos.setLayer(jLabel9, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
-        javax.swing.GroupLayout agregarproductosLayout = new javax.swing.GroupLayout(agregarproductos);
-        agregarproductos.setLayout(agregarproductosLayout);
-        agregarproductosLayout.setHorizontalGroup(
-            agregarproductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(agregarproductosLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jtBProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(118, 118, 118)
-                .addComponent(jlMesa, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(agregarproductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(agregarproductosLayout.createSequentialGroup()
-                        .addGap(139, 139, 139)
-                        .addComponent(jLabel9)
-                        .addGap(87, 87, 87))
-                    .addGroup(agregarproductosLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jtID, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(102, 102, 102))))
-            .addGroup(agregarproductosLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(agregarproductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(agregarproductosLayout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, agregarproductosLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel10)
-                        .addGap(44, 44, 44)
-                        .addComponent(jtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, agregarproductosLayout.createSequentialGroup()
-                        .addGap(9, 9, 9)
-                        .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
-                        .addComponent(jLabel8)))
-                .addGap(34, 34, 34))
-            .addGroup(agregarproductosLayout.createSequentialGroup()
-                .addGap(105, 105, 105)
-                .addComponent(jbVolverMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jbIrPedidos, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(76, 76, 76))
-        );
-        agregarproductosLayout.setVerticalGroup(
-            agregarproductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, agregarproductosLayout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addGroup(agregarproductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6))
-                .addGroup(agregarproductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(agregarproductosLayout.createSequentialGroup()
-                        .addGap(6, 6, Short.MAX_VALUE)
-                        .addGroup(agregarproductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(agregarproductosLayout.createSequentialGroup()
-                                .addComponent(jLabel9)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(agregarproductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(31, 31, 31))
-                            .addGroup(agregarproductosLayout.createSequentialGroup()
-                                .addGroup(agregarproductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jlMesa)
-                                    .addComponent(jtBProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(91, 91, 91))))
-                    .addGroup(agregarproductosLayout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGroup(agregarproductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(agregarproductosLayout.createSequentialGroup()
-                        .addGap(2, 2, 2)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, agregarproductosLayout.createSequentialGroup()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
-                .addGroup(agregarproductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel10))
-                .addGap(8, 8, 8)
-                .addGroup(agregarproductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jbVolverMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jbIrPedidos, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(38, 38, 38))
-        );
+        agregarproductos.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(524, 150, -1, -1));
 
         javax.swing.GroupLayout jpProductoLayout = new javax.swing.GroupLayout(jpProducto);
         jpProducto.setLayout(jpProductoLayout);
         jpProductoLayout.setHorizontalGroup(
             jpProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(agregarproductos)
+            .addGroup(jpProductoLayout.createSequentialGroup()
+                .addComponent(agregarproductos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jpProductoLayout.setVerticalGroup(
             jpProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -862,7 +775,7 @@ public class restoView extends javax.swing.JInternalFrame {
                             .addGroup(elegirpedidoLayout.createSequentialGroup()
                                 .addGap(63, 63, 63)
                                 .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
                         .addGroup(elegirpedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jbEntregar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jbCancelar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -968,7 +881,7 @@ public class restoView extends javax.swing.JInternalFrame {
             .addGroup(jDesktopPane2Layout.createSequentialGroup()
                 .addGap(185, 185, 185)
                 .addComponent(jLabel13)
-                .addGap(0, 240, Short.MAX_VALUE))
+                .addGap(0, 261, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jbInicio1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -976,7 +889,7 @@ public class restoView extends javax.swing.JInternalFrame {
             .addGroup(jDesktopPane2Layout.createSequentialGroup()
                 .addGap(206, 206, 206)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(242, Short.MAX_VALUE))
         );
         jDesktopPane2Layout.setVerticalGroup(
             jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -987,18 +900,24 @@ public class restoView extends javax.swing.JInternalFrame {
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(9, 9, 9)
                 .addComponent(jbInicio1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(78, Short.MAX_VALUE))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jpMesasLayout = new javax.swing.GroupLayout(jpMesas);
         jpMesas.setLayout(jpMesasLayout);
         jpMesasLayout.setHorizontalGroup(
             jpMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jDesktopPane2)
+            .addGroup(jpMesasLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jDesktopPane2)
+                .addGap(14, 14, 14))
         );
         jpMesasLayout.setVerticalGroup(
             jpMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jDesktopPane2, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(jpMesasLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jDesktopPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(47, Short.MAX_VALUE))
         );
 
         ventanas.addTab("", jpMesas);

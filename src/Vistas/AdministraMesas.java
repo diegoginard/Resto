@@ -12,7 +12,7 @@ import javax.swing.plaf.basic.BasicInternalFrameUI;
 import javax.swing.table.*;
 
 
-public class AdministraMesas extends javax.swing.JInternalFrame {
+public class AdministraMesas extends JInternalFrame {
     
     public AdministraMesas(){
     
@@ -21,7 +21,7 @@ public class AdministraMesas extends javax.swing.JInternalFrame {
         cargarLista();
          
         // Desactiva la barra de título del JInternalFrame
-        BasicInternalFrameUI ui = (BasicInternalFrameUI) getUI();
+        BasicInternalFrameUI ui = (BasicInternalFrameUI)getUI();
         ui.setNorthPane(null);
         
         jtBuscar.setEnabled(false);
@@ -318,7 +318,6 @@ public class AdministraMesas extends javax.swing.JInternalFrame {
         mesa.setEstadoMesa(jcEstado.getSelectedItem()+"");
         mesa.setCapacidad(Integer.parseInt(jtCapacidad.getText()));
         mesa.setActivo(jrActivo.isSelected());
-        JOptionPane.showMessageDialog(rootPane, jrActivo.isSelected());
         md.modificarMesa(mesa);
         cargarLista();
         limpiar();
