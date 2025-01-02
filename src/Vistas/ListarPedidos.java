@@ -17,13 +17,14 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import javax.swing.ImageIcon;
+import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerDateModel;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 import javax.swing.table.DefaultTableModel;
 
-public class ListarPedidos extends javax.swing.JInternalFrame {
+public class ListarPedidos extends JInternalFrame {
 
     PedidoData pd = new PedidoData();
 
@@ -133,6 +134,7 @@ public class ListarPedidos extends javax.swing.JInternalFrame {
         } catch (java.beans.PropertyVetoException e1) {
             e1.printStackTrace();
         }
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Semibold", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -199,12 +201,6 @@ public class ListarPedidos extends javax.swing.JInternalFrame {
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Entre horas");
 
-        jsHoraInicio.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                jsHoraInicioStateChanged(evt);
-            }
-        });
-
         jLabel8.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Dia");
@@ -241,12 +237,6 @@ public class ListarPedidos extends javax.swing.JInternalFrame {
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Ingresos Totales");
         jLabel5.setOpaque(true);
-
-        jtIngresos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtIngresosActionPerformed(evt);
-            }
-        });
 
         jButton1.setText("Salir");
         jButton1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -398,16 +388,7 @@ public class ListarPedidos extends javax.swing.JInternalFrame {
                 .addContainerGap(16, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jDesktopPane1)
-        );
+        getContentPane().add(jDesktopPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -557,10 +538,6 @@ public class ListarPedidos extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_jbBuscar1ActionPerformed
 
-    private void jsHoraInicioStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jsHoraInicioStateChanged
-
-    }//GEN-LAST:event_jsHoraInicioStateChanged
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
        
         dispose();
@@ -584,10 +561,6 @@ public class ListarPedidos extends javax.swing.JInternalFrame {
         soloNumeros(evt);
         
     }//GEN-LAST:event_jtIdmesaKeyTyped
-
-    private void jtIngresosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtIngresosActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtIngresosActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
@@ -721,7 +694,7 @@ public class ListarPedidos extends javax.swing.JInternalFrame {
             getToolkit().beep();
             evt.consume();
 
-            JOptionPane.showMessageDialog(rootPane, "Ingrese solo letras");
+            Utilidades.mostrarDialogoTemporal("Error", "Ingrese solo letras", 2000);
 
         }
     }
@@ -735,7 +708,7 @@ public class ListarPedidos extends javax.swing.JInternalFrame {
             getToolkit().beep();
             evt.consume();
             
-            JOptionPane.showMessageDialog(rootPane, "Ingrese solo numeros");
+            Utilidades.mostrarDialogoTemporal("Error", "Ingrese solo numeros", 2000);
             
         }
     }

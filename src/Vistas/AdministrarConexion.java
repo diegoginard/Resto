@@ -11,17 +11,20 @@ import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
+import javax.swing.plaf.basic.BasicInternalFrameUI;
 
 public class AdministrarConexion extends JFrame {
 
     private Connection con = null;
 
     public AdministrarConexion() {
+        
         initComponents();
         cargarConfig();
         cargarConfigSql();
         this.setLocationRelativeTo(null); //El jframe se inicia en el centro de la pantalla.
         setIconImage(getIconImage()); //se inicia el icono en la barra de titulo.
+        
     }
     
     /**

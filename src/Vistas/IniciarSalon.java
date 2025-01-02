@@ -275,19 +275,12 @@ public class IniciarSalon extends javax.swing.JFrame {
     }//GEN-LAST:event_jMmozosActionPerformed
 
     private void jMusuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMusuariosActionPerformed
-        
-        try{
 
             AdministrarUsuario admUsu = new AdministrarUsuario();
             admUsu.setVisible(true);
             escritorio.add(admUsu);
             escritorio.moveToFront(admUsu);
         
-        }catch (IllegalArgumentException ex) {
-            
-             Logger.getLogger(IniciarSalon.class.getName()).log(Level.SEVERE, null, ex);
-    
-        }
     }//GEN-LAST:event_jMusuariosActionPerformed
 
     public static void main(String args[]) {

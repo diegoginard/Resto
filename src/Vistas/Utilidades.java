@@ -1,19 +1,13 @@
 package Vistas;
 
 
+import java.awt.event.KeyEvent;
 import javax.swing.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Utilidades {
 
-    /**
-     * Muestra un mensaje temporal en un diálogo centrado en la pantalla.
-     *
-     * @param titulo       Título del diálogo.
-     * @param mensaje      Mensaje a mostrar.
-     * @param milisegundos Tiempo en milisegundos antes de cerrar automáticamente.
-     */
     public static void mostrarDialogoTemporal(String titulo, String mensaje, int milisegundos) {
         try {
             // Crear un JOptionPane para configurar el diálogo

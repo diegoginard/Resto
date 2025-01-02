@@ -76,7 +76,7 @@ public class UsuarioData {
                 usu1.setEdad(rs.getInt("edad"));
                 usu1.setDni(rs.getInt("dni"));
                 usu1.setTelefono(rs.getInt("telefono"));
-                usu1.setFechaNacimiento(rs.getDate("fechaDeNacimiento").toLocalDate());
+                usu1.setFechaNacimiento(rs.getDate("fechaNacimiento").toLocalDate());
                 usu1.setActivo(rs.getBoolean("activo"));
                 
                 listUsuario.add(usu1);
