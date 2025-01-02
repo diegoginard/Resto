@@ -23,12 +23,12 @@ public class IniciarSalon extends javax.swing.JFrame {
     private Point initialClick;
     public String nombre;
     public String apellido;
-    
+
     // Método para recibir el nombre y apellido
     public void recibirDatos(String nombre, String apellido) {
         this.nombre = nombre;
         this.apellido = apellido;
-        jLnombre.setText(nombre +"  "+ apellido);
+        jMusuario.setText("                                                                               " + nombre +"  "+ apellido);
         
     }
     
@@ -42,7 +42,7 @@ public class IniciarSalon extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         
     }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -58,7 +58,6 @@ public class IniciarSalon extends javax.swing.JFrame {
 
             }
         };
-        jLnombre = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jmMenu = new javax.swing.JMenu();
         jmMenuInicio = new javax.swing.JMenuItem();
@@ -70,14 +69,10 @@ public class IniciarSalon extends javax.swing.JFrame {
         jMmozos = new javax.swing.JMenuItem();
         jMusuarios = new javax.swing.JMenuItem();
         jmSalir = new javax.swing.JMenu();
+        jMusuario = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setIconImage(getIconImage());
-        addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                formMouseClicked(evt);
-            }
-        });
 
         escritorio.addMouseListener(new MouseAdapter() {
             public void mousePressed(MouseEvent e) {
@@ -102,27 +97,15 @@ public class IniciarSalon extends javax.swing.JFrame {
             }
         });
 
-        jLnombre.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
-        jLnombre.setForeground(new java.awt.Color(255, 255, 255));
-        jLnombre.setText("Nombre");
-
-        escritorio.setLayer(jLnombre, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
         javax.swing.GroupLayout escritorioLayout = new javax.swing.GroupLayout(escritorio);
         escritorio.setLayout(escritorioLayout);
         escritorioLayout.setHorizontalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, escritorioLayout.createSequentialGroup()
-                .addContainerGap(788, Short.MAX_VALUE)
-                .addComponent(jLnombre, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(57, 57, 57))
+            .addGap(0, 1008, Short.MAX_VALUE)
         );
         escritorioLayout.setVerticalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(escritorioLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLnombre, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(639, Short.MAX_VALUE))
+            .addGap(0, 664, Short.MAX_VALUE)
         );
 
         jMenuBar1.setBorder(null);
@@ -197,6 +180,18 @@ public class IniciarSalon extends javax.swing.JFrame {
         });
         jMenuBar1.add(jmSalir);
 
+        jMusuario.setBackground(new java.awt.Color(51, 51, 51));
+        jMusuario.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jMusuario.setBorderPainted(false);
+        jMusuario.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jMusuario.setFocusable(false);
+        jMusuario.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        jMusuario.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jMusuario.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        jMusuario.setLabel("Usuario");
+        jMusuario.setName("Usuario"); // NOI18N
+        jMenuBar1.add(jMusuario);
+
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -236,10 +231,6 @@ public class IniciarSalon extends javax.swing.JFrame {
         System.exit(0);
         
     }//GEN-LAST:event_jmSalirMouseClicked
-
-    private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
-        
-    }//GEN-LAST:event_formMouseClicked
 
     private void jmMenusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmMenusActionPerformed
 
@@ -302,11 +293,11 @@ public class IniciarSalon extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane escritorio;
-    private javax.swing.JLabel jLnombre;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu jMgestpers;
     private javax.swing.JMenu jMgestsal;
     private javax.swing.JMenuItem jMmozos;
+    private javax.swing.JMenu jMusuario;
     private javax.swing.JMenuItem jMusuarios;
     private javax.swing.JMenu jmMenu;
     private javax.swing.JMenuItem jmMenuInicio;
