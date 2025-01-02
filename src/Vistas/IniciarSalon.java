@@ -28,10 +28,9 @@ public class IniciarSalon extends javax.swing.JFrame {
     public void recibirDatos(String nombre, String apellido) {
         this.nombre = nombre;
         this.apellido = apellido;
-        jMusuario.setText("                                                                               " + nombre +"  "+ apellido);
+        jMusuario.setText("                                                                                " + nombre +"  "+ apellido);
         
     }
-    
     
     public IniciarSalon() {
         
@@ -276,7 +275,19 @@ public class IniciarSalon extends javax.swing.JFrame {
     }//GEN-LAST:event_jMmozosActionPerformed
 
     private void jMusuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMusuariosActionPerformed
-        // TODO add your handling code here:
+        
+        try{
+
+            AdministrarUsuario admUsu = new AdministrarUsuario();
+            admUsu.setVisible(true);
+            escritorio.add(admUsu);
+            escritorio.moveToFront(admUsu);
+        
+        }catch (IllegalArgumentException ex) {
+            
+             Logger.getLogger(IniciarSalon.class.getName()).log(Level.SEVERE, null, ex);
+    
+        }
     }//GEN-LAST:event_jMusuariosActionPerformed
 
     public static void main(String args[]) {
