@@ -6,10 +6,10 @@ import Entidades.Usuario;
 import java.awt.event.KeyEvent;
 import java.time.LocalDate;
 import java.time.ZoneId;
-import static java.time.temporal.TemporalQueries.localDate;
 import java.util.Date;
 import java.util.List;
 import javax.swing.JInternalFrame;
+import javax.swing.JOptionPane;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 import javax.swing.table.DefaultTableModel;
 
@@ -69,6 +69,7 @@ public class AdministrarUsuario extends JInternalFrame {
         jLactivo = new javax.swing.JLabel();
         jTtelefono = new javax.swing.JTextField();
         jBsalir = new javax.swing.JButton();
+        jBeliminar = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTBusuario = new javax.swing.JTable();
         jLfondo = new javax.swing.JLabel();
@@ -144,14 +145,13 @@ public class AdministrarUsuario extends JInternalFrame {
                 jBcrearActionPerformed(evt);
             }
         });
-        jPanel2.add(jBcrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 270, -1, 30));
+        jPanel2.add(jBcrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 270, -1, 30));
 
         jRactivo.setForeground(new java.awt.Color(51, 51, 51));
         jRactivo.setBorder(null);
         jRactivo.setBorderPainted(true);
         jRactivo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jRactivo.setFocusable(false);
-        jRactivo.setLabel("");
         jRactivo.setOpaque(true);
         jPanel2.add(jRactivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 240, -1, -1));
 
@@ -258,6 +258,17 @@ public class AdministrarUsuario extends JInternalFrame {
             }
         });
         jPanel2.add(jBsalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 270, -1, 30));
+
+        jBeliminar.setBackground(new java.awt.Color(51, 51, 51));
+        jBeliminar.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
+        jBeliminar.setForeground(new java.awt.Color(204, 204, 204));
+        jBeliminar.setText("Eliminar");
+        jBeliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBeliminarActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jBeliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 270, 90, 30));
 
         jTBusuario.setBackground(new java.awt.Color(51, 51, 51));
         jTBusuario.setForeground(new java.awt.Color(255, 255, 255));
@@ -366,9 +377,33 @@ public class AdministrarUsuario extends JInternalFrame {
         
     }//GEN-LAST:event_jBsalirActionPerformed
 
+    private void jBeliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBeliminarActionPerformed
+
+        // Muestra un cuadro de diálogo de confirmación
+        int confirmacion = JOptionPane.showConfirmDialog(
+                null,
+                "¿Estás seguro de que deseas eliminar este usuario?",
+                "Confirmar eliminación",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.QUESTION_MESSAGE
+        );
+
+        // Verifica la respuesta del usuario
+        if (confirmacion == JOptionPane.YES_OPTION) {
+            // Código para eliminar el usuario
+            usuDat.eliminarUsuario(Integer.parseInt(jTid.getText()));
+            Utilidades.mostrarDialogoTemporal("Base de datos", "Usuario eliminado correctamente.", 2000);
+        } else {
+            // Cancelación de la eliminación
+            Utilidades.mostrarDialogoTemporal("Base de datos", "Eliminación cancelada.",2000);
+        }
+
+    }//GEN-LAST:event_jBeliminarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBcrear;
+    private javax.swing.JButton jBeliminar;
     private javax.swing.JButton jBsalir;
     private com.toedter.calendar.JDateChooser jDCfechaNac;
     private javax.swing.JLabel jLabel2;
@@ -416,7 +451,6 @@ public class AdministrarUsuario extends JInternalFrame {
     
     private void cargarPedidos(){
     
-        
         modelo.setRowCount(0);
         List<Usuario> usuario = usuDat.listarUsuarios();
 

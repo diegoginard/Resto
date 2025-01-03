@@ -57,6 +57,26 @@ public class UsuarioData {
 
         }
     }
+    
+    public void eliminarUsuario(int id) {
+        String sql = "DELETE FROM usuario WHERE idUsuario = ?";
+
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, id);
+            int exito = ps.executeUpdate();
+
+            if (exito >= 1) {
+                Utilidades.mostrarDialogoTemporal("Base de datos", "Usuario Eliminada", 2000);
+            } else {
+                Utilidades.mostrarDialogoTemporal("Base de datos", "No se encontró el usuario", 2000);
+            }
+
+            ps.close();
+        } catch (SQLException ex) {
+            Utilidades.mostrarDialogoTemporal("Base de datos", "Error, no se pudo eliminar al usuario de la tabla " + ex.getMessage(), 2000);
+        }
+    }
 
     public List<Usuario> listarUsuarios() {
         List<Usuario> listUsuario = new ArrayList<>();
