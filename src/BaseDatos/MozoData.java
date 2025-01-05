@@ -47,9 +47,7 @@ public class MozoData {
             ps.close();
 
         } catch (SQLException ex) {
-
             Vistas.Utilidades.mostrarDialogoTemporal("Error al acceder a la tabla usuario ", ex.getMessage(), 2000);
-
         }
     }
     
@@ -74,7 +72,7 @@ public class MozoData {
         }
     }
 
-    public void ModificarProducto(Mozo mozo) {
+    public void modificarMozo(Mozo mozo) {
         
         String sql = "UPDATE producto SET idProducto= ?, nombre = ?, apellido = ?, dni = ?, telefono = ? WHERE idProducto = ?";
 
@@ -99,7 +97,7 @@ public class MozoData {
         }
     }
     
-    public List<Mozo> listarPedidos(){
+    public List<Mozo> listarMozos(){
         
         List<Mozo> mozos = new ArrayList<>();
     
@@ -124,9 +122,7 @@ public class MozoData {
             ps.close();
 
         }catch (SQLException ex) {
-
            Utilidades.mostrarDialogoTemporal("Base de datos", "Error al acceder a la tabla mozo" + ex.getMessage(), 2000);
-
         }
 
         return mozos;

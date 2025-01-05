@@ -94,7 +94,7 @@ public class AdministraMenus extends JInternalFrame {
         });
         getContentPane().add(jtId, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 50, 38, -1));
 
-        jLabel6.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Roboto Medium", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 204, 0));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("ADMINISTRACION DE MENUS");
@@ -240,7 +240,7 @@ public class AdministraMenus extends JInternalFrame {
                 jbSalirActionPerformed(evt);
             }
         });
-        getContentPane().add(jbSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 510, 90, 30));
+        getContentPane().add(jbSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 510, 90, 30));
 
         jbLimpiar.setBackground(new java.awt.Color(51, 51, 51));
         jbLimpiar.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
