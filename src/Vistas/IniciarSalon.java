@@ -222,7 +222,6 @@ public class IniciarSalon extends javax.swing.JFrame {
         escritorio.add(rv);
         escritorio.moveToFront(rv);
         
-        
     }//GEN-LAST:event_jmMenuInicioActionPerformed
 
     private void jmSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jmSalirMouseClicked

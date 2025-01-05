@@ -28,7 +28,6 @@ public class Usuario extends Persona {
     }
 
     public Usuario() {
-        
     }
 
     public int getIdUsuario() {
@@ -55,7 +54,7 @@ public class Usuario extends Persona {
         this.password = password;
     }
 
-    public boolean isActivo() {
+    public boolean getActivo() {
         return activo;
     }
 
@@ -65,7 +64,7 @@ public class Usuario extends Persona {
 
     @Override
     public String toString() {
-        return "Usuario{" + "Nombre = " + getNombre() + ", Apellido =" + getApellido() + '}';
+        return "Usuario{" + "Nombre = " + getNombre() + ", Apellido =" + getApellido() + ", Activo =" + activo + '}';
     }
 
 }

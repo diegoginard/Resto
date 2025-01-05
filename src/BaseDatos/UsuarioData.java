@@ -11,6 +11,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class UsuarioData {
 
     private Connection con = null;
@@ -23,7 +24,8 @@ public class UsuarioData {
 
     public void crearUsuario(Usuario user) {
 
-        String sql = "INSERT INTO usuario(usuario, password, nombre, apellido, edad, telefono, dni, fechaNacimiento, activo) VALUES (?,?,?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO usuario(idUsuario,usuario, password, nombre, apellido, edad, telefono, dni,"
+                + " fechaNacimiento, activo) VALUES (null,?,?,?,?,?,?,?,?,?)";
 
         try {
 
@@ -37,7 +39,7 @@ public class UsuarioData {
             ps.setInt(6, user.getTelefono());
             ps.setInt(7, user.getDni());
             ps.setDate(8, java.sql.Date.valueOf(user.getFechaNacimiento()));
-            ps.setBoolean(9, user.isActivo());
+            ps.setBoolean(9, user.getActivo());
             ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
 
@@ -73,12 +75,46 @@ public class UsuarioData {
             }
 
             ps.close();
+            
         } catch (SQLException ex) {
             Utilidades.mostrarDialogoTemporal("Base de datos", "Error, no se pudo eliminar al usuario de la tabla " + ex.getMessage(), 2000);
         }
     }
+    
+    public void modificarUsuario(Usuario user) {
+        
+        String sql = "UPDATE usuario SET usuario = ?, password = ?, nombre = ?, apellido = ?, edad = ?, dni = ?, telefono = ?,"
+                + " fechaNacimiento = ?, activo = ? WHERE idUsuario = ?";
+
+        try {
+            
+            PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            
+           
+            ps.setString(1, user.getUsuario());
+            ps.setString(2, user.getPassword());
+            ps.setString(3, user.getNombre());
+            ps.setString(4, user.getApellido());
+            ps.setInt(5, user.getEdad());
+            ps.setInt(6, user.getDni());
+            ps.setInt(7, user.getTelefono());
+            ps.setDate(8, java.sql.Date.valueOf(user.getFechaNacimiento()));
+            ps.setBoolean(9, user.getActivo());
+            ps.setInt(10, user.getIdUsuario());
+            
+
+            int exito = ps.executeUpdate();
+
+            if (exito == 1) {
+                Utilidades.mostrarDialogoTemporal("Base de datos", "Usuario Modificada", 2000);
+            }
+        } catch (SQLException ex) {
+            Utilidades.mostrarDialogoTemporal("Base de datos", "Error al modificar el usuario" + ex.getMessage(), 2000);
+        }
+    }
 
     public List<Usuario> listarUsuarios() {
+        
         List<Usuario> listUsuario = new ArrayList<>();
 
         try {
@@ -108,7 +144,6 @@ public class UsuarioData {
         }
 
         return listUsuario;
-
     }
 
     public Usuario buscarUsuario(String usuario, String contraseña) {
@@ -143,12 +178,9 @@ public class UsuarioData {
             ps.close();
 
         } catch (SQLException ex) {
-
             Vistas.Utilidades.mostrarDialogoTemporal("Error al buscar usuario en la base de datos", ex.getMessage(), 2000);
-
         }
 
         return user;
-
     }
 }

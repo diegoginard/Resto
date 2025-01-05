@@ -85,7 +85,7 @@ CREATE TABLE `usuario` (
   `dni` int NOT NULL UNIQUE,
   `telefono` int NOT NULL,
   `fechaNacimiento` DATE DEFAULT NULL,
-  `activo` tinyint(1) NOT NULL,
+  `activo` tinyint NOT NULL,
   PRIMARY KEY (`idUsuario`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 

@@ -16,6 +16,7 @@ import javax.swing.table.DefaultTableModel;
 
 public class AdministrarUsuario extends JInternalFrame {
     
+    Usuario usu = new Usuario();
     UsuarioData usuDat = new UsuarioData();
     
     public AdministrarUsuario() {
@@ -23,6 +24,9 @@ public class AdministrarUsuario extends JInternalFrame {
         initComponents();
         armarCabecera();
         cargarPedidos();
+        jBmodificar.setEnabled(false);
+        jTid.setEditable(false);
+        jBeliminar.setEnabled(false);
         
         // Desactiva la barra de título del JInternalFrame
         BasicInternalFrameUI ui = (BasicInternalFrameUI) getUI();
@@ -55,7 +59,6 @@ public class AdministrarUsuario extends JInternalFrame {
         jLid = new javax.swing.JLabel();
         jLusuario = new javax.swing.JLabel();
         jLtelefono = new javax.swing.JLabel();
-        jBcrear = new javax.swing.JButton();
         jRactivo = new javax.swing.JRadioButton();
         jDCfechaNac = new com.toedter.calendar.JDateChooser();
         jLfechaNac = new javax.swing.JLabel();
@@ -69,7 +72,10 @@ public class AdministrarUsuario extends JInternalFrame {
         jLactivo = new javax.swing.JLabel();
         jTtelefono = new javax.swing.JTextField();
         jBsalir = new javax.swing.JButton();
+        jBcrear = new javax.swing.JButton();
         jBeliminar = new javax.swing.JButton();
+        jBmodificar = new javax.swing.JButton();
+        jBlimpiar = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTBusuario = new javax.swing.JTable();
         jLfondo = new javax.swing.JLabel();
@@ -136,23 +142,12 @@ public class AdministrarUsuario extends JInternalFrame {
         jLtelefono.setText("Telefono");
         jPanel2.add(jLtelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 60, 30));
 
-        jBcrear.setBackground(new java.awt.Color(51, 51, 51));
-        jBcrear.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
-        jBcrear.setForeground(new java.awt.Color(204, 204, 204));
-        jBcrear.setText("Crear");
-        jBcrear.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBcrearActionPerformed(evt);
-            }
-        });
-        jPanel2.add(jBcrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 270, -1, 30));
-
         jRactivo.setForeground(new java.awt.Color(51, 51, 51));
         jRactivo.setBorder(null);
         jRactivo.setBorderPainted(true);
+        jRactivo.setContentAreaFilled(false);
         jRactivo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jRactivo.setFocusable(false);
-        jRactivo.setOpaque(true);
         jPanel2.add(jRactivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 240, -1, -1));
 
         jDCfechaNac.setBackground(new java.awt.Color(51, 51, 51));
@@ -257,7 +252,18 @@ public class AdministrarUsuario extends JInternalFrame {
                 jBsalirActionPerformed(evt);
             }
         });
-        jPanel2.add(jBsalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 270, -1, 30));
+        jPanel2.add(jBsalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 20, -1, 30));
+
+        jBcrear.setBackground(new java.awt.Color(51, 51, 51));
+        jBcrear.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
+        jBcrear.setForeground(new java.awt.Color(204, 204, 204));
+        jBcrear.setText("Crear");
+        jBcrear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBcrearActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jBcrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 270, 90, 30));
 
         jBeliminar.setBackground(new java.awt.Color(51, 51, 51));
         jBeliminar.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
@@ -268,7 +274,30 @@ public class AdministrarUsuario extends JInternalFrame {
                 jBeliminarActionPerformed(evt);
             }
         });
-        jPanel2.add(jBeliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 270, 90, 30));
+        jPanel2.add(jBeliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 270, 90, 30));
+
+        jBmodificar.setBackground(new java.awt.Color(51, 51, 51));
+        jBmodificar.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
+        jBmodificar.setForeground(new java.awt.Color(204, 204, 204));
+        jBmodificar.setText("Modificar");
+        jBmodificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBmodificarActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jBmodificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 270, 90, 30));
+
+        jBlimpiar.setBackground(new java.awt.Color(51, 51, 51));
+        jBlimpiar.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
+        jBlimpiar.setForeground(new java.awt.Color(204, 204, 204));
+        jBlimpiar.setText("Limpiar");
+        jBlimpiar.setToolTipText("");
+        jBlimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBlimpiarActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jBlimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 270, 90, 30));
 
         jTBusuario.setBackground(new java.awt.Color(51, 51, 51));
         jTBusuario.setForeground(new java.awt.Color(255, 255, 255));
@@ -308,6 +337,7 @@ public class AdministrarUsuario extends JInternalFrame {
 
     private void jBcrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBcrearActionPerformed
         
+        obtenerUsuarioDelForm();
         
     }//GEN-LAST:event_jBcrearActionPerformed
 
@@ -352,16 +382,13 @@ public class AdministrarUsuario extends JInternalFrame {
         jTedad.setText(jTBusuario.getValueAt(fila,5) + "");
         jTdni.setText(jTBusuario.getValueAt(fila,6) + "");
         jTtelefono.setText(jTBusuario.getValueAt(fila,7) + "");
-
-        // Convertir java.util.Date a java.sql.Date
-        Object value = jTBusuario.getValueAt(fila, 8);
-        // Convertir LocalDate a java.util.Date
-        LocalDate localDate = (LocalDate) value;
-        Date utilDate = Date.from(localDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
-        // Asignar la fecha al JDateChooser
-        jDCfechaNac.setDate(utilDate);
-        
+        jDCfechaNac.setDate(Date.from(((LocalDate) jTBusuario.getValueAt(fila, 8))
+                .atStartOfDay(ZoneId.systemDefault()).toInstant()));
         jRactivo.setSelected((boolean)jTBusuario.getValueAt(fila,9));
+        
+        jBmodificar.setEnabled(true);
+        jBcrear.setEnabled(false);
+        jBeliminar.setEnabled(true);
         
     }//GEN-LAST:event_jTBusuarioMouseClicked
 
@@ -392,18 +419,32 @@ public class AdministrarUsuario extends JInternalFrame {
         if (confirmacion == JOptionPane.YES_OPTION) {
             // Código para eliminar el usuario
             usuDat.eliminarUsuario(Integer.parseInt(jTid.getText()));
-            Utilidades.mostrarDialogoTemporal("Base de datos", "Usuario eliminado correctamente.", 2000);
-        } else {
+           
             // Cancelación de la eliminación
             Utilidades.mostrarDialogoTemporal("Base de datos", "Eliminación cancelada.",2000);
+            
         }
-
     }//GEN-LAST:event_jBeliminarActionPerformed
+
+    private void jBmodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBmodificarActionPerformed
+        
+        usuDat.modificarUsuario(obtenerUsuarioDelForm());
+        cargarPedidos();
+           
+    }//GEN-LAST:event_jBmodificarActionPerformed
+
+    private void jBlimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBlimpiarActionPerformed
+        
+        limpiarForm();
+        
+    }//GEN-LAST:event_jBlimpiarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBcrear;
     private javax.swing.JButton jBeliminar;
+    private javax.swing.JButton jBlimpiar;
+    private javax.swing.JButton jBmodificar;
     private javax.swing.JButton jBsalir;
     private com.toedter.calendar.JDateChooser jDCfechaNac;
     private javax.swing.JLabel jLabel2;
@@ -458,7 +499,7 @@ public class AdministrarUsuario extends JInternalFrame {
 
             modelo.addRow(new Object[]{usu.getIdUsuario(), usu.getUsuario(),usu.getPassword(),
                usu.getNombre(), usu.getApellido(),usu.getEdad(),usu.getDni(),usu.getTelefono(), 
-               usu.getFechaNacimiento(), usu.isActivo()});
+               usu.getFechaNacimiento(), usu.getActivo()});
 
         }
     }
@@ -489,5 +530,56 @@ public class AdministrarUsuario extends JInternalFrame {
             Utilidades.mostrarDialogoTemporal("Error", "Ingrese solo numeros", 1000);
             
         }
+    }
+
+    private Usuario obtenerUsuarioDelForm() {
+
+        if (jTid.getText() != null && !jTid.getText().isEmpty()
+                && jTusuario.getText() != null && !jTusuario.getText().isEmpty()
+                && jTpassword.getText() != null && !jTpassword.getText().isEmpty()
+                && jTnombre.getText() != null && !jTnombre.getText().isEmpty()
+                && jTapellido.getText() != null && !jTapellido.getText().isEmpty()
+                && jTedad.getText() != null && !jTedad.getText().isEmpty()
+                && jTdni.getText() != null && !jTdni.getText().isEmpty()
+                && jTtelefono.getText() != null && !jTtelefono.getText().isEmpty()
+                && jDCfechaNac.getDate() != null) {
+
+            // Todos los campos están llenos y no son nulos, entonces crea y asigna los valores a 'usu'.
+            usu.setIdUsuario(Integer.parseInt(jTid.getText()));
+            usu.setUsuario(jTusuario.getText());
+            usu.setPassword(jTpassword.getText());
+            usu.setNombre(jTnombre.getText());
+            usu.setApellido(jTapellido.getText());
+            usu.setEdad(Integer.parseInt(jTedad.getText()));
+            usu.setDni(Integer.parseInt(jTdni.getText()));
+            usu.setTelefono(Integer.parseInt(jTtelefono.getText()));
+            usu.setFechaNacimiento(jDCfechaNac.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
+            usu.setActivo(jRactivo.isSelected());
+
+            return usu;
+
+        } else {
+            Utilidades.mostrarDialogoTemporal("Administrador de usuarios", "Se deben rellenar todos los campos", 2000);
+        }
+        return null;
+    }
+
+    private void limpiarForm() {
+
+        jTid.setText(null);
+        jTusuario.setText(null);
+        jTpassword.setText(null);
+        jTnombre.setText(null);
+        jTapellido.setText(null);
+        jTedad.setText(null);
+        jTdni.setText(null);
+        jTtelefono.setText(null);
+        jDCfechaNac.setDate(null);
+        jRactivo.setSelected(false);
+
+        jBcrear.setEnabled(true);
+        jBmodificar.setEnabled(false);
+        jBeliminar.setEnabled(false);
+
     }
 }

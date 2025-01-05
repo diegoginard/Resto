@@ -12,6 +12,7 @@ import Entidades.Producto;
 import java.time.LocalDateTime;
 import Entidades.Usuario;
 import BaseDatos.UsuarioData;
+import java.time.LocalDate;
 
 public class Resto {
 
@@ -51,7 +52,7 @@ public class Resto {
 //       PedidoProductoData ppd = new PedidoProductoData();
 //       ppd.crearPedProd(pedp);
 //       System.out.println(ppd.BuscarProductosxIdPedido    
-//       Usuario usu = new Usuario("admin","1234","prueba","prueba");
+//       Usuario usu = new Usuario("admin","1234","prueba","prueba",30,31111111,370411111,LocalDate.parse("1978-11-27"),true);
 //       UsuarioData usud = new UsuarioData();
 //       usud.crearUsuario(usu);
 //       System.out.println(usud.listarUsuarios());
