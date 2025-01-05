@@ -93,16 +93,6 @@ public class ListarPedidos extends JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        ImageIcon icono = new ImageIcon(getClass().getResource("/Recursos/AdministrarMenu.jpg"));
-        Image imagen = icono.getImage();
-        jDesktopPane1 = new javax.swing.JDesktopPane(){
-
-            public void paintComponent(Graphics g){
-
-                g.drawImage(imagen,0,0,getWidth(),getHeight(),this);
-            }
-
-        };
         jLabel1 = new javax.swing.JLabel();
         jcElegir = new javax.swing.JComboBox<>();
         jtNMesero = new javax.swing.JTextField();
@@ -122,11 +112,12 @@ public class ListarPedidos extends JInternalFrame {
         jLabel7 = new javax.swing.JLabel();
         jtIdmesa = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
+        jtIngresos = new javax.swing.JTextField();
+        jBsalir = new javax.swing.JButton();
+        jLingresosTotales = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtPedido = new javax.swing.JTable();
-        jLabel5 = new javax.swing.JLabel();
-        jtIngresos = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        jLfondo = new javax.swing.JLabel();
 
         setBorder(null);
         try {
@@ -136,13 +127,11 @@ public class ListarPedidos extends JInternalFrame {
         }
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jDesktopPane1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
         jLabel1.setFont(new java.awt.Font("Roboto Medium", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("LISTAR PEDIDOS");
-        jDesktopPane1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(106, 6, 354, 36));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(106, 6, 354, 36));
 
         jcElegir.setBackground(new java.awt.Color(51, 51, 51));
         jcElegir.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
@@ -153,12 +142,13 @@ public class ListarPedidos extends JInternalFrame {
                 jcElegirItemStateChanged(evt);
             }
         });
-        jDesktopPane1.add(jcElegir, new org.netbeans.lib.awtextra.AbsoluteConstraints(207, 54, 143, -1));
+        getContentPane().add(jcElegir, new org.netbeans.lib.awtextra.AbsoluteConstraints(207, 54, 143, -1));
 
         jtNMesero.setBackground(new java.awt.Color(51, 51, 51));
         jtNMesero.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
         jtNMesero.setForeground(new java.awt.Color(255, 255, 255));
         jtNMesero.setBorder(null);
+        jtNMesero.setCaretColor(new java.awt.Color(255, 255, 255));
         jtNMesero.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jtNMeseroKeyReleased(evt);
@@ -167,17 +157,17 @@ public class ListarPedidos extends JInternalFrame {
                 jtNMeseroKeyTyped(evt);
             }
         });
-        jDesktopPane1.add(jtNMesero, new org.netbeans.lib.awtextra.AbsoluteConstraints(159, 130, 125, 20));
+        getContentPane().add(jtNMesero, new org.netbeans.lib.awtextra.AbsoluteConstraints(159, 130, 125, 20));
 
         jLabel2.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Por Mesero");
-        jDesktopPane1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Por Fecha");
-        jDesktopPane1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 97, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 97, -1));
 
         jdFecha.setBackground(new java.awt.Color(51, 51, 51));
         jdFecha.setForeground(new java.awt.Color(255, 255, 255));
@@ -186,90 +176,119 @@ public class ListarPedidos extends JInternalFrame {
                 jdFechaPropertyChange(evt);
             }
         });
-        jDesktopPane1.add(jdFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(159, 167, 153, -1));
+        getContentPane().add(jdFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(159, 167, 153, -1));
 
         jLabel4.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Mesero por dia");
-        jDesktopPane1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, -1));
 
         jtMDia.setBackground(new java.awt.Color(51, 51, 51));
         jtMDia.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
         jtMDia.setForeground(new java.awt.Color(255, 255, 255));
         jtMDia.setBorder(null);
+        jtMDia.setCaretColor(new java.awt.Color(255, 255, 255));
         jtMDia.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jtMDiaKeyTyped(evt);
             }
         });
-        jDesktopPane1.add(jtMDia, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 205, 84, 20));
+        getContentPane().add(jtMDia, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 205, 84, 20));
 
         jdMDia.setBackground(new java.awt.Color(51, 51, 51));
         jdMDia.setForeground(new java.awt.Color(255, 255, 255));
-        jDesktopPane1.add(jdMDia, new org.netbeans.lib.awtextra.AbsoluteConstraints(262, 205, 130, -1));
+        getContentPane().add(jdMDia, new org.netbeans.lib.awtextra.AbsoluteConstraints(262, 205, 130, -1));
 
         jbBuscar.setBackground(new java.awt.Color(51, 51, 51));
         jbBuscar.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
         jbBuscar.setForeground(new java.awt.Color(255, 255, 255));
         jbBuscar.setText("Buscar");
-        jbBuscar.setBorder(null);
+        jbBuscar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jbBuscar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jbBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbBuscarActionPerformed(evt);
             }
         });
-        jDesktopPane1.add(jbBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 205, 60, 20));
+        getContentPane().add(jbBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 200, 60, 30));
 
         jbBuscar1.setBackground(new java.awt.Color(51, 51, 51));
         jbBuscar1.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
         jbBuscar1.setForeground(new java.awt.Color(255, 255, 255));
         jbBuscar1.setText("Buscar");
-        jbBuscar1.setBorder(null);
+        jbBuscar1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jbBuscar1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jbBuscar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbBuscar1ActionPerformed(evt);
             }
         });
-        jDesktopPane1.add(jbBuscar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(494, 275, 60, 20));
-        jDesktopPane1.add(jsHoraFin, new org.netbeans.lib.awtextra.AbsoluteConstraints(401, 275, 81, -1));
+        getContentPane().add(jbBuscar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 270, 60, 30));
+        getContentPane().add(jsHoraFin, new org.netbeans.lib.awtextra.AbsoluteConstraints(401, 275, 81, -1));
 
         jLabel9.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Entre horas");
-        jDesktopPane1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(315, 245, -1, -1));
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(315, 245, -1, -1));
 
         jsHoraInicio.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
-        jDesktopPane1.add(jsHoraInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(315, 275, 80, -1));
+        getContentPane().add(jsHoraInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(315, 275, 80, -1));
 
         jdDia.setBackground(new java.awt.Color(51, 51, 51));
         jdDia.setForeground(new java.awt.Color(255, 255, 255));
-        jDesktopPane1.add(jdDia, new org.netbeans.lib.awtextra.AbsoluteConstraints(213, 275, 96, -1));
+        getContentPane().add(jdDia, new org.netbeans.lib.awtextra.AbsoluteConstraints(213, 275, 96, -1));
 
         jLabel8.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Dia");
-        jDesktopPane1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(215, 245, 29, -1));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(215, 245, 29, -1));
 
         jLabel7.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Nº Mesa");
-        jDesktopPane1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(145, 245, -1, -1));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(145, 245, -1, -1));
 
         jtIdmesa.setBackground(new java.awt.Color(51, 51, 51));
         jtIdmesa.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
         jtIdmesa.setForeground(new java.awt.Color(255, 255, 255));
         jtIdmesa.setBorder(null);
+        jtIdmesa.setCaretColor(new java.awt.Color(255, 255, 255));
         jtIdmesa.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jtIdmesaKeyTyped(evt);
             }
         });
-        jDesktopPane1.add(jtIdmesa, new org.netbeans.lib.awtextra.AbsoluteConstraints(145, 275, 38, 20));
+        getContentPane().add(jtIdmesa, new org.netbeans.lib.awtextra.AbsoluteConstraints(145, 275, 38, 20));
 
         jLabel6.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Mesa x dia/hora");
-        jDesktopPane1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, -1, 10));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, -1, 10));
+
+        jtIngresos.setBackground(new java.awt.Color(51, 51, 51));
+        jtIngresos.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
+        jtIngresos.setForeground(new java.awt.Color(255, 255, 255));
+        jtIngresos.setBorder(null);
+        getContentPane().add(jtIngresos, new org.netbeans.lib.awtextra.AbsoluteConstraints(178, 519, 116, 20));
+
+        jBsalir.setBackground(new java.awt.Color(51, 51, 51));
+        jBsalir.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
+        jBsalir.setForeground(new java.awt.Color(255, 255, 255));
+        jBsalir.setText("Salir");
+        jBsalir.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jBsalir.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jBsalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBsalirActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jBsalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(472, 519, 71, 30));
+
+        jLingresosTotales.setBackground(new java.awt.Color(51, 51, 51));
+        jLingresosTotales.setFont(new java.awt.Font("Roboto Medium", 1, 18)); // NOI18N
+        jLingresosTotales.setForeground(new java.awt.Color(255, 255, 255));
+        jLingresosTotales.setText("Ingresos Totales");
+        getContentPane().add(jLingresosTotales, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 515, 147, -1));
 
         jtPedido.setBackground(new java.awt.Color(51, 51, 51));
         jtPedido.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
@@ -287,33 +306,11 @@ public class ListarPedidos extends JInternalFrame {
         ));
         jScrollPane1.setViewportView(jtPedido);
 
-        jDesktopPane1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 335, 524, 162));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 335, 524, 162));
 
-        jLabel5.setBackground(new java.awt.Color(51, 51, 51));
-        jLabel5.setFont(new java.awt.Font("Roboto Medium", 1, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Ingresos Totales");
-        jDesktopPane1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 515, 147, -1));
-
-        jtIngresos.setBackground(new java.awt.Color(51, 51, 51));
-        jtIngresos.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
-        jtIngresos.setForeground(new java.awt.Color(255, 255, 255));
-        jtIngresos.setBorder(null);
-        jDesktopPane1.add(jtIngresos, new org.netbeans.lib.awtextra.AbsoluteConstraints(178, 519, 116, 20));
-
-        jButton1.setBackground(new java.awt.Color(51, 51, 51));
-        jButton1.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Salir");
-        jButton1.setBorder(null);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        jDesktopPane1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(472, 519, 71, 20));
-
-        getContentPane().add(jDesktopPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 560));
+        jLfondo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLfondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/AdministrarPedidos.jpg"))); // NOI18N
+        getContentPane().add(jLfondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 560));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -463,11 +460,11 @@ public class ListarPedidos extends JInternalFrame {
         }
     }//GEN-LAST:event_jbBuscar1ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jBsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBsalirActionPerformed
        
         dispose();
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jBsalirActionPerformed
 
     private void jtNMeseroKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtNMeseroKeyTyped
         
@@ -488,17 +485,17 @@ public class ListarPedidos extends JInternalFrame {
     }//GEN-LAST:event_jtIdmesaKeyTyped
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JDesktopPane jDesktopPane1;
+    private javax.swing.JButton jBsalir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLfondo;
+    private javax.swing.JLabel jLingresosTotales;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton jbBuscar;
     private javax.swing.JButton jbBuscar1;

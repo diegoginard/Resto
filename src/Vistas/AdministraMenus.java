@@ -95,7 +95,7 @@ public class AdministraMenus extends JInternalFrame {
         getContentPane().add(jtId, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 50, 38, -1));
 
         jLabel6.setFont(new java.awt.Font("Roboto Medium", 1, 18)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 204, 0));
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("ADMINISTRACION DE MENUS");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 340, 28));
@@ -126,7 +126,7 @@ public class AdministraMenus extends JInternalFrame {
         getContentPane().add(jtStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 50, 41, -1));
 
         jLabel1.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 204, 0));
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Id");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 50, -1, 24));
 
@@ -154,7 +154,7 @@ public class AdministraMenus extends JInternalFrame {
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, -1, 184));
 
         jLabel2.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 204, 0));
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Nombre");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 90, -1, -1));
 
@@ -162,7 +162,10 @@ public class AdministraMenus extends JInternalFrame {
         jbCrear.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
         jbCrear.setForeground(new java.awt.Color(255, 255, 255));
         jbCrear.setText("Crear");
-        jbCrear.setBorder(null);
+        jbCrear.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jbCrear.setFocusTraversalPolicyProvider(true);
+        jbCrear.setHideActionText(true);
+        jbCrear.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jbCrear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbCrearActionPerformed(evt);
@@ -171,7 +174,7 @@ public class AdministraMenus extends JInternalFrame {
         getContentPane().add(jbCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 90, 30));
 
         jLabel3.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 204, 0));
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Precio");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 130, -1, -1));
 
@@ -179,7 +182,10 @@ public class AdministraMenus extends JInternalFrame {
         jbModificar.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
         jbModificar.setForeground(new java.awt.Color(255, 255, 255));
         jbModificar.setText("Modificar");
-        jbModificar.setBorder(null);
+        jbModificar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jbModificar.setFocusTraversalPolicyProvider(true);
+        jbModificar.setHideActionText(true);
+        jbModificar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jbModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbModificarActionPerformed(evt);
@@ -188,19 +194,19 @@ public class AdministraMenus extends JInternalFrame {
         getContentPane().add(jbModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 210, 90, 30));
 
         jLabel4.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 204, 0));
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Stock");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 50, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 204, 0));
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Estado");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 130, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 204, 0));
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Buscar");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, -1, -1));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, -1, -1));
 
         jtBuscar.setBackground(new java.awt.Color(51, 51, 51));
         jtBuscar.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
@@ -210,7 +216,7 @@ public class AdministraMenus extends JInternalFrame {
                 jtBuscarKeyReleased(evt);
             }
         });
-        getContentPane().add(jtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 250, 111, -1));
+        getContentPane().add(jtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 270, 111, -1));
 
         jrEstado.setBackground(new java.awt.Color(102, 102, 102));
         jrEstado.setForeground(new java.awt.Color(255, 255, 255));
@@ -222,7 +228,10 @@ public class AdministraMenus extends JInternalFrame {
         jbBorrar.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
         jbBorrar.setForeground(new java.awt.Color(255, 255, 255));
         jbBorrar.setText("Borrar");
-        jbBorrar.setBorder(null);
+        jbBorrar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jbBorrar.setFocusTraversalPolicyProvider(true);
+        jbBorrar.setHideActionText(true);
+        jbBorrar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jbBorrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbBorrarActionPerformed(evt);
@@ -234,7 +243,10 @@ public class AdministraMenus extends JInternalFrame {
         jbSalir.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
         jbSalir.setForeground(new java.awt.Color(255, 255, 255));
         jbSalir.setText("Salir");
-        jbSalir.setBorder(null);
+        jbSalir.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jbSalir.setFocusTraversalPolicyProvider(true);
+        jbSalir.setHideActionText(true);
+        jbSalir.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jbSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbSalirActionPerformed(evt);
@@ -246,7 +258,10 @@ public class AdministraMenus extends JInternalFrame {
         jbLimpiar.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
         jbLimpiar.setForeground(new java.awt.Color(255, 255, 255));
         jbLimpiar.setText("Limpiar");
-        jbLimpiar.setBorder(null);
+        jbLimpiar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jbLimpiar.setFocusTraversalPolicyProvider(true);
+        jbLimpiar.setHideActionText(true);
+        jbLimpiar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jbLimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbLimpiarActionPerformed(evt);
@@ -281,10 +296,10 @@ public class AdministraMenus extends JInternalFrame {
                 jcBuscarActionPerformed(evt);
             }
         });
-        getContentPane().add(jcBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 250, 97, -1));
+        getContentPane().add(jcBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 270, 97, -1));
 
         jLabel8.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 204, 0));
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Categoria");
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, -1, -1));
 
@@ -302,7 +317,7 @@ public class AdministraMenus extends JInternalFrame {
                 jcCategoria2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jcCategoria2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 250, -1, -1));
+        getContentPane().add(jcCategoria2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 270, -1, -1));
 
         jLfondo.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         jLfondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/AdministrarMenu.jpg"))); // NOI18N

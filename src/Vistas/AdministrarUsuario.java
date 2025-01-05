@@ -23,7 +23,7 @@ public class AdministrarUsuario extends JInternalFrame {
         
         initComponents();
         armarCabecera();
-        cargarPedidos();
+        cargarUsuarios();
         jBmodificar.setEnabled(false);
         jTid.setEditable(false);
         jBeliminar.setEnabled(false);
@@ -49,7 +49,6 @@ public class AdministrarUsuario extends JInternalFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLnombre = new javax.swing.JLabel();
         jLedad = new javax.swing.JLabel();
@@ -76,6 +75,7 @@ public class AdministrarUsuario extends JInternalFrame {
         jBeliminar = new javax.swing.JButton();
         jBmodificar = new javax.swing.JButton();
         jBlimpiar = new javax.swing.JButton();
+        jBrefrescar = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTBusuario = new javax.swing.JTable();
         jLfondo = new javax.swing.JLabel();
@@ -94,53 +94,51 @@ public class AdministrarUsuario extends JInternalFrame {
         setBorder(null);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
         jLabel2.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(204, 204, 204));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Administrar Usuarios");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, 232, 26));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, 232, 26));
 
         jLnombre.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         jLnombre.setForeground(new java.awt.Color(204, 204, 204));
         jLnombre.setText("Nombre");
-        jPanel2.add(jLnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 60, 30));
+        getContentPane().add(jLnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 60, 30));
 
         jLedad.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         jLedad.setForeground(new java.awt.Color(204, 204, 204));
         jLedad.setText("Edad");
-        jPanel2.add(jLedad, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 60, 30));
+        getContentPane().add(jLedad, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 60, 30));
 
         jLpassword.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         jLpassword.setForeground(new java.awt.Color(204, 204, 204));
         jLpassword.setText("Password");
-        jPanel2.add(jLpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 80, 70, 30));
+        getContentPane().add(jLpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 50, 70, 30));
 
         jLapellido.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         jLapellido.setForeground(new java.awt.Color(204, 204, 204));
         jLapellido.setText("Apellido");
-        jPanel2.add(jLapellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 120, 60, 30));
+        getContentPane().add(jLapellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 90, 60, 30));
 
         jLdni.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         jLdni.setForeground(new java.awt.Color(204, 204, 204));
         jLdni.setText("Dni");
-        jPanel2.add(jLdni, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 160, 60, 30));
+        getContentPane().add(jLdni, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 130, 60, 30));
 
         jLid.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         jLid.setForeground(new java.awt.Color(204, 204, 204));
         jLid.setText("Id");
-        jPanel2.add(jLid, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 240, 30, 30));
+        getContentPane().add(jLid, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 210, 30, 30));
 
         jLusuario.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         jLusuario.setForeground(new java.awt.Color(204, 204, 204));
         jLusuario.setText("Usuario");
-        jPanel2.add(jLusuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 60, 30));
+        getContentPane().add(jLusuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 60, 30));
 
         jLtelefono.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         jLtelefono.setForeground(new java.awt.Color(204, 204, 204));
         jLtelefono.setText("Telefono");
-        jPanel2.add(jLtelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 60, 30));
+        getContentPane().add(jLtelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 60, 30));
 
         jRactivo.setForeground(new java.awt.Color(51, 51, 51));
         jRactivo.setBorder(null);
@@ -148,16 +146,16 @@ public class AdministrarUsuario extends JInternalFrame {
         jRactivo.setContentAreaFilled(false);
         jRactivo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jRactivo.setFocusable(false);
-        jPanel2.add(jRactivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 240, -1, -1));
+        getContentPane().add(jRactivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 210, -1, -1));
 
         jDCfechaNac.setBackground(new java.awt.Color(51, 51, 51));
         jDCfechaNac.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel2.add(jDCfechaNac, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 200, 120, 30));
+        getContentPane().add(jDCfechaNac, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 170, 120, 30));
 
         jLfechaNac.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         jLfechaNac.setForeground(new java.awt.Color(204, 204, 204));
         jLfechaNac.setText("Fecha de nacimiento");
-        jPanel2.add(jLfechaNac, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 200, 140, 30));
+        getContentPane().add(jLfechaNac, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 170, 140, 30));
 
         jTdni.setBackground(new java.awt.Color(51, 51, 51));
         jTdni.setForeground(new java.awt.Color(255, 255, 255));
@@ -168,13 +166,13 @@ public class AdministrarUsuario extends JInternalFrame {
                 jTdniKeyTyped(evt);
             }
         });
-        jPanel2.add(jTdni, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 160, 120, 20));
+        getContentPane().add(jTdni, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 130, 120, 20));
 
         jTusuario.setBackground(new java.awt.Color(51, 51, 51));
         jTusuario.setForeground(new java.awt.Color(255, 255, 255));
         jTusuario.setBorder(null);
         jTusuario.setCaretColor(new java.awt.Color(255, 255, 255));
-        jPanel2.add(jTusuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, 120, 20));
+        getContentPane().add(jTusuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, 120, 20));
 
         jTnombre.setBackground(new java.awt.Color(51, 51, 51));
         jTnombre.setForeground(new java.awt.Color(255, 255, 255));
@@ -185,7 +183,7 @@ public class AdministrarUsuario extends JInternalFrame {
                 jTnombreKeyTyped(evt);
             }
         });
-        jPanel2.add(jTnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 120, 120, 20));
+        getContentPane().add(jTnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 90, 120, 20));
 
         jTedad.setBackground(new java.awt.Color(51, 51, 51));
         jTedad.setForeground(new java.awt.Color(255, 255, 255));
@@ -196,7 +194,7 @@ public class AdministrarUsuario extends JInternalFrame {
                 jTedadKeyTyped(evt);
             }
         });
-        jPanel2.add(jTedad, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, 120, 20));
+        getContentPane().add(jTedad, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 130, 120, 20));
 
         jTid.setBackground(new java.awt.Color(51, 51, 51));
         jTid.setForeground(new java.awt.Color(255, 255, 255));
@@ -208,13 +206,13 @@ public class AdministrarUsuario extends JInternalFrame {
                 jTidKeyTyped(evt);
             }
         });
-        jPanel2.add(jTid, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 240, 30, 20));
+        getContentPane().add(jTid, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 210, 30, 20));
 
         jTpassword.setBackground(new java.awt.Color(51, 51, 51));
         jTpassword.setForeground(new java.awt.Color(255, 255, 255));
         jTpassword.setBorder(null);
         jTpassword.setCaretColor(new java.awt.Color(255, 255, 255));
-        jPanel2.add(jTpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 80, 120, 20));
+        getContentPane().add(jTpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 50, 120, 20));
 
         jTapellido.setBackground(new java.awt.Color(51, 51, 51));
         jTapellido.setForeground(new java.awt.Color(255, 255, 255));
@@ -225,12 +223,12 @@ public class AdministrarUsuario extends JInternalFrame {
                 jTapellidoKeyTyped(evt);
             }
         });
-        jPanel2.add(jTapellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 120, 120, 20));
+        getContentPane().add(jTapellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 90, 120, 20));
 
         jLactivo.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         jLactivo.setForeground(new java.awt.Color(204, 204, 204));
         jLactivo.setText("Activo");
-        jPanel2.add(jLactivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, 50, 30));
+        getContentPane().add(jLactivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, 50, 30));
 
         jTtelefono.setBackground(new java.awt.Color(51, 51, 51));
         jTtelefono.setForeground(new java.awt.Color(255, 255, 255));
@@ -241,63 +239,99 @@ public class AdministrarUsuario extends JInternalFrame {
                 jTtelefonoKeyTyped(evt);
             }
         });
-        jPanel2.add(jTtelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 200, 120, 20));
+        getContentPane().add(jTtelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 170, 120, 20));
 
         jBsalir.setBackground(new java.awt.Color(51, 51, 51));
         jBsalir.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
         jBsalir.setForeground(new java.awt.Color(204, 204, 204));
         jBsalir.setText("Salir");
+        jBsalir.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jBsalir.setFocusTraversalPolicyProvider(true);
+        jBsalir.setHideActionText(true);
+        jBsalir.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jBsalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBsalirActionPerformed(evt);
             }
         });
-        jPanel2.add(jBsalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 20, -1, 30));
+        getContentPane().add(jBsalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 460, 80, 30));
 
         jBcrear.setBackground(new java.awt.Color(51, 51, 51));
         jBcrear.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
         jBcrear.setForeground(new java.awt.Color(204, 204, 204));
         jBcrear.setText("Crear");
+        jBcrear.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jBcrear.setFocusTraversalPolicyProvider(true);
+        jBcrear.setHideActionText(true);
+        jBcrear.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jBcrear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBcrearActionPerformed(evt);
             }
         });
-        jPanel2.add(jBcrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 270, 90, 30));
+        getContentPane().add(jBcrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, 90, 30));
 
         jBeliminar.setBackground(new java.awt.Color(51, 51, 51));
         jBeliminar.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
         jBeliminar.setForeground(new java.awt.Color(204, 204, 204));
         jBeliminar.setText("Eliminar");
+        jBeliminar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jBeliminar.setFocusTraversalPolicyProvider(true);
+        jBeliminar.setHideActionText(true);
+        jBeliminar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jBeliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBeliminarActionPerformed(evt);
             }
         });
-        jPanel2.add(jBeliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 270, 90, 30));
+        getContentPane().add(jBeliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 240, 90, 30));
 
         jBmodificar.setBackground(new java.awt.Color(51, 51, 51));
         jBmodificar.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
         jBmodificar.setForeground(new java.awt.Color(204, 204, 204));
         jBmodificar.setText("Modificar");
+        jBmodificar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jBmodificar.setFocusTraversalPolicyProvider(true);
+        jBmodificar.setHideActionText(true);
+        jBmodificar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jBmodificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBmodificarActionPerformed(evt);
             }
         });
-        jPanel2.add(jBmodificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 270, 90, 30));
+        getContentPane().add(jBmodificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 240, 90, 30));
 
         jBlimpiar.setBackground(new java.awt.Color(51, 51, 51));
         jBlimpiar.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
         jBlimpiar.setForeground(new java.awt.Color(204, 204, 204));
         jBlimpiar.setText("Limpiar");
         jBlimpiar.setToolTipText("");
+        jBlimpiar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jBlimpiar.setFocusTraversalPolicyProvider(true);
+        jBlimpiar.setHideActionText(true);
+        jBlimpiar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jBlimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBlimpiarActionPerformed(evt);
             }
         });
-        jPanel2.add(jBlimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 270, 90, 30));
+        getContentPane().add(jBlimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 240, 90, 30));
+
+        jBrefrescar.setBackground(new java.awt.Color(51, 51, 51));
+        jBrefrescar.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
+        jBrefrescar.setForeground(new java.awt.Color(204, 204, 204));
+        jBrefrescar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/refresh.png"))); // NOI18N
+        jBrefrescar.setBorder(null);
+        jBrefrescar.setContentAreaFilled(false);
+        jBrefrescar.setFocusTraversalPolicyProvider(true);
+        jBrefrescar.setHideActionText(true);
+        jBrefrescar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jBrefrescar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBrefrescarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jBrefrescar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 450, 80, 60));
 
         jTBusuario.setBackground(new java.awt.Color(51, 51, 51));
         jTBusuario.setForeground(new java.awt.Color(255, 255, 255));
@@ -324,13 +358,16 @@ public class AdministrarUsuario extends JInternalFrame {
         });
         jScrollPane2.setViewportView(jTBusuario);
 
-        jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 307, 530, 190));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, 530, 170));
 
-        jLfondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/adm_usu.jpg"))); // NOI18N
+        jLfondo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLfondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/AdministrarUsuario.jpg"))); // NOI18N
         jLfondo.setToolTipText("");
-        jPanel2.add(jLfondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 550, 510));
-
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 550, -1));
+        jLfondo.setFocusable(false);
+        jLfondo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jLfondo.setRequestFocusEnabled(false);
+        jLfondo.setVerifyInputWhenFocusTarget(false);
+        getContentPane().add(jLfondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 550, 510));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -429,7 +466,7 @@ public class AdministrarUsuario extends JInternalFrame {
     private void jBmodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBmodificarActionPerformed
         
         usuDat.modificarUsuario(obtenerUsuarioDelForm());
-        cargarPedidos();
+        cargarUsuarios();
            
     }//GEN-LAST:event_jBmodificarActionPerformed
 
@@ -439,12 +476,18 @@ public class AdministrarUsuario extends JInternalFrame {
         
     }//GEN-LAST:event_jBlimpiarActionPerformed
 
+    private void jBrefrescarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBrefrescarActionPerformed
+        
+        cargarUsuarios();
+    }//GEN-LAST:event_jBrefrescarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBcrear;
     private javax.swing.JButton jBeliminar;
     private javax.swing.JButton jBlimpiar;
     private javax.swing.JButton jBmodificar;
+    private javax.swing.JButton jBrefrescar;
     private javax.swing.JButton jBsalir;
     private com.toedter.calendar.JDateChooser jDCfechaNac;
     private javax.swing.JLabel jLabel2;
@@ -460,7 +503,6 @@ public class AdministrarUsuario extends JInternalFrame {
     private javax.swing.JLabel jLtelefono;
     private javax.swing.JLabel jLusuario;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JRadioButton jRactivo;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTBusuario;
@@ -490,7 +532,7 @@ public class AdministrarUsuario extends JInternalFrame {
     
     }
     
-    private void cargarPedidos(){
+    private void cargarUsuarios(){
     
         modelo.setRowCount(0);
         List<Usuario> usuario = usuDat.listarUsuarios();

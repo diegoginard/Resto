@@ -66,6 +66,7 @@ public class AdministraMesas extends JInternalFrame {
         jBmodificar = new javax.swing.JButton();
         jbBorrar = new javax.swing.JButton();
         jBcrear = new javax.swing.JButton();
+        javax.swing.JButton jBrefrescar = new javax.swing.JButton();
         jLfondo = new javax.swing.JLabel();
 
         setBorder(null);
@@ -95,16 +96,23 @@ public class AdministraMesas extends JInternalFrame {
         });
         jScrollPane1.setViewportView(jtListaMesas);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 470, 180));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 470, 170));
 
+        jbSalir.setBackground(new java.awt.Color(51, 51, 51));
+        jbSalir.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
+        jbSalir.setForeground(new java.awt.Color(255, 255, 255));
         jbSalir.setText("Salir");
+        jbSalir.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jbSalir.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jbSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbSalirActionPerformed(evt);
             }
         });
-        getContentPane().add(jbSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 510, 70, -1));
+        getContentPane().add(jbSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 500, 90, 30));
 
+        jcEstado.setBackground(new java.awt.Color(51, 51, 51));
+        jcEstado.setForeground(new java.awt.Color(255, 255, 255));
         jcEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "..........", "LIBRE", "OCUPADO", "PENDIENTE" }));
         getContentPane().add(jcEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 120, 91, -1));
 
@@ -113,6 +121,10 @@ public class AdministraMesas extends JInternalFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Activo");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 180, 45, -1));
+
+        jrActivo.setBackground(new java.awt.Color(51, 51, 51));
+        jrActivo.setBorder(null);
+        jrActivo.setContentAreaFilled(false);
         getContentPane().add(jrActivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 180, -1, -1));
 
         jLabel4.setBackground(new java.awt.Color(0, 0, 0));
@@ -121,12 +133,17 @@ public class AdministraMesas extends JInternalFrame {
         jLabel4.setText("Numero");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, -1, -1));
 
+        jtNumero.setBackground(new java.awt.Color(51, 51, 51));
+        jtNumero.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
+        jtNumero.setForeground(new java.awt.Color(255, 255, 255));
+        jtNumero.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        jtNumero.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jtNumero.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jtNumeroKeyTyped(evt);
             }
         });
-        getContentPane().add(jtNumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 120, 40, -1));
+        getContentPane().add(jtNumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 120, 40, 30));
 
         jLabel5.setBackground(new java.awt.Color(0, 0, 0));
         jLabel5.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
@@ -134,12 +151,17 @@ public class AdministraMesas extends JInternalFrame {
         jLabel5.setText("Estado ");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 130, -1, -1));
 
+        jtCapacidad.setBackground(new java.awt.Color(51, 51, 51));
+        jtCapacidad.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
+        jtCapacidad.setForeground(new java.awt.Color(255, 255, 255));
+        jtCapacidad.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        jtCapacidad.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jtCapacidad.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jtCapacidadKeyTyped(evt);
             }
         });
-        getContentPane().add(jtCapacidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 70, 40, -1));
+        getContentPane().add(jtCapacidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 70, 40, 30));
 
         jLabel6.setBackground(new java.awt.Color(0, 0, 0));
         jLabel6.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
@@ -147,12 +169,17 @@ public class AdministraMesas extends JInternalFrame {
         jLabel6.setText("Capacidad");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 80, -1, -1));
 
+        jtId.setBackground(new java.awt.Color(51, 51, 51));
+        jtId.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
+        jtId.setForeground(new java.awt.Color(255, 255, 255));
+        jtId.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        jtId.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jtId.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jtIdKeyTyped(evt);
             }
         });
-        getContentPane().add(jtId, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 70, 40, -1));
+        getContentPane().add(jtId, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 70, 40, 30));
 
         jLabel3.setBackground(new java.awt.Color(51, 51, 51));
         jLabel3.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
@@ -166,12 +193,17 @@ public class AdministraMesas extends JInternalFrame {
         jLabel2.setText("ADMINISTRACION DE MESAS");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, -1, -1));
 
+        jtBuscar.setBackground(new java.awt.Color(51, 51, 51));
+        jtBuscar.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
+        jtBuscar.setForeground(new java.awt.Color(255, 255, 255));
+        jtBuscar.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        jtBuscar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jtBuscar.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jtBuscarKeyReleased(evt);
             }
         });
-        getContentPane().add(jtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 270, 70, -1));
+        getContentPane().add(jtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 270, 70, 20));
 
         jLabel7.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
@@ -187,38 +219,66 @@ public class AdministraMesas extends JInternalFrame {
         });
         getContentPane().add(jcElegir, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 270, -1, -1));
 
+        jBmodificar.setBackground(new java.awt.Color(51, 51, 51));
         jBmodificar.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
+        jBmodificar.setForeground(new java.awt.Color(255, 255, 255));
         jBmodificar.setText("Modificar");
+        jBmodificar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jBmodificar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jBmodificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBmodificarActionPerformed(evt);
             }
         });
-        getContentPane().add(jBmodificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 230, -1, -1));
+        getContentPane().add(jBmodificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 220, 90, 30));
 
+        jbBorrar.setBackground(new java.awt.Color(51, 51, 51));
         jbBorrar.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
+        jbBorrar.setForeground(new java.awt.Color(255, 255, 255));
         jbBorrar.setText("Borrar");
+        jbBorrar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jbBorrar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jbBorrar.setPreferredSize(new java.awt.Dimension(81, 23));
         jbBorrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbBorrarActionPerformed(evt);
             }
         });
-        getContentPane().add(jbBorrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 230, -1, -1));
+        getContentPane().add(jbBorrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 220, 90, 30));
 
+        jBcrear.setBackground(new java.awt.Color(51, 51, 51));
         jBcrear.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
+        jBcrear.setForeground(new java.awt.Color(255, 255, 255));
         jBcrear.setText("Crear");
+        jBcrear.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jBcrear.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jBcrear.setPreferredSize(new java.awt.Dimension(81, 23));
         jBcrear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBcrearActionPerformed(evt);
             }
         });
-        getContentPane().add(jBcrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 230, -1, -1));
+        getContentPane().add(jBcrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 220, 90, 30));
 
+        jBrefrescar.setBackground(new java.awt.Color(51, 51, 51));
+        jBrefrescar.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
+        jBrefrescar.setForeground(new java.awt.Color(255, 255, 255));
+        jBrefrescar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/refresh.png"))); // NOI18N
+        jBrefrescar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jBrefrescar.setContentAreaFilled(false);
+        jBrefrescar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jBrefrescar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBrefrescarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jBrefrescar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 490, 90, 50));
+
+        jLfondo.setBackground(new java.awt.Color(51, 51, 51));
+        jLfondo.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
+        jLfondo.setForeground(new java.awt.Color(255, 255, 255));
         jLfondo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLfondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/AdministrarMesas.jpg"))); // NOI18N
-        jLfondo.setMinimumSize(new java.awt.Dimension(510, 550));
         getContentPane().add(jLfondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 510, 550));
 
         pack();
@@ -341,6 +401,12 @@ public class AdministraMesas extends JInternalFrame {
         jtBuscar.setEnabled(true);
         
     }//GEN-LAST:event_jcElegirItemStateChanged
+
+    private void jBrefrescarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBrefrescarActionPerformed
+        
+        cargarLista();
+        
+    }//GEN-LAST:event_jBrefrescarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
