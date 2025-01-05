@@ -259,12 +259,13 @@ public class AdministraMenus extends JInternalFrame {
         jbActualizar.setForeground(new java.awt.Color(255, 255, 255));
         jbActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/refresh.png"))); // NOI18N
         jbActualizar.setBorder(null);
+        jbActualizar.setContentAreaFilled(false);
         jbActualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbActualizarActionPerformed(evt);
             }
         });
-        getContentPane().add(jbActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(131, 510, 70, -1));
+        getContentPane().add(jbActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 500, 70, -1));
 
         jcBuscar.setBackground(new java.awt.Color(51, 51, 51));
         jcBuscar.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
