@@ -75,7 +75,7 @@ public class Mesa {
         this.capacidad = capacidad;
     }
 
-    public Boolean getActivo() {
+    public boolean isActivo() {
         return activo;
     }
 
@@ -85,7 +85,7 @@ public class Mesa {
 
     @Override
     public String toString() {
-        return "Mesa " + numero  + ", sillas " + capacidad ;
+        return "Mesa " + numero  + ", sillas " + capacidad + ", id " + idMesa ;
     }
 
   

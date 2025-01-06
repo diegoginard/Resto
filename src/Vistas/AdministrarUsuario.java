@@ -456,9 +456,8 @@ public class AdministrarUsuario extends JInternalFrame {
         if (confirmacion == JOptionPane.YES_OPTION) {
             // Código para eliminar el usuario
             usuDat.eliminarUsuario(Integer.parseInt(jTid.getText()));
-           
-            // Cancelación de la eliminación
-            Utilidades.mostrarDialogoTemporal("Base de datos", "Eliminación cancelada.",2000);
+
+            Utilidades.mostrarDialogoTemporal("Base de datos", "Operacion completadaa.",2000);
             
         }
     }//GEN-LAST:event_jBeliminarActionPerformed
@@ -575,19 +574,19 @@ public class AdministrarUsuario extends JInternalFrame {
     }
 
     private Usuario obtenerUsuarioDelForm() {
-
-        if (jTid.getText() != null && !jTid.getText().isEmpty()
-                && jTusuario.getText() != null && !jTusuario.getText().isEmpty()
-                && jTpassword.getText() != null && !jTpassword.getText().isEmpty()
-                && jTnombre.getText() != null && !jTnombre.getText().isEmpty()
-                && jTapellido.getText() != null && !jTapellido.getText().isEmpty()
-                && jTedad.getText() != null && !jTedad.getText().isEmpty()
-                && jTdni.getText() != null && !jTdni.getText().isEmpty()
-                && jTtelefono.getText() != null && !jTtelefono.getText().isEmpty()
-                && jDCfechaNac.getDate() != null) {
+        
+        Usuario usu = new Usuario();
+        
+        if (!jTusuario.getText().isEmpty() && !jTpassword.getText().isEmpty() && !jTnombre.getText().isEmpty()
+                && !jTapellido.getText().isEmpty() && !jTedad.getText().isEmpty() && !jTdni.getText().isEmpty() 
+                && !jTtelefono.getText().isEmpty() && jDCfechaNac.getDate() != null) {
 
             // Todos los campos están llenos y no son nulos, entonces crea y asigna los valores a 'usu'.
-            usu.setIdUsuario(Integer.parseInt(jTid.getText()));
+            if(jTid.getText() != null){
+                usu.setIdUsuario(Integer.parseInt(jTid.getText()));
+            }else{
+                usu.setIdUsuario(Integer.parseInt(null));
+            }
             usu.setUsuario(jTusuario.getText());
             usu.setPassword(jTpassword.getText());
             usu.setNombre(jTnombre.getText());

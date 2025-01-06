@@ -11,7 +11,6 @@ import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
-import javax.swing.plaf.basic.BasicInternalFrameUI;
 
 public class AdministrarConexion extends JFrame {
 
@@ -19,6 +18,7 @@ public class AdministrarConexion extends JFrame {
 
     public AdministrarConexion() {
         
+        setUndecorated(true); // Desactiva la barra de título
         initComponents();
         cargarConfig();
         cargarConfigSql();
@@ -41,7 +41,8 @@ public class AdministrarConexion extends JFrame {
 
         return retValue;
     }
-
+    
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -90,6 +91,7 @@ public class AdministrarConexion extends JFrame {
         jBconex.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         jBconex.setForeground(new java.awt.Color(211, 211, 211));
         jBconex.setText("Conexion");
+        jBconex.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jBconex.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBconexActionPerformed(evt);
@@ -101,6 +103,7 @@ public class AdministrarConexion extends JFrame {
         jBcrearDB.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         jBcrearDB.setForeground(new java.awt.Color(211, 211, 211));
         jBcrearDB.setText("Crear BD");
+        jBcrearDB.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jBcrearDB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBcrearDBActionPerformed(evt);
@@ -112,6 +115,7 @@ public class AdministrarConexion extends JFrame {
         jBsalir.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         jBsalir.setForeground(new java.awt.Color(211, 211, 211));
         jBsalir.setText("Salir");
+        jBsalir.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jBsalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBsalirActionPerformed(evt);
@@ -119,6 +123,7 @@ public class AdministrarConexion extends JFrame {
         });
         jPanel1.add(jBsalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, 140, 40));
 
+        jPconex.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 204)));
         jPconex.setForeground(new java.awt.Color(211, 211, 211));
         jPconex.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -196,10 +201,11 @@ public class AdministrarConexion extends JFrame {
         jPconex.add(jbconectar, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 290, 170, 40));
 
         jLfondo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/conex.jpg"))); // NOI18N
-        jPconex.add(jLfondo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 350));
+        jPconex.add(jLfondo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -10, 420, 360));
 
         jTmenu.addTab("1", jPconex);
 
+        jPcrearDB.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 204)));
         jPcrearDB.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
@@ -242,6 +248,7 @@ public class AdministrarConexion extends JFrame {
         jBcrear.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         jBcrear.setForeground(new java.awt.Color(211, 211, 211));
         jBcrear.setText("Crear");
+        jBcrear.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jBcrear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBcrearActionPerformed(evt);
@@ -250,18 +257,18 @@ public class AdministrarConexion extends JFrame {
         jPcrearDB.add(jBcrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 280, 170, 40));
 
         jLfondo2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/conex.jpg"))); // NOI18N
-        jPcrearDB.add(jLfondo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 350));
+        jPcrearDB.add(jLfondo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -10, 420, 360));
         jLfondo2.getAccessibleContext().setAccessibleName("");
 
         jTmenu.addTab("2", jPcrearDB);
 
-        jPanel1.add(jTmenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, -30, 400, -1));
+        jPanel1.add(jTmenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, -30, 380, 390));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/conexion.jpg"))); // NOI18N
         jLabel4.setText("jLabel4");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 570, 350));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 570, 352));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 570, 340));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -286,13 +293,9 @@ public class AdministrarConexion extends JFrame {
             jTpass1.setText(PASSWORD);
 
         } catch (IOException e) {
-
             Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, "Error al cargar configuración", e);
             Utilidades.mostrarDialogoTemporal("Error", "No se pudo cargar el archivo de configuración.", 3000);
-            System.exit(1);
-
         }
-       
     }
     
     private void cargarConfig(){
@@ -324,10 +327,8 @@ public class AdministrarConexion extends JFrame {
 
             Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, "Error al cargar configuración", e);
             Utilidades.mostrarDialogoTemporal("Error", "No se pudo cargar el archivo de configuración.", 3000);
-            System.exit(1);
 
-        }
-       
+        }    
     }
     private void jbconectarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbconectarActionPerformed
 

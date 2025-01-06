@@ -1187,7 +1187,7 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
         for (Mesa me : mesas) {
 
             modelo.addRow(new Object[]{me.getIdMesa(),
-                me.getNumero(), me.getEstadoMesa(), me.getCapacidad(), me.getActivo()});
+                me.getNumero(), me.getEstadoMesa(), me.getCapacidad(), me.isActivo()});
 
         }
     }

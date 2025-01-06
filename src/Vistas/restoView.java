@@ -1379,7 +1379,7 @@ public class restoView extends javax.swing.JInternalFrame {
         for (int i = 0; i < cblistarMesas.size(); i++) {
 
             jcMesas.addItem(new Mesa(cblistarMesas.get(i).getIdMesa(), cblistarMesas.get(i).getNumero(), cblistarMesas.get(i).getEstadoMesa(), cblistarMesas.get(i).getCapacidad(),
-                    cblistarMesas.get(i).getActivo()));
+                    cblistarMesas.get(i).isActivo()));
 
         }
         
@@ -1389,7 +1389,7 @@ public class restoView extends javax.swing.JInternalFrame {
         for (int i = 0; i < cblistarMesas.size(); i++) {
 
             jcMesasPedido.addItem(new Mesa(cblistarMesas.get(i).getIdMesa(), cblistarMesas.get(i).getNumero(), cblistarMesas.get(i).getEstadoMesa(), cblistarMesas.get(i).getCapacidad(),
-                    cblistarMesas.get(i).getActivo()));
+                    cblistarMesas.get(i).isActivo()));
 
         }
     }
