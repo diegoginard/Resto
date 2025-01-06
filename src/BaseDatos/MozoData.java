@@ -77,7 +77,8 @@ public class MozoData {
 
     public void modificarMozo(Mozo mozo) {
         
-        String sql = "UPDATE producto SET nombre = ?, apellido = ?, edad = ?, dni = ?, telefono = ?, fechaNacimiento = ?, activo = ? WHERE idProducto = ?";
+        String sql = "UPDATE mozo SET nombre = ?, apellido = ?, edad = ?, dni = ?, telefono = ?, "
+                + "fechaNacimiento = ?, activo = ? WHERE idMozo = ?";
 
         try {
 
@@ -91,10 +92,9 @@ public class MozoData {
             ps.setDate(6, java.sql.Date.valueOf(mozo.getFechaNacimiento()));
             ps.setBoolean(7, mozo.isActivo());
             ps.setInt(8, mozo.getIdMozo());
-            
-
+   
             int exito = ps.executeUpdate();
-
+          
             if (exito == 1) {
                Utilidades.mostrarDialogoTemporal("Base de datos", "Mozo Modificado", 2000);
             }

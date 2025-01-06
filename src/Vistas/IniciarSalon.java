@@ -154,6 +154,11 @@ public class IniciarSalon extends javax.swing.JFrame {
         jMgestpers.setText("Gestionar Personal");
 
         jMmozos.setText("Mozos");
+        jMmozos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMmozosActionPerformed(evt);
+            }
+        });
         jMgestpers.add(jMmozos);
 
         jMusuarios.setText("Usuarios");
@@ -201,8 +206,6 @@ public class IniciarSalon extends javax.swing.JFrame {
     
     private void jmMenuInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmMenuInicioActionPerformed
         
-//        escritorio.removeAll();
-//        escritorio.repaint();
         restoView rv = new restoView();
         rv.setVisible(true);
         escritorio.add(rv);
@@ -218,8 +221,6 @@ public class IniciarSalon extends javax.swing.JFrame {
 
     private void jmMenusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmMenusActionPerformed
 
-        //        escritorio.removeAll();
-        //        escritorio.repaint();
         AdministraMenus am = new AdministraMenus();
         am.setVisible(true);
         escritorio.add(am);
@@ -229,8 +230,6 @@ public class IniciarSalon extends javax.swing.JFrame {
 
     private void jmMesasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmMesasActionPerformed
 
-        //        escritorio.removeAll();
-        //        escritorio.repaint();
         AdministraMesas me = new AdministraMesas();
         me.setVisible(true);
         escritorio.add(me);
@@ -241,8 +240,6 @@ public class IniciarSalon extends javax.swing.JFrame {
 
         try {
 
-            //            escritorio.removeAll();
-            //            escritorio.repaint();
             ListarPedidos ll = new ListarPedidos();
             ll.setVisible(true);
             escritorio.add(ll);
@@ -263,6 +260,15 @@ public class IniciarSalon extends javax.swing.JFrame {
             escritorio.moveToFront(admUsu);
         
     }//GEN-LAST:event_jMusuariosActionPerformed
+
+    private void jMmozosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMmozosActionPerformed
+        
+        AdministrarMozos admMozo = new AdministrarMozos();
+        admMozo.setVisible(true);
+        escritorio.add(admMozo);
+        escritorio.moveToFront(admMozo);
+        
+    }//GEN-LAST:event_jMmozosActionPerformed
 
     public static void main(String args[]) {
         

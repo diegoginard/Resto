@@ -5,7 +5,7 @@ DROP TABLE IF EXISTS `mesa`;
 
 CREATE TABLE `mesa` (
   `idMesa` int NOT NULL AUTO_INCREMENT,
-  `numero` int NOT NULL,
+  `numero` int NOT NULL UNIQUE,
   `estadoMesa` enum('LIBRE','OCUPADO','PENDIENTE') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT 'LIBRE',
   `capacidad` int NOT NULL,
   `activo` tinyint NOT NULL,
@@ -14,17 +14,6 @@ CREATE TABLE `mesa` (
 ) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 INSERT INTO `mesa` VALUES (1,1,'OCUPADO',2,1),(2,2,'LIBRE',2,1),(3,3,'LIBRE',2,1),(4,4,'LIBRE',2,1),(5,5,'LIBRE',2,1),(6,6,'LIBRE',4,1),(7,7,'LIBRE',4,1),(8,8,'LIBRE',4,1),(9,9,'LIBRE',4,1),(10,10,'LIBRE',4,1),(11,11,'LIBRE',4,1),(12,12,'LIBRE',4,1);
-
-DROP TABLE IF EXISTS `mozo`;
-
-CREATE TABLE `mozo` (
-  `idMozo` int NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(50) NOT NULL,
-  `apellido` varchar(50) NOT NULL,
-  `dni` int NOT NULL,
-  `telefono` int NOT NULL,
-  PRIMARY KEY (`idMozo`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 DROP TABLE IF EXISTS `pedido`;
 
@@ -83,10 +72,26 @@ CREATE TABLE `usuario` (
   `apellido` varchar(50) DEFAULT NULL,
   `edad` int NOT NULL,
   `dni` int NOT NULL UNIQUE,
-  `telefono` int NOT NULL,
+  `telefono` varchar(50) NOT NULL,
   `fechaNacimiento` DATE DEFAULT NULL,
   `activo` tinyint NOT NULL,
   PRIMARY KEY (`idUsuario`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
-INSERT INTO `usuario` VALUES (NULL,'admin','admin','user','pass',30,2222222,370411111,'1978-11-27',1);
+INSERT INTO `usuario` VALUES (NULL,'admin','admin','user','pass',30,2222222,'370411111','1978-11-27',1);
+
+DROP TABLE IF EXISTS `mozo`;
+
+CREATE TABLE `mozo` (
+  `idMozo` int NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(50) DEFAULT NULL,
+  `apellido` varchar(50) DEFAULT NULL,
+  `edad` int NOT NULL,
+  `dni` int NOT NULL UNIQUE,
+  `telefono` varchar(50) NOT NULL,
+  `fechaNacimiento` DATE DEFAULT NULL,
+  `activo` tinyint NOT NULL,
+  PRIMARY KEY (`idMozo`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+UPDATE producto SET nombre = Diego WHERE idmozo = 1;

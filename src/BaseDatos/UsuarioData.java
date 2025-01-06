@@ -89,8 +89,7 @@ public class UsuarioData {
         try {
             
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-            
-           
+                       
             ps.setString(1, user.getUsuario());
             ps.setString(2, user.getPassword());
             ps.setString(3, user.getNombre());
@@ -101,7 +100,6 @@ public class UsuarioData {
             ps.setDate(8, java.sql.Date.valueOf(user.getFechaNacimiento()));
             ps.setBoolean(9, user.isActivo());
             ps.setInt(10, user.getIdUsuario());
-            
 
             int exito = ps.executeUpdate();
 
