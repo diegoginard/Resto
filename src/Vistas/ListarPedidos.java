@@ -1,4 +1,3 @@
-
 package Vistas;
 
 import BaseDatos.PedidoData;
@@ -15,7 +14,6 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import javax.swing.JInternalFrame;
-import javax.swing.JOptionPane;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerDateModel;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
@@ -29,53 +27,23 @@ public class ListarPedidos extends JInternalFrame {
 
         initComponents();
         armarCabecera();
-        cargarPedidos();
 
         // Desactiva la barra de título del JInternalFrame
         BasicInternalFrameUI ui = (BasicInternalFrameUI) getUI();
         ui.setNorthPane(null);
-        
-        jtNMesero.setEnabled(false);
-        jdFecha.setEnabled(false);
-        jdMDia.setEnabled(false);
-        jtMDia.setEnabled(false);
-        jbBuscar.setEnabled(false);
-        jtIdmesa.setEnabled(false);
-        jdDia.setEnabled(false);
-        jsHoraInicio.setEnabled(false);
-        jsHoraFin.setEnabled(false);
-        jbBuscar1.setEnabled(false);
 
-        try {
+        editarCampos(false, false, false, false, false, false,
+                false, false, false, false);
 
-            SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
-            Date hora = sdf.parse("00:00");
-            SpinnerDateModel sdm = new SpinnerDateModel(hora, null, null, Calendar.HOUR_OF_DAY);
-            jsHoraInicio.setModel(sdm);
-            JSpinner.DateEditor de = new JSpinner.DateEditor(jsHoraInicio, "HH:mm");
-            jsHoraInicio.setEditor(de);
-
-        } catch (ParseException ex) {
-            
-            JOptionPane.showMessageDialog(rootPane, "no funca");
-        }
-
-        try {
-
-            SimpleDateFormat sdf1 = new SimpleDateFormat("HH:mm");
-            Date hora1 = sdf1.parse("00:00");
-            SpinnerDateModel sdm1 = new SpinnerDateModel(hora1, null, null, Calendar.HOUR_OF_DAY);
-            jsHoraFin.setModel(sdm1);
-            JSpinner.DateEditor de1 = new JSpinner.DateEditor(jsHoraFin, "HH:mm");
-            jsHoraFin.setEditor(de1);
-
-        } catch (ParseException ex) {
-
-            JOptionPane.showMessageDialog(rootPane, "no funca");
-        }
+        formatoHora(jsHoraInicio);
+        formatoHora(jsHoraFin);
 
     }
-
+    
+    /* 
+    * Modelo de tabla no editable utilizado para la tabla 'jtPedido', 
+    * asegurando que los datos de la tabla sean de solo lectura.
+    */
     private DefaultTableModel modelo = new DefaultTableModel() {
 
         @Override
@@ -314,89 +282,42 @@ public class ListarPedidos extends JInternalFrame {
 
     private void jcElegirItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jcElegirItemStateChanged
 
-        String elegir = (String) jcElegir.getSelectedItem();
+        String elegir = jcElegir.getSelectedItem() + "";
 
         switch (elegir) {
 
             case "MESERO":
 
-                modelo.setRowCount(0);
-                jtNMesero.setEnabled(true);
-                jdFecha.setEnabled(false);
-                jtMDia.setEnabled(false);
-                jdMDia.setEnabled(false);
-                jtIdmesa.setEnabled(false);
-                jdDia.setEnabled(false);
-                jsHoraInicio.setEnabled(false);
-                jsHoraFin.setEnabled(false);
-                jbBuscar1.setEnabled(false);
-                cargarPedidos();
+                editarCampos(true, false, false, false, false, false,
+                        false, false, false, false);
 
                 break;
 
             case "FECHA":
 
-                modelo.setRowCount(0);
-                jdFecha.setEnabled(true);
-                jtMDia.setEnabled(false);
-                jdMDia.setEnabled(false);
-                jtNMesero.setEnabled(false);
-                jtIdmesa.setEnabled(false);
-                jdDia.setEnabled(false);
-                jsHoraInicio.setEnabled(false);
-                jsHoraFin.setEnabled(false);
-                jbBuscar1.setEnabled(false);
-                cargarPedidos();
+                editarCampos(false, true, false, false, false, false,
+                        false, false, false, false);
 
                 break;
 
             case "MESEROxDIA":
 
-                modelo.setRowCount(0);
-                jbBuscar.setEnabled(true);
-                jdMDia.setEnabled(true);
-                jtMDia.setEnabled(true);
-                jtNMesero.setEnabled(false);
-                jtIdmesa.setEnabled(false);
-                jdDia.setEnabled(false);
-                jsHoraInicio.setEnabled(false);
-                jsHoraFin.setEnabled(false);
-                jbBuscar1.setEnabled(false);
-                jdFecha.setEnabled(false);
-                cargarPedidos();
+                editarCampos(false, false, true, true, false, false,
+                        false, false, false, true);
 
                 break;
 
             case "MESAxDIA/HORA":
 
-                modelo.setRowCount(0);
-                jtIdmesa.setEnabled(true);
-                jdDia.setEnabled(true);
-                jsHoraInicio.setEnabled(true);
-                jsHoraFin.setEnabled(true);
-                jbBuscar1.setEnabled(true);
-                jbBuscar.setEnabled(false);
-                jdMDia.setEnabled(false);
-                jtMDia.setEnabled(false);
-                jtNMesero.setEnabled(false);
-                jdFecha.setEnabled(false);
-                cargarPedidos();
+                editarCampos(false, false, false, false, true, true,
+                        true, true, true, false);
 
                 break;
 
             default:
 
-                modelo.setRowCount(0);
-                jtNMesero.setEnabled(false);
-                jdFecha.setEnabled(false);
-                jdMDia.setEnabled(false);
-                jtMDia.setEnabled(false);
-                jtIdmesa.setEnabled(false);
-                jdDia.setEnabled(false);
-                jsHoraInicio.setEnabled(false);
-                jsHoraFin.setEnabled(false);
-                jbBuscar1.setEnabled(false);
-                cargarPedidos();
+                editarCampos(false, false, false, false, false, false,
+                        false, false, false, false);
 
         }
     }//GEN-LAST:event_jcElegirItemStateChanged
@@ -452,33 +373,33 @@ public class ListarPedidos extends JInternalFrame {
 
         } else {
 
-            JOptionPane.showMessageDialog(rootPane, "Ingrese todos los datos");
+            Utilidades.mostrarDialogoTemporal("Buscar pedidos", "Ingrese todos los datos", 2000);
 
         }
     }//GEN-LAST:event_jbBuscar1ActionPerformed
 
     private void jBsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBsalirActionPerformed
-       
+
         dispose();
-        
+
     }//GEN-LAST:event_jBsalirActionPerformed
 
     private void jtNMeseroKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtNMeseroKeyTyped
-        
+
         soloLetras(evt);
-        
+
     }//GEN-LAST:event_jtNMeseroKeyTyped
 
     private void jtMDiaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtMDiaKeyTyped
-        
+
         soloLetras(evt);
-        
+
     }//GEN-LAST:event_jtMDiaKeyTyped
 
     private void jtIdmesaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtIdmesaKeyTyped
-        
+
         soloNumeros(evt);
-        
+
     }//GEN-LAST:event_jtIdmesaKeyTyped
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -509,8 +430,9 @@ public class ListarPedidos extends JInternalFrame {
     private javax.swing.JTable jtPedido;
     // End of variables declaration//GEN-END:variables
 
-    private void armarCabecera(){
-    
+    // Configura las columnas del modelo de la tabla 'jtPedido'.
+    private void armarCabecera() {
+
         modelo.addColumn("ID");
         modelo.addColumn("idMesa");
         modelo.addColumn("Mesero");
@@ -518,80 +440,30 @@ public class ListarPedidos extends JInternalFrame {
         modelo.addColumn("Cobrada");
         modelo.addColumn("Importe");
         modelo.addColumn("Estado");
-        jtPedido.setModel(modelo);   
-    
+        jtPedido.setModel(modelo);
+
     }
     
-    private void cargarPedidos(){
-    
-        
+    // Carga todos los pedidos en la tabla desde la base de datos y calcula el ingreso total.
+    private void cargarPedidos() {
+
         modelo.setRowCount(0);
         List<Pedido> pedido = pd.listarPedidos();
 
         for (Pedido pe : pedido) {
 
             modelo.addRow(new Object[]{pe.getIdPedido(), pe.getMesa().getNumero(),
-                pe.getNombreMesero(), pe.getFechaHora(),pe.isCobrada(),pe.getImporte(), pe.getEstado()});
+                pe.getNombreMesero(), pe.getFechaHora(), pe.isCobrada(), pe.getImporte(), pe.getEstado()});
 
         }
     }
     
-    private void pedidoMesero(String mesero){
-        
+    // Filtra y muestra los pedidos realizados por un mesero específico y calcula el ingreso total de esos pedidos.
+    private void pedidoMesero(String mesero) {
+
         double total = 0.0;
         modelo.setRowCount(0);
         List<Pedido> pedido = pd.listarPedidoMesero(mesero);
-
-        for (Pedido pe : pedido) {
-
-            modelo.addRow(new Object[]{pe.getIdPedido(), pe.getMesa().getNumero(),
-                pe.getNombreMesero(), pe.getFechaHora(),pe.isCobrada(),pe.getImporte(), pe.getEstado()});
-            total += pe.getImporte();
-        }
-        
-         jtIngresos.setText(total + "");
-         
-    } 
-    
-    private void pedidoFecha(LocalDateTime fechad){
-        
-        double total = 0.0;
-        modelo.setRowCount(0);
-        List<Pedido> pedido = pd.listarPedidoFechaDia(fechad);
-
-        for (Pedido pe : pedido) {
-
-            modelo.addRow(new Object[]{pe.getIdPedido(), pe.getMesa().getNumero(),
-                pe.getNombreMesero(), pe.getFechaHora(),pe.isCobrada(),pe.getImporte(), pe.getEstado()});
-            total += pe.getImporte();
-        }
-        
-         jtIngresos.setText(total + "");
-         
-    } 
-    
-    private void pedidoMeseroDia(String mesero,LocalDate fecha){
-        
-        double total = 0.0;
-        modelo.setRowCount(0);
-        List<Pedido> pedido = pd.listarPedidosCobradosPorMeseroEnElDia(mesero,fecha);
-
-        for (Pedido pe : pedido) {
-
-            modelo.addRow(new Object[]{pe.getIdPedido(), pe.getMesa().getNumero(),
-                pe.getNombreMesero(), pe.getFechaHora(),pe.isCobrada(),pe.getImporte(), pe.getEstado()});
-            total += pe.getImporte();
-        }
-        
-         jtIngresos.setText(total + "");
-         
-    } 
-    
-    private void pedidoMesaHoras(int idMesa, LocalDate fecha, LocalDateTime horaInicio, LocalDateTime horaFin){
-        
-        double total = 0.0;
-        modelo.setRowCount(0);
-        List<Pedido> pedido = pd.listarPedidosDeMesaEnFechaYRangoHorario(idMesa,fecha,horaInicio,horaFin);
 
         for (Pedido pe : pedido) {
 
@@ -603,7 +475,62 @@ public class ListarPedidos extends JInternalFrame {
         jtIngresos.setText(total + "");
 
     }
+    
+    // Filtra y muestra los pedidos realizados en una fecha específica y calcula el ingreso total de esos pedidos.
+    private void pedidoFecha(LocalDateTime fechad) {
 
+        double total = 0.0;
+        modelo.setRowCount(0);
+        List<Pedido> pedido = pd.listarPedidoFechaDia(fechad);
+
+        for (Pedido pe : pedido) {
+
+            modelo.addRow(new Object[]{pe.getIdPedido(), pe.getMesa().getNumero(),
+                pe.getNombreMesero(), pe.getFechaHora(), pe.isCobrada(), pe.getImporte(), pe.getEstado()});
+            total += pe.getImporte();
+        }
+
+        jtIngresos.setText(total + "");
+
+    }
+    
+    // Filtra y muestra los pedidos realizados por un mesero en un día específico, y calcula el ingreso total.
+    private void pedidoMeseroDia(String mesero, LocalDate fecha) {
+
+        double total = 0.0;
+        modelo.setRowCount(0);
+        List<Pedido> pedido = pd.listarPedidosCobradosPorMeseroEnElDia(mesero, fecha);
+
+        for (Pedido pe : pedido) {
+
+            modelo.addRow(new Object[]{pe.getIdPedido(), pe.getMesa().getNumero(),
+                pe.getNombreMesero(), pe.getFechaHora(), pe.isCobrada(), pe.getImporte(), pe.getEstado()});
+            total += pe.getImporte();
+        }
+
+        jtIngresos.setText(total + "");
+
+    }
+    
+    // Filtra y muestra los pedidos realizados en una mesa específica, en una fecha y rango horario determinados, y calcula el ingreso total.
+    private void pedidoMesaHoras(int idMesa, LocalDate fecha, LocalDateTime horaInicio, LocalDateTime horaFin) {
+
+        double total = 0.0;
+        modelo.setRowCount(0);
+        List<Pedido> pedido = pd.listarPedidosDeMesaEnFechaYRangoHorario(idMesa, fecha, horaInicio, horaFin);
+
+        for (Pedido pe : pedido) {
+
+            modelo.addRow(new Object[]{pe.getIdPedido(), pe.getMesa().getNumero(),
+                pe.getNombreMesero(), pe.getFechaHora(), pe.isCobrada(), pe.getImporte(), pe.getEstado()});
+            total += pe.getImporte();
+        }
+
+        jtIngresos.setText(total + "");
+
+    }
+    
+    // Valida que el campo de texto acepte solo letras. Si se ingresa un dígito, muestra un mensaje de error.
     private void soloLetras(KeyEvent evt) {
 
         char validar = evt.getKeyChar();
@@ -618,17 +545,55 @@ public class ListarPedidos extends JInternalFrame {
         }
     }
     
-     private void soloNumeros(KeyEvent evt){
-        
+    // Valida que el campo de texto acepte solo números. Si se ingresa una letra, muestra un mensaje de error.
+    private void soloNumeros(KeyEvent evt) {
+
         char validar = evt.getKeyChar();
-        
-        if(Character.isLetter(validar)){
-            
+
+        if (Character.isLetter(validar)) {
+
             getToolkit().beep();
             evt.consume();
-            
+
             Utilidades.mostrarDialogoTemporal("Error", "Ingrese solo numeros", 2000);
-            
+
         }
+    }
+    
+    // Configura el formato de la hora en un 'JSpinner' para que muestre solo la hora y los minutos.
+    private void formatoHora(JSpinner horaFormat) {
+
+        try {
+
+            SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
+            Date hora = sdf.parse("00:00");
+            SpinnerDateModel sdm = new SpinnerDateModel(hora, null, null, Calendar.HOUR_OF_DAY);
+            horaFormat.setModel(sdm);
+            JSpinner.DateEditor de = new JSpinner.DateEditor(jsHoraInicio, "HH:mm");
+            horaFormat.setEditor(de);
+
+        } catch (ParseException ex) {
+
+            Utilidades.mostrarDialogoTemporal("Formato de hora", "no se pudo dar formato a la hora", 2000);
+        }
+    }
+    
+    // Habilita o deshabilita campos y controles en la interfaz según los parámetros booleanos recibidos y recarga los pedidos.
+    private void editarCampos(boolean tNMesero, boolean dFecha, boolean tMDia, boolean dMDia, boolean tIdmesa,
+            boolean dDia, boolean sHoraInicio, boolean sHoraFin, boolean bBuscar1, boolean bBuscar) {
+
+        modelo.setRowCount(0);
+        jtNMesero.setEnabled(tNMesero);
+        jdFecha.setEnabled(dFecha);
+        jtMDia.setEnabled(tMDia);
+        jdMDia.setEnabled(dMDia);
+        jtIdmesa.setEnabled(tIdmesa);
+        jdDia.setEnabled(dDia);
+        jsHoraInicio.setEnabled(sHoraInicio);
+        jsHoraFin.setEnabled(sHoraFin);
+        jbBuscar1.setEnabled(bBuscar1);
+        jbBuscar.setEnabled(bBuscar);
+        cargarPedidos();
+
     }
 }

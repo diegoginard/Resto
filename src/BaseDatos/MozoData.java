@@ -23,7 +23,7 @@ public class MozoData {
     
     public void crearMozo(Mozo mozo) {
 
-        String sql = "INSERT INTO mozo(nombre, apellido, dni, telefono) VALUES (?,?,?,?)";
+        String sql = "INSERT INTO mozo(nombre, apellido, edad, dni, telefono, fechaNacimiento, activo) VALUES (?,?,?,?,?,?,?)";
 
         try {
 
@@ -31,28 +31,31 @@ public class MozoData {
 
             ps.setString(1, mozo.getNombre());
             ps.setString(2, mozo.getApellido());
-            ps.setInt(3, mozo.getDni());
-            ps.setInt(4, mozo.getTelefono());
+            ps.setInt(3,mozo.getEdad());
+            ps.setInt(4, mozo.getDni());
+            ps.setString(5, mozo.getTelefono());
+            ps.setDate(6, java.sql.Date.valueOf(mozo.getFechaNacimiento()));
+            ps.setBoolean(7, mozo.isActivo());
             ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
 
             if (rs.next()) {
 
                 mozo.setIdMozo(rs.getInt(1));
-
-                Utilidades.mostrarDialogoTemporal("Base de datos", "Usuario creado", 2000);
+                Utilidades.mostrarDialogoTemporal("Base de datos", "Mozo creado", 2000);
 
             }
 
             ps.close();
 
         } catch (SQLException ex) {
-            Vistas.Utilidades.mostrarDialogoTemporal("Error al acceder a la tabla usuario ", ex.getMessage(), 2000);
+            Vistas.Utilidades.mostrarDialogoTemporal("Error al acceder a la tabla mozo ", ex.getMessage(), 2000);
         }
     }
     
     public void eliminarMozo(int id) {
-        String sql = "DELETE FROM mozo WHERE idProducto = ?";
+        
+        String sql = "DELETE FROM mozo WHERE idMozo = ?";
 
         try {
             PreparedStatement ps = con.prepareStatement(sql);
@@ -74,17 +77,21 @@ public class MozoData {
 
     public void modificarMozo(Mozo mozo) {
         
-        String sql = "UPDATE producto SET idProducto= ?, nombre = ?, apellido = ?, dni = ?, telefono = ? WHERE idProducto = ?";
+        String sql = "UPDATE producto SET nombre = ?, apellido = ?, edad = ?, dni = ?, telefono = ?, fechaNacimiento = ?, activo = ? WHERE idProducto = ?";
 
         try {
 
             PreparedStatement ps = con.prepareStatement(sql);
 
-            ps.setInt(1, mozo.getIdMozo());
-            ps.setString(2, mozo.getNombre());
-            ps.setString(3, mozo.getApellido());
+            ps.setString(1, mozo.getNombre());
+            ps.setString(2, mozo.getApellido());
+            ps.setInt(3,mozo.getEdad());
             ps.setInt(4, mozo.getDni());
-            ps.setInt(5, mozo.getTelefono());
+            ps.setString(5, mozo.getTelefono());
+            ps.setDate(6, java.sql.Date.valueOf(mozo.getFechaNacimiento()));
+            ps.setBoolean(7, mozo.isActivo());
+            ps.setInt(8, mozo.getIdMozo());
+            
 
             int exito = ps.executeUpdate();
 
@@ -108,12 +115,16 @@ public class MozoData {
             ResultSet rs = ps.executeQuery();
           
             while (rs.next()) {
+                
                 Mozo mozo = new Mozo();
                 mozo.setIdMozo(rs.getInt("idMozo"));
                 mozo.setNombre(rs.getString("nombre"));
-                mozo.setApellido(rs.getString("fapellido"));
+                mozo.setApellido(rs.getString("apellido"));
+                mozo.setEdad(rs.getInt("edad"));
                 mozo.setDni(rs.getInt("dni"));
-                mozo.setTelefono(rs.getInt("telefono"));
+                mozo.setTelefono(rs.getString("telefono"));
+                mozo.setFechaNacimiento(rs.getDate("fechaNacimiento").toLocalDate());
+                mozo.setActivo(rs.getBoolean("activo"));
                
                 mozos.add(mozo);
             
@@ -128,5 +139,4 @@ public class MozoData {
         return mozos;
     
     }
-
 }
