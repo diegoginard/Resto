@@ -66,6 +66,7 @@ public class AdministraMesas extends JInternalFrame {
         jBeliminar = new javax.swing.JButton();
         jBcrear = new javax.swing.JButton();
         javax.swing.JButton jBrefrescar = new javax.swing.JButton();
+        jBlimpiar = new javax.swing.JButton();
         jLfondo = new javax.swing.JLabel();
 
         setBorder(null);
@@ -235,7 +236,7 @@ public class AdministraMesas extends JInternalFrame {
                 jBmodificarActionPerformed(evt);
             }
         });
-        getContentPane().add(jBmodificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 220, 90, 30));
+        getContentPane().add(jBmodificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 220, 90, 30));
 
         jBeliminar.setBackground(new java.awt.Color(51, 51, 51));
         jBeliminar.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
@@ -249,7 +250,7 @@ public class AdministraMesas extends JInternalFrame {
                 jBeliminarActionPerformed(evt);
             }
         });
-        getContentPane().add(jBeliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 220, 90, 30));
+        getContentPane().add(jBeliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 220, 90, 30));
 
         jBcrear.setBackground(new java.awt.Color(51, 51, 51));
         jBcrear.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
@@ -263,7 +264,7 @@ public class AdministraMesas extends JInternalFrame {
                 jBcrearActionPerformed(evt);
             }
         });
-        getContentPane().add(jBcrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 220, 90, 30));
+        getContentPane().add(jBcrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 90, 30));
 
         jBrefrescar.setBackground(new java.awt.Color(51, 51, 51));
         jBrefrescar.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
@@ -278,6 +279,20 @@ public class AdministraMesas extends JInternalFrame {
             }
         });
         getContentPane().add(jBrefrescar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 490, 90, 50));
+
+        jBlimpiar.setBackground(new java.awt.Color(51, 51, 51));
+        jBlimpiar.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
+        jBlimpiar.setForeground(new java.awt.Color(255, 255, 255));
+        jBlimpiar.setText("Limpiar");
+        jBlimpiar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jBlimpiar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jBlimpiar.setPreferredSize(new java.awt.Dimension(81, 23));
+        jBlimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBlimpiarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jBlimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 220, 90, 30));
 
         jLfondo.setBackground(new java.awt.Color(51, 51, 51));
         jLfondo.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
@@ -374,6 +389,7 @@ public class AdministraMesas extends JInternalFrame {
         
         jBmodificar.setEnabled(false);
         jBeliminar.setEnabled(false);
+        jBcrear.setEnabled(true);
         limpiarForm();
         cargarLista();
         
@@ -440,9 +456,19 @@ public class AdministraMesas extends JInternalFrame {
         
     }//GEN-LAST:event_jBrefrescarActionPerformed
 
+    private void jBlimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBlimpiarActionPerformed
+        
+        limpiarForm();
+        jBmodificar.setEnabled(false);
+        jBeliminar.setEnabled(false);
+        jBcrear.setEnabled(true);
+                
+    }//GEN-LAST:event_jBlimpiarActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBcrear;
     private javax.swing.JButton jBeliminar;
+    private javax.swing.JButton jBlimpiar;
     private javax.swing.JButton jBmodificar;
     private javax.swing.JButton jBsalir;
     private javax.swing.JComboBox<String> jCestado;
@@ -584,10 +610,8 @@ public class AdministraMesas extends JInternalFrame {
         if (!jTcapacidad.getText().isEmpty() && !jTnumero.getText().isEmpty() && jCestado.getSelectedIndex() != 0){
 
             // Todos los campos están llenos y no son nulos, entonces crea y asigna los valores a 'usu'.
-            if(jTid.getText() != null){
+            if(!jTid.getText().isEmpty()){
                 mesa.setIdMesa(Integer.parseInt(jTid.getText()));
-            }else{
-                mesa.setIdMesa(Integer.parseInt(null));
             }
             mesa.setCapacidad(Integer.parseInt(jTcapacidad.getText()));
             mesa.setNumero(Integer.parseInt(jTnumero.getText()));

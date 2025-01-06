@@ -1,4 +1,3 @@
-
 package Vistas;
 
 import BaseDatos.UsuarioData;
@@ -13,27 +12,26 @@ import javax.swing.JOptionPane;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 import javax.swing.table.DefaultTableModel;
 
-
 public class AdministrarUsuario extends JInternalFrame {
-    
+
     Usuario usu = new Usuario();
     UsuarioData usuDat = new UsuarioData();
-    
+
     public AdministrarUsuario() {
-        
+
         initComponents();
         armarCabecera();
         cargarUsuarios();
         jBmodificar.setEnabled(false);
         jTid.setEditable(false);
         jBeliminar.setEnabled(false);
-        
+
         // Desactiva la barra de título del JInternalFrame
         BasicInternalFrameUI ui = (BasicInternalFrameUI) getUI();
         ui.setNorthPane(null);
-        
+
     }
-    
+
     private DefaultTableModel modelo = new DefaultTableModel() {
 
         @Override
@@ -373,72 +371,72 @@ public class AdministrarUsuario extends JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBcrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBcrearActionPerformed
-        
+
         obtenerUsuarioDelForm();
-        
+
     }//GEN-LAST:event_jBcrearActionPerformed
 
     private void jTnombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTnombreKeyTyped
-        
+
         soloLetras(evt);
-        
+
     }//GEN-LAST:event_jTnombreKeyTyped
 
     private void jTapellidoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTapellidoKeyTyped
-       
+
         soloLetras(evt);
-        
+
     }//GEN-LAST:event_jTapellidoKeyTyped
 
     private void jTedadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTedadKeyTyped
-        
+
         soloNumeros(evt);
-        
+
     }//GEN-LAST:event_jTedadKeyTyped
 
     private void jTdniKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTdniKeyTyped
-        
+
         soloNumeros(evt);
-        
+
     }//GEN-LAST:event_jTdniKeyTyped
 
     private void jTidKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTidKeyTyped
-        
+
         soloNumeros(evt);
-        
+
     }//GEN-LAST:event_jTidKeyTyped
 
     private void jTBusuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTBusuarioMouseClicked
-        
+
         int fila = jTBusuario.getSelectedRow();
-        jTid.setText(jTBusuario.getValueAt(fila,0) + "");
-        jTusuario.setText(jTBusuario.getValueAt(fila,1) + "");
-        jTpassword.setText(jTBusuario.getValueAt(fila,2) + "");
-        jTnombre.setText(jTBusuario.getValueAt(fila,3) + "");
-        jTapellido.setText(jTBusuario.getValueAt(fila,4) + "");
-        jTedad.setText(jTBusuario.getValueAt(fila,5) + "");
-        jTdni.setText(jTBusuario.getValueAt(fila,6) + "");
-        jTtelefono.setText(jTBusuario.getValueAt(fila,7) + "");
+        jTid.setText(jTBusuario.getValueAt(fila, 0) + "");
+        jTusuario.setText(jTBusuario.getValueAt(fila, 1) + "");
+        jTpassword.setText(jTBusuario.getValueAt(fila, 2) + "");
+        jTnombre.setText(jTBusuario.getValueAt(fila, 3) + "");
+        jTapellido.setText(jTBusuario.getValueAt(fila, 4) + "");
+        jTedad.setText(jTBusuario.getValueAt(fila, 5) + "");
+        jTdni.setText(jTBusuario.getValueAt(fila, 6) + "");
+        jTtelefono.setText(jTBusuario.getValueAt(fila, 7) + "");
         jDCfechaNac.setDate(Date.from(((LocalDate) jTBusuario.getValueAt(fila, 8))
                 .atStartOfDay(ZoneId.systemDefault()).toInstant()));
-        jRactivo.setSelected((boolean)jTBusuario.getValueAt(fila,9));
-        
+        jRactivo.setSelected((boolean) jTBusuario.getValueAt(fila, 9));
+
         jBmodificar.setEnabled(true);
         jBcrear.setEnabled(false);
         jBeliminar.setEnabled(true);
-        
+
     }//GEN-LAST:event_jTBusuarioMouseClicked
 
     private void jTtelefonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTtelefonoKeyTyped
-        
+
         soloNumeros(evt);
-        
+
     }//GEN-LAST:event_jTtelefonoKeyTyped
 
     private void jBsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBsalirActionPerformed
-        
+
         dispose();
-        
+
     }//GEN-LAST:event_jBsalirActionPerformed
 
     private void jBeliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBeliminarActionPerformed
@@ -457,26 +455,27 @@ public class AdministrarUsuario extends JInternalFrame {
             // Código para eliminar el usuario
             usuDat.eliminarUsuario(Integer.parseInt(jTid.getText()));
 
-            Utilidades.mostrarDialogoTemporal("Base de datos", "Operacion completadaa.",2000);
-            
+            Utilidades.mostrarDialogoTemporal("Base de datos", "Operacion completadaa.", 2000);
+
         }
     }//GEN-LAST:event_jBeliminarActionPerformed
 
     private void jBmodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBmodificarActionPerformed
-        
+
         usuDat.modificarUsuario(obtenerUsuarioDelForm());
         cargarUsuarios();
-           
+
     }//GEN-LAST:event_jBmodificarActionPerformed
 
     private void jBlimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBlimpiarActionPerformed
-        
+
         limpiarForm();
-        
+        cargarUsuarios();
+
     }//GEN-LAST:event_jBlimpiarActionPerformed
 
     private void jBrefrescarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBrefrescarActionPerformed
-        
+
         cargarUsuarios();
     }//GEN-LAST:event_jBrefrescarActionPerformed
 
@@ -515,8 +514,8 @@ public class AdministrarUsuario extends JInternalFrame {
     private javax.swing.JTextField jTusuario;
     // End of variables declaration//GEN-END:variables
 
-    private void armarCabecera(){
-    
+    private void armarCabecera() {
+
         modelo.addColumn("idUsuario");
         modelo.addColumn("usuario");
         modelo.addColumn("password");
@@ -527,24 +526,24 @@ public class AdministrarUsuario extends JInternalFrame {
         modelo.addColumn("telefono");
         modelo.addColumn("fechaNacimiento");
         modelo.addColumn("activo");
-        jTBusuario.setModel(modelo);   
-    
+        jTBusuario.setModel(modelo);
+
     }
-    
-    private void cargarUsuarios(){
-    
+
+    private void cargarUsuarios() {
+
         modelo.setRowCount(0);
         List<Usuario> usuario = usuDat.listarUsuarios();
 
         for (Usuario usu : usuario) {
 
-            modelo.addRow(new Object[]{usu.getIdUsuario(), usu.getUsuario(),usu.getPassword(),
-               usu.getNombre(), usu.getApellido(),usu.getEdad(),usu.getDni(),usu.getTelefono(), 
-               usu.getFechaNacimiento(), usu.getActivo()});
+            modelo.addRow(new Object[]{usu.getIdUsuario(), usu.getUsuario(), usu.getPassword(),
+                usu.getNombre(), usu.getApellido(), usu.getEdad(), usu.getDni(), usu.getTelefono(),
+                usu.getFechaNacimiento(), usu.getActivo()});
 
         }
     }
-    
+
     private void soloLetras(KeyEvent evt) {
 
         char validar = evt.getKeyChar();
@@ -558,34 +557,32 @@ public class AdministrarUsuario extends JInternalFrame {
 
         }
     }
-    
-     private void soloNumeros(KeyEvent evt){
-        
+
+    private void soloNumeros(KeyEvent evt) {
+
         char validar = evt.getKeyChar();
-        
-        if(Character.isLetter(validar)){
-            
+
+        if (Character.isLetter(validar)) {
+
             getToolkit().beep();
             evt.consume();
-            
+
             Utilidades.mostrarDialogoTemporal("Error", "Ingrese solo numeros", 1000);
-            
+
         }
     }
 
     private Usuario obtenerUsuarioDelForm() {
-        
+
         Usuario usu = new Usuario();
-        
+
         if (!jTusuario.getText().isEmpty() && !jTpassword.getText().isEmpty() && !jTnombre.getText().isEmpty()
-                && !jTapellido.getText().isEmpty() && !jTedad.getText().isEmpty() && !jTdni.getText().isEmpty() 
+                && !jTapellido.getText().isEmpty() && !jTedad.getText().isEmpty() && !jTdni.getText().isEmpty()
                 && !jTtelefono.getText().isEmpty() && jDCfechaNac.getDate() != null) {
 
             // Todos los campos están llenos y no son nulos, entonces crea y asigna los valores a 'usu'.
-            if(jTid.getText() != null){
+            if (!jTid.getText().isEmpty()) {
                 usu.setIdUsuario(Integer.parseInt(jTid.getText()));
-            }else{
-                usu.setIdUsuario(Integer.parseInt(null));
             }
             usu.setUsuario(jTusuario.getText());
             usu.setPassword(jTpassword.getText());
@@ -602,6 +599,7 @@ public class AdministrarUsuario extends JInternalFrame {
         } else {
             Utilidades.mostrarDialogoTemporal("Administrador de usuarios", "Se deben rellenar todos los campos", 2000);
         }
+
         return null;
     }
 
