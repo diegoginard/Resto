@@ -78,6 +78,7 @@ public class AdministraMenus extends JInternalFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jtId.setBackground(new java.awt.Color(51, 51, 51));
+        jtId.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
         jtId.setForeground(new java.awt.Color(255, 255, 255));
         jtId.setCaretColor(new java.awt.Color(255, 255, 255));
         jtId.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -99,11 +100,13 @@ public class AdministraMenus extends JInternalFrame {
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 340, 28));
 
         jtNombre.setBackground(new java.awt.Color(51, 51, 51));
+        jtNombre.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
         jtNombre.setForeground(new java.awt.Color(255, 255, 255));
         jtNombre.setCaretColor(new java.awt.Color(255, 255, 255));
         getContentPane().add(jtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 90, 163, -1));
 
         jtPrecio.setBackground(new java.awt.Color(51, 51, 51));
+        jtPrecio.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
         jtPrecio.setForeground(new java.awt.Color(255, 255, 255));
         jtPrecio.setCaretColor(new java.awt.Color(255, 255, 255));
         jtPrecio.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -114,6 +117,7 @@ public class AdministraMenus extends JInternalFrame {
         getContentPane().add(jtPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 130, 50, -1));
 
         jtStock.setBackground(new java.awt.Color(51, 51, 51));
+        jtStock.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
         jtStock.setForeground(new java.awt.Color(255, 255, 255));
         jtStock.setCaretColor(new java.awt.Color(255, 255, 255));
         jtStock.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -123,7 +127,7 @@ public class AdministraMenus extends JInternalFrame {
         });
         getContentPane().add(jtStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 50, 41, -1));
 
-        jLabel1.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Id");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 50, -1, 24));
@@ -151,7 +155,7 @@ public class AdministraMenus extends JInternalFrame {
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, -1, 184));
 
-        jLabel2.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Nombre");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 90, -1, -1));
@@ -171,7 +175,7 @@ public class AdministraMenus extends JInternalFrame {
         });
         getContentPane().add(jbCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 90, 30));
 
-        jLabel3.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Precio");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 130, -1, -1));
@@ -191,17 +195,17 @@ public class AdministraMenus extends JInternalFrame {
         });
         getContentPane().add(jbModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 210, 90, 30));
 
-        jLabel4.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Stock");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 50, -1, -1));
 
-        jLabel5.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Estado");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 130, -1, -1));
 
-        jLabel7.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Buscar");
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, -1, -1));
@@ -296,12 +300,13 @@ public class AdministraMenus extends JInternalFrame {
         });
         getContentPane().add(jcBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 270, 97, -1));
 
-        jLabel8.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Categoria");
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, -1, -1));
 
         jcCategoria.setBackground(new java.awt.Color(51, 51, 51));
+        jcCategoria.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
         jcCategoria.setForeground(new java.awt.Color(255, 255, 255));
         jcCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { ".............", "COMIDA", "BEBIDA", "POSTRE" }));
         getContentPane().add(jcCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 170, -1, -1));
