@@ -23,15 +23,7 @@ public class IniciarSalon extends javax.swing.JFrame {
     private Point initialClick;
     public String nombre;
     public String apellido;
-
-    // Método para recibir el nombre y apellido
-    public void recibirDatos(String nombre, String apellido) {
-        this.nombre = nombre;
-        this.apellido = apellido;
-        jMusuario.setText("                                                                                " + nombre +"  "+ apellido);
-        
-    }
-    
+       
     public IniciarSalon() {
         
         getIconImage();
@@ -39,6 +31,14 @@ public class IniciarSalon extends javax.swing.JFrame {
         initComponents();
         con = Conexion.getConexion();
         this.setLocationRelativeTo(null);
+        
+    }
+    
+    // Método para recibir el nombre y apellido
+    public void recibirDatos(String nombre, String apellido) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        jMusuario.setText("                                                                   " + nombre +"  "+ apellido);
         
     }
     
@@ -153,12 +153,7 @@ public class IniciarSalon extends javax.swing.JFrame {
 
         jMgestpers.setText("Gestionar Personal");
 
-        jMmozos.setLabel("Mozos");
-        jMmozos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMmozosActionPerformed(evt);
-            }
-        });
+        jMmozos.setText("Mozos");
         jMgestpers.add(jMmozos);
 
         jMusuarios.setText("Usuarios");
@@ -179,16 +174,7 @@ public class IniciarSalon extends javax.swing.JFrame {
         });
         jMenuBar1.add(jmSalir);
 
-        jMusuario.setBackground(new java.awt.Color(51, 51, 51));
-        jMusuario.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jMusuario.setBorderPainted(false);
-        jMusuario.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jMusuario.setFocusable(false);
-        jMusuario.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
-        jMusuario.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jMusuario.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        jMusuario.setLabel("Usuario");
-        jMusuario.setName("Usuario"); // NOI18N
+        jMusuario.setText("USUARIO");
         jMenuBar1.add(jMusuario);
 
         setJMenuBar(jMenuBar1);
@@ -268,10 +254,6 @@ public class IniciarSalon extends javax.swing.JFrame {
 
         }
     }//GEN-LAST:event_jmPedidosActionPerformed
-
-    private void jMmozosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMmozosActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMmozosActionPerformed
 
     private void jMusuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMusuariosActionPerformed
 

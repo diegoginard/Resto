@@ -10,14 +10,14 @@ public abstract class Persona {
     private String apellido;
     private int edad;
     private int dni;
-    private int telefono;
+    private String telefono;
     private LocalDate fechaNacimiento;
 
     
     public Persona() {
     }
 
-    public Persona(String nombre, String apellido, int edad, int dni, int telefono, LocalDate fechaNacimiento) {
+    public Persona(String nombre, String apellido, int edad, int dni, String telefono, LocalDate fechaNacimiento) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.edad = edad;
@@ -58,11 +58,11 @@ public abstract class Persona {
         this.dni = dni;
     }
 
-    public int getTelefono() {
+    public String getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(int telefono) {
+    public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
 

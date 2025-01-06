@@ -332,8 +332,7 @@ public class AdministraMesas extends JInternalFrame {
            
             Utilidades.mostrarDialogoTemporal("Base de datos", "Operacion completada.",2000);
             limpiarForm();
-            jBmodificar.setEnabled(false);
-            jBeliminar.setEnabled(false);
+            
         }
     }//GEN-LAST:event_jBeliminarActionPerformed
 
@@ -343,9 +342,6 @@ public class AdministraMesas extends JInternalFrame {
             md.crearMesa(obtenerMesaDelForm());
             cargarLista();
             limpiarForm();
-            jBmodificar.setEnabled(false);
-            jBeliminar.setEnabled(false);
-            jBcrear.setEnabled(true);
             
         }
     }//GEN-LAST:event_jBcrearActionPerformed
@@ -386,10 +382,7 @@ public class AdministraMesas extends JInternalFrame {
     private void jBmodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBmodificarActionPerformed
         
         md.modificarMesa(obtenerMesaDelForm());
-        
-        jBmodificar.setEnabled(false);
-        jBeliminar.setEnabled(false);
-        jBcrear.setEnabled(true);
+      
         limpiarForm();
         cargarLista();
         
@@ -459,9 +452,6 @@ public class AdministraMesas extends JInternalFrame {
     private void jBlimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBlimpiarActionPerformed
         
         limpiarForm();
-        jBmodificar.setEnabled(false);
-        jBeliminar.setEnabled(false);
-        jBcrear.setEnabled(true);
                 
     }//GEN-LAST:event_jBlimpiarActionPerformed
 
@@ -536,6 +526,9 @@ public class AdministraMesas extends JInternalFrame {
        jTcapacidad.setText(null);
        jRactivo.setSelected(false);
        
+       jBcrear.setEnabled(true);
+       jBmodificar.setEnabled(false);
+       jBeliminar.setEnabled(false);
     }
     
     private void mesasxId(String buscar){

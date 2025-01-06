@@ -5,7 +5,7 @@ DROP TABLE IF EXISTS `mesa`;
 
 CREATE TABLE `mesa` (
   `idMesa` int NOT NULL AUTO_INCREMENT,
-  `numero` int NOT NULL,
+  `numero` int NOT NULL UNIQUE,
   `estadoMesa` enum('LIBRE','OCUPADO','PENDIENTE') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT 'LIBRE',
   `capacidad` int NOT NULL,
   `activo` tinyint NOT NULL,
@@ -83,10 +83,10 @@ CREATE TABLE `usuario` (
   `apellido` varchar(50) DEFAULT NULL,
   `edad` int NOT NULL,
   `dni` int NOT NULL UNIQUE,
-  `telefono` int NOT NULL,
+  `telefono` varchar(50) NOT NULL,
   `fechaNacimiento` DATE DEFAULT NULL,
   `activo` tinyint NOT NULL,
   PRIMARY KEY (`idUsuario`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
-INSERT INTO `usuario` VALUES (NULL,'admin','admin','user','pass',30,2222222,370411111,'1978-11-27',1);
+INSERT INTO `usuario` VALUES (NULL,'admin','admin','user','pass',30,2222222,'370411111','1978-11-27',1);

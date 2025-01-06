@@ -12,7 +12,7 @@ public class Usuario extends Persona {
     private boolean activo;
 
     // Constructor
-    public Usuario(int idUsuario, String usuario, String password, String nombre, String apellido, int edad, int dni, int telefono, LocalDate fechaNacimiento, boolean activo) {
+    public Usuario(int idUsuario, String usuario, String password, String nombre, String apellido, int edad, int dni, String telefono, LocalDate fechaNacimiento, boolean activo) {
         super(nombre, apellido, edad, dni, telefono, fechaNacimiento);
         this.idUsuario = idUsuario;
         this.usuario = usuario;
@@ -20,7 +20,7 @@ public class Usuario extends Persona {
         this.activo = activo;
     }
 
-    public Usuario(String usuario, String password, String nombre, String apellido, int edad, int dni, int telefono, LocalDate fechaNacimiento, boolean activo) {
+    public Usuario(String usuario, String password, String nombre, String apellido, int edad, int dni, String telefono, LocalDate fechaNacimiento, boolean activo) {
         super(nombre, apellido, edad, dni, telefono, fechaNacimiento);
         this.usuario = usuario;
         this.password = password;
@@ -54,7 +54,7 @@ public class Usuario extends Persona {
         this.password = password;
     }
 
-    public boolean getActivo() {
+    public boolean isActivo() {
         return activo;
     }
 
@@ -64,9 +64,12 @@ public class Usuario extends Persona {
 
     @Override
     public String toString() {
-        return "Usuario{" + "Nombre = " + getNombre() + ", Apellido =" + getApellido() + ", Activo =" + activo + '}';
+        return "Usuario{" + "Nombre = " + getNombre() + ", Apellido =" + getApellido() + ", Activo =" + activo + "Telefono ," + this.getTelefono() + '}';
     }
+   
 
+  
+    
 }
 
   

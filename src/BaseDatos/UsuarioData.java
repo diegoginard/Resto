@@ -24,8 +24,8 @@ public class UsuarioData {
 
     public void crearUsuario(Usuario user) {
 
-        String sql = "INSERT INTO usuario(idUsuario,usuario, password, nombre, apellido, edad, telefono, dni,"
-                + " fechaNacimiento, activo) VALUES (null,?,?,?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO usuario(usuario, password, nombre, apellido, edad, telefono, dni,"
+                + " fechaNacimiento, activo) VALUES (?,?,?,?,?,?,?,?,?)";
 
         try {
 
@@ -36,10 +36,10 @@ public class UsuarioData {
             ps.setString(3, user.getNombre());
             ps.setString(4, user.getApellido());
             ps.setInt(5, user.getEdad());
-            ps.setInt(6, user.getTelefono());
+            ps.setString(6, user.getTelefono());
             ps.setInt(7, user.getDni());
             ps.setDate(8, java.sql.Date.valueOf(user.getFechaNacimiento()));
-            ps.setBoolean(9, user.getActivo());
+            ps.setBoolean(9, user.isActivo());
             ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
 
@@ -97,16 +97,16 @@ public class UsuarioData {
             ps.setString(4, user.getApellido());
             ps.setInt(5, user.getEdad());
             ps.setInt(6, user.getDni());
-            ps.setInt(7, user.getTelefono());
+            ps.setString(7, user.getTelefono());
             ps.setDate(8, java.sql.Date.valueOf(user.getFechaNacimiento()));
-            ps.setBoolean(9, user.getActivo());
+            ps.setBoolean(9, user.isActivo());
             ps.setInt(10, user.getIdUsuario());
             
 
             int exito = ps.executeUpdate();
 
             if (exito == 1) {
-                Utilidades.mostrarDialogoTemporal("Base de datos", "Usuario Modificada", 2000);
+                Utilidades.mostrarDialogoTemporal("Base de datos", "Usuario Modificado", 2000);
             }
         } catch (SQLException ex) {
             Utilidades.mostrarDialogoTemporal("Base de datos", "Error al modificar el usuario" + ex.getMessage(), 2000);
@@ -131,7 +131,7 @@ public class UsuarioData {
                 usu1.setApellido(rs.getString("apellido"));
                 usu1.setEdad(rs.getInt("edad"));
                 usu1.setDni(rs.getInt("dni"));
-                usu1.setTelefono(rs.getInt("telefono"));
+                usu1.setTelefono(rs.getString("telefono"));
                 usu1.setFechaNacimiento(rs.getDate("fechaNacimiento").toLocalDate());
                 usu1.setActivo(rs.getBoolean("activo"));
                 
@@ -169,7 +169,7 @@ public class UsuarioData {
                 user.setApellido(rs.getString("apellido"));
                 user.setEdad(rs.getInt("edad"));
                 user.setDni(rs.getInt("dni"));
-                user.setTelefono(rs.getInt("telefono"));
+                user.setTelefono(rs.getString("telefono"));
                 user.setFechaNacimiento(rs.getDate("fechaNacimiento").toLocalDate());
                 user.setActivo(rs.getBoolean("activo"));
 

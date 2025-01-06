@@ -372,7 +372,8 @@ public class AdministrarUsuario extends JInternalFrame {
 
     private void jBcrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBcrearActionPerformed
 
-        obtenerUsuarioDelForm();
+        usuDat.crearUsuario(obtenerUsuarioDelForm());
+        limpiarForm();
 
     }//GEN-LAST:event_jBcrearActionPerformed
 
@@ -470,7 +471,6 @@ public class AdministrarUsuario extends JInternalFrame {
     private void jBlimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBlimpiarActionPerformed
 
         limpiarForm();
-        cargarUsuarios();
 
     }//GEN-LAST:event_jBlimpiarActionPerformed
 
@@ -539,7 +539,7 @@ public class AdministrarUsuario extends JInternalFrame {
 
             modelo.addRow(new Object[]{usu.getIdUsuario(), usu.getUsuario(), usu.getPassword(),
                 usu.getNombre(), usu.getApellido(), usu.getEdad(), usu.getDni(), usu.getTelefono(),
-                usu.getFechaNacimiento(), usu.getActivo()});
+                usu.getFechaNacimiento(), usu.isActivo()});
 
         }
     }
@@ -590,10 +590,10 @@ public class AdministrarUsuario extends JInternalFrame {
             usu.setApellido(jTapellido.getText());
             usu.setEdad(Integer.parseInt(jTedad.getText()));
             usu.setDni(Integer.parseInt(jTdni.getText()));
-            usu.setTelefono(Integer.parseInt(jTtelefono.getText()));
+            usu.setTelefono(jTtelefono.getText());
             usu.setFechaNacimiento(jDCfechaNac.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
             usu.setActivo(jRactivo.isSelected());
-
+            
             return usu;
 
         } else {
@@ -615,7 +615,8 @@ public class AdministrarUsuario extends JInternalFrame {
         jTtelefono.setText(null);
         jDCfechaNac.setDate(null);
         jRactivo.setSelected(false);
-
+        
+        cargarUsuarios();
         jBcrear.setEnabled(true);
         jBmodificar.setEnabled(false);
         jBeliminar.setEnabled(false);
