@@ -85,7 +85,7 @@ public class Mesa {
 
     @Override
     public String toString() {
-        return "Mesa " + numero  + ", sillas " + capacidad + ", id " + idMesa ;
+        return "Mesa " + numero  + ", sillas " + capacidad ;
     }
 
   

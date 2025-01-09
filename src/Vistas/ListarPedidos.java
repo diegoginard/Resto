@@ -1,6 +1,8 @@
 package Vistas;
 
+import BaseDatos.MozoData;
 import BaseDatos.PedidoData;
+import Entidades.Mozo;
 import Entidades.Pedido;
 import java.awt.event.KeyEvent;
 import java.text.ParseException;
@@ -13,6 +15,7 @@ import java.time.ZoneId;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import javax.swing.JComboBox;
 import javax.swing.JInternalFrame;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerDateModel;
@@ -22,17 +25,20 @@ import javax.swing.table.DefaultTableModel;
 public class ListarPedidos extends JInternalFrame {
 
     PedidoData pd = new PedidoData();
+    MozoData mozoDat = new MozoData();
 
     public ListarPedidos() throws ParseException {
 
         initComponents();
         armarCabecera();
+        cargarSpinerMozos(jCmozoXdia);
+        cargarSpinerMozos(jCidMozo);
 
         // Desactiva la barra de título del JInternalFrame
         BasicInternalFrameUI ui = (BasicInternalFrameUI) getUI();
         ui.setNorthPane(null);
 
-        editarCampos(false, false, false, false, false, false,
+        editarCampos(false, false, false,false, false, false,
                 false, false, false, false);
 
         formatoHora(jsHoraInicio);
@@ -60,12 +66,10 @@ public class ListarPedidos extends JInternalFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jcElegir = new javax.swing.JComboBox<>();
-        jtNMesero = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jdFecha = new com.toedter.calendar.JDateChooser();
         jLabel4 = new javax.swing.JLabel();
-        jtMDia = new javax.swing.JTextField();
         jdMDia = new com.toedter.calendar.JDateChooser();
         jbBuscar = new javax.swing.JButton();
         jbBuscar1 = new javax.swing.JButton();
@@ -80,6 +84,8 @@ public class ListarPedidos extends JInternalFrame {
         jtIngresos = new javax.swing.JTextField();
         jBsalir = new javax.swing.JButton();
         jLingresosTotales = new javax.swing.JLabel();
+        jCmozoXdia = new javax.swing.JComboBox<>();
+        jCidMozo = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtPedido = new javax.swing.JTable();
         jLfondo = new javax.swing.JLabel();
@@ -109,21 +115,6 @@ public class ListarPedidos extends JInternalFrame {
         });
         getContentPane().add(jcElegir, new org.netbeans.lib.awtextra.AbsoluteConstraints(207, 54, 143, -1));
 
-        jtNMesero.setBackground(new java.awt.Color(51, 51, 51));
-        jtNMesero.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
-        jtNMesero.setForeground(new java.awt.Color(255, 255, 255));
-        jtNMesero.setBorder(null);
-        jtNMesero.setCaretColor(new java.awt.Color(255, 255, 255));
-        jtNMesero.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                jtNMeseroKeyReleased(evt);
-            }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jtNMeseroKeyTyped(evt);
-            }
-        });
-        getContentPane().add(jtNMesero, new org.netbeans.lib.awtextra.AbsoluteConstraints(159, 130, 125, 20));
-
         jLabel2.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Por Mesero");
@@ -141,28 +132,16 @@ public class ListarPedidos extends JInternalFrame {
                 jdFechaPropertyChange(evt);
             }
         });
-        getContentPane().add(jdFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(159, 167, 153, -1));
+        getContentPane().add(jdFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 160, 140, 20));
 
         jLabel4.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Mesero por dia");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, -1));
 
-        jtMDia.setBackground(new java.awt.Color(51, 51, 51));
-        jtMDia.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
-        jtMDia.setForeground(new java.awt.Color(255, 255, 255));
-        jtMDia.setBorder(null);
-        jtMDia.setCaretColor(new java.awt.Color(255, 255, 255));
-        jtMDia.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jtMDiaKeyTyped(evt);
-            }
-        });
-        getContentPane().add(jtMDia, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 205, 84, 20));
-
         jdMDia.setBackground(new java.awt.Color(51, 51, 51));
         jdMDia.setForeground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(jdMDia, new org.netbeans.lib.awtextra.AbsoluteConstraints(262, 205, 130, -1));
+        getContentPane().add(jdMDia, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 200, 130, -1));
 
         jbBuscar.setBackground(new java.awt.Color(51, 51, 51));
         jbBuscar.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
@@ -175,7 +154,7 @@ public class ListarPedidos extends JInternalFrame {
                 jbBuscarActionPerformed(evt);
             }
         });
-        getContentPane().add(jbBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 200, 60, 30));
+        getContentPane().add(jbBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 190, 60, 30));
 
         jbBuscar1.setBackground(new java.awt.Color(51, 51, 51));
         jbBuscar1.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
@@ -255,6 +234,15 @@ public class ListarPedidos extends JInternalFrame {
         jLingresosTotales.setText("Ingresos Totales");
         getContentPane().add(jLingresosTotales, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 515, 147, -1));
 
+        getContentPane().add(jCmozoXdia, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 200, 140, 20));
+
+        jCidMozo.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jCidMozoItemStateChanged(evt);
+            }
+        });
+        getContentPane().add(jCidMozo, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 120, 140, 20));
+
         jtPedido.setBackground(new java.awt.Color(51, 51, 51));
         jtPedido.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
         jtPedido.setForeground(new java.awt.Color(255, 255, 255));
@@ -288,21 +276,21 @@ public class ListarPedidos extends JInternalFrame {
 
             case "MESERO":
 
-                editarCampos(true, false, false, false, false, false,
+                editarCampos(false, true, false, false, false, false,
                         false, false, false, false);
 
                 break;
 
             case "FECHA":
 
-                editarCampos(false, true, false, false, false, false,
+                editarCampos(false, false, true, false, false, false,
                         false, false, false, false);
 
                 break;
 
             case "MESEROxDIA":
 
-                editarCampos(false, false, true, true, false, false,
+                editarCampos(true, false, false, true, false, false,
                         false, false, false, true);
 
                 break;
@@ -322,12 +310,6 @@ public class ListarPedidos extends JInternalFrame {
         }
     }//GEN-LAST:event_jcElegirItemStateChanged
 
-    private void jtNMeseroKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtNMeseroKeyReleased
-
-        pedidoMesero(jtNMesero.getText());
-
-    }//GEN-LAST:event_jtNMeseroKeyReleased
-
     private void jdFechaPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jdFechaPropertyChange
 
         if (jdFecha.getDate() != null) {
@@ -341,11 +323,11 @@ public class ListarPedidos extends JInternalFrame {
 
     private void jbBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBuscarActionPerformed
 
-        if (jdMDia.getDate() != null && jtMDia.getText() != null) {
+        if (jdMDia.getDate() != null ) {
 
-            String mesero = jtMDia.getText();
             LocalDate fecha = jdMDia.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-            pedidoMeseroDia(mesero, fecha);
+            Mozo mozo = (Mozo) jCmozoXdia.getSelectedItem();
+            pedidoMeseroDia(mozo, fecha);
 
         }
     }//GEN-LAST:event_jbBuscarActionPerformed
@@ -384,26 +366,21 @@ public class ListarPedidos extends JInternalFrame {
 
     }//GEN-LAST:event_jBsalirActionPerformed
 
-    private void jtNMeseroKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtNMeseroKeyTyped
-
-        soloLetras(evt);
-
-    }//GEN-LAST:event_jtNMeseroKeyTyped
-
-    private void jtMDiaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtMDiaKeyTyped
-
-        soloLetras(evt);
-
-    }//GEN-LAST:event_jtMDiaKeyTyped
-
     private void jtIdmesaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtIdmesaKeyTyped
 
         soloNumeros(evt);
 
     }//GEN-LAST:event_jtIdmesaKeyTyped
 
+    private void jCidMozoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCidMozoItemStateChanged
+        
+        pedidoMesero((Mozo) jCidMozo.getSelectedItem());
+    }//GEN-LAST:event_jCidMozoItemStateChanged
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBsalir;
+    private javax.swing.JComboBox<Mozo> jCidMozo;
+    private javax.swing.JComboBox<Mozo> jCmozoXdia;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -425,8 +402,6 @@ public class ListarPedidos extends JInternalFrame {
     private javax.swing.JSpinner jsHoraInicio;
     private javax.swing.JTextField jtIdmesa;
     private javax.swing.JTextField jtIngresos;
-    private javax.swing.JTextField jtMDia;
-    private javax.swing.JTextField jtNMesero;
     private javax.swing.JTable jtPedido;
     // End of variables declaration//GEN-END:variables
 
@@ -435,7 +410,7 @@ public class ListarPedidos extends JInternalFrame {
 
         modelo.addColumn("ID");
         modelo.addColumn("idMesa");
-        modelo.addColumn("Mesero");
+        modelo.addColumn("idMozo");
         modelo.addColumn("FechaHora");
         modelo.addColumn("Cobrada");
         modelo.addColumn("Importe");
@@ -453,22 +428,23 @@ public class ListarPedidos extends JInternalFrame {
         for (Pedido pe : pedido) {
 
             modelo.addRow(new Object[]{pe.getIdPedido(), pe.getMesa().getNumero(),
-                pe.getNombreMesero(), pe.getFechaHora(), pe.isCobrada(), pe.getImporte(), pe.getEstado()});
+                pe.getMozo(), pe.getFechaHora(), pe.isCobrada(), pe.getImporte(), pe.getEstado()});
 
         }
     }
     
     // Filtra y muestra los pedidos realizados por un mesero específico y calcula el ingreso total de esos pedidos.
-    private void pedidoMesero(String mesero) {
+    private void pedidoMesero(Mozo mozo) {
 
         double total = 0.0;
         modelo.setRowCount(0);
-        List<Pedido> pedido = pd.listarPedidoMesero(mesero);
+        int idMozo = mozo.getIdMozo();
+        List<Pedido> pedido = pd.listarPedidoMesero(idMozo);
 
         for (Pedido pe : pedido) {
 
             modelo.addRow(new Object[]{pe.getIdPedido(), pe.getMesa().getNumero(),
-                pe.getNombreMesero(), pe.getFechaHora(), pe.isCobrada(), pe.getImporte(), pe.getEstado()});
+                pe.getMozo(), pe.getFechaHora(), pe.isCobrada(), pe.getImporte(), pe.getEstado()});
             total += pe.getImporte();
         }
 
@@ -486,7 +462,7 @@ public class ListarPedidos extends JInternalFrame {
         for (Pedido pe : pedido) {
 
             modelo.addRow(new Object[]{pe.getIdPedido(), pe.getMesa().getNumero(),
-                pe.getNombreMesero(), pe.getFechaHora(), pe.isCobrada(), pe.getImporte(), pe.getEstado()});
+                pe.getMozo(), pe.getFechaHora(), pe.isCobrada(), pe.getImporte(), pe.getEstado()});
             total += pe.getImporte();
         }
 
@@ -495,16 +471,16 @@ public class ListarPedidos extends JInternalFrame {
     }
     
     // Filtra y muestra los pedidos realizados por un mesero en un día específico, y calcula el ingreso total.
-    private void pedidoMeseroDia(String mesero, LocalDate fecha) {
+    private void pedidoMeseroDia(Mozo mozo, LocalDate fecha) {
 
         double total = 0.0;
         modelo.setRowCount(0);
-        List<Pedido> pedido = pd.listarPedidosCobradosPorMeseroEnElDia(mesero, fecha);
+        List<Pedido> pedido = pd.listarPedidosCobradosPorMeseroEnElDia(mozo, fecha);
 
         for (Pedido pe : pedido) {
 
             modelo.addRow(new Object[]{pe.getIdPedido(), pe.getMesa().getNumero(),
-                pe.getNombreMesero(), pe.getFechaHora(), pe.isCobrada(), pe.getImporte(), pe.getEstado()});
+                pe.getMozo(), pe.getFechaHora(), pe.isCobrada(), pe.getImporte(), pe.getEstado()});
             total += pe.getImporte();
         }
 
@@ -522,7 +498,7 @@ public class ListarPedidos extends JInternalFrame {
         for (Pedido pe : pedido) {
 
             modelo.addRow(new Object[]{pe.getIdPedido(), pe.getMesa().getNumero(),
-                pe.getNombreMesero(), pe.getFechaHora(), pe.isCobrada(), pe.getImporte(), pe.getEstado()});
+                pe.getMozo(), pe.getFechaHora(), pe.isCobrada(), pe.getImporte(), pe.getEstado()});
             total += pe.getImporte();
         }
 
@@ -579,13 +555,13 @@ public class ListarPedidos extends JInternalFrame {
     }
     
     // Habilita o deshabilita campos y controles en la interfaz según los parámetros booleanos recibidos y recarga los pedidos.
-    private void editarCampos(boolean tNMesero, boolean dFecha, boolean tMDia, boolean dMDia, boolean tIdmesa,
+    private void editarCampos(boolean CmozoXdia, boolean CidMozo, boolean dFecha, boolean dMDia, boolean tIdmesa,
             boolean dDia, boolean sHoraInicio, boolean sHoraFin, boolean bBuscar1, boolean bBuscar) {
 
         modelo.setRowCount(0);
-        jtNMesero.setEnabled(tNMesero);
+        jCmozoXdia.setEnabled(CmozoXdia);
+        jCidMozo.setEnabled(CidMozo);
         jdFecha.setEnabled(dFecha);
-        jtMDia.setEnabled(tMDia);
         jdMDia.setEnabled(dMDia);
         jtIdmesa.setEnabled(tIdmesa);
         jdDia.setEnabled(dDia);
@@ -595,5 +571,16 @@ public class ListarPedidos extends JInternalFrame {
         jbBuscar.setEnabled(bBuscar);
         cargarPedidos();
 
+    }
+    
+     // Agregar cada objeto Mozo al JComboBox
+    private void cargarSpinerMozos(JComboBox jCombo) {
+
+        List <Mozo> mozos = mozoDat.listarMozos();
+       
+        for (Mozo mozo : mozos) {
+            jCombo.addItem(mozo);
+
+        }
     }
 }

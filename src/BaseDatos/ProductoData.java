@@ -50,7 +50,7 @@ public class ProductoData {
             int exito = ps.executeUpdate();
 
             if (exito >= 1) {
-                Utilidades.mostrarDialogoTemporal("Base de datos", "Producto Eliminado", 2000);
+//                Utilidades.mostrarDialogoTemporal("Base de datos", "Producto Eliminado", 2000);
             } else {
                 Utilidades.mostrarDialogoTemporal("Base de datos", "No se encontró el producto", 2000);
             }
@@ -58,7 +58,7 @@ public class ProductoData {
             ps.close();
 
         } catch (SQLException ex) {
-            Utilidades.mostrarDialogoTemporal("Base de datos", "Error al Eliminar la tabla" + ex.getMessage(), 2000);
+            Utilidades.mostrarDialogoTemporal("Base de datos", "Error al Eliminar el producto " + ex.getMessage(), 2000);
         }
     }
 

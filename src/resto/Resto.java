@@ -56,6 +56,9 @@ public class Resto {
 //       UsuarioData usud = new UsuarioData();
 //       usud.crearUsuario(usu);
 //       System.out.println(usud.listarUsuarios());
+        Pedido pedido = new Pedido();
+        PedidoData pedidoDat = new PedidoData();
+//        pedido = pedidoDat.modificarPedido(pedido)
      
     }
 }

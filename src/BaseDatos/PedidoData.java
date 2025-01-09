@@ -2,6 +2,7 @@
 package BaseDatos;
 
 import Entidades.Mesa;
+import Entidades.Mozo;
 import Entidades.Pedido;
 import Vistas.Utilidades;
 import java.sql.*;
@@ -14,6 +15,8 @@ public class PedidoData {
     
     private Connection con = null;
     private Mesa mesa = new Mesa();
+    private Mozo mozo = new Mozo();
+    private MozoData mozoDat = new MozoData();
     private MesaData md = new MesaData();
     private Pedido ped = new Pedido();
     
@@ -25,9 +28,9 @@ public class PedidoData {
         
         int idGenerado = -1;
         try {
-            String sql = "INSERT INTO pedido (nombreMesero, IdMesa, fechaHora, cobrada, importe, estado) VALUES (?, ?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO pedido (idMozo, IdMesa, fechaHora, cobrada, importe, estado) VALUES (?, ?, ?, ?, ?, ?)";
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-            ps.setString(1, pedido.getNombreMesero());
+            ps.setInt(1, pedido.getMozo().getIdMozo());
             ps.setInt(2, pedido.getMesa().getIdMesa());
             ps.setTimestamp(3, Timestamp.valueOf(LocalDateTime.now()));
             ps.setBoolean(4, false);
@@ -40,16 +43,16 @@ public class PedidoData {
                 idGenerado = rs.getInt(1);
             }
         } catch (Exception ex) {
-            Utilidades.mostrarDialogoTemporal("Base de datos", "Error al acceder a la tabla Pedido" + ex.getMessage(), 2000);
+            Utilidades.mostrarDialogoTemporal("Base de datos", "Error al guardar el PedidoId" + ex.getMessage(), 2000);
         }
         return idGenerado;
     }
 
     public void guardarPedido(Pedido ped) {
-        String sql = "INSERT INTO pedido (nombreMesero, IdMesa, fechaHora , cobrada , importe, estado) VALUES (?,?,?,?,?,?)";
+        String sql = "INSERT INTO pedido (idMozo, IdMesa, fechaHora , cobrada , importe, estado) VALUES (?,?,?,?,?,?)";
         try {
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-            ps.setString(1, ped.getNombreMesero());
+            ps.setInt(1, ped.getMozo().getIdMozo());
             ps.setInt(2, ped.getMesa().getIdMesa());
             ps.setTimestamp(3, Timestamp.valueOf(LocalDateTime.now()));
             ps.setBoolean(4, false);
@@ -63,7 +66,7 @@ public class PedidoData {
             }
             ps.close();
         } catch (SQLException ex) {
-            Utilidades.mostrarDialogoTemporal("Base de datos", "Error al acceder a la Pedido" + ex.getMessage(), 2000);
+            Utilidades.mostrarDialogoTemporal("Base de datos", "Error al guardar el Pedido" + ex.getMessage(), 2000);
         }
     }
 
@@ -77,34 +80,37 @@ public class PedidoData {
             Utilidades.mostrarDialogoTemporal("Base de datos", "Pedido eliminado correctamente", 2000);
             ps.close();
         } catch (SQLException ex) {
-            Utilidades.mostrarDialogoTemporal("Base de datos", "No se pudo acceder a la tabla Pedido" + ex.getMessage(), 2000);
+            Utilidades.mostrarDialogoTemporal("Base de datos", "Error al eliminar el Pedido" + ex.getMessage(), 2000);
         }
     }
 
-    public void modificarPedido(Pedido pe) {
+    public void modificarImportePedido(Pedido pe) {
         
-        String sql = "UPDATE pedido SET idPedido = ? , idMesa = ? , nombreMesero = ? , fechaHora = ? , cobrada = ? , importe = ? , estado = ? WHERE idPedido = ?";
+        String sql = "UPDATE pedido SET importe = ? WHERE idPedido = ?";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setInt(1, pe.getIdPedido());
-            ps.setInt(2, pe.getMesa().getIdMesa());
-            ps.setString(3, pe.getNombreMesero());
-            ps.setTimestamp(4, Timestamp.valueOf(pe.getFechaHora()));
-            ps.setBoolean(5, pe.isCobrada());
-            ps.setDouble(6, pe.getImporte());
-            ps.setString(7, pe.getEstado());
-            ps.setInt(8, pe.getIdPedido());
+            
+//            ps.setInt(1, pe.getMesa().getIdMesa());
+//            ps.setInt(2, pe.getMozo().getIdMozo());
+//            System.out.println(ped.getMozo().getIdMozo());
+//            ps.setTimestamp(3, Timestamp.valueOf(pe.getFechaHora()));
+//            ps.setBoolean(4, pe.isCobrada());
+            ps.setDouble(1, pe.getImporte());
+//            ps.setString(6, pe.getEstado());
+            ps.setInt(2, pe.getIdPedido());
             ps.executeUpdate();
 //            Utilidades.mostrarDialogoTemporal("Base de datos", "Pedido modificado correctamente", 2000);
         } catch (SQLException ex) {
-            Utilidades.mostrarDialogoTemporal("Base de datos", "Error al acceder a la tabla Pedido" + ex.getMessage(), 2000);
-        }
+            Utilidades.mostrarDialogoTemporal("Base de datos", "Error al modificar el Pedido " + ex.getMessage(), 2000);
+             System.out.println(ex.getMessage());
+        }  
     }
     
      public List<Pedido> listarPedidos(){
         
         List<Pedido> Pedidos = new ArrayList<>();
-    
+        
+        
         try {
             
             String sql = "SELECT * FROM Pedido ";
@@ -116,7 +122,8 @@ public class PedidoData {
                 pedi.setIdPedido(rs.getInt("idPedido"));
                 mesa = md.ObtenerMesasId(rs.getInt("idMesa"));
                 pedi.setMesa(mesa);
-                pedi.setNombreMesero(rs.getString("nombreMesero"));
+                mozo = mozoDat.ObtenerMozoId(rs.getInt("idMozo"));
+                pedi.setMozo(mozo);
                 pedi.setFechaHora(rs.getTimestamp("fechaHora").toLocalDateTime());
                 pedi.setCobrada(rs.getBoolean("cobrada"));
                 pedi.setImporte(rs.getDouble("importe"));
@@ -129,7 +136,7 @@ public class PedidoData {
 
         }catch (SQLException ex) {
 
-           Utilidades.mostrarDialogoTemporal("Base de datos", "Error al acceder a la tabla Pedido" + ex.getMessage(), 2000);
+           Utilidades.mostrarDialogoTemporal("Base de datos", "Error al al listar los Pedidos " + ex.getMessage(), 2000);
 
         }
 
@@ -154,7 +161,8 @@ public class PedidoData {
                 ped.setIdPedido(rs.getInt("idPedido"));
                 mesa = md.ObtenerMesasId(rs.getInt("idMesa"));
                 ped.setMesa(mesa);
-                ped.setNombreMesero(rs.getString("nombreMesero"));
+                mozo = mozoDat.ObtenerMozoId(rs.getInt("idMozo"));
+                ped.setMozo(mozo);
                 ped.setFechaHora(rs.getTimestamp("fechaHora").toLocalDateTime());
                 ped.setCobrada(rs.getBoolean("cobrada"));
                 ped.setImporte(rs.getDouble("importe"));
@@ -167,7 +175,7 @@ public class PedidoData {
 
         }catch (SQLException ex) {
 
-            Utilidades.mostrarDialogoTemporal("Base de datos", "Error al acceder a la tabla Pedido" + ex.getMessage(), 2000);
+            Utilidades.mostrarDialogoTemporal("Base de datos", "Error al listar los pedidos por mesa " + ex.getMessage(), 2000);
 
         }
 
@@ -192,7 +200,8 @@ public class PedidoData {
                 ped.setIdPedido(rs.getInt("idPedido"));
                 mesa = md.ObtenerMesasId(rs.getInt("idMesa"));
                 ped.setMesa(mesa);
-                ped.setNombreMesero(rs.getString("nombreMesero"));
+                mozo = mozoDat.ObtenerMozoId(rs.getInt("idMozo"));
+                ped.setMozo(mozo);
                 ped.setFechaHora(rs.getTimestamp("fechaHora").toLocalDateTime());
                 ped.setCobrada(rs.getBoolean("cobrada"));
                 ped.setImporte(rs.getDouble("importe"));
@@ -205,7 +214,7 @@ public class PedidoData {
 
         }catch (SQLException ex) {
 
-            Utilidades.mostrarDialogoTemporal("Base de datos", "Error al acceder a la tabla Pedido" + ex.getMessage(), 2000);
+            Utilidades.mostrarDialogoTemporal("Base de datos", "Error al listar los pedidos pendiente por mesa" + ex.getMessage(), 2000);
 
         }
 
@@ -230,7 +239,8 @@ public class PedidoData {
                 ped.setIdPedido(rs.getInt("idPedido"));
                 mesa = md.ObtenerMesasId(rs.getInt("idMesa"));
                 ped.setMesa(mesa);
-                ped.setNombreMesero(rs.getString("nombreMesero"));
+                mozo = mozoDat.ObtenerMozoId(rs.getInt("idMozo"));
+                ped.setMozo(mozo);
                 ped.setFechaHora(rs.getTimestamp("fechaHora").toLocalDateTime());
                 ped.setCobrada(rs.getBoolean("cobrada"));
                 ped.setImporte(rs.getDouble("importe"));
@@ -243,39 +253,52 @@ public class PedidoData {
 
         }catch (SQLException ex) {
 
-            Utilidades.mostrarDialogoTemporal("Base de datos", "Error al acceder a la tabla Pedido" + ex.getMessage(), 2000);
+            Utilidades.mostrarDialogoTemporal("Base de datos", "Error al listar los pedidos por mesa cobradas " + ex.getMessage(), 2000);
 
         }
 
         return Pedidos;
     
     }
-    public void modificarEstadoPedido(Pedido pe){
+    public void modificarEstadoPedido(String estado , int idPedido){
         
-        String sql = "UPDATE pedido SET  nombreMesero = ? , "
-                + " cobrada = ? , importe = ? , estado = ? WHERE idPedido = ?";
+        String sql = "UPDATE pedido SET estado = ? WHERE idPedido = ?";
         
         try {
             
             PreparedStatement ps= con.prepareStatement(sql);
 
-            ps.setString(1, pe.getNombreMesero());
-            ps.setBoolean(2, pe.isCobrada());
-            ps.setDouble(3, pe.getImporte());
-            ps.setString(4, pe.getEstado());
-            ps.setInt(5,pe.getIdPedido());
+            ps.setString(1, estado);
+            ps.setInt(2,idPedido);
             int exito= ps.executeUpdate();
             
             if (exito==1) {
-                
                 Utilidades.mostrarDialogoTemporal("Base de datos", "Pedido modificado", 2000);
-           
             }
             
-        } catch (SQLException ex) {
-            
-            Utilidades.mostrarDialogoTemporal("Base de datos", "Error al acceder a la tabla Pedido" + ex.getMessage(), 2000);
+        } catch (SQLException ex) {           
+            Utilidades.mostrarDialogoTemporal("Base de datos", "Error al modificar el estado del Pedido " + ex.getMessage(), 2000);
+        }
+    }
+    
+    public void modificarPedidoCobrado(boolean cobrada , int idPedido){
         
+        String sql = "UPDATE pedido SET cobrada = ? WHERE idPedido = ?";
+        
+        try {
+            
+            PreparedStatement ps= con.prepareStatement(sql);
+
+            ps.setBoolean(1, cobrada);
+            ps.setInt(2,idPedido);
+            int exito= ps.executeUpdate();
+            
+            if (exito==1) {
+                Utilidades.mostrarDialogoTemporal("Base de datos", "Pedido modificado", 2000);
+            }
+            
+        } catch (SQLException ex) {           
+            Utilidades.mostrarDialogoTemporal("Base de datos", "Error al modificar el estado del Pedido " + ex.getMessage(), 2000);
         }
     }
  
@@ -292,7 +315,8 @@ public class PedidoData {
                 ped.setIdPedido(rs.getInt("idPedido"));
                 mesa =  md.ObtenerMesasId(rs.getInt("idMesa"));
                 ped.setMesa(mesa);
-                ped.setNombreMesero(rs.getString("nombreMesero"));
+                mozo = mozoDat.ObtenerMozoId(rs.getInt("idMozo"));
+                ped.setMozo(mozo);
                 ped.setFechaHora(rs.getTimestamp("fechaHora").toLocalDateTime());
                 ped.setCobrada(rs.getBoolean("cobrada"));
                 ped.setImporte(rs.getDouble("importe"));
@@ -304,22 +328,22 @@ public class PedidoData {
 
         }catch (SQLException ex) {
 
-            Utilidades.mostrarDialogoTemporal("Base de datos", "Error al acceder a la tabla Pedido" + ex.getMessage(), 2000);
+            Utilidades.mostrarDialogoTemporal("Base de datos", "Error al obtener el id del Pedido" + ex.getMessage(), 2000);
 
         }
 
         return ped; 
     }
  
-     public List<Pedido> listarPedidoMesero(String meseroN){
+     public List<Pedido> listarPedidoMesero(int idMozo){
         
         List<Pedido> mesero = new ArrayList<>();
     
         try {
             
-            String sql = "SELECT * FROM Pedido WHERE nombreMesero LIKE ?";
+            String sql = "SELECT * FROM Pedido WHERE idMozo LIKE ?";
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setString(1, meseroN + "%"); // Configura el primer parámetro con el valor de búsqueda
+            ps.setInt(1, idMozo); // Configura el primer parámetro con el valor de búsqueda
             ResultSet rs = ps.executeQuery();
           
             while (rs.next()) {
@@ -327,7 +351,8 @@ public class PedidoData {
                 ped.setIdPedido(rs.getInt("idPedido"));
                 mesa = md.ObtenerMesasId(rs.getInt("idMesa"));
                 ped.setMesa(mesa);
-                ped.setNombreMesero(rs.getString("nombreMesero"));
+                mozo = mozoDat.ObtenerMozoId(rs.getInt("idMozo"));
+                ped.setMozo(mozo);
                 ped.setFechaHora(rs.getTimestamp("fechaHora").toLocalDateTime());
                 ped.setImporte(rs.getDouble("importe"));
                 ped.setCobrada(rs.getBoolean("cobrada"));
@@ -339,13 +364,10 @@ public class PedidoData {
             ps.close();
 
         }catch (SQLException ex) {
-
-            Utilidades.mostrarDialogoTemporal("Base de datos", "Error al acceder a la tabla Pedido" + ex.getMessage(), 2000);
-
+            Utilidades.mostrarDialogoTemporal("Base de datos", "Error generar la lista de Pedidos " + ex.getMessage(), 2000);
         }
 
         return mesero;
-    
     }
      
         public List<Pedido> listarPedidoFecha(LocalDate fecha){
@@ -363,7 +385,8 @@ public class PedidoData {
                 ped.setIdPedido(rs.getInt("idPedido"));
                 mesa = md.ObtenerMesasId(rs.getInt("idMesa"));
                 ped.setMesa(mesa);
-                ped.setNombreMesero(rs.getString("nombreMesero"));
+                mozo = mozoDat.ObtenerMozoId(rs.getInt("idMozo"));
+                ped.setMozo(mozo);
                 ped.setFechaHora(rs.getTimestamp("fechaHora").toLocalDateTime());
                 ped.setCobrada(rs.getBoolean("cobrada"));
                 ped.setEstado(rs.getString("estado"));
@@ -375,7 +398,7 @@ public class PedidoData {
 
         }catch (SQLException ex) {
 
-            Utilidades.mostrarDialogoTemporal("Base de datos", "Error al acceder a la tabla Pedido" + ex.getMessage(), 2000);
+            Utilidades.mostrarDialogoTemporal("Base de datos", "Error al generar la lista por fecha de los Pedidos" + ex.getMessage(), 2000);
 
         }
 
@@ -399,7 +422,8 @@ public class PedidoData {
                 ped.setIdPedido(rs.getInt("idPedido"));
                 mesa = md.ObtenerMesasId(rs.getInt("idMesa"));
                 ped.setMesa(mesa);
-                ped.setNombreMesero(rs.getString("nombreMesero"));
+                mozo = mozoDat.ObtenerMozoId(rs.getInt("idMozo"));
+                ped.setMozo(mozo);
                 ped.setFechaHora(rs.getTimestamp("fechaHora").toLocalDateTime());
                 ped.setImporte(rs.getDouble("importe"));
                 ped.setCobrada(rs.getBoolean("cobrada"));
@@ -412,7 +436,7 @@ public class PedidoData {
 
         }catch (SQLException ex) {
 
-            Utilidades.mostrarDialogoTemporal("Base de datos", "Error al acceder a la tabla Pedido" + ex.getMessage(), 2000);
+            Utilidades.mostrarDialogoTemporal("Base de datos", "Error al listar pedidos por fecha y dia" + ex.getMessage(), 2000);
 
         }
 
@@ -420,14 +444,14 @@ public class PedidoData {
     
     }  
         
-    public List<Pedido> listarPedidosCobradosPorMeseroEnElDia(String Mesero, LocalDate fecha) {
+    public List<Pedido> listarPedidosCobradosPorMeseroEnElDia(Mozo mozo, LocalDate fecha) {
     
         List<Pedido> pedidos = new ArrayList<>();
 
     try {
-        String sql = "SELECT * FROM Pedido WHERE nombreMesero = ? AND DATE(fechaHora) = ? AND cobrada = true";
+        String sql = "SELECT * FROM Pedido WHERE idMozo = ? AND DATE(fechaHora) = ? AND cobrada = true";
         PreparedStatement ps = con.prepareStatement(sql);
-        ps.setString(1, Mesero);
+        ps.setInt(1, mozo.getIdMozo());
         ps.setDate(2, Date.valueOf(fecha));
         ResultSet rs = ps.executeQuery();
 
@@ -436,7 +460,8 @@ public class PedidoData {
                 ped.setIdPedido(rs.getInt("idPedido"));
                 mesa = md.ObtenerMesasId(rs.getInt("idMesa"));
                 ped.setMesa(mesa);
-                ped.setNombreMesero(rs.getString("nombreMesero"));
+                mozo = mozoDat.ObtenerMozoId(rs.getInt("idMozo"));
+                ped.setMozo(mozo);
                 ped.setFechaHora(rs.getTimestamp("fechaHora").toLocalDateTime());
                 ped.setCobrada(rs.getBoolean("cobrada"));
                 ped.setEstado(rs.getString("estado"));
@@ -446,7 +471,7 @@ public class PedidoData {
             ps.close();
         } catch (SQLException ex) {
             
-            Utilidades.mostrarDialogoTemporal("Base de datos", "Error al acceder a la tabla Pedido" + ex.getMessage(), 2000);
+            Utilidades.mostrarDialogoTemporal("Base de datos", "Error al listar pedidos por mesero b" + ex.getMessage(), 2000);
             
         }
 
@@ -473,7 +498,8 @@ public class PedidoData {
                 ped.setIdPedido(rs.getInt("idPedido"));
                 mesa = md.ObtenerMesasId(rs.getInt("idMesa"));
                 ped.setMesa(mesa);
-                ped.setNombreMesero(rs.getString("nombreMesero"));
+                mozo = mozoDat.ObtenerMozoId(rs.getInt("idMozo"));
+                ped.setMozo(mozo);
                 ped.setFechaHora(rs.getTimestamp("fechaHora").toLocalDateTime());
                 ped.setCobrada(rs.getBoolean("cobrada"));
                 ped.setEstado(rs.getString("estado"));
@@ -484,7 +510,7 @@ public class PedidoData {
             
         } catch (SQLException ex) {
 
-            Utilidades.mostrarDialogoTemporal("Base de datos", "Error al acceder a la tabla Pedido" + ex.getMessage(), 2000);
+            Utilidades.mostrarDialogoTemporal("Base de datos", "Error al listar pedidos de mesa por hora " + ex.getMessage(), 2000);
             
         }
 
@@ -513,7 +539,7 @@ public class PedidoData {
             
         } catch (SQLException ex) {
             
-            Utilidades.mostrarDialogoTemporal("Base de datos", "Error al acceder a la tabla Pedido" + ex.getMessage(), 2000);
+            Utilidades.mostrarDialogoTemporal("Base de datos", "Error al pasar la mesa a libre" + ex.getMessage(), 2000);
             
         }
 

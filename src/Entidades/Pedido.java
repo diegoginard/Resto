@@ -6,7 +6,7 @@ import java.time.*;
 public class Pedido {
     private int idPedido;
     private Mesa mesa;
-    private String nombreMesero;
+    private Mozo mozo;
     private LocalDateTime fechaHora;
     private boolean cobrada;
     private double Importe;
@@ -15,14 +15,14 @@ public class Pedido {
     public Pedido() {
     }
 
-    public Pedido(Mesa mesa, String nombreMesero) {
+    public Pedido(Mesa mesa, Mozo mozo) {
         this.mesa = mesa;
-        this.nombreMesero = nombreMesero;
+        this.mozo = mozo;
     }
 
-    public Pedido(Mesa mesa, String nombreMesero, boolean cobrada, double Importe, String estado) {
+    public Pedido(Mesa mesa, Mozo mozo, boolean cobrada, double Importe, String estado) {
         this.mesa = mesa;
-        this.nombreMesero = nombreMesero;
+        this.mozo = mozo;
         this.cobrada = cobrada;
         this.Importe = Importe;
         this.estado = estado;
@@ -32,19 +32,19 @@ public class Pedido {
         this.idPedido = idPedido;
     }
 
-    public Pedido(Mesa mesa, String nombreMesero, LocalDateTime fechaHora, boolean cobrada, double Importe, String estado) {
+    public Pedido(Mesa mesa, Mozo mozo, LocalDateTime fechaHora, boolean cobrada, double Importe, String estado) {
         this.mesa = mesa;
-        this.nombreMesero = nombreMesero;
+        this.mozo = mozo;
         this.fechaHora = fechaHora;
         this.cobrada = cobrada;
         this.Importe = Importe;
         this.estado = estado;
     }
 
-    public Pedido(int idPedido, Mesa mesa, String nombreMesero, LocalDateTime fechaHora, boolean cobrada, double Importe, String estado) {
+    public Pedido(int idPedido, Mesa mesa, Mozo mozo, LocalDateTime fechaHora, boolean cobrada, double Importe, String estado) {
         this.idPedido = idPedido;
         this.mesa = mesa;
-        this.nombreMesero = nombreMesero;
+        this.mozo = mozo;
         this.fechaHora = fechaHora;
         this.cobrada = cobrada;
         this.Importe = Importe;
@@ -67,12 +67,12 @@ public class Pedido {
         this.mesa = mesa;
     }
 
-    public String getNombreMesero() {
-        return nombreMesero;
+    public Mozo getMozo() {
+        return mozo;
     }
 
-    public void setNombreMesero(String nombreMesero) {
-        this.nombreMesero = nombreMesero;
+    public void setMozo(Mozo mozo) {
+        this.mozo = mozo;
     }
 
     public LocalDateTime getFechaHora() {
@@ -109,7 +109,7 @@ public class Pedido {
 
     @Override
     public String toString() {
-        return "Pedido{" + "idPedido=" + idPedido + ", mesa=" + mesa + ", nombreMesero=" + nombreMesero + ", fechaHora=" + fechaHora + ", cobrada=" + cobrada + ", Importe=" + Importe + ", estado=" + estado + '}';
+        return "Pedido{" + "idPedido=" + idPedido + ", mesa=" + mesa + ", nombreMesero=" + mozo + ", fechaHora=" + fechaHora + ", cobrada=" + cobrada + ", Importe=" + Importe + ", estado=" + estado + '}';
     }
 
 }

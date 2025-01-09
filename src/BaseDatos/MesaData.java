@@ -74,10 +74,10 @@ public class MesaData {
             int exito = ps.executeUpdate();
 
             if (exito == 1) {
-                Utilidades.mostrarDialogoTemporal("Base de datos", "Mesa Modificada", 2000);
+//                Utilidades.mostrarDialogoTemporal("Base de datos", "Mesa Modificada", 2000);
             }
         } catch (SQLException ex) {
-            Utilidades.mostrarDialogoTemporal("Base de datos", "Error al modificar la tabla: " + ex.getMessage(), 2000);
+            Utilidades.mostrarDialogoTemporal("Base de datos", "Error al modificar la mesa " + ex.getMessage(), 2000);
         }
     }
 

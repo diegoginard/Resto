@@ -42,7 +42,7 @@ public class Mozo extends Persona{
 
     @Override
     public String toString() {
-        return "Mozo{" + " Nombre = " + getNombre() + ", Apellido = " + getApellido() + '}';
+        return getNombre() + " " + getApellido();
     }
     
 }

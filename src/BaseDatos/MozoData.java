@@ -139,4 +139,28 @@ public class MozoData {
         return mozos;
     
     }
+    
+    public Mozo ObtenerMozoId(int id) {
+        
+        Mozo mozo = new Mozo();
+        try {
+            String sql = "SELECT * FROM mozo WHERE idMozo = ?";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                
+                mozo.setNombre(rs.getString("nombre"));
+                mozo.setApellido(rs.getString("apellido"));
+    
+            }
+
+            ps.close();
+        } catch (SQLException ex) {
+            Utilidades.mostrarDialogoTemporal("Base de datos", "Error al obtener mozo por ID. " + ex.getMessage(), 2000);
+        }
+
+        return mozo;
+    }
 }
