@@ -132,12 +132,12 @@ public class MesaData {
 
         return Mesas;
     }
-    
-     public List<Mesa> listarMesasConPedido() {
-        List<Mesa> Mesas = new ArrayList<>();
+
+    public List<Mesa> listarMesasConPedido() {
+        Set<Mesa> mesasSet = new HashSet<>(); // Usar un Set para evitar duplicados
 
         try {
-            String sql = "SELECT m.* FROM mesa m JOIN pedido p ON m.idMesa = p.idMesa WHERE p.estado = 'ENTREGADO' AND p.cobrada = 0";
+            String sql = "SELECT DISTINCT m.* FROM mesa m JOIN pedido p ON m.idMesa = p.idMesa WHERE p.estado = 'ENTREGADO' AND p.cobrada = 0";
             PreparedStatement ps = con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
 
@@ -148,7 +148,7 @@ public class MesaData {
                 mesa.setEstadoMesa(rs.getString("estadoMesa"));
                 mesa.setCapacidad(rs.getInt("capacidad"));
                 mesa.setActivo(rs.getBoolean("activo"));
-                Mesas.add(mesa);
+                mesasSet.add(mesa); // Añadir al Set
             }
 
             ps.close();
@@ -156,13 +156,36 @@ public class MesaData {
             Utilidades.mostrarDialogoTemporal("Base de datos", "Error al listar todas las mesas " + ex.getMessage(), 2000);
         }
 
-        return Mesas;
+        return new ArrayList<>(mesasSet); // Convertir el Set a List
     }
-
 
     public Mesa ObtenerMesasId(int id) {
         try {
             String sql = "SELECT * FROM mesa WHERE idMesa = ?";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                mesa.setIdMesa(rs.getInt("idMesa"));
+                mesa.setNumero(rs.getInt("numero"));
+                mesa.setEstadoMesa(rs.getString("estadoMesa"));
+                mesa.setCapacidad(rs.getInt("capacidad"));
+                mesa.setActivo(rs.getBoolean("activo"));
+            }
+
+            ps.close();
+        } catch (SQLException ex) {
+            Utilidades.mostrarDialogoTemporal("Base de datos", "Error al obtener mesa por ID: " + ex.getMessage(), 2000);
+        }
+
+        return mesa;
+    }
+    
+     public Mesa ObtenerIdMesasXnumMesa(int id) {
+         
+        try {
+            String sql = "SELECT * FROM mesa WHERE numero = ?";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();

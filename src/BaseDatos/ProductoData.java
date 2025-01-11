@@ -10,6 +10,7 @@ public class ProductoData {
     private Connection con = null;
 
     public ProductoData() {
+        
         con = Conexion.getConexion();
     }
 
@@ -254,7 +255,6 @@ public class ProductoData {
         }
 
         return productos;
-
     }
 
     public List<Producto> BuscarProductoEstado(String buscar) {
@@ -288,7 +288,6 @@ public class ProductoData {
         }
 
         return productos;
-
     }
 
     public List<Producto> listarProductos() {
@@ -386,7 +385,6 @@ public class ProductoData {
         }
 
         return productos;
-
     }
 
     public List<Producto> BuscarCategBebida(String buscar) {
@@ -420,7 +418,6 @@ public class ProductoData {
         }
 
         return productos;
-
     }
 
     public List<Producto> BuscarCategPostre(String buscar) {
@@ -491,7 +488,6 @@ public class ProductoData {
         }
 
         return productos;
-
     }
 
     public Producto ObtenerPrductoId(int id) {
@@ -524,6 +520,5 @@ public class ProductoData {
         }
 
         return produ;
-
     }
 }

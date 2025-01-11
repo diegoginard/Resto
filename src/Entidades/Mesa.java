@@ -1,6 +1,8 @@
 
 package Entidades;
 
+import java.util.Objects;
+
 public class Mesa {
     private int idMesa;
     private int numero;
@@ -87,7 +89,16 @@ public class Mesa {
     public String toString() {
         return "Mesa " + numero  + ", sillas " + capacidad ;
     }
-
-  
     
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Mesa mesa = (Mesa) o;
+        return idMesa == mesa.idMesa;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(idMesa);
+    }    
 }

@@ -102,7 +102,4 @@ JOIN pedidoproducto pp ON p.idPedido = pp.idPedido
 JOIN producto pr ON pp.idProducto = pr.idProducto
 WHERE p.idPedido = 81;
 
-SELECT p.nombreProducto, p.precio
-FROM producto p
-JOIN pedidoproducto pp ON p.idProducto = pp.idProducto
-WHERE pp.idPedido = 81;
+SELECT m.* FROM mesa m JOIN pedido p ON m.idMesa = p.idMesa WHERE p.estado = 'ENTREGADO' AND p.cobrada = 0

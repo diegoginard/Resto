@@ -151,6 +151,7 @@ public class MozoData {
 
             while (rs.next()) {
                 
+                mozo.setIdMozo(rs.getInt("idMozo"));
                 mozo.setNombre(rs.getString("nombre"));
                 mozo.setApellido(rs.getString("apellido"));
     

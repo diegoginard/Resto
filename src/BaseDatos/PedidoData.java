@@ -27,10 +27,13 @@ public class PedidoData {
     public int GuardarPedidoID(Pedido pedido) {
         
         int idGenerado = -1;
+        
         try {
+            
             String sql = "INSERT INTO pedido (idMozo, IdMesa, fechaHora, cobrada, importe, estado) VALUES (?, ?, ?, ?, ?, ?)";
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             ps.setInt(1, pedido.getMozo().getIdMozo());
+            System.out.println(pedido.getMozo().getIdMozo());
             ps.setInt(2, pedido.getMesa().getIdMesa());
             ps.setTimestamp(3, Timestamp.valueOf(LocalDateTime.now()));
             ps.setBoolean(4, false);
@@ -39,17 +42,23 @@ public class PedidoData {
             ps.executeUpdate();
 
             ResultSet rs = ps.getGeneratedKeys();
+            
             if (rs.next()) {
                 idGenerado = rs.getInt(1);
             }
+            
         } catch (Exception ex) {
-            Utilidades.mostrarDialogoTemporal("Base de datos", "Error al guardar el PedidoId" + ex.getMessage(), 2000);
+            Utilidades.mostrarDialogoTemporal("Base de datos", "Error al guardar el PedidoId " + ex.getMessage(), 2000);
+            System.out.println(ex.getMessage());
         }
+        
         return idGenerado;
     }
 
     public void guardarPedido(Pedido ped) {
+        
         String sql = "INSERT INTO pedido (idMozo, IdMesa, fechaHora , cobrada , importe, estado) VALUES (?,?,?,?,?,?)";
+        
         try {
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             ps.setInt(1, ped.getMozo().getIdMozo());
@@ -60,11 +69,13 @@ public class PedidoData {
             ps.setString(6, "PENDIENTE");
             ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
+            
             if (rs.next()) {
                 ped.setIdPedido(rs.getInt(1));
                 Utilidades.mostrarDialogoTemporal("Base de datos", "Pedido Guardado", 2000);
             }
             ps.close();
+            
         } catch (SQLException ex) {
             Utilidades.mostrarDialogoTemporal("Base de datos", "Error al guardar el Pedido" + ex.getMessage(), 2000);
         }
@@ -74,11 +85,13 @@ public class PedidoData {
         
         String sql = "DELETE FROM pedido WHERE idPedido = ?";
         try {
+            
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, idPedido);
             ps.executeUpdate();
             Utilidades.mostrarDialogoTemporal("Base de datos", "Pedido eliminado correctamente", 2000);
             ps.close();
+            
         } catch (SQLException ex) {
             Utilidades.mostrarDialogoTemporal("Base de datos", "Error al eliminar el Pedido" + ex.getMessage(), 2000);
         }
@@ -87,12 +100,14 @@ public class PedidoData {
     public void modificarImportePedido(Pedido pe) {
         
         String sql = "UPDATE pedido SET importe = ? WHERE idPedido = ?";
+        
         try {
-            PreparedStatement ps = con.prepareStatement(sql);
             
+            PreparedStatement ps = con.prepareStatement(sql);
             ps.setDouble(1, pe.getImporte());
             ps.setInt(2, pe.getIdPedido());
             ps.executeUpdate();
+            
         } catch (SQLException ex) {
             Utilidades.mostrarDialogoTemporal("Base de datos", "Error al modificar el Pedido " + ex.getMessage(), 2000);
         }  
@@ -101,8 +116,7 @@ public class PedidoData {
      public List<Pedido> listarPedidos(){
         
         List<Pedido> Pedidos = new ArrayList<>();
-        
-        
+
         try {
             
             String sql = "SELECT * FROM Pedido ";
@@ -127,13 +141,10 @@ public class PedidoData {
             ps.close();
 
         }catch (SQLException ex) {
-
            Utilidades.mostrarDialogoTemporal("Base de datos", "Error al al listar los Pedidos " + ex.getMessage(), 2000);
-
         }
 
         return Pedidos;
-    
     }
     
     public List<Pedido> listarPedidosMesa(int id){
@@ -166,13 +177,10 @@ public class PedidoData {
             ps.close();
 
         }catch (SQLException ex) {
-
             Utilidades.mostrarDialogoTemporal("Base de datos", "Error al listar los pedidos por mesa " + ex.getMessage(), 2000);
-
         }
 
         return Pedidos;
-    
     }
     
     public List<Pedido> listarPedidosMesaPendientes(int id){
@@ -205,13 +213,10 @@ public class PedidoData {
             ps.close();
 
         }catch (SQLException ex) {
-
             Utilidades.mostrarDialogoTemporal("Base de datos", "Error al listar los pedidos pendiente por mesa" + ex.getMessage(), 2000);
-
         }
 
         return Pedidos;
-    
     }
     
     public List<Pedido> listarMesasPedidosEntregados(int id){
@@ -246,6 +251,7 @@ public class PedidoData {
         }catch (SQLException ex) {
             Utilidades.mostrarDialogoTemporal("Base de datos", "Error al listar los pedidos por mesa cobradas " + ex.getMessage(), 2000);
         }
+        
         return Pedidos;
     }
     
@@ -261,9 +267,9 @@ public class PedidoData {
             ps.setInt(2,idPedido);
             int exito= ps.executeUpdate();
             
-            if (exito==1) {
-                Utilidades.mostrarDialogoTemporal("Base de datos", "Pedido modificado", 2000);
-            }
+//            if (exito==1) {
+//                Utilidades.mostrarDialogoTemporal("Base de datos", "Pedido modificado", 2000);
+//            }
             
         } catch (SQLException ex) {           
             Utilidades.mostrarDialogoTemporal("Base de datos", "Error al modificar el estado del Pedido " + ex.getMessage(), 2000);
@@ -316,9 +322,38 @@ public class PedidoData {
             ps.close();
 
         }catch (SQLException ex) {
-
             Utilidades.mostrarDialogoTemporal("Base de datos", "Error al obtener el id del Pedido" + ex.getMessage(), 2000);
+        }
 
+        return ped; 
+    }
+    
+    public Pedido obtenerPedidoIdXmesa (int id){
+       try {
+            
+            String sql = "SELECT * FROM pedido p JOIN mesa m ON p.idMesa = m.idMesa WHERE p.estado = 'ENTREGADO' AND p.cobrada = 0 AND p.idMesa = ?;";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            
+            while (rs.next()) {
+                
+                ped.setIdPedido(rs.getInt("idPedido"));
+                mesa =  md.ObtenerMesasId(rs.getInt("idMesa"));
+                ped.setMesa(mesa);
+                mozo = mozoDat.ObtenerMozoId(rs.getInt("idMozo"));
+                ped.setMozo(mozo);
+                ped.setFechaHora(rs.getTimestamp("fechaHora").toLocalDateTime());
+                ped.setCobrada(rs.getBoolean("cobrada"));
+                ped.setImporte(rs.getDouble("importe"));
+                ped.setEstado(rs.getString("Estado"));
+               
+            }
+            
+            ps.close();
+
+        }catch (SQLException ex) {
+            Utilidades.mostrarDialogoTemporal("Base de datos", "Error al obtener el id del Pedido" + ex.getMessage(), 2000);
         }
 
         return ped; 
@@ -458,31 +493,29 @@ public class PedidoData {
             }
 
             ps.close();
-        } catch (SQLException ex) {
-            
+        } catch (SQLException ex) {    
             Utilidades.mostrarDialogoTemporal("Base de datos", "Error al listar pedidos por mesero b" + ex.getMessage(), 2000);
-            
         }
 
-    return pedidos;
-    
+        return pedidos;
     }
-    
-    public List<Pedido> listarPedidosDeMesaEnFechaYRangoHorario(int idMesa, LocalDate fecha, LocalDateTime horaInicio, LocalDateTime horaFin) {
-    List<Pedido> pedidos = new ArrayList<>();
 
-    try {
+    public List<Pedido> listarPedidosDeMesaEnFechaYRangoHorario(int idMesa, LocalDate fecha, LocalDateTime horaInicio, LocalDateTime horaFin) {
         
-        String sql = "SELECT * FROM Pedido WHERE idMesa = ? AND DATE(fechaHora) = ? AND TIME(fechaHora) BETWEEN ? AND ?";
-        PreparedStatement ps = con.prepareStatement(sql);
-        ps.setInt(1, idMesa);
-        ps.setDate(2, Date.valueOf(fecha));
-        ps.setTimestamp(3, Timestamp.valueOf(horaInicio));
-        ps.setTimestamp(4, Timestamp.valueOf(horaFin));
-        ResultSet rs = ps.executeQuery();
+        List<Pedido> pedidos = new ArrayList<>();
+
+        try {
+
+            String sql = "SELECT * FROM Pedido WHERE idMesa = ? AND DATE(fechaHora) = ? AND TIME(fechaHora) BETWEEN ? AND ?";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, idMesa);
+            ps.setDate(2, Date.valueOf(fecha));
+            ps.setTimestamp(3, Timestamp.valueOf(horaInicio));
+            ps.setTimestamp(4, Timestamp.valueOf(horaFin));
+            ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
-                
+
                 Pedido ped = new Pedido();
                 ped.setIdPedido(rs.getInt("idPedido"));
                 mesa = md.ObtenerMesasId(rs.getInt("idMesa"));
@@ -496,22 +529,20 @@ public class PedidoData {
             }
 
             ps.close();
-            
-        } catch (SQLException ex) {
 
+        } catch (SQLException ex) {
             Utilidades.mostrarDialogoTemporal("Base de datos", "Error al listar pedidos de mesa por hora " + ex.getMessage(), 2000);
-            
         }
 
         return pedidos;
     }
-    
-    public List<Pedido> listarPedidosEstadoPendiente(){
-        
+
+    public List<Pedido> listarPedidosEstadoPendiente() {
+
         List<Pedido> pedidos = new ArrayList<>();
-        
+
         try {
-            
+      
             String sql = "SELECT * FROM pedido WHERE estado = 'PENDIENTE'";
             PreparedStatement ps = con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
@@ -537,7 +568,6 @@ public class PedidoData {
            Utilidades.mostrarDialogoTemporal("Base de datos", "Error al al listar los Pedidos e nestado PENDIENTE " + ex.getMessage(), 2000);
         }
 
-        
         return pedidos;
     };
 }

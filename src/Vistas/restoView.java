@@ -126,6 +126,7 @@ public class restoView extends javax.swing.JInternalFrame {
         jBgestionarPedido = new javax.swing.JButton();
         jbCobrarMesa = new javax.swing.JButton();
         jbEstadoMesas = new javax.swing.JButton();
+        jBagregarPedido = new javax.swing.JButton();
         jpMesaMesero = new javax.swing.JPanel();
         ImageIcon icono2 = new ImageIcon(getClass().getResource("/Recursos/CrearPedido.jpg"));
         Image imagen2 = icono2.getImage();
@@ -208,7 +209,7 @@ public class restoView extends javax.swing.JInternalFrame {
             }
 
         };
-        jLabel13 = new javax.swing.JLabel();
+        jLestadoMesas = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
         jtEstadoMesas = new javax.swing.JTable();
         jbInicio1 = new javax.swing.JButton();
@@ -289,7 +290,7 @@ public class restoView extends javax.swing.JInternalFrame {
                 jbCobrarMesaActionPerformed(evt);
             }
         });
-        jDesktopPane1.add(jbCobrarMesa, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 435, 277, -1));
+        jDesktopPane1.add(jbCobrarMesa, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 490, 277, -1));
 
         jbEstadoMesas.setBackground(new java.awt.Color(40, 40, 40));
         jbEstadoMesas.setFont(new java.awt.Font("Segoe UI Historic", 1, 24)); // NOI18N
@@ -301,7 +302,19 @@ public class restoView extends javax.swing.JInternalFrame {
                 jbEstadoMesasActionPerformed(evt);
             }
         });
-        jDesktopPane1.add(jbEstadoMesas, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 491, 277, -1));
+        jDesktopPane1.add(jbEstadoMesas, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 540, 277, -1));
+
+        jBagregarPedido.setBackground(new java.awt.Color(40, 40, 40));
+        jBagregarPedido.setFont(new java.awt.Font("Segoe UI Historic", 1, 24)); // NOI18N
+        jBagregarPedido.setForeground(new java.awt.Color(255, 255, 255));
+        jBagregarPedido.setText("AGREGAR PEDIDO");
+        jBagregarPedido.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jBagregarPedido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBagregarPedidoActionPerformed(evt);
+            }
+        });
+        jDesktopPane1.add(jBagregarPedido, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 440, 277, -1));
 
         jpInicio.add(jDesktopPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 710, 620));
 
@@ -547,12 +560,16 @@ public class restoView extends javax.swing.JInternalFrame {
 
         elegirpedido.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jIFproductosDelPedido.setBackground(new java.awt.Color(51, 51, 51));
         jIFproductosDelPedido.setBorder(null);
         jIFproductosDelPedido.setClosable(true);
         jIFproductosDelPedido.setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
+        jIFproductosDelPedido.setTitle("Productos en el pedido");
         jIFproductosDelPedido.setVisible(true);
         jIFproductosDelPedido.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jTproductosDelPedido.setBackground(new java.awt.Color(51, 51, 51));
+        jTproductosDelPedido.setForeground(new java.awt.Color(255, 255, 255));
         jTproductosDelPedido.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -564,6 +581,9 @@ public class restoView extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTproductosDelPedido.setGridColor(new java.awt.Color(204, 204, 204));
+        jTproductosDelPedido.setSelectionBackground(new java.awt.Color(0, 204, 51));
+        jTproductosDelPedido.setSelectionForeground(new java.awt.Color(51, 51, 51));
         jScrollPane6.setViewportView(jTproductosDelPedido);
 
         jIFproductosDelPedido.getContentPane().add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 380, 430));
@@ -638,13 +658,13 @@ public class restoView extends javax.swing.JInternalFrame {
 
         jDesktopPane2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel13.setBackground(new java.awt.Color(51, 51, 51));
-        jLabel13.setFont(new java.awt.Font("Slender", 1, 30)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(0, 153, 153));
-        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel13.setText("Estado de Mesas");
-        jLabel13.setOpaque(true);
-        jDesktopPane2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, 260, -1));
+        jLestadoMesas.setBackground(new java.awt.Color(51, 51, 51));
+        jLestadoMesas.setFont(new java.awt.Font("Slender", 1, 30)); // NOI18N
+        jLestadoMesas.setForeground(new java.awt.Color(0, 153, 153));
+        jLestadoMesas.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLestadoMesas.setText("Estado de Mesas");
+        jLestadoMesas.setOpaque(true);
+        jDesktopPane2.add(jLestadoMesas, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, 260, -1));
 
         jScrollPane4.setVerifyInputWhenFocusTarget(false);
 
@@ -661,6 +681,11 @@ public class restoView extends javax.swing.JInternalFrame {
         ));
         jtEstadoMesas.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jtEstadoMesas.setName(""); // NOI18N
+        jtEstadoMesas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jtEstadoMesasMouseClicked(evt);
+            }
+        });
         jScrollPane4.setViewportView(jtEstadoMesas);
 
         jDesktopPane2.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(206, 153, 242, 331));
@@ -921,6 +946,7 @@ public class restoView extends javax.swing.JInternalFrame {
     private void jbInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbInicioActionPerformed
 
         ventanas.setSelectedIndex(0);
+        jIFproductosDelPedido.setVisible(false);
         jbCobrar.setEnabled(false);
     }//GEN-LAST:event_jbInicioActionPerformed
 
@@ -973,6 +999,7 @@ public class restoView extends javax.swing.JInternalFrame {
     private void jbEstadoMesasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEstadoMesasActionPerformed
 
         ventanas.setSelectedIndex(4);
+        jLestadoMesas.setText("Estado de Mesas");
         CargarEstadoMesas();
 
     }//GEN-LAST:event_jbEstadoMesasActionPerformed
@@ -1038,15 +1065,46 @@ public class restoView extends javax.swing.JInternalFrame {
            
             jIFproductosDelPedido.setVisible(true);
             cargarProductoAcobrar(idPedido);
+            jbCobrar.setEnabled(false);
             clickCount = 0;
         }
     }//GEN-LAST:event_jTcobrarPedidosMouseClicked
+
+    private void jBagregarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBagregarPedidoActionPerformed
+       
+        ventanas.setSelectedIndex(4);
+        jLestadoMesas.setText("Agregar Pedido");
+        CargarMesasConPedido();
+    }//GEN-LAST:event_jBagregarPedidoActionPerformed
+
+    private void jtEstadoMesasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtEstadoMesasMouseClicked
+       
+        ventanas.setSelectedIndex(2);
+        
+        int fila= jtEstadoMesas.getSelectedRow();
+        int numMesa = (int) jtEstadoMesas.getValueAt(fila, 0);
+        
+        Mesa mesa = md.ObtenerIdMesasXnumMesa(numMesa);
+        Pedido pedido = pedidoDat.obtenerPedidoIdXmesa(mesa.getIdMesa());
+        Mozo mozo = pedido.getMozo();
+        Pedido ped = new Pedido();
+        ped.setMesa(mesa);
+        ped.setMozo(mozo);
+        
+        int idPedido = pedidoDat.GuardarPedidoID(ped);
+       
+        jlMesa.setText(mesa.getNumero() + "");
+        jtID.setText(idPedido + "");
+        jLmozo.setText(mozo.toString());
+        
+    }//GEN-LAST:event_jtEstadoMesasMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane agregarproductos;
     private javax.swing.JDesktopPane crearpedido;
     private javax.swing.JDesktopPane elegirpedido;
+    private javax.swing.JButton jBagregarPedido;
     private javax.swing.JButton jBgestPedidos;
     private javax.swing.JButton jBgestionarPedido;
     private javax.swing.JComboBox<Mozo> jCmozo;
@@ -1058,7 +1116,6 @@ public class restoView extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
@@ -1069,6 +1126,7 @@ public class restoView extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLestadoMesas;
     private javax.swing.JLabel jLmozo;
     private javax.swing.JLabel jLnombMozo;
     private javax.swing.JPanel jPanel1;
@@ -1338,6 +1396,20 @@ public class restoView extends javax.swing.JInternalFrame {
             jtEstadoMesas.getColumnModel().getColumn(i).setCellRenderer(new ajustarCeldas());
         }
     }
+    
+    private void CargarMesasConPedido() {
+
+        modelo4.setRowCount(0);
+        List<Mesa> mesas = md.listarMesasConPedido();
+
+        for (Mesa me : mesas) {
+            modelo4.addRow(new Object[]{me.getNumero(), me.getEstadoMesa()});
+        }
+
+        for (int i = 0; i < modelo4.getColumnCount(); i++) {
+            jtEstadoMesas.getColumnModel().getColumn(i).setCellRenderer(new ajustarCeldas());
+        }
+    }
 
     private void cargarSpinerMozos(JComboBox jCombo) {
 
@@ -1352,6 +1424,7 @@ public class restoView extends javax.swing.JInternalFrame {
         
         List<Mesa> mesas = md.listarMesasConPedido();  
         
+         jCombo.removeAllItems();
         for (Mesa mesa : mesas) {
             jCombo.addItem(mesa);
         }
