@@ -24,10 +24,14 @@ public class restoView extends javax.swing.JInternalFrame {
         cargarMesas();
         armarCabeceraProd();
         armarCabeceraProdPed();
-        armarCabeceraPed();
-        cargarProducto();
+        armarCabeceraPed(jtPedidos, modelo1);
+        armarCabeceraPed(jTcobrarPedidos, modelo5);       
         armarCabeceraEstadoMesas();
+        armarCabeceraProdAcobrar();
+        cargarProducto();
         cargarSpinerMozos(jCmozo);
+        jbCobrar.setEnabled(false);
+        jIFproductosDelPedido.setVisible(false);
 
         // Desactiva la barra de título del JInternalFrame
         BasicInternalFrameUI ui = (BasicInternalFrameUI) getUI();
@@ -42,11 +46,7 @@ public class restoView extends javax.swing.JInternalFrame {
         });
 
         ventanas.setEnabled(false);
-        jtID.setEnabled(false);
-        jbAgregarQuitar.setEnabled(false);
-        jbEntregar.setEnabled(false);
-        jbCancelar.setEnabled(false);
-        jbCobrar.setEnabled(false);
+        jtID.setEnabled(false);      
     }
 
     private DefaultTableModel modelo1 = new DefaultTableModel() {
@@ -84,6 +84,24 @@ public class restoView extends javax.swing.JInternalFrame {
             return false;
         }
     };
+    
+    private DefaultTableModel modelo5 = new DefaultTableModel() {
+
+        @Override
+        public boolean isCellEditable(int rowIndex, int columnIndex) {
+
+            return false;
+        }
+    };
+    
+    private DefaultTableModel modelo6 = new DefaultTableModel() {
+
+        @Override
+        public boolean isCellEditable(int rowIndex, int columnIndex) {
+
+            return false;
+        }
+    };
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -105,7 +123,7 @@ public class restoView extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jbTomarPedido = new javax.swing.JButton();
-        jbAgregarAPedido = new javax.swing.JButton();
+        jBgestionarPedido = new javax.swing.JButton();
         jbCobrarMesa = new javax.swing.JButton();
         jbEstadoMesas = new javax.swing.JButton();
         jpMesaMesero = new javax.swing.JPanel();
@@ -126,8 +144,8 @@ public class restoView extends javax.swing.JInternalFrame {
         jbACrearPedido = new javax.swing.JButton();
         jCmozo = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
+        jbInicio3 = new javax.swing.JButton();
         jpProducto = new javax.swing.JPanel();
         ImageIcon icono3 = new ImageIcon(getClass().getResource("/Recursos/AgregarProducto.jpg"));
         Image imagen3 = icono3.getImage();
@@ -153,12 +171,12 @@ public class restoView extends javax.swing.JInternalFrame {
         jtTotal = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         jbVolverMenu = new javax.swing.JButton();
-        jbIrPedidos = new javax.swing.JButton();
+        jBgestPedidos = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLmozo = new javax.swing.JLabel();
         jLnombMozo = new javax.swing.JLabel();
-        jpPedidos = new javax.swing.JPanel();
+        jPcobrar = new javax.swing.JPanel();
         ImageIcon icono4 = new ImageIcon(getClass().getResource("/Recursos/AgregarPedido.jpg"));
         Image imagen4 = icono4.getImage();
         elegirpedido = new javax.swing.JDesktopPane(){
@@ -169,16 +187,15 @@ public class restoView extends javax.swing.JInternalFrame {
 
             }
         };
-        jbAgregarQuitar = new javax.swing.JButton();
-        jbEntregar = new javax.swing.JButton();
-        jbCancelar = new javax.swing.JButton();
+        jIFproductosDelPedido = new javax.swing.JInternalFrame();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        jTproductosDelPedido = new javax.swing.JTable();
         jbCobrar = new javax.swing.JButton();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jtPedidos = new javax.swing.JTable();
-        jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jcMesasPedido = new javax.swing.JComboBox<>();
         jbInicio = new javax.swing.JButton();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jTcobrarPedidos = new javax.swing.JTable();
         jLabel11 = new javax.swing.JLabel();
         jpMesas = new javax.swing.JPanel();
         ImageIcon icono5 = new ImageIcon(getClass().getResource("/Recursos/EstadoMesas.jpg"));
@@ -195,6 +212,23 @@ public class restoView extends javax.swing.JInternalFrame {
         jScrollPane4 = new javax.swing.JScrollPane();
         jtEstadoMesas = new javax.swing.JTable();
         jbInicio1 = new javax.swing.JButton();
+        jPpedidos = new javax.swing.JPanel();
+        ImageIcon icono6 = new ImageIcon(getClass().getResource("/Recursos/EstadoMesas.jpg"));
+        Image imagen6 = icono6.getImage();
+        jDesktopPane3 = new javax.swing.JDesktopPane(){
+            public void paintComponent(Graphics g){
+
+                g.drawImage(imagen6,0,0,getWidth(),getHeight(),this);
+
+            }
+
+        };
+        jbEntregar = new javax.swing.JButton();
+        jbCancelar = new javax.swing.JButton();
+        jLabel14 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jtPedidos = new javax.swing.JTable();
+        jbInicio2 = new javax.swing.JButton();
 
         setBorder(null);
         setClosable(true);
@@ -208,6 +242,7 @@ public class restoView extends javax.swing.JInternalFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jpInicio.setPreferredSize(new java.awt.Dimension(0, 0));
+        jpInicio.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jDesktopPane1.setVerifyInputWhenFocusTarget(false);
         jDesktopPane1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -232,17 +267,17 @@ public class restoView extends javax.swing.JInternalFrame {
         });
         jDesktopPane1.add(jbTomarPedido, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 334, 277, -1));
 
-        jbAgregarAPedido.setBackground(new java.awt.Color(40, 40, 40));
-        jbAgregarAPedido.setFont(new java.awt.Font("Segoe UI Historic", 1, 24)); // NOI18N
-        jbAgregarAPedido.setForeground(new java.awt.Color(255, 255, 255));
-        jbAgregarAPedido.setText("GESTIONAR PEDIDOS");
-        jbAgregarAPedido.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jbAgregarAPedido.addActionListener(new java.awt.event.ActionListener() {
+        jBgestionarPedido.setBackground(new java.awt.Color(40, 40, 40));
+        jBgestionarPedido.setFont(new java.awt.Font("Segoe UI Historic", 1, 24)); // NOI18N
+        jBgestionarPedido.setForeground(new java.awt.Color(255, 255, 255));
+        jBgestionarPedido.setText("GESTIONAR PEDIDOS");
+        jBgestionarPedido.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jBgestionarPedido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbAgregarAPedidoActionPerformed(evt);
+                jBgestionarPedidoActionPerformed(evt);
             }
         });
-        jDesktopPane1.add(jbAgregarAPedido, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 385, 277, -1));
+        jDesktopPane1.add(jBgestionarPedido, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 385, 277, -1));
 
         jbCobrarMesa.setBackground(new java.awt.Color(40, 40, 40));
         jbCobrarMesa.setFont(new java.awt.Font("Segoe UI Historic", 1, 24)); // NOI18N
@@ -268,30 +303,21 @@ public class restoView extends javax.swing.JInternalFrame {
         });
         jDesktopPane1.add(jbEstadoMesas, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 491, 277, -1));
 
-        javax.swing.GroupLayout jpInicioLayout = new javax.swing.GroupLayout(jpInicio);
-        jpInicio.setLayout(jpInicioLayout);
-        jpInicioLayout.setHorizontalGroup(
-            jpInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jpInicioLayout.createSequentialGroup()
-                .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 372, Short.MAX_VALUE))
-        );
-        jpInicioLayout.setVerticalGroup(
-            jpInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jpInicioLayout.createSequentialGroup()
-                .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 545, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 64, Short.MAX_VALUE))
-        );
+        jpInicio.add(jDesktopPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 710, 620));
 
         ventanas.addTab("", jpInicio);
 
         jpMesaMesero.setBackground(new java.awt.Color(153, 153, 153));
+        jpMesaMesero.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        crearpedido.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel12.setBackground(new java.awt.Color(102, 102, 102));
         jLabel12.setFont(new java.awt.Font("Slender", 1, 36)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel12.setText("SELECCIONAR");
+        crearpedido.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, 270, -1));
 
         jPanel1.setBackground(new java.awt.Color(51, 51, 51));
 
@@ -315,17 +341,6 @@ public class restoView extends javax.swing.JInternalFrame {
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Mesa");
 
-        jButton1.setBackground(new java.awt.Color(102, 102, 102));
-        jButton1.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("CANCELAR PEDIDO");
-        jButton1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
         jLabel3.setBackground(new java.awt.Color(102, 102, 102));
         jLabel3.setFont(new java.awt.Font("Segoe UI Semibold", 1, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -336,25 +351,22 @@ public class restoView extends javax.swing.JInternalFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addGap(37, 37, 37)))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jcMesas, 0, 120, Short.MAX_VALUE)
-                            .addComponent(jCmozo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(38, 38, 38)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jbACrearPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addGap(37, 37, 37)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jcMesas, 0, 120, Short.MAX_VALUE)
+                    .addComponent(jCmozo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(22, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jbACrearPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(37, 37, 37))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -367,54 +379,31 @@ public class restoView extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(jcMesas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
+                .addGap(36, 36, 36)
                 .addComponent(jbACrearPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12))
+                .addContainerGap(47, Short.MAX_VALUE))
         );
 
-        crearpedido.setLayer(jLabel12, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        crearpedido.setLayer(jPanel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        crearpedido.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(117, 174, -1, 230));
 
-        javax.swing.GroupLayout crearpedidoLayout = new javax.swing.GroupLayout(crearpedido);
-        crearpedido.setLayout(crearpedidoLayout);
-        crearpedidoLayout.setHorizontalGroup(
-            crearpedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(crearpedidoLayout.createSequentialGroup()
-                .addGroup(crearpedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(crearpedidoLayout.createSequentialGroup()
-                        .addGap(102, 102, 102)
-                        .addComponent(jLabel12))
-                    .addGroup(crearpedidoLayout.createSequentialGroup()
-                        .addGap(117, 117, 117)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(337, Short.MAX_VALUE))
-        );
-        crearpedidoLayout.setVerticalGroup(
-            crearpedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(crearpedidoLayout.createSequentialGroup()
-                .addGap(109, 109, 109)
-                .addComponent(jLabel12)
-                .addGap(18, 18, 18)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(167, Short.MAX_VALUE))
-        );
+        jbInicio3.setBackground(new java.awt.Color(30, 30, 30));
+        jbInicio3.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
+        jbInicio3.setForeground(new java.awt.Color(102, 255, 0));
+        jbInicio3.setText("IR A INICIO");
+        jbInicio3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jbInicio3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbInicio3ActionPerformed(evt);
+            }
+        });
+        crearpedido.add(jbInicio3, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 550, 126, 46));
 
-        javax.swing.GroupLayout jpMesaMeseroLayout = new javax.swing.GroupLayout(jpMesaMesero);
-        jpMesaMesero.setLayout(jpMesaMeseroLayout);
-        jpMesaMeseroLayout.setHorizontalGroup(
-            jpMesaMeseroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(crearpedido)
-        );
-        jpMesaMeseroLayout.setVerticalGroup(
-            jpMesaMeseroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(crearpedido, javax.swing.GroupLayout.Alignment.TRAILING)
-        );
+        jpMesaMesero.add(crearpedido, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 710, 620));
 
         ventanas.addTab("", jpMesaMesero);
 
         jpProducto.setBackground(new java.awt.Color(113, 113, 113));
+        jpProducto.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         agregarproductos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -517,16 +506,17 @@ public class restoView extends javax.swing.JInternalFrame {
         });
         agregarproductos.add(jbVolverMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(105, 528, 141, 42));
 
-        jbIrPedidos.setBackground(new java.awt.Color(102, 102, 102));
-        jbIrPedidos.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
-        jbIrPedidos.setForeground(new java.awt.Color(102, 255, 0));
-        jbIrPedidos.setText("ENVIAR PEDIDO");
-        jbIrPedidos.addActionListener(new java.awt.event.ActionListener() {
+        jBgestPedidos.setBackground(new java.awt.Color(102, 102, 102));
+        jBgestPedidos.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jBgestPedidos.setForeground(new java.awt.Color(102, 255, 0));
+        jBgestPedidos.setText("GESTIONAR PEDIDOS");
+        jBgestPedidos.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jBgestPedidos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbIrPedidosActionPerformed(evt);
+                jBgestPedidosActionPerformed(evt);
             }
         });
-        agregarproductos.add(jbIrPedidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(482, 529, 204, 42));
+        agregarproductos.add(jBgestPedidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 530, 220, 42));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -549,53 +539,36 @@ public class restoView extends javax.swing.JInternalFrame {
         jLnombMozo.setText("Mozo/a:");
         agregarproductos.add(jLnombMozo, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 90, 60, 20));
 
-        javax.swing.GroupLayout jpProductoLayout = new javax.swing.GroupLayout(jpProducto);
-        jpProducto.setLayout(jpProductoLayout);
-        jpProductoLayout.setHorizontalGroup(
-            jpProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jpProductoLayout.createSequentialGroup()
-                .addComponent(agregarproductos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        jpProductoLayout.setVerticalGroup(
-            jpProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(agregarproductos)
-        );
+        jpProducto.add(agregarproductos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 710, 620));
 
         ventanas.addTab("", jpProducto);
 
-        jbAgregarQuitar.setBackground(new java.awt.Color(51, 51, 51));
-        jbAgregarQuitar.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
-        jbAgregarQuitar.setForeground(new java.awt.Color(255, 255, 255));
-        jbAgregarQuitar.setText("Productos del Pedido");
-        jbAgregarQuitar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jbAgregarQuitar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbAgregarQuitarActionPerformed(evt);
-            }
-        });
+        jPcobrar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jbEntregar.setBackground(new java.awt.Color(51, 51, 51));
-        jbEntregar.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
-        jbEntregar.setForeground(new java.awt.Color(255, 255, 255));
-        jbEntregar.setText("Entregar Pedido");
-        jbEntregar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jbEntregar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbEntregarActionPerformed(evt);
-            }
-        });
+        elegirpedido.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jbCancelar.setBackground(new java.awt.Color(51, 51, 51));
-        jbCancelar.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
-        jbCancelar.setForeground(new java.awt.Color(255, 255, 255));
-        jbCancelar.setText("Cancelar Pedido");
-        jbCancelar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jbCancelar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbCancelarActionPerformed(evt);
+        jIFproductosDelPedido.setBorder(null);
+        jIFproductosDelPedido.setClosable(true);
+        jIFproductosDelPedido.setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
+        jIFproductosDelPedido.setVisible(true);
+        jIFproductosDelPedido.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jTproductosDelPedido.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
             }
-        });
+        ));
+        jScrollPane6.setViewportView(jTproductosDelPedido);
+
+        jIFproductosDelPedido.getContentPane().add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 380, 430));
+
+        elegirpedido.add(jIFproductosDelPedido, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 60, 380, 460));
 
         jbCobrar.setBackground(new java.awt.Color(51, 51, 51));
         jbCobrar.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
@@ -607,36 +580,20 @@ public class restoView extends javax.swing.JInternalFrame {
                 jbCobrarActionPerformed(evt);
             }
         });
-
-        jtPedidos.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane3.setViewportView(jtPedidos);
-
-        jLabel14.setFont(new java.awt.Font("Slender", 1, 30)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel14.setText("Elegi un Pedido");
-        jLabel14.setAutoscrolls(true);
-        jLabel14.setInheritsPopupMenu(false);
+        elegirpedido.add(jbCobrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 290, 205, 64));
 
         jLabel15.setFont(new java.awt.Font("Slender", 1, 30)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
         jLabel15.setText("SELECIONA UNA MESA");
+        elegirpedido.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 26, -1, 33));
 
         jcMesasPedido.setBorder(null);
-        jcMesasPedido.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                jcMesasPedidoItemStateChanged(evt);
+        jcMesasPedido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcMesasPedidoActionPerformed(evt);
             }
         });
+        elegirpedido.add(jcMesasPedido, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 120, 140, -1));
 
         jbInicio.setBackground(new java.awt.Color(30, 30, 30));
         jbInicio.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
@@ -648,108 +605,46 @@ public class restoView extends javax.swing.JInternalFrame {
                 jbInicioActionPerformed(evt);
             }
         });
+        elegirpedido.add(jbInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 550, 126, 46));
+
+        jTcobrarPedidos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jTcobrarPedidos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTcobrarPedidosMouseClicked(evt);
+            }
+        });
+        jScrollPane5.setViewportView(jTcobrarPedidos);
+
+        elegirpedido.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 470, 190));
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa60.png"))); // NOI18N
+        elegirpedido.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(73, 100, -1, -1));
 
-        elegirpedido.setLayer(jbAgregarQuitar, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        elegirpedido.setLayer(jbEntregar, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        elegirpedido.setLayer(jbCancelar, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        elegirpedido.setLayer(jbCobrar, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        elegirpedido.setLayer(jScrollPane3, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        elegirpedido.setLayer(jLabel14, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        elegirpedido.setLayer(jLabel15, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        elegirpedido.setLayer(jcMesasPedido, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        elegirpedido.setLayer(jbInicio, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        elegirpedido.setLayer(jLabel11, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jPcobrar.add(elegirpedido, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 710, 620));
 
-        javax.swing.GroupLayout elegirpedidoLayout = new javax.swing.GroupLayout(elegirpedido);
-        elegirpedido.setLayout(elegirpedidoLayout);
-        elegirpedidoLayout.setHorizontalGroup(
-            elegirpedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, elegirpedidoLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jbInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, elegirpedidoLayout.createSequentialGroup()
-                .addGroup(elegirpedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(elegirpedidoLayout.createSequentialGroup()
-                        .addGap(73, 73, 73)
-                        .addComponent(jLabel11)
-                        .addGap(30, 30, 30)
-                        .addComponent(jcMesasPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jbAgregarQuitar, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(elegirpedidoLayout.createSequentialGroup()
-                        .addGroup(elegirpedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(elegirpedidoLayout.createSequentialGroup()
-                                .addGap(21, 21, 21)
-                                .addGroup(elegirpedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel15)
-                                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(elegirpedidoLayout.createSequentialGroup()
-                                .addGap(63, 63, 63)
-                                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
-                        .addGroup(elegirpedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jbEntregar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jbCancelar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(62, 62, 62))
-            .addGroup(elegirpedidoLayout.createSequentialGroup()
-                .addGap(95, 95, 95)
-                .addComponent(jbCobrar, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        elegirpedidoLayout.setVerticalGroup(
-            elegirpedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(elegirpedidoLayout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(elegirpedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(elegirpedidoLayout.createSequentialGroup()
-                        .addGap(36, 36, 36)
-                        .addGroup(elegirpedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jcMesasPedido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jbAgregarQuitar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(15, 15, 15))
-                    .addGroup(elegirpedidoLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel11)))
-                .addGroup(elegirpedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(elegirpedidoLayout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(elegirpedidoLayout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addComponent(jbEntregar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(49, 49, 49)
-                        .addComponent(jbCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(34, 34, 34)
-                .addComponent(jbCobrar, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
-                .addComponent(jbInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24))
-        );
+        ventanas.addTab("", jPcobrar);
 
-        javax.swing.GroupLayout jpPedidosLayout = new javax.swing.GroupLayout(jpPedidos);
-        jpPedidos.setLayout(jpPedidosLayout);
-        jpPedidosLayout.setHorizontalGroup(
-            jpPedidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(elegirpedido)
-        );
-        jpPedidosLayout.setVerticalGroup(
-            jpPedidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(elegirpedido)
-        );
+        jpMesas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        ventanas.addTab("", jpPedidos);
+        jDesktopPane2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel13.setBackground(new java.awt.Color(51, 51, 51));
         jLabel13.setFont(new java.awt.Font("Slender", 1, 30)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel13.setText("Estado de Mesas");
         jLabel13.setOpaque(true);
+        jDesktopPane2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, 260, -1));
 
         jScrollPane4.setVerifyInputWhenFocusTarget(false);
 
@@ -766,12 +661,9 @@ public class restoView extends javax.swing.JInternalFrame {
         ));
         jtEstadoMesas.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jtEstadoMesas.setName(""); // NOI18N
-        jtEstadoMesas.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jtEstadoMesasMouseClicked(evt);
-            }
-        });
         jScrollPane4.setViewportView(jtEstadoMesas);
+
+        jDesktopPane2.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(206, 153, 242, 331));
 
         jbInicio1.setBackground(new java.awt.Color(30, 30, 30));
         jbInicio1.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
@@ -783,65 +675,88 @@ public class restoView extends javax.swing.JInternalFrame {
                 jbInicio1ActionPerformed(evt);
             }
         });
+        jDesktopPane2.add(jbInicio1, new org.netbeans.lib.awtextra.AbsoluteConstraints(553, 493, 126, 46));
 
-        jDesktopPane2.setLayer(jLabel13, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane2.setLayer(jScrollPane4, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane2.setLayer(jbInicio1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
-        javax.swing.GroupLayout jDesktopPane2Layout = new javax.swing.GroupLayout(jDesktopPane2);
-        jDesktopPane2.setLayout(jDesktopPane2Layout);
-        jDesktopPane2Layout.setHorizontalGroup(
-            jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDesktopPane2Layout.createSequentialGroup()
-                .addGap(185, 185, 185)
-                .addComponent(jLabel13)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jbInicio1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31))
-            .addGroup(jDesktopPane2Layout.createSequentialGroup()
-                .addGap(206, 206, 206)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(262, Short.MAX_VALUE))
-        );
-        jDesktopPane2Layout.setVerticalGroup(
-            jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDesktopPane2Layout.createSequentialGroup()
-                .addGap(67, 67, 67)
-                .addComponent(jLabel13)
-                .addGap(47, 47, 47)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(9, 9, 9)
-                .addComponent(jbInicio1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(64, Short.MAX_VALUE))
-        );
-
-        javax.swing.GroupLayout jpMesasLayout = new javax.swing.GroupLayout(jpMesas);
-        jpMesas.setLayout(jpMesasLayout);
-        jpMesasLayout.setHorizontalGroup(
-            jpMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jDesktopPane2, javax.swing.GroupLayout.Alignment.TRAILING)
-        );
-        jpMesasLayout.setVerticalGroup(
-            jpMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jpMesasLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jDesktopPane2))
-        );
+        jpMesas.add(jDesktopPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 6, 710, 613));
 
         ventanas.addTab("", jpMesas);
 
-        getContentPane().add(ventanas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 710, 640));
+        jPpedidos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jDesktopPane3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jbEntregar.setBackground(new java.awt.Color(51, 51, 51));
+        jbEntregar.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
+        jbEntregar.setForeground(new java.awt.Color(255, 255, 255));
+        jbEntregar.setText("Entregar Pedido");
+        jbEntregar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jbEntregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbEntregarActionPerformed(evt);
+            }
+        });
+        jDesktopPane3.add(jbEntregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 240, 205, 50));
+
+        jbCancelar.setBackground(new java.awt.Color(51, 51, 51));
+        jbCancelar.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
+        jbCancelar.setForeground(new java.awt.Color(255, 255, 255));
+        jbCancelar.setText("Cancelar Pedido");
+        jbCancelar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jbCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbCancelarActionPerformed(evt);
+            }
+        });
+        jDesktopPane3.add(jbCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 330, 205, 50));
+
+        jLabel14.setFont(new java.awt.Font("Slender", 1, 30)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel14.setText("Elegi un Pedido");
+        jLabel14.setAutoscrolls(true);
+        jLabel14.setInheritsPopupMenu(false);
+        jDesktopPane3.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 130, 273, 33));
+
+        jtPedidos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jtPedidos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jtPedidosMouseClicked(evt);
+            }
+        });
+        jScrollPane3.setViewportView(jtPedidos);
+
+        jDesktopPane3.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 230, 450, 155));
+
+        jbInicio2.setBackground(new java.awt.Color(30, 30, 30));
+        jbInicio2.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
+        jbInicio2.setForeground(new java.awt.Color(102, 255, 0));
+        jbInicio2.setText("IR A INICIO");
+        jbInicio2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jbInicio2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbInicio2ActionPerformed(evt);
+            }
+        });
+        jDesktopPane3.add(jbInicio2, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 510, 126, 46));
+
+        jPpedidos.add(jDesktopPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 710, 620));
+
+        ventanas.addTab("", jPpedidos);
+
+        getContentPane().add(ventanas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -30, 710, 650));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jcMesasPedidoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jcMesasPedidoItemStateChanged
-
-        pedidoxMesa();
-
-    }//GEN-LAST:event_jcMesasPedidoItemStateChanged
 
     private void jbCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCancelarActionPerformed
 
@@ -854,7 +769,7 @@ public class restoView extends javax.swing.JInternalFrame {
             String cancelado = "CANCELADO";
             pedidoDat.modificarEstadoPedido(cancelado, idPedido);
 
-            cargarPedidoPediente(idMesa);
+            cargarPedidoPedienteId(idMesa);
 
         } else {
             JOptionPane.showMessageDialog(rootPane, "Debe seleccionar un pedido de la tabla");
@@ -872,44 +787,19 @@ public class restoView extends javax.swing.JInternalFrame {
             String entregado = "ENTREGADO";
             pedidoDat.modificarEstadoPedido(entregado, idPedido);
 
-            cargarPedidoPediente(idMesa);
+            cargarPedidoPedienteId(idMesa);
 
         } else {
             JOptionPane.showMessageDialog(rootPane, "Debe seleccionar un pedido de la tabla");
         }
     }//GEN-LAST:event_jbEntregarActionPerformed
 
-    private void jbAgregarQuitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAgregarQuitarActionPerformed
+    private void jBgestPedidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBgestPedidosActionPerformed
 
-        int fila = jtPedidos.getSelectedRow();
-
-        if (fila >= 0) {
-
-            int idPedido = (int) jtPedidos.getValueAt(fila, 0);
-            int Nmesa = (int) jtPedidos.getValueAt(fila, 1);
-            cargarPedidoProducto(idPedido);
-            jtID.setText(idPedido + "");
-            jlMesa.setText(Nmesa + "");
-            ventanas.setSelectedIndex(2);
-
-        } else {
-            JOptionPane.showMessageDialog(rootPane, "Debe seleccionar un pedido de la tabla");
-        }
-    }//GEN-LAST:event_jbAgregarQuitarActionPerformed
-
-    private void jbIrPedidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbIrPedidosActionPerformed
-
-        cargarMesas();
-        ventanas.setSelectedIndex(3);
-        jbAgregarQuitar.setEnabled(true);
-        jbEntregar.setEnabled(true);
-        jbCancelar.setEnabled(true);
-        jbCobrar.setEnabled(false);
-        Mesa mesa = (Mesa) jcMesasPedido.getSelectedItem();
-        int idMesa = mesa.getIdMesa();
-        cargarPedidoPediente(idMesa);
-
-    }//GEN-LAST:event_jbIrPedidosActionPerformed
+        cargarPedidoPediente();
+        ventanas.setSelectedIndex(5);
+       
+    }//GEN-LAST:event_jBgestPedidosActionPerformed
 
     private void jbVolverMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbVolverMenuActionPerformed
 
@@ -927,14 +817,12 @@ public class restoView extends javax.swing.JInternalFrame {
 
             modelo3.addRow(new Object[]{pro.getIdProducto(),
                 pro.getNombre(), pro.getPrecio(), pro.getStock(), pro.isEstado(), pro.getCategoria()});
-
         }
     }//GEN-LAST:event_jtBProductoKeyPressed
 
     private void jtBProductoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtBProductoMouseClicked
 
         jtBProducto.setText("");
-
     }//GEN-LAST:event_jtBProductoMouseClicked
 
     private void jtProductoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtProductoMouseClicked
@@ -950,7 +838,6 @@ public class restoView extends javax.swing.JInternalFrame {
             int idPedido = Integer.parseInt(jtID.getText());
 
             producto = proDat.ObtenerPrductoId(idProducto);
-
             pedido = pedidoDat.obtenerPedidoId(idPedido);
 
             pepro.setProducto(producto);
@@ -975,16 +862,11 @@ public class restoView extends javax.swing.JInternalFrame {
                 cargarPedido(nMesa);
 
             } else {
-
                 JOptionPane.showMessageDialog(rootPane, "No hay stock del producto");
-
             }
         } catch (Exception ex) {
-
             JOptionPane.showMessageDialog(rootPane, "Debe seleccionar un producto");
-
         }
-
     }//GEN-LAST:event_jtProductoMouseClicked
 
     private void jtPedidoProdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtPedidoProdMouseClicked
@@ -1015,9 +897,7 @@ public class restoView extends javax.swing.JInternalFrame {
             cargarPedido(pedido.getMesa().getNumero());
 
         } catch (Exception ex) {
-
             JOptionPane.showMessageDialog(rootPane, "Debe seleccionar un producto");
-
         }
     }//GEN-LAST:event_jtPedidoProdMouseClicked
 
@@ -1030,81 +910,58 @@ public class restoView extends javax.swing.JInternalFrame {
         Mozo mozo = (Mozo) jCmozo.getSelectedItem();
         ped.setMozo(mozo);
         int idPedido = pedidoDat.GuardarPedidoID(ped);
-        mesa.setEstadoMesa("OCUPADO");
-        md.modificarMesa(mesa);
+        md.modificarMesaEstado(mesa.getIdMesa(), 2);
         jlMesa.setText(mesa.getNumero() + "");
         jtID.setText(idPedido + "");
-        cargarPedidoProducto(idPedido);
         jLmozo.setText(mozo.toString());
+        cargarPedidoProducto(idPedido);
 
     }//GEN-LAST:event_jbACrearPedidoActionPerformed
 
     private void jbInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbInicioActionPerformed
 
         ventanas.setSelectedIndex(0);
+        jbCobrar.setEnabled(false);
     }//GEN-LAST:event_jbInicioActionPerformed
 
     private void jbCobrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCobrarActionPerformed
 
-        int fila = jtPedidos.getSelectedRow();
-
-        if (fila >= 0) {
-
-            int idPedido = (int) jtPedidos.getValueAt(fila, 0);
-            int idMesa = (int) jtPedidos.getValueAt(fila, 1);
-            Mesa mesa = md.ObtenerMesasId(idMesa);
+        int fila = jTcobrarPedidos.getSelectedRow();
+        
+        if(jTcobrarPedidos.getSelectedRow() > -1 ){
+            
+            int idPedido = (int) jTcobrarPedidos.getValueAt(fila, 0);
+            int idMesa = (int) jTcobrarPedidos.getValueAt(fila, 1);
             boolean cobrada = true;
             pedidoDat.modificarPedidoCobrado(cobrada, idPedido);
-
-            if (!pedidoDat.pasarAlibre(idMesa)) {
-
-                mesa.setEstadoMesa("LIBRE");
-                md.modificarMesa(mesa);
-
-            }
+            md.modificarMesaEstado(idMesa, 1);
 
             String texto = idPedido + "";
             Ticket newframe = new Ticket(texto);
             newframe.setVisible(true);
+            
+            jcMesasPedido.removeAllItems();
+            cargarSpinerMesasConPedidos(jcMesasPedido);
             cargarPedidoEntregado(idMesa);
-            cargarMesas();
-
-        } else {
-
-            JOptionPane.showMessageDialog(rootPane, "Debe seleccionar un pedido de la tabla");
-
+   
+        }else{
+            Utilidades.mostrarDialogoTemporal("Error", "Debe seleccionar un pedido", 2000);
         }
     }//GEN-LAST:event_jbCobrarActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
-        ventanas.setSelectedIndex(0);
-
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void jbCobrarMesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCobrarMesaActionPerformed
-
-        cargarMesas();
+        
+        jcMesasPedido.removeAllItems();
+        cargarSpinerMesasConPedidos(jcMesasPedido);
         ventanas.setSelectedIndex(3);
-        jbAgregarQuitar.setEnabled(false);
-        jbEntregar.setEnabled(false);
-        jbCancelar.setEnabled(false);
-        jbCobrar.setEnabled(true);
-        Mesa mesa = (Mesa) jcMesasPedido.getSelectedItem();
-        cargarPedidoEntregado(mesa.getIdMesa());
-
+        
     }//GEN-LAST:event_jbCobrarMesaActionPerformed
 
-    private void jbAgregarAPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAgregarAPedidoActionPerformed
+    private void jBgestionarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBgestionarPedidoActionPerformed
 
-        cargarMesas();
-        ventanas.setSelectedIndex(3);
-        jbAgregarQuitar.setEnabled(true);
-        jbEntregar.setEnabled(true);
-        jbCancelar.setEnabled(true);
-        jbCobrar.setEnabled(false);
-        pedidoxMesa();
-    }//GEN-LAST:event_jbAgregarAPedidoActionPerformed
+        cargarPedidoPediente();
+        ventanas.setSelectedIndex(5);
+    }//GEN-LAST:event_jBgestionarPedidoActionPerformed
 
     private void jbTomarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbTomarPedidoActionPerformed
 
@@ -1125,29 +982,78 @@ public class restoView extends javax.swing.JInternalFrame {
         ventanas.setSelectedIndex(0);
 
     }//GEN-LAST:event_jbInicio1ActionPerformed
+    
+    int clickCount = 0; // variable par acontar los clicks del mouse
+    
+    private void jtPedidosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtPedidosMouseClicked
+        
+        clickCount += 1; 
+        
+        if (clickCount > 1) {
+            
+            ventanas.setSelectedIndex(2);
 
-    private void jtEstadoMesasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtEstadoMesasMouseClicked
+            int fila = jtPedidos.getSelectedRow();
+            int idPedido = (int) jtPedidos.getValueAt(fila, 0);
+            int numeroMesa = (int) jtPedidos.getValueAt(fila, 1);
+            Mozo mozo = (Mozo) jtPedidos.getValueAt(fila, 2);
+            jlMesa.setText(numeroMesa + "");
+            jtID.setText(idPedido + "");
+            jLmozo.setText(mozo.toString());
+            cargarPedidoProducto(idPedido);
+            clickCount = 0;
+        }
+    }//GEN-LAST:event_jtPedidosMouseClicked
 
-        cargarMesas();
-        ventanas.setSelectedIndex(3);
-        int fila = jtEstadoMesas.getSelectedRow();
-        Mesa mesa = md.ObtenerMesasId((int) jtEstadoMesas.getValueAt(fila, 0));
-        jcMesasPedido.setSelectedIndex(mesa.getNumero() - 1);
-        jbAgregarQuitar.setEnabled(true);
-        jbEntregar.setEnabled(true);
-        jbCancelar.setEnabled(true);
+    private void jbInicio2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbInicio2ActionPerformed
+        
+        ventanas.setSelectedIndex(0);
+    }//GEN-LAST:event_jbInicio2ActionPerformed
 
-    }//GEN-LAST:event_jtEstadoMesasMouseClicked
+    private void jbInicio3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbInicio3ActionPerformed
+        
+         ventanas.setSelectedIndex(0);
+    }//GEN-LAST:event_jbInicio3ActionPerformed
+
+    private void jcMesasPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcMesasPedidoActionPerformed
+
+        try {
+            Mesa mesa = (Mesa) jcMesasPedido.getSelectedItem();
+            int idMesa = mesa.getIdMesa();
+            cargarPedidoEntregado(idMesa);
+            jbCobrar.setEnabled(false);
+        } catch (NullPointerException e) {
+//            Vistas.Utilidades.mostrarDialogoTemporal("Error", e.getMessage(), 2000);
+        }
+    }//GEN-LAST:event_jcMesasPedidoActionPerformed
+
+    private void jTcobrarPedidosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTcobrarPedidosMouseClicked
+
+        clickCount += 1;
+        int fila = jTcobrarPedidos.getSelectedRow();
+        int idPedido = (int) jTcobrarPedidos.getValueAt(fila, 0);
+        jbCobrar.setEnabled(true);
+
+        if (clickCount > 1) {
+           
+            jIFproductosDelPedido.setVisible(true);
+            cargarProductoAcobrar(idPedido);
+            clickCount = 0;
+        }
+    }//GEN-LAST:event_jTcobrarPedidosMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane agregarproductos;
     private javax.swing.JDesktopPane crearpedido;
     private javax.swing.JDesktopPane elegirpedido;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jBgestPedidos;
+    private javax.swing.JButton jBgestionarPedido;
     private javax.swing.JComboBox<Mozo> jCmozo;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JDesktopPane jDesktopPane2;
+    private javax.swing.JDesktopPane jDesktopPane3;
+    private javax.swing.JInternalFrame jIFproductosDelPedido;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1166,13 +1072,17 @@ public class restoView extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLmozo;
     private javax.swing.JLabel jLnombMozo;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPcobrar;
+    private javax.swing.JPanel jPpedidos;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JTable jTcobrarPedidos;
+    private javax.swing.JTable jTproductosDelPedido;
     private javax.swing.JButton jbACrearPedido;
-    private javax.swing.JButton jbAgregarAPedido;
-    private javax.swing.JButton jbAgregarQuitar;
     private javax.swing.JButton jbCancelar;
     private javax.swing.JButton jbCobrar;
     private javax.swing.JButton jbCobrarMesa;
@@ -1180,7 +1090,8 @@ public class restoView extends javax.swing.JInternalFrame {
     private javax.swing.JButton jbEstadoMesas;
     private javax.swing.JButton jbInicio;
     private javax.swing.JButton jbInicio1;
-    private javax.swing.JButton jbIrPedidos;
+    private javax.swing.JButton jbInicio2;
+    private javax.swing.JButton jbInicio3;
     private javax.swing.JButton jbTomarPedido;
     private javax.swing.JButton jbVolverMenu;
     private javax.swing.JComboBox<Mesa> jcMesas;
@@ -1189,7 +1100,6 @@ public class restoView extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jpInicio;
     private javax.swing.JPanel jpMesaMesero;
     private javax.swing.JPanel jpMesas;
-    private javax.swing.JPanel jpPedidos;
     private javax.swing.JPanel jpProducto;
     private javax.swing.JTextField jtBProducto;
     private javax.swing.JTable jtEstadoMesas;
@@ -1201,33 +1111,16 @@ public class restoView extends javax.swing.JInternalFrame {
     private javax.swing.JTabbedPane ventanas;
     // End of variables declaration//GEN-END:variables
 
-    private void armarCabeceraPed() {
+    private void armarCabeceraPed(JTable table, DefaultTableModel modelo) {
 
-        modelo1.addColumn("ID");
-        modelo1.addColumn("Mozo");
-        modelo1.addColumn("Nombre");
-        modelo1.addColumn("Fecha/Hora");
-        modelo1.addColumn("Cobrada");
-        modelo1.addColumn("Importe");
-        modelo1.addColumn("Estado");
-        jtPedidos.setModel(modelo1);
-        
-        TableColumn columnaID = jtPedidos.getColumnModel().getColumn(0);
-        TableColumn columnaMesa = jtPedidos.getColumnModel().getColumn(1);
-        TableColumn columnaNombre = jtPedidos.getColumnModel().getColumn(2);
-        TableColumn columnaFechaHora = jtPedidos.getColumnModel().getColumn(3);
-        TableColumn columnaCobrada = jtPedidos.getColumnModel().getColumn(4);
-        TableColumn columnaImporte = jtPedidos.getColumnModel().getColumn(5);
-        TableColumn columnaEstado = jtPedidos.getColumnModel().getColumn(6);
-
-        columnaID.setPreferredWidth(30);
-        columnaMesa.setPreferredWidth(30);
-        columnaNombre.setPreferredWidth(95);
-        columnaFechaHora.setPreferredWidth(200);
-        columnaCobrada.setPreferredWidth(65);
-        columnaImporte.setPreferredWidth(45);
-        columnaEstado.setPreferredWidth(135);
-
+        modelo.addColumn("ID");
+        modelo.addColumn("NºMeza");
+        modelo.addColumn("Mozo");
+        modelo.addColumn("Fecha/Hora");
+        modelo.addColumn("Cobrada");
+        modelo.addColumn("Importe");
+        modelo.addColumn("Estado");
+        table.setModel(modelo);      
     }
     
     private void armarCabeceraProd() {
@@ -1238,10 +1131,15 @@ public class restoView extends javax.swing.JInternalFrame {
         modelo3.addColumn("Categoria");
         modelo3.addColumn("Stock");
         jtProducto.setModel(modelo3);
-
     }
     
-    
+    private void armarCabeceraProdAcobrar() {
+        
+        modelo6.addColumn("Nombre");
+        modelo6.addColumn("Precio");
+        jTproductosDelPedido.setModel(modelo6);
+    }
+
     private void armarCabeceraProdPed() {
         
         modelo2.addColumn("PP");
@@ -1251,7 +1149,6 @@ public class restoView extends javax.swing.JInternalFrame {
         modelo2.addColumn(" $ ");
         modelo2.addColumn("Cant");
         jtPedidoProd.setModel(modelo2);
-
     }
     
      private void armarCabeceraEstadoMesas() {
@@ -1259,29 +1156,17 @@ public class restoView extends javax.swing.JInternalFrame {
         modelo4.addColumn("Numero");
         modelo4.addColumn("Estado");
         jtEstadoMesas.setModel(modelo4);
-
     }
     
     private void cargarMesas() {
-        
-        
+
         jcMesas.removeAllItems();
-        List<Mesa> cblistarMesas = md.listarMesas();
+        List<Mesa> cblistarMesas = md.listarMesasLibres();
         jcMesas.setRenderer(renderer);
         
         for (int i = 0; i < cblistarMesas.size(); i++) {
 
             jcMesas.addItem(new Mesa(cblistarMesas.get(i).getIdMesa(), cblistarMesas.get(i).getNumero(), cblistarMesas.get(i).getEstadoMesa(), cblistarMesas.get(i).getCapacidad(),
-                    cblistarMesas.get(i).isActivo()));
-
-        }
-        
-        jcMesasPedido.removeAllItems();
-        jcMesasPedido.setRenderer(renderer);
-        
-        for (int i = 0; i < cblistarMesas.size(); i++) {
-
-            jcMesasPedido.addItem(new Mesa(cblistarMesas.get(i).getIdMesa(), cblistarMesas.get(i).getNumero(), cblistarMesas.get(i).getEstadoMesa(), cblistarMesas.get(i).getCapacidad(),
                     cblistarMesas.get(i).isActivo()));
 
         }
@@ -1296,6 +1181,17 @@ public class restoView extends javax.swing.JInternalFrame {
 
             modelo3.addRow(new Object[]{pro.getIdProducto(),pro.getNombre(), pro.getPrecio(), pro.getCategoria(), pro.getStock()});
 
+        }
+    }
+    
+    private void cargarProductoAcobrar(int id){
+        
+        modelo6.setRowCount(0);
+        List<Producto> producto = proDat.BuscarProductosXidPedido(id);
+
+        for (Producto pro : producto) {
+
+            modelo6.addRow(new Object[]{pro.getNombre(), pro.getPrecio()});
         }
     }
     
@@ -1328,7 +1224,20 @@ public class restoView extends javax.swing.JInternalFrame {
         }   
     }
     
-    private void cargarPedidoPediente(int id) {
+    private void cargarPedidoPediente() {
+
+        modelo1.setRowCount(0);
+        List<Pedido> pedido = pedidoDat.listarPedidosEstadoPendiente();
+
+        for (Pedido pe : pedido) {
+
+            modelo1.addRow(new Object[]{pe.getIdPedido(), pe.getMesa().getNumero(),
+                pe.getMozo(), pe.getFechaHora(),pe.isCobrada(),pe.getImporte(), pe.getEstado()});
+
+        }   
+    }
+    
+     private void cargarPedidoPedienteId(int id) {
 
         modelo1.setRowCount(0);
         List<Pedido> pedido = pedidoDat.listarPedidosMesaPendientes(id);
@@ -1343,35 +1252,15 @@ public class restoView extends javax.swing.JInternalFrame {
     
     private void cargarPedidoEntregado(int id) {
 
-        modelo1.setRowCount(0);
-        List<Pedido> pedido = pedidoDat.listarPedidosMesaEntregadas(id);
+        modelo5.setRowCount(0);
+        List<Pedido> pedido = pedidoDat.listarMesasPedidosEntregados(id);
 
         for (Pedido pe : pedido) {
 
-            modelo1.addRow(new Object[]{pe.getIdPedido(), pe.getMesa().getNumero(),
+            modelo5.addRow(new Object[]{pe.getIdPedido(), pe.getMesa().getNumero(),
                 pe.getMozo(), pe.getFechaHora(),pe.isCobrada(),pe.getImporte(), pe.getEstado()});
 
         }   
-    }
-    
-    private void pedidoxMesa() {
-
-        Mesa mesa = (Mesa) jcMesasPedido.getSelectedItem();
-
-        if (mesa != null) {
-            
-            if (!jbCobrar.isEnabled()) {
-                
-                int Nmesa = mesa.getIdMesa();
-                cargarPedidoPediente(Nmesa);
-
-            } else {
-
-                int Nmesa = mesa.getIdMesa();
-                cargarPedidoEntregado(Nmesa);
-
-            }
-        }
     }
     
     // Define un renderizador personalizado para las celdas de la tabla mesa
@@ -1428,7 +1317,7 @@ public class restoView extends javax.swing.JInternalFrame {
             } // Si el estado no es "OCUPADO", establece el fondo a verde y el texto a blanco.
             else {
                 c.setBackground(Color.GREEN);
-                c.setForeground(Color.WHITE);
+                c.setForeground(Color.BLACK);
             }
 
             // Devuelve el componente con los cambios aplicados.
@@ -1439,28 +1328,32 @@ public class restoView extends javax.swing.JInternalFrame {
     private void CargarEstadoMesas() {
 
         modelo4.setRowCount(0);
-        List<Mesa> mesas = md.listarMesas();
+        List<Mesa> mesas = md.listarTodasLasMesas();
 
         for (Mesa me : mesas) {
-
             modelo4.addRow(new Object[]{me.getNumero(), me.getEstadoMesa()});
-
         }
 
         for (int i = 0; i < modelo4.getColumnCount(); i++) {
-
             jtEstadoMesas.getColumnModel().getColumn(i).setCellRenderer(new ajustarCeldas());
-
         }
     }
 
     private void cargarSpinerMozos(JComboBox jCombo) {
 
         List<Mozo> mozos = mozoDat.listarMozos();
-
+        
         for (Mozo mozo : mozos) {
             jCombo.addItem(mozo);
-
+        }
+    }
+    
+    private void cargarSpinerMesasConPedidos(JComboBox jCombo) {
+        
+        List<Mesa> mesas = md.listarMesasConPedido();  
+        
+        for (Mesa mesa : mesas) {
+            jCombo.addItem(mesa);
         }
     }
 }

@@ -95,4 +95,14 @@ CREATE TABLE `mozo` (
   PRIMARY KEY (`idMozo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
-UPDATE producto SET nombre = Diego WHERE idmozo = 1;
+SELECT *
+FROM pr
+join pedid p
+JOIN pedidoproducto pp ON p.idPedido = pp.idPedido
+JOIN producto pr ON pp.idProducto = pr.idProducto
+WHERE p.idPedido = 81;
+
+SELECT p.nombreProducto, p.precio
+FROM producto p
+JOIN pedidoproducto pp ON p.idProducto = pp.idProducto
+WHERE pp.idPedido = 81;

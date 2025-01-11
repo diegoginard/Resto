@@ -15,7 +15,7 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
     Icon icoV = new ImageIcon(getClass().getResource("/Recursos/mesa-verde.png"));
     Icon icoG = new ImageIcon(getClass().getResource("/Recursos/mesa-gris.png"));
     MesaData md = new MesaData();
-    List<Mesa> mesas = md.listarMesas();
+    List<Mesa> mesas = md.listarMesasLibres();
     Mesa mes = new Mesa();
     private boolean mesaOcupada = false;
     
@@ -24,7 +24,7 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
 
         initComponents();
         mesa1.setIcon(icoG);
-        List<Mesa> mesas = md.listarMesas();
+        List<Mesa> mesas = md.listarMesasLibres();
 //        ArrayList<JLabel> listarMesas = ListaMesaSalon();
         armarCabecera();
         cargarLista();
@@ -1181,7 +1181,7 @@ public class AdministraSalon extends javax.swing.JInternalFrame {
 
     private void cargarLista() {
 
-        List<Mesa> mesas = md.listarMesas();
+        List<Mesa> mesas = md.listarTodasLasMesas();
         modelo.setRowCount(0);
 
         for (Mesa me : mesas) {

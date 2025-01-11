@@ -154,6 +154,38 @@ public class ProductoData {
         }
 
         return productos;
+    }
+    
+    public List<Producto> BuscarProductosXidPedido(int id) {
+
+        List<Producto> productos = new ArrayList<>();
+
+        try {
+
+            String sql = "SELECT p.nombreProducto, p.precio FROM producto p JOIN pedidoproducto pp "
+                    + "ON p.idProducto = pp.idProducto WHERE pp.idPedido = ?;";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1,id); // Configura el primer parámetro con el valor de búsqueda
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+
+                Producto prod = new Producto();
+                
+                prod.setNombre(rs.getString("nombreProducto"));
+                prod.setPrecio(rs.getDouble("precio"));
+                
+                productos.add(prod);
+
+            }
+
+            ps.close();
+
+        } catch (SQLException ex) {
+            Utilidades.mostrarDialogoTemporal("Base de datos", "Error al acceder a la tabla Productos" + ex.getMessage(), 2000);
+        }
+
+        return productos;
 
     }
 

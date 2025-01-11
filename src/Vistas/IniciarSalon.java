@@ -36,10 +36,10 @@ public class IniciarSalon extends javax.swing.JFrame {
     
     // Método para recibir el nombre y apellido
     public void recibirDatos(String nombre, String apellido) {
+       
         this.nombre = nombre;
         this.apellido = apellido;
-        jMusuario.setText("                                                                   " + nombre +"  "+ apellido);
-        
+        jMusuario.setText("                                                                   " + nombre +"  "+ apellido); 
     }
     
     @SuppressWarnings("unchecked")
@@ -200,6 +200,7 @@ public class IniciarSalon extends javax.swing.JFrame {
 
     @Override
     public Image getIconImage() {
+        
         Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("Recursos/hamburguesa.png"));
         return retValue;
     }
@@ -267,17 +268,14 @@ public class IniciarSalon extends javax.swing.JFrame {
         admMozo.setVisible(true);
         escritorio.add(admMozo);
         escritorio.moveToFront(admMozo);
-        
     }//GEN-LAST:event_jMmozosActionPerformed
 
     public static void main(String args[]) {
         
         java.awt.EventQueue.invokeLater(new Runnable() {
            
-            public void run() {
-                
-                new IniciarSalon().setVisible(true);
-                
+            public void run() {   
+                new IniciarSalon().setVisible(true);                
             }
         });
     }

@@ -90,19 +90,11 @@ public class PedidoData {
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             
-//            ps.setInt(1, pe.getMesa().getIdMesa());
-//            ps.setInt(2, pe.getMozo().getIdMozo());
-//            System.out.println(ped.getMozo().getIdMozo());
-//            ps.setTimestamp(3, Timestamp.valueOf(pe.getFechaHora()));
-//            ps.setBoolean(4, pe.isCobrada());
             ps.setDouble(1, pe.getImporte());
-//            ps.setString(6, pe.getEstado());
             ps.setInt(2, pe.getIdPedido());
             ps.executeUpdate();
-//            Utilidades.mostrarDialogoTemporal("Base de datos", "Pedido modificado correctamente", 2000);
         } catch (SQLException ex) {
             Utilidades.mostrarDialogoTemporal("Base de datos", "Error al modificar el Pedido " + ex.getMessage(), 2000);
-             System.out.println(ex.getMessage());
         }  
     }
     
@@ -222,7 +214,7 @@ public class PedidoData {
     
     }
     
-    public List<Pedido> listarPedidosMesaEntregadas(int id){
+    public List<Pedido> listarMesasPedidosEntregados(int id){
         
         List<Pedido> Pedidos = new ArrayList<>();
     
@@ -252,14 +244,11 @@ public class PedidoData {
             ps.close();
 
         }catch (SQLException ex) {
-
             Utilidades.mostrarDialogoTemporal("Base de datos", "Error al listar los pedidos por mesa cobradas " + ex.getMessage(), 2000);
-
         }
-
         return Pedidos;
-    
     }
+    
     public void modificarEstadoPedido(String estado , int idPedido){
         
         String sql = "UPDATE pedido SET estado = ? WHERE idPedido = ?";
@@ -293,12 +282,12 @@ public class PedidoData {
             ps.setInt(2,idPedido);
             int exito= ps.executeUpdate();
             
-            if (exito==1) {
-                Utilidades.mostrarDialogoTemporal("Base de datos", "Pedido modificado", 2000);
-            }
+//            if (exito==1) {
+//                Utilidades.mostrarDialogoTemporal("Base de datos", "Pedido modificado", 2000);
+//            }
             
         } catch (SQLException ex) {           
-            Utilidades.mostrarDialogoTemporal("Base de datos", "Error al modificar el estado del Pedido " + ex.getMessage(), 2000);
+            Utilidades.mostrarDialogoTemporal("Base de datos", "Error al modificar el pedido cobrado " + ex.getMessage(), 2000);
         }
     }
  
@@ -517,32 +506,38 @@ public class PedidoData {
         return pedidos;
     }
     
-    public boolean pasarAlibre(int idMesa) {
+    public List<Pedido> listarPedidosEstadoPendiente(){
+        
+        List<Pedido> pedidos = new ArrayList<>();
         
         try {
             
-            String sql = "SELECT COUNT(*) FROM Pedido WHERE idMesa = ? AND estado = 'PENDIENTE' AND cobrada = false ";
+            String sql = "SELECT * FROM pedido WHERE estado = 'PENDIENTE'";
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setInt(1, idMesa);
             ResultSet rs = ps.executeQuery();
+          
+            while (rs.next()) {
+                Pedido pedi = new Pedido();
+                pedi.setIdPedido(rs.getInt("idPedido"));
+                mesa = md.ObtenerMesasId(rs.getInt("idMesa"));
+                pedi.setMesa(mesa);
+                mozo = mozoDat.ObtenerMozoId(rs.getInt("idMozo"));
+                pedi.setMozo(mozo);
+                pedi.setFechaHora(rs.getTimestamp("fechaHora").toLocalDateTime());
+                pedi.setCobrada(rs.getBoolean("cobrada"));
+                pedi.setImporte(rs.getDouble("importe"));
+                pedi.setEstado(rs.getString("estado"));
+                pedidos.add(pedi);
             
-            if (rs.next()) {
-                
-                int cantidadPedidosPendientes = rs.getInt(1);
-                
-               Utilidades.mostrarDialogoTemporal("Pedidos pendientes", cantidadPedidosPendientes + "", 2000);
-
-                return cantidadPedidosPendientes > 0; // Si hay al menos un pedido pendiente, no se puede modificar a "LIBRE"
             }
-
+            
             ps.close();
-            
-        } catch (SQLException ex) {
-            
-            Utilidades.mostrarDialogoTemporal("Base de datos", "Error al pasar la mesa a libre" + ex.getMessage(), 2000);
-            
+
+        }catch (SQLException ex) {
+           Utilidades.mostrarDialogoTemporal("Base de datos", "Error al al listar los Pedidos e nestado PENDIENTE " + ex.getMessage(), 2000);
         }
 
-        return false; // Si ocurre un error, se asume que no se puede modificar el pedido
-    }
+        
+        return pedidos;
+    };
 }

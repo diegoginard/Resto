@@ -54,7 +54,7 @@ public class MesaData {
 
             ps.close();
         } catch (SQLException ex) {
-            Utilidades.mostrarDialogoTemporal("Base de datos", "Error al eliminar la tabla: " + ex.getMessage(), 2000);
+            Utilidades.mostrarDialogoTemporal("Base de datos", "Error al eliminar la mesa " + ex.getMessage(), 2000);
         }
     }
 
@@ -81,11 +81,11 @@ public class MesaData {
         }
     }
 
-    public List<Mesa> listarMesas() {
+    public List<Mesa> listarMesasLibres() {
         List<Mesa> Mesas = new ArrayList<>();
 
         try {
-            String sql = "SELECT * FROM mesa WHERE activo = 1";
+            String sql = "SELECT * FROM mesa WHERE estadoMesa = 1";
             PreparedStatement ps = con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
 
@@ -101,7 +101,7 @@ public class MesaData {
 
             ps.close();
         } catch (SQLException ex) {
-            Utilidades.mostrarDialogoTemporal("Base de datos", "Error al listar mesas: " + ex.getMessage(), 2000);
+            Utilidades.mostrarDialogoTemporal("Base de datos", "Error al listar mesas " + ex.getMessage(), 2000);
         }
 
         return Mesas;
@@ -127,11 +127,38 @@ public class MesaData {
 
             ps.close();
         } catch (SQLException ex) {
-            Utilidades.mostrarDialogoTemporal("Base de datos", "Error al listar todas las mesas: " + ex.getMessage(), 2000);
+            Utilidades.mostrarDialogoTemporal("Base de datos", "Error al listar todas las mesas " + ex.getMessage(), 2000);
         }
 
         return Mesas;
     }
+    
+     public List<Mesa> listarMesasConPedido() {
+        List<Mesa> Mesas = new ArrayList<>();
+
+        try {
+            String sql = "SELECT m.* FROM mesa m JOIN pedido p ON m.idMesa = p.idMesa WHERE p.estado = 'ENTREGADO' AND p.cobrada = 0";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                Mesa mesa = new Mesa();
+                mesa.setIdMesa(rs.getInt("idMesa"));
+                mesa.setNumero(rs.getInt("numero"));
+                mesa.setEstadoMesa(rs.getString("estadoMesa"));
+                mesa.setCapacidad(rs.getInt("capacidad"));
+                mesa.setActivo(rs.getBoolean("activo"));
+                Mesas.add(mesa);
+            }
+
+            ps.close();
+        } catch (SQLException ex) {
+            Utilidades.mostrarDialogoTemporal("Base de datos", "Error al listar todas las mesas " + ex.getMessage(), 2000);
+        }
+
+        return Mesas;
+    }
+
 
     public Mesa ObtenerMesasId(int id) {
         try {
@@ -167,7 +194,7 @@ public class MesaData {
                 Utilidades.mostrarDialogoTemporal("Base de datos", "Mesas Modificadas", 2000);
             }
         } catch (SQLException ex) {
-            Utilidades.mostrarDialogoTemporal("Base de datos", "Error al modificar mesas libres: " + ex.getMessage(), 2000);
+            Utilidades.mostrarDialogoTemporal("Base de datos", "Error al modificar mesas libres " + ex.getMessage(), 2000);
         }
     }
 
@@ -192,7 +219,7 @@ public class MesaData {
 
             ps.close();
         } catch (SQLException ex) {
-            Utilidades.mostrarDialogoTemporal("Base de datos", "Error al buscar mesas por número: " + ex.getMessage(), 2000);
+            Utilidades.mostrarDialogoTemporal("Base de datos", "Error al buscar mesas por número " + ex.getMessage(), 2000);
         }
 
         return mesasNumero;
@@ -219,7 +246,7 @@ public class MesaData {
 
             ps.close();
         } catch (SQLException ex) {
-            Utilidades.mostrarDialogoTemporal("Base de datos", "Error al buscar mesas por estado: " + ex.getMessage(), 2000);
+            Utilidades.mostrarDialogoTemporal("Base de datos", "Error al buscar mesas por estado " + ex.getMessage(), 2000);
         }
 
         return mesasEstado;
@@ -246,7 +273,7 @@ public class MesaData {
 
             ps.close();
         } catch (SQLException ex) {
-            Utilidades.mostrarDialogoTemporal("Base de datos", "Error al buscar mesas por capacidad: " + ex.getMessage(), 2000);
+            Utilidades.mostrarDialogoTemporal("Base de datos", "Error al buscar mesas por capacidad " + ex.getMessage(), 2000);
         }
 
         return mesasNumero;
@@ -333,19 +360,19 @@ public class MesaData {
         return mesasNumero;
     }
 
-    public void modificarMesaEstado(int id, String estado) {
+    public void modificarMesaEstado(int id, int estado) {
         String sql = "UPDATE mesa SET estadoMesa = ? WHERE idMesa = ?";
 
         try {
             PreparedStatement ps = con.prepareStatement(sql);
 
-            ps.setString(1, estado);
+            ps.setInt(1, estado);
             ps.setInt(2, id);
 
             int exito = ps.executeUpdate();
 
             if (exito == 1) {
-                Utilidades.mostrarDialogoTemporal("Base de datos", "Mesa Modificada", 2000);
+//                Utilidades.mostrarDialogoTemporal("Base de datos", "Mesa Modificada", 2000);
             }
         } catch (SQLException ex) {
             Utilidades.mostrarDialogoTemporal("Base de datos", "Error al modificar estado de la mesa: " + ex.getMessage(), 2000);
