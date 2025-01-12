@@ -245,6 +245,7 @@ public class restoView extends javax.swing.JInternalFrame {
         jpInicio.setPreferredSize(new java.awt.Dimension(0, 0));
         jpInicio.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jDesktopPane1.setMinimumSize(new java.awt.Dimension(710, 620));
         jDesktopPane1.setVerifyInputWhenFocusTarget(false);
         jDesktopPane1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -588,7 +589,7 @@ public class restoView extends javax.swing.JInternalFrame {
 
         jIFproductosDelPedido.getContentPane().add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 380, 430));
 
-        elegirpedido.add(jIFproductosDelPedido, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 60, 380, 460));
+        elegirpedido.add(jIFproductosDelPedido, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 80, 380, 460));
 
         jbCobrar.setBackground(new java.awt.Color(51, 51, 51));
         jbCobrar.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
@@ -786,7 +787,8 @@ public class restoView extends javax.swing.JInternalFrame {
     private void jbCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCancelarActionPerformed
 
         int fila = jtPedidos.getSelectedRow();
-
+        clickCount = 0;
+        
         if (fila >= 0) {
 
             int idPedido = (int) jtPedidos.getValueAt(fila, 0);
@@ -804,7 +806,8 @@ public class restoView extends javax.swing.JInternalFrame {
     private void jbEntregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEntregarActionPerformed
 
         int fila = jtPedidos.getSelectedRow();
-
+        clickCount = 0;
+        
         if (fila >= 0) {
 
             int idPedido = (int) jtPedidos.getValueAt(fila, 0);
@@ -813,7 +816,7 @@ public class restoView extends javax.swing.JInternalFrame {
             pedidoDat.modificarEstadoPedido(entregado, idPedido);
 
             cargarPedidoPedienteId(idMesa);
-
+            
         } else {
             JOptionPane.showMessageDialog(rootPane, "Debe seleccionar un pedido de la tabla");
         }
@@ -829,7 +832,6 @@ public class restoView extends javax.swing.JInternalFrame {
     private void jbVolverMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbVolverMenuActionPerformed
 
         ventanas.setSelectedIndex(0);
-
     }//GEN-LAST:event_jbVolverMenuActionPerformed
 
     private void jtBProductoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtBProductoKeyPressed
@@ -953,24 +955,28 @@ public class restoView extends javax.swing.JInternalFrame {
     private void jbCobrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCobrarActionPerformed
 
         int fila = jTcobrarPedidos.getSelectedRow();
-        
-        if(jTcobrarPedidos.getSelectedRow() > -1 ){
-            
+       
+        if (jTcobrarPedidos.getSelectedRow() > -1) {
+
             int idPedido = (int) jTcobrarPedidos.getValueAt(fila, 0);
             int idMesa = (int) jTcobrarPedidos.getValueAt(fila, 1);
             boolean cobrada = true;
             pedidoDat.modificarPedidoCobrado(cobrada, idPedido);
-            md.modificarMesaEstado(idMesa, 1);
 
+            if (!pedidoDat.mesaTieneMasDeUnPedidoNoCobrado(idMesa)) {
+                System.out.println("Mesa libre");
+                md.modificarMesaEstado(idMesa, 1);
+            }
+            
             String texto = idPedido + "";
             Ticket newframe = new Ticket(texto);
             newframe.setVisible(true);
-            
+
             jcMesasPedido.removeAllItems();
             cargarSpinerMesasConPedidos(jcMesasPedido);
             cargarPedidoEntregado(idMesa);
-   
-        }else{
+
+        } else {
             Utilidades.mostrarDialogoTemporal("Error", "Debe seleccionar un pedido", 2000);
         }
     }//GEN-LAST:event_jbCobrarActionPerformed
@@ -1061,7 +1067,7 @@ public class restoView extends javax.swing.JInternalFrame {
         int idPedido = (int) jTcobrarPedidos.getValueAt(fila, 0);
         jbCobrar.setEnabled(true);
 
-        if (clickCount > 1) {
+        if (clickCount > 2) {
            
             jIFproductosDelPedido.setVisible(true);
             cargarProductoAcobrar(idPedido);
@@ -1090,15 +1096,13 @@ public class restoView extends javax.swing.JInternalFrame {
         Pedido ped = new Pedido();
         ped.setMesa(mesa);
         ped.setMozo(mozo);
-        
+                
         int idPedido = pedidoDat.GuardarPedidoID(ped);
-       
+        cargarPedidoProducto(idPedido);
         jlMesa.setText(mesa.getNumero() + "");
         jtID.setText(idPedido + "");
-        jLmozo.setText(mozo.toString());
-        
+        jLmozo.setText(mozo.toString());      
     }//GEN-LAST:event_jtEstadoMesasMouseClicked
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane agregarproductos;
@@ -1422,7 +1426,7 @@ public class restoView extends javax.swing.JInternalFrame {
     
     private void cargarSpinerMesasConPedidos(JComboBox jCombo) {
         
-        List<Mesa> mesas = md.listarMesasConPedido();  
+        List<Mesa> mesas = md.listarMesasConPedidoEntregado();  
         
          jCombo.removeAllItems();
         for (Mesa mesa : mesas) {

@@ -95,11 +95,4 @@ CREATE TABLE `mozo` (
   PRIMARY KEY (`idMozo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
-SELECT *
-FROM pr
-join pedid p
-JOIN pedidoproducto pp ON p.idPedido = pp.idPedido
-JOIN producto pr ON pp.idProducto = pr.idProducto
-WHERE p.idPedido = 81;
-
-SELECT m.* FROM mesa m JOIN pedido p ON m.idMesa = p.idMesa WHERE p.estado = 'ENTREGADO' AND p.cobrada = 0
+SELECT * FROM pedido p JOIN mesa m ON p.idMesa = m.idMesa WHERE p.estado != 'CANCELADO' AND p.cobrada = 0 AND p.idMesa = 3

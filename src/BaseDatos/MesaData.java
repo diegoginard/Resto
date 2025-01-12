@@ -137,6 +137,32 @@ public class MesaData {
         Set<Mesa> mesasSet = new HashSet<>(); // Usar un Set para evitar duplicados
 
         try {
+            String sql = "SELECT DISTINCT m.* FROM mesa m JOIN pedido p ON m.idMesa = p.idMesa WHERE p.estado != 'CANCELADO' AND p.cobrada = 0";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                Mesa mesa = new Mesa();
+                mesa.setIdMesa(rs.getInt("idMesa"));
+                mesa.setNumero(rs.getInt("numero"));
+                mesa.setEstadoMesa(rs.getString("estadoMesa"));
+                mesa.setCapacidad(rs.getInt("capacidad"));
+                mesa.setActivo(rs.getBoolean("activo"));
+                mesasSet.add(mesa); // Añadir al Set
+            }
+
+            ps.close();
+        } catch (SQLException ex) {
+            Utilidades.mostrarDialogoTemporal("Base de datos", "Error al listar todas las mesas " + ex.getMessage(), 2000);
+        }
+
+        return new ArrayList<>(mesasSet); // Convertir el Set a List
+    }
+    
+    public List<Mesa> listarMesasConPedidoEntregado() {
+        Set<Mesa> mesasSet = new HashSet<>(); // Usar un Set para evitar duplicados
+
+        try {
             String sql = "SELECT DISTINCT m.* FROM mesa m JOIN pedido p ON m.idMesa = p.idMesa WHERE p.estado = 'ENTREGADO' AND p.cobrada = 0";
             PreparedStatement ps = con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
