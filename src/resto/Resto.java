@@ -57,8 +57,8 @@ public class Resto {
 //       usud.crearUsuario(usu);
 //       System.out.println(usud.listarUsuarios());
 //       Pedido pedido = new Pedido();
-//       PedidoData pedidoDat = new PedidoData();
+       PedidoData pedidoDat = new PedidoData();
 //       pedido = pedidoDat.modificarPedido(pedido)
-//       System.out.println(md.listarMesasConPedido());
+       System.out.println(pedidoDat.mesaTieneMasDeUnPedidoNoCobrado(3));
     }
 }

@@ -586,7 +586,7 @@ public class PedidoData {
 
             if (rs.next()) {
                 int count = rs.getInt("pedidosNoCobrados");
-                tieneMasDeUnPedidoNoCobrado = count > 1;
+                tieneMasDeUnPedidoNoCobrado = count < 1;
             }
 
             ps.close();

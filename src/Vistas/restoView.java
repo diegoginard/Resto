@@ -589,7 +589,7 @@ public class restoView extends javax.swing.JInternalFrame {
 
         jIFproductosDelPedido.getContentPane().add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 380, 430));
 
-        elegirpedido.add(jIFproductosDelPedido, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 80, 380, 460));
+        elegirpedido.add(jIFproductosDelPedido, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 80, 320, 350));
 
         jbCobrar.setBackground(new java.awt.Color(51, 51, 51));
         jbCobrar.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
@@ -787,16 +787,14 @@ public class restoView extends javax.swing.JInternalFrame {
     private void jbCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCancelarActionPerformed
 
         int fila = jtPedidos.getSelectedRow();
-        clickCount = 0;
-        
+
         if (fila >= 0) {
 
             int idPedido = (int) jtPedidos.getValueAt(fila, 0);
-            int idMesa = (int) jtPedidos.getValueAt(fila, 1);
             String cancelado = "CANCELADO";
             pedidoDat.modificarEstadoPedido(cancelado, idPedido);
 
-            cargarPedidoPedienteId(idMesa);
+           cargarPedidoPediente();
 
         } else {
             JOptionPane.showMessageDialog(rootPane, "Debe seleccionar un pedido de la tabla");
@@ -806,20 +804,18 @@ public class restoView extends javax.swing.JInternalFrame {
     private void jbEntregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEntregarActionPerformed
 
         int fila = jtPedidos.getSelectedRow();
-        clickCount = 0;
-        
+
         if (fila >= 0) {
 
             int idPedido = (int) jtPedidos.getValueAt(fila, 0);
-            int idMesa = (int) jtPedidos.getValueAt(fila, 1);
             String entregado = "ENTREGADO";
             pedidoDat.modificarEstadoPedido(entregado, idPedido);
 
-            cargarPedidoPedienteId(idMesa);
+            cargarPedidoPediente();
             
         } else {
             JOptionPane.showMessageDialog(rootPane, "Debe seleccionar un pedido de la tabla");
-        }
+        }        
     }//GEN-LAST:event_jbEntregarActionPerformed
 
     private void jBgestPedidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBgestPedidosActionPerformed
@@ -963,7 +959,7 @@ public class restoView extends javax.swing.JInternalFrame {
             boolean cobrada = true;
             pedidoDat.modificarPedidoCobrado(cobrada, idPedido);
 
-            if (!pedidoDat.mesaTieneMasDeUnPedidoNoCobrado(idMesa)) {
+            if (pedidoDat.mesaTieneMasDeUnPedidoNoCobrado(idMesa)) {
                 System.out.println("Mesa libre");
                 md.modificarMesaEstado(idMesa, 1);
             }
@@ -1302,6 +1298,7 @@ public class restoView extends javax.swing.JInternalFrame {
      private void cargarPedidoPedienteId(int id) {
 
         modelo1.setRowCount(0);
+        
         List<Pedido> pedido = pedidoDat.listarPedidosMesaPendientes(id);
 
         for (Pedido pe : pedido) {
