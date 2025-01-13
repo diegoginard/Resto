@@ -6,7 +6,7 @@ DROP TABLE IF EXISTS `mesa`;
 CREATE TABLE `mesa` (
   `idMesa` int NOT NULL AUTO_INCREMENT,
   `numero` int NOT NULL UNIQUE,
-  `estadoMesa` enum('LIBRE','OCUPADO','PENDIENTE') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT 'LIBRE',
+  `estadoMesa` enum('LIBRE','OCUPADO') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT 'LIBRE',
   `capacidad` int NOT NULL,
   `activo` tinyint NOT NULL,
   PRIMARY KEY (`idMesa`),

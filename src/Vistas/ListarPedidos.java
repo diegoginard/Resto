@@ -28,10 +28,9 @@ public class ListarPedidos extends JInternalFrame {
     MozoData mozoDat = new MozoData();
 
     public ListarPedidos() {
-
+        
         initComponents();
         armarCabecera();
-        cargarPedidos();
         cargarSpinerMozos(jCmozoXdia);
         cargarSpinerMozos(jCidMozo);
 
@@ -44,6 +43,7 @@ public class ListarPedidos extends JInternalFrame {
 
         formatoHora(jsHoraInicio);
         formatoHora(jsHoraFin);
+        cargarPedidos();
 
     }
     
@@ -425,6 +425,7 @@ public class ListarPedidos extends JInternalFrame {
     private void cargarPedidos() {
 
         modelo.setRowCount(0);
+        
         List<Pedido> pedidos = pd.listarPedidos();
 
         for (Pedido pe : pedidos) {

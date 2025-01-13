@@ -113,7 +113,7 @@ public class AdministraMesas extends JInternalFrame {
 
         jCestado.setBackground(new java.awt.Color(51, 51, 51));
         jCestado.setForeground(new java.awt.Color(255, 255, 255));
-        jCestado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "..........", "LIBRE", "OCUPADO", "PENDIENTE" }));
+        jCestado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "..........", "LIBRE", "OCUPADO", " " }));
         getContentPane().add(jCestado, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 120, 91, -1));
 
         jLabel1.setBackground(new java.awt.Color(0, 0, 0));
