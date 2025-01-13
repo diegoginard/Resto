@@ -1318,7 +1318,6 @@ public class restoView extends javax.swing.JInternalFrame {
 
             modelo5.addRow(new Object[]{pe.getIdPedido(), pe.getMesa().getNumero(),
                 pe.getMozo(), pe.getFechaHora(),pe.isCobrada(),pe.getImporte(), pe.getEstado()});
-
         }   
     }
     

@@ -1,10 +1,9 @@
 package Vistas;
 
-
-import java.awt.event.KeyEvent;
 import javax.swing.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 
 public class Utilidades {
 
@@ -21,16 +20,22 @@ public class Utilidades {
 
             // Crear un hilo para cerrar el diálogo después del tiempo especificado
             new Thread(() -> {
+                
                 try {
+                    
                     Thread.sleep(milisegundos);
+                    
                 } catch (InterruptedException ex) {
                     Logger.getLogger(Utilidades.class.getName()).log(Level.SEVERE, null, ex);
                 }
+                
                 dialog.dispose(); // Cerrar el diálogo
+                
             }).start();
 
             // Mostrar el diálogo
             dialog.setVisible(true);
+            
         } catch (Exception e) {
             Logger.getLogger(Utilidades.class.getName()).log(Level.SEVERE, null, e);
         }

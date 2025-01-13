@@ -8,12 +8,13 @@ import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
 import java.util.List;
+import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 import javax.swing.table.DefaultTableModel;
 
 
-public class AdministrarMozos extends javax.swing.JInternalFrame {
+public class AdministrarMozos extends JInternalFrame {
     
     MozoData mozoDat = new MozoData();
   

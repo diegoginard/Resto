@@ -56,7 +56,6 @@ public class ListarPedidos extends JInternalFrame {
         public boolean isCellEditable(int rowIndex, int columnIndex) {
 
             return false;
-
         }
     };
 
@@ -316,7 +315,6 @@ public class ListarPedidos extends JInternalFrame {
             LocalDate fecha = jdMDia.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
             Mozo mozo = (Mozo) jCmozoXdia.getSelectedItem();
             pedidoMeseroDia(mozo, fecha);
-
         }
     }//GEN-LAST:event_jbBuscarActionPerformed
 
