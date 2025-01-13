@@ -44,7 +44,6 @@ public class ListarPedidos extends JInternalFrame {
         formatoHora(jsHoraInicio);
         formatoHora(jsHoraFin);
         cargarPedidos();
-
     }
     
     /* 
@@ -275,52 +274,38 @@ public class ListarPedidos extends JInternalFrame {
 
         switch (elegir) {
 
-            case "MESERO":
-
+            case "MESERO" -> {
                 editarCampos(false, true, false, false, false, false,
                         false, false, false, false);
                 Mozo mozo = (Mozo)jCidMozo.getSelectedItem();
                 pedidoMesero(mozo);
-                
-                break;
+            }
 
-            case "FECHA":
-
-                editarCampos(false, false, true, false, false, false,
+            case "FECHA" -> editarCampos(false, false, true, false, false, false,
                         false, false, false, false);
 
-                break;
-
-            case "MESEROxDIA":
-
-                editarCampos(true, false, false, true, false, false,
+            case "MESEROxDIA" -> editarCampos(true, false, false, true, false, false,
                         false, false, false, true);
 
-                break;
-
-            case "MESAxDIA/HORA":
-
-                editarCampos(false, false, false, false, true, true,
+            case "MESAxDIA/HORA" -> editarCampos(false, false, false, false, true, true,
                         true, true, true, false);
 
-                break;
-
-            default:
-
+            default -> {
                 editarCampos(false, false, false, false, false, false,
                         false, false, false, false);
                 cargarPedidos();
+            }
         }
     }//GEN-LAST:event_jcElegirItemStateChanged
 
     private void jdFechaPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jdFechaPropertyChange
 
         if (jdFecha.getDate() != null) {
+            
             LocalDate localDate = jdFecha.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
             LocalDateTime localDateTime = localDate.atTime(00, 0);
 
             pedidoFecha(localDateTime);
-
         }
     }//GEN-LAST:event_jdFechaPropertyChange
 
@@ -359,20 +344,17 @@ public class ListarPedidos extends JInternalFrame {
         } else {
 
             Utilidades.mostrarDialogoTemporal("Buscar pedidos", "Ingrese todos los datos", 2000);
-
         }
     }//GEN-LAST:event_jbBuscar1ActionPerformed
 
     private void jBsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBsalirActionPerformed
 
         dispose();
-
     }//GEN-LAST:event_jBsalirActionPerformed
 
     private void jtIdmesaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtIdmesaKeyTyped
 
         soloNumeros(evt);
-
     }//GEN-LAST:event_jtIdmesaKeyTyped
 
     private void jCidMozoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCidMozoItemStateChanged
@@ -418,7 +400,6 @@ public class ListarPedidos extends JInternalFrame {
         modelo.addColumn("Importe");
         modelo.addColumn("Estado");
         jtPedido.setModel(modelo);
-
     }
     
     // Carga todos los pedidos en la tabla desde la base de datos y calcula el ingreso total.
@@ -450,7 +431,6 @@ public class ListarPedidos extends JInternalFrame {
         }
 
         jtIngresos.setText(total + "");
-
     }
     
     // Filtra y muestra los pedidos realizados en una fecha específica y calcula el ingreso total de esos pedidos.
@@ -468,7 +448,6 @@ public class ListarPedidos extends JInternalFrame {
         }
 
         jtIngresos.setText(total + "");
-
     }
     
     // Filtra y muestra los pedidos realizados por un mesero en un día específico, y calcula el ingreso total.
@@ -486,7 +465,6 @@ public class ListarPedidos extends JInternalFrame {
         }
 
         jtIngresos.setText(total + "");
-
     }
     
     // Filtra y muestra los pedidos realizados en una mesa específica, en una fecha y rango horario determinados, y calcula el ingreso total.
@@ -517,7 +495,6 @@ public class ListarPedidos extends JInternalFrame {
             evt.consume();
 
             Utilidades.mostrarDialogoTemporal("Error", "Ingrese solo numeros", 2000);
-
         }
     }
     
@@ -554,7 +531,6 @@ public class ListarPedidos extends JInternalFrame {
         jsHoraFin.setEnabled(sHoraFin);
         jbBuscar1.setEnabled(bBuscar1);
         jbBuscar.setEnabled(bBuscar);
-
     }
     
      // Agregar cada objeto Mozo al JComboBox
@@ -564,7 +540,6 @@ public class ListarPedidos extends JInternalFrame {
        
         for (Mozo mozo : mozos) {
             jCombo.addItem(mozo);
-
         }
     }
 }
