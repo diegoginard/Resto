@@ -27,7 +27,7 @@ public class ListarPedidos extends JInternalFrame {
     PedidoData pd = new PedidoData();
     MozoData mozoDat = new MozoData();
 
-    public ListarPedidos() throws ParseException {
+    public ListarPedidos() {
 
         initComponents();
         armarCabecera();

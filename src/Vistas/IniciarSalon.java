@@ -11,9 +11,6 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
 import java.net.URL;
 import java.sql.Connection;
-import java.text.ParseException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 
 
@@ -30,8 +27,7 @@ public class IniciarSalon extends javax.swing.JFrame {
         setUndecorated(true); // Oculta la decoración (barra de título)
         initComponents();
         con = Conexion.getConexion();
-        this.setLocationRelativeTo(null);
-        
+        this.setLocationRelativeTo(null);  
     }
     
     // Método para recibir el nombre y apellido
@@ -216,8 +212,7 @@ public class IniciarSalon extends javax.swing.JFrame {
 
     private void jmSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jmSalirMouseClicked
         
-        System.exit(0);
-        
+        System.exit(0);      
     }//GEN-LAST:event_jmSalirMouseClicked
 
     private void jmMenusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmMenusActionPerformed
@@ -226,7 +221,6 @@ public class IniciarSalon extends javax.swing.JFrame {
         am.setVisible(true);
         escritorio.add(am);
         escritorio.moveToFront(am);
-
     }//GEN-LAST:event_jmMenusActionPerformed
 
     private void jmMesasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmMesasActionPerformed
@@ -239,31 +233,22 @@ public class IniciarSalon extends javax.swing.JFrame {
 
     private void jmPedidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmPedidosActionPerformed
 
-        try {
-
-            ListarPedidos ll = new ListarPedidos();
-            ll.setVisible(true);
-            escritorio.add(ll);
-            escritorio.moveToFront(ll);
-
-        } catch (ParseException ex) {
-
-            Logger.getLogger(IniciarSalon.class.getName()).log(Level.SEVERE, null, ex);
-
-        }
+        ListarPedidos ll = new ListarPedidos();
+        ll.setVisible(true);
+        escritorio.add(ll);
+        escritorio.moveToFront(ll);
     }//GEN-LAST:event_jmPedidosActionPerformed
 
     private void jMusuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMusuariosActionPerformed
 
-            AdministrarUsuario admUsu = new AdministrarUsuario();
-            admUsu.setVisible(true);
-            escritorio.add(admUsu);
-            escritorio.moveToFront(admUsu);
-        
+        AdministrarUsuario admUsu = new AdministrarUsuario();
+        admUsu.setVisible(true);
+        escritorio.add(admUsu);
+        escritorio.moveToFront(admUsu);
     }//GEN-LAST:event_jMusuariosActionPerformed
 
     private void jMmozosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMmozosActionPerformed
-        
+
         AdministrarMozos admMozo = new AdministrarMozos();
         admMozo.setVisible(true);
         escritorio.add(admMozo);
@@ -271,11 +256,11 @@ public class IniciarSalon extends javax.swing.JFrame {
     }//GEN-LAST:event_jMmozosActionPerformed
 
     public static void main(String args[]) {
-        
+
         java.awt.EventQueue.invokeLater(new Runnable() {
-           
-            public void run() {   
-                new IniciarSalon().setVisible(true);                
+
+            public void run() {
+                new IniciarSalon().setVisible(true);
             }
         });
     }

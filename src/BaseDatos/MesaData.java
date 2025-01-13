@@ -15,6 +15,7 @@ public class MesaData {
     }
 
     public void crearMesa(Mesa mesa) {
+        
         String sql = "INSERT INTO mesa(numero, estadoMesa, capacidad,activo) VALUES (?,?,?,?)";
 
         try {
@@ -38,6 +39,7 @@ public class MesaData {
     }
 
     public void eliminarMesa(int id) {
+        
         String sql = "DELETE FROM mesa WHERE idMesa = ?";
 
         try {
@@ -58,6 +60,7 @@ public class MesaData {
     }
 
     public void modificarMesa(Mesa mesa) {
+        
         String sql = "UPDATE mesa SET idMesa = ?, numero = ?, estadoMesa = ?, capacidad = ?, activo = ? WHERE idMesa = ?";
 
         try {
@@ -81,14 +84,17 @@ public class MesaData {
     }
 
     public List<Mesa> listarMesasLibres() {
+        
         List<Mesa> Mesas = new ArrayList<>();
 
         try {
+            
             String sql = "SELECT * FROM mesa WHERE estadoMesa = 1";
             PreparedStatement ps = con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
+                
                 Mesa mesa = new Mesa();
                 mesa.setIdMesa(rs.getInt("idMesa"));
                 mesa.setNumero(rs.getInt("numero"));
@@ -99,6 +105,7 @@ public class MesaData {
             }
 
             ps.close();
+            
         } catch (SQLException ex) {
             Utilidades.mostrarDialogoTemporal("Base de datos", "Error al listar mesas " + ex.getMessage(), 2000);
         }
@@ -107,14 +114,17 @@ public class MesaData {
     }
 
     public List<Mesa> listarTodasLasMesas() {
+        
         List<Mesa> Mesas = new ArrayList<>();
 
         try {
+            
             String sql = "SELECT * FROM mesa";
             PreparedStatement ps = con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
+                
                 Mesa mesa = new Mesa();
                 mesa.setIdMesa(rs.getInt("idMesa"));
                 mesa.setNumero(rs.getInt("numero"));
@@ -125,6 +135,7 @@ public class MesaData {
             }
 
             ps.close();
+            
         } catch (SQLException ex) {
             Utilidades.mostrarDialogoTemporal("Base de datos", "Error al listar todas las mesas " + ex.getMessage(), 2000);
         }
@@ -133,6 +144,7 @@ public class MesaData {
     }
 
     public List<Mesa> listarMesasConPedido() {
+        
         Set<Mesa> mesasSet = new HashSet<>(); // Usar un Set para evitar duplicados
 
         try {
@@ -141,6 +153,7 @@ public class MesaData {
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
+                
                 Mesa mesa = new Mesa();
                 mesa.setIdMesa(rs.getInt("idMesa"));
                 mesa.setNumero(rs.getInt("numero"));
@@ -151,6 +164,7 @@ public class MesaData {
             }
 
             ps.close();
+            
         } catch (SQLException ex) {
             Utilidades.mostrarDialogoTemporal("Base de datos", "Error al listar todas las mesas " + ex.getMessage(), 2000);
         }
@@ -159,9 +173,11 @@ public class MesaData {
     }
     
     public List<Mesa> listarMesasConPedidoEntregado() {
+        
         Set<Mesa> mesasSet = new HashSet<>(); // Usar un Set para evitar duplicados
 
         try {
+            
             String sql = "SELECT DISTINCT m.* FROM mesa m JOIN pedido p ON m.idMesa = p.idMesa WHERE p.estado = 'ENTREGADO' AND p.cobrada = 0";
             PreparedStatement ps = con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
@@ -177,6 +193,7 @@ public class MesaData {
             }
 
             ps.close();
+            
         } catch (SQLException ex) {
             Utilidades.mostrarDialogoTemporal("Base de datos", "Error al listar todas las mesas " + ex.getMessage(), 2000);
         }
@@ -187,7 +204,9 @@ public class MesaData {
     public Mesa ObtenerMesasId(int id) {
         
         Mesa mesa = new Mesa();
+        
         try {
+            
             String sql = "SELECT * FROM mesa WHERE idMesa = ?";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, id);
@@ -203,6 +222,7 @@ public class MesaData {
             }
 
             ps.close();
+            
         } catch (SQLException ex) {
             Utilidades.mostrarDialogoTemporal("Base de datos", "Error al obtener mesa por ID: " + ex.getMessage(), 2000);
         }
@@ -213,13 +233,16 @@ public class MesaData {
      public Mesa ObtenerIdMesasXnumMesa(int id) {
          
         Mesa mesa = new Mesa();
+        
         try {
+            
             String sql = "SELECT * FROM mesa WHERE numero = ?";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
+                
                 mesa.setIdMesa(rs.getInt("idMesa"));
                 mesa.setNumero(rs.getInt("numero"));
                 mesa.setEstadoMesa(rs.getString("estadoMesa"));
@@ -228,6 +251,7 @@ public class MesaData {
             }
 
             ps.close();
+            
         } catch (SQLException ex) {
             Utilidades.mostrarDialogoTemporal("Base de datos", "Error al obtener mesa por ID: " + ex.getMessage(), 2000);
         }
@@ -236,30 +260,36 @@ public class MesaData {
     }
 
     public void modificarMesaLibre() {
+        
         String sql = "UPDATE mesa SET estadoMesa = 1";
 
         try {
+            
             PreparedStatement ps = con.prepareStatement(sql);
             int exito = ps.executeUpdate();
 
             if (exito == 1) {
                 Utilidades.mostrarDialogoTemporal("Base de datos", "Mesas Modificadas", 2000);
             }
+            
         } catch (SQLException ex) {
             Utilidades.mostrarDialogoTemporal("Base de datos", "Error al modificar mesas libres " + ex.getMessage(), 2000);
         }
     }
 
     public List<Mesa> BuscarMesasNumero(String buscar) {
+        
         List<Mesa> mesasNumero = new ArrayList<>();
 
         try {
+            
             String sql = "SELECT * FROM mesa WHERE numero LIKE ?";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, buscar + "%");
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
+                
                 Mesa mesa = new Mesa();
                 mesa.setIdMesa(rs.getInt("idMesa"));
                 mesa.setNumero(rs.getInt("numero"));
@@ -270,6 +300,7 @@ public class MesaData {
             }
 
             ps.close();
+            
         } catch (SQLException ex) {
             Utilidades.mostrarDialogoTemporal("Base de datos", "Error al buscar mesas por número " + ex.getMessage(), 2000);
         }
@@ -282,12 +313,14 @@ public class MesaData {
         List<Mesa> mesasEstado = new ArrayList<>();
 
         try {
+            
             String sql = "SELECT * FROM mesa WHERE estadoMesa LIKE ?";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, buscar + "%");
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
+                
                 Mesa mesa = new Mesa();
                 mesa.setIdMesa(rs.getInt("idMesa"));
                 mesa.setNumero(rs.getInt("numero"));
@@ -298,6 +331,7 @@ public class MesaData {
             }
 
             ps.close();
+            
         } catch (SQLException ex) {
             Utilidades.mostrarDialogoTemporal("Base de datos", "Error al buscar mesas por estado " + ex.getMessage(), 2000);
         }
@@ -310,12 +344,14 @@ public class MesaData {
         List<Mesa> mesasNumero = new ArrayList<>();
 
         try {
+            
             String sql = "SELECT * FROM mesa WHERE capacidad LIKE ?";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, buscar + "%");
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
+                
                 Mesa mesa = new Mesa();
                 mesa.setIdMesa(rs.getInt("idMesa"));
                 mesa.setNumero(rs.getInt("numero"));
@@ -326,6 +362,7 @@ public class MesaData {
             }
 
             ps.close();
+            
         } catch (SQLException ex) {
             Utilidades.mostrarDialogoTemporal("Base de datos", "Error al buscar mesas por capacidad " + ex.getMessage(), 2000);
         }
@@ -338,12 +375,14 @@ public class MesaData {
         List<Mesa> mesasNumero = new ArrayList<>();
 
         try {
+            
             String sql = "SELECT * FROM mesa WHERE estadoMesa LIKE ?";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, buscar + "%");
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
+                
                 Mesa mesa = new Mesa();
                 mesa.setIdMesa(rs.getInt("idMesa"));
                 mesa.setNumero(rs.getInt("numero"));
@@ -354,6 +393,7 @@ public class MesaData {
             }
 
             ps.close();
+            
         } catch (SQLException ex) {
             Utilidades.mostrarDialogoTemporal("Base de datos", "Error al buscar mesas por estado de mesa: " + ex.getMessage(), 2000);
         }
@@ -366,12 +406,14 @@ public class MesaData {
         List<Mesa> mesasNumero = new ArrayList<>();
 
         try {
+            
             String sql = "SELECT * FROM mesa WHERE activo LIKE ?";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, buscar + "%");
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
+                
                 Mesa mesa = new Mesa();
                 mesa.setIdMesa(rs.getInt("idMesa"));
                 mesa.setNumero(rs.getInt("numero"));
@@ -382,6 +424,7 @@ public class MesaData {
             }
 
             ps.close();
+            
         } catch (SQLException ex) {
             Utilidades.mostrarDialogoTemporal("Base de datos", "Error al buscar mesas por activo: " + ex.getMessage(), 2000);
         }
@@ -394,12 +437,14 @@ public class MesaData {
         List<Mesa> mesasNumero = new ArrayList<>();
 
         try {
+            
             String sql = "SELECT * FROM mesa WHERE idMesa LIKE ?";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, buscar + "%");
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
+                
                 Mesa mesa = new Mesa();
                 mesa.setIdMesa(rs.getInt("idMesa"));
                 mesa.setNumero(rs.getInt("numero"));
@@ -410,6 +455,7 @@ public class MesaData {
             }
 
             ps.close();
+            
         } catch (SQLException ex) {
             Utilidades.mostrarDialogoTemporal("Base de datos", "Error al buscar mesas por ID: " + ex.getMessage(), 2000);
         }
