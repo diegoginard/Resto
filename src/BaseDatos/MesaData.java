@@ -9,7 +9,6 @@ import java.util.*;
 public class MesaData {
 
     private Connection con = null;
-    private Mesa mesa = new Mesa();
 
     public MesaData() {
         con = Conexion.getConexion();
@@ -186,6 +185,8 @@ public class MesaData {
     }
 
     public Mesa ObtenerMesasId(int id) {
+        
+        Mesa mesa = new Mesa();
         try {
             String sql = "SELECT * FROM mesa WHERE idMesa = ?";
             PreparedStatement ps = con.prepareStatement(sql);
@@ -193,6 +194,7 @@ public class MesaData {
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
+                
                 mesa.setIdMesa(rs.getInt("idMesa"));
                 mesa.setNumero(rs.getInt("numero"));
                 mesa.setEstadoMesa(rs.getString("estadoMesa"));
@@ -210,6 +212,7 @@ public class MesaData {
     
      public Mesa ObtenerIdMesasXnumMesa(int id) {
          
+        Mesa mesa = new Mesa();
         try {
             String sql = "SELECT * FROM mesa WHERE numero = ?";
             PreparedStatement ps = con.prepareStatement(sql);
@@ -275,6 +278,7 @@ public class MesaData {
     }
 
     public List<Mesa> BuscarMesasEstado(String buscar) {
+        
         List<Mesa> mesasEstado = new ArrayList<>();
 
         try {
@@ -302,6 +306,7 @@ public class MesaData {
     }
 
     public List<Mesa> BuscarMesasCapacidad(String buscar) {
+        
         List<Mesa> mesasNumero = new ArrayList<>();
 
         try {
@@ -329,6 +334,7 @@ public class MesaData {
     }
 
     public List<Mesa> BuscarMesasEstadoMesa(String buscar) {
+        
         List<Mesa> mesasNumero = new ArrayList<>();
 
         try {
@@ -356,6 +362,7 @@ public class MesaData {
     }
 
     public List<Mesa> BuscarMesasActivo(String buscar) {
+        
         List<Mesa> mesasNumero = new ArrayList<>();
 
         try {
@@ -383,6 +390,7 @@ public class MesaData {
     }
 
     public List<Mesa> BuscarMesasId(String buscar) {
+        
         List<Mesa> mesasNumero = new ArrayList<>();
 
         try {
@@ -410,9 +418,11 @@ public class MesaData {
     }
 
     public void modificarMesaEstado(int id, int estado) {
+        
         String sql = "UPDATE mesa SET estadoMesa = ? WHERE idMesa = ?";
 
         try {
+            
             PreparedStatement ps = con.prepareStatement(sql);
 
             ps.setInt(1, estado);
@@ -423,6 +433,7 @@ public class MesaData {
             if (exito == 1) {
 //                Utilidades.mostrarDialogoTemporal("Base de datos", "Mesa Modificada", 2000);
             }
+
         } catch (SQLException ex) {
             Utilidades.mostrarDialogoTemporal("Base de datos", "Error al modificar estado de la mesa: " + ex.getMessage(), 2000);
         }

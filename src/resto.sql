@@ -95,4 +95,4 @@ CREATE TABLE `mozo` (
   PRIMARY KEY (`idMozo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
-SELECT COUNT(p.idPedido) AS pedidosNoCobrados FROM pedido p WHERE p.idMesa = 0 AND p.estado != 'CANCELADO' AND p.cobrada = 0;
+SELECT * FROM mesa WHERE idMesa = 2

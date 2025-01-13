@@ -31,6 +31,7 @@ public class ListarPedidos extends JInternalFrame {
 
         initComponents();
         armarCabecera();
+        cargarPedidos();
         cargarSpinerMozos(jCmozoXdia);
         cargarSpinerMozos(jCidMozo);
 
@@ -215,7 +216,7 @@ public class ListarPedidos extends JInternalFrame {
         jtIngresos.setBorder(null);
         getContentPane().add(jtIngresos, new org.netbeans.lib.awtextra.AbsoluteConstraints(178, 519, 116, 20));
 
-        jBsalir.setBackground(new java.awt.Color(51, 51, 51));
+        jBsalir.setBackground(new java.awt.Color(179, 36, 36));
         jBsalir.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
         jBsalir.setForeground(new java.awt.Color(255, 255, 255));
         jBsalir.setText("Salir");
@@ -226,7 +227,7 @@ public class ListarPedidos extends JInternalFrame {
                 jBsalirActionPerformed(evt);
             }
         });
-        getContentPane().add(jBsalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(472, 519, 71, 30));
+        getContentPane().add(jBsalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 510, 71, 30));
 
         jLingresosTotales.setBackground(new java.awt.Color(51, 51, 51));
         jLingresosTotales.setFont(new java.awt.Font("Roboto Medium", 1, 18)); // NOI18N
@@ -278,7 +279,9 @@ public class ListarPedidos extends JInternalFrame {
 
                 editarCampos(false, true, false, false, false, false,
                         false, false, false, false);
-
+                Mozo mozo = (Mozo)jCidMozo.getSelectedItem();
+                pedidoMesero(mozo);
+                
                 break;
 
             case "FECHA":
@@ -306,7 +309,7 @@ public class ListarPedidos extends JInternalFrame {
 
                 editarCampos(false, false, false, false, false, false,
                         false, false, false, false);
-
+                cargarPedidos();
         }
     }//GEN-LAST:event_jcElegirItemStateChanged
 
@@ -408,9 +411,8 @@ public class ListarPedidos extends JInternalFrame {
     // Configura las columnas del modelo de la tabla 'jtPedido'.
     private void armarCabecera() {
 
-        modelo.addColumn("ID");
-        modelo.addColumn("idMesa");
-        modelo.addColumn("idMozo");
+        modelo.addColumn("NºMesa");
+        modelo.addColumn("Mozo");
         modelo.addColumn("FechaHora");
         modelo.addColumn("Cobrada");
         modelo.addColumn("Importe");
@@ -423,13 +425,12 @@ public class ListarPedidos extends JInternalFrame {
     private void cargarPedidos() {
 
         modelo.setRowCount(0);
-        List<Pedido> pedido = pd.listarPedidos();
+        List<Pedido> pedidos = pd.listarPedidos();
 
-        for (Pedido pe : pedido) {
+        for (Pedido pe : pedidos) {
 
-            modelo.addRow(new Object[]{pe.getIdPedido(), pe.getMesa().getNumero(),
-                pe.getMozo(), pe.getFechaHora(), pe.isCobrada(), pe.getImporte(), pe.getEstado()});
-
+            modelo.addRow(new Object[]{pe.getMesa().getNumero(),pe.getMozo(), pe.getFechaHora(), 
+                pe.isCobrada(), pe.getImporte(), pe.getEstado()});
         }
     }
     
@@ -439,11 +440,10 @@ public class ListarPedidos extends JInternalFrame {
         double total = 0.0;
         modelo.setRowCount(0);
         int idMozo = mozo.getIdMozo();
-        List<Pedido> pedido = pd.listarPedidoMesero(idMozo);
+        List<Pedido> pedidos = pd.listarPedidoMesero(idMozo);
+        for (Pedido pe : pedidos) {
 
-        for (Pedido pe : pedido) {
-
-            modelo.addRow(new Object[]{pe.getIdPedido(), pe.getMesa().getNumero(),
+            modelo.addRow(new Object[]{pe.getMesa().getNumero(),
                 pe.getMozo(), pe.getFechaHora(), pe.isCobrada(), pe.getImporte(), pe.getEstado()});
             total += pe.getImporte();
         }
@@ -503,22 +503,6 @@ public class ListarPedidos extends JInternalFrame {
         }
 
         jtIngresos.setText(total + "");
-
-    }
-    
-    // Valida que el campo de texto acepte solo letras. Si se ingresa un dígito, muestra un mensaje de error.
-    private void soloLetras(KeyEvent evt) {
-
-        char validar = evt.getKeyChar();
-
-        if (Character.isDigit(validar)) {
-
-            getToolkit().beep();
-            evt.consume();
-
-            Utilidades.mostrarDialogoTemporal("Error", "Ingrese solo letras", 2000);
-
-        }
     }
     
     // Valida que el campo de texto acepte solo números. Si se ingresa una letra, muestra un mensaje de error.
@@ -569,7 +553,6 @@ public class ListarPedidos extends JInternalFrame {
         jsHoraFin.setEnabled(sHoraFin);
         jbBuscar1.setEnabled(bBuscar1);
         jbBuscar.setEnabled(bBuscar);
-        cargarPedidos();
 
     }
     

@@ -98,7 +98,7 @@ public class AdministraMesas extends JInternalFrame {
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 470, 170));
 
-        jBsalir.setBackground(new java.awt.Color(51, 51, 51));
+        jBsalir.setBackground(new java.awt.Color(179, 36, 36));
         jBsalir.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
         jBsalir.setForeground(new java.awt.Color(255, 255, 255));
         jBsalir.setText("Salir");

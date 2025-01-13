@@ -241,7 +241,7 @@ public class AdministraMenus extends JInternalFrame {
         });
         getContentPane().add(jbBorrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 210, 90, 30));
 
-        jbSalir.setBackground(new java.awt.Color(51, 51, 51));
+        jbSalir.setBackground(new java.awt.Color(179, 36, 36));
         jbSalir.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
         jbSalir.setForeground(new java.awt.Color(255, 255, 255));
         jbSalir.setText("Salir");

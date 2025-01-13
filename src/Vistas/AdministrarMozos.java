@@ -207,7 +207,7 @@ public class AdministrarMozos extends javax.swing.JInternalFrame {
         });
         getContentPane().add(jTtelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 140, 120, 20));
 
-        jBsalir.setBackground(new java.awt.Color(51, 51, 51));
+        jBsalir.setBackground(new java.awt.Color(179, 36, 36));
         jBsalir.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
         jBsalir.setForeground(new java.awt.Color(204, 204, 204));
         jBsalir.setText("Salir");

@@ -1,6 +1,5 @@
 package BaseDatos;
 
-import Entidades.Mesa;
 import Entidades.Mozo;
 import Entidades.Pedido;
 import Vistas.Utilidades;
@@ -13,12 +12,9 @@ import java.util.List;
 public class PedidoData {
 
     private Connection con = null;
-    private Mesa mesa = new Mesa();
-    private Mozo mozo = new Mozo();
     private MozoData mozoDat = new MozoData();
     private MesaData md = new MesaData();
-    private Pedido ped = new Pedido();
-
+    
     public PedidoData() {
 
         con = Conexion.getConexion();
@@ -60,6 +56,7 @@ public class PedidoData {
         String sql = "INSERT INTO pedido (idMozo, IdMesa, fechaHora , cobrada , importe, estado) VALUES (?,?,?,?,?,?)";
 
         try {
+            
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             ps.setInt(1, ped.getMozo().getIdMozo());
             ps.setInt(2, ped.getMesa().getIdMesa());
@@ -84,6 +81,7 @@ public class PedidoData {
     public void eliminarPedido(int idPedido) {
 
         String sql = "DELETE FROM pedido WHERE idPedido = ?";
+        
         try {
 
             PreparedStatement ps = con.prepareStatement(sql);
@@ -115,36 +113,34 @@ public class PedidoData {
 
     public List<Pedido> listarPedidos() {
 
-        List<Pedido> Pedidos = new ArrayList<>();
-
+        List<Pedido> pedidos = new ArrayList<>();
+        
         try {
 
-            String sql = "SELECT * FROM Pedido ";
+            String sql = "SELECT * FROM Pedido";
             PreparedStatement ps = con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
+                
                 Pedido pedi = new Pedido();
-                pedi.setIdPedido(rs.getInt("idPedido"));
-                mesa = md.ObtenerMesasId(rs.getInt("idMesa"));
-                pedi.setMesa(mesa);
-                mozo = mozoDat.ObtenerMozoId(rs.getInt("idMozo"));
-                pedi.setMozo(mozo);
+                pedi.setIdPedido(rs.getInt("idPedido"));  
+                pedi.setMesa(md.ObtenerMesasId(rs.getInt("idMesa")));          
+                pedi.setMozo(mozoDat.ObtenerMozoId(rs.getInt("idMozo")));
                 pedi.setFechaHora(rs.getTimestamp("fechaHora").toLocalDateTime());
                 pedi.setCobrada(rs.getBoolean("cobrada"));
                 pedi.setImporte(rs.getDouble("importe"));
                 pedi.setEstado(rs.getString("estado"));
-                Pedidos.add(pedi);
-
+                pedidos.add(pedi);
             }
-
+            
             ps.close();
 
         } catch (SQLException ex) {
             Utilidades.mostrarDialogoTemporal("Base de datos", "Error al al listar los Pedidos " + ex.getMessage(), 2000);
         }
-
-        return Pedidos;
+         
+        return pedidos;
     }
 
     public List<Pedido> listarPedidosMesa(int id) {
@@ -159,13 +155,11 @@ public class PedidoData {
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
-
+                
                 Pedido ped = new Pedido();
-                ped.setIdPedido(rs.getInt("idPedido"));
-                mesa = md.ObtenerMesasId(rs.getInt("idMesa"));
-                ped.setMesa(mesa);
-                mozo = mozoDat.ObtenerMozoId(rs.getInt("idMozo"));
-                ped.setMozo(mozo);
+                ped.setIdPedido(rs.getInt("idPedido"));  
+                ped.setMesa(md.ObtenerMesasId(rs.getInt("idMesa")));          
+                ped.setMozo(mozoDat.ObtenerMozoId(rs.getInt("idMozo")));
                 ped.setFechaHora(rs.getTimestamp("fechaHora").toLocalDateTime());
                 ped.setCobrada(rs.getBoolean("cobrada"));
                 ped.setImporte(rs.getDouble("importe"));
@@ -197,11 +191,9 @@ public class PedidoData {
             while (rs.next()) {
 
                 Pedido ped = new Pedido();
-                ped.setIdPedido(rs.getInt("idPedido"));
-                mesa = md.ObtenerMesasId(rs.getInt("idMesa"));
-                ped.setMesa(mesa);
-                mozo = mozoDat.ObtenerMozoId(rs.getInt("idMozo"));
-                ped.setMozo(mozo);
+                ped.setIdPedido(rs.getInt("idPedido"));  
+                ped.setMesa(md.ObtenerMesasId(rs.getInt("idMesa")));          
+                ped.setMozo(mozoDat.ObtenerMozoId(rs.getInt("idMozo")));
                 ped.setFechaHora(rs.getTimestamp("fechaHora").toLocalDateTime());
                 ped.setCobrada(rs.getBoolean("cobrada"));
                 ped.setImporte(rs.getDouble("importe"));
@@ -233,17 +225,14 @@ public class PedidoData {
             while (rs.next()) {
 
                 Pedido ped = new Pedido();
-                ped.setIdPedido(rs.getInt("idPedido"));
-                mesa = md.ObtenerMesasId(rs.getInt("idMesa"));
-                ped.setMesa(mesa);
-                mozo = mozoDat.ObtenerMozoId(rs.getInt("idMozo"));
-                ped.setMozo(mozo);
+                ped.setIdPedido(rs.getInt("idPedido"));  
+                ped.setMesa(md.ObtenerMesasId(rs.getInt("idMesa")));          
+                ped.setMozo(mozoDat.ObtenerMozoId(rs.getInt("idMozo")));
                 ped.setFechaHora(rs.getTimestamp("fechaHora").toLocalDateTime());
                 ped.setCobrada(rs.getBoolean("cobrada"));
                 ped.setImporte(rs.getDouble("importe"));
                 ped.setEstado(rs.getString("estado"));
                 Pedidos.add(ped);
-
             }
 
             ps.close();
@@ -296,6 +285,9 @@ public class PedidoData {
     }
 
     public Pedido obtenerPedidoId(int id) {
+       
+        Pedido ped = new Pedido();
+        
         try {
 
             String sql = "SELECT * FROM pedido WHERE idPedido = ?";
@@ -306,10 +298,8 @@ public class PedidoData {
             while (rs.next()) {
 
                 ped.setIdPedido(rs.getInt("idPedido"));
-                mesa = md.ObtenerMesasId(rs.getInt("idMesa"));
-                ped.setMesa(mesa);
-                mozo = mozoDat.ObtenerMozoId(rs.getInt("idMozo"));
-                ped.setMozo(mozo);
+                ped.setMesa(md.ObtenerMesasId(rs.getInt("idMesa")));
+                ped.setMozo(mozoDat.ObtenerMozoId(rs.getInt("idMozo")));
                 ped.setFechaHora(rs.getTimestamp("fechaHora").toLocalDateTime());
                 ped.setCobrada(rs.getBoolean("cobrada"));
                 ped.setImporte(rs.getDouble("importe"));
@@ -327,6 +317,9 @@ public class PedidoData {
     }
 
     public Pedido obtenerPedidoIdXmesa(int id) {
+        
+        Pedido ped = new Pedido();
+        
         try {
 
             String sql = "SELECT * FROM pedido p JOIN mesa m ON p.idMesa = m.idMesa WHERE p.estado != 'CANCELADO' AND p.cobrada = 0 AND p.idMesa = ?;";
@@ -335,17 +328,14 @@ public class PedidoData {
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
-
-                ped.setIdPedido(rs.getInt("idPedido"));
-                mesa = md.ObtenerMesasId(rs.getInt("idMesa"));
-                ped.setMesa(mesa);
-                mozo = mozoDat.ObtenerMozoId(rs.getInt("idMozo"));
-                ped.setMozo(mozo);
+                
+                ped.setIdPedido(rs.getInt("idPedido"));  
+                ped.setMesa(md.ObtenerMesasId(rs.getInt("idMesa")));
+                ped.setMozo(mozoDat.ObtenerMozoId(rs.getInt("idMozo")));
                 ped.setFechaHora(rs.getTimestamp("fechaHora").toLocalDateTime());
                 ped.setCobrada(rs.getBoolean("cobrada"));
                 ped.setImporte(rs.getDouble("importe"));
                 ped.setEstado(rs.getString("Estado"));
-
             }
 
             ps.close();
@@ -369,12 +359,11 @@ public class PedidoData {
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
+                
                 Pedido ped = new Pedido();
-                ped.setIdPedido(rs.getInt("idPedido"));
-                mesa = md.ObtenerMesasId(rs.getInt("idMesa"));
-                ped.setMesa(mesa);
-                mozo = mozoDat.ObtenerMozoId(rs.getInt("idMozo"));
-                ped.setMozo(mozo);
+                ped.setIdPedido(rs.getInt("idPedido"));  
+                ped.setMesa(md.ObtenerMesasId(rs.getInt("idMesa")));          
+                ped.setMozo(mozoDat.ObtenerMozoId(rs.getInt("idMozo")));
                 ped.setFechaHora(rs.getTimestamp("fechaHora").toLocalDateTime());
                 ped.setImporte(rs.getDouble("importe"));
                 ped.setCobrada(rs.getBoolean("cobrada"));
@@ -403,12 +392,11 @@ public class PedidoData {
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
+                
                 Pedido ped = new Pedido();
-                ped.setIdPedido(rs.getInt("idPedido"));
-                mesa = md.ObtenerMesasId(rs.getInt("idMesa"));
-                ped.setMesa(mesa);
-                mozo = mozoDat.ObtenerMozoId(rs.getInt("idMozo"));
-                ped.setMozo(mozo);
+                ped.setIdPedido(rs.getInt("idPedido"));  
+                ped.setMesa(md.ObtenerMesasId(rs.getInt("idMesa")));          
+                ped.setMozo(mozoDat.ObtenerMozoId(rs.getInt("idMozo")));
                 ped.setFechaHora(rs.getTimestamp("fechaHora").toLocalDateTime());
                 ped.setCobrada(rs.getBoolean("cobrada"));
                 ped.setEstado(rs.getString("estado"));
@@ -440,12 +428,11 @@ public class PedidoData {
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
+                
                 Pedido ped = new Pedido();
-                ped.setIdPedido(rs.getInt("idPedido"));
-                mesa = md.ObtenerMesasId(rs.getInt("idMesa"));
-                ped.setMesa(mesa);
-                mozo = mozoDat.ObtenerMozoId(rs.getInt("idMozo"));
-                ped.setMozo(mozo);
+                ped.setIdPedido(rs.getInt("idPedido"));  
+                ped.setMesa(md.ObtenerMesasId(rs.getInt("idMesa")));          
+                ped.setMozo(mozoDat.ObtenerMozoId(rs.getInt("idMozo")));
                 ped.setFechaHora(rs.getTimestamp("fechaHora").toLocalDateTime());
                 ped.setImporte(rs.getDouble("importe"));
                 ped.setCobrada(rs.getBoolean("cobrada"));
@@ -478,12 +465,11 @@ public class PedidoData {
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
+                
                 Pedido ped = new Pedido();
-                ped.setIdPedido(rs.getInt("idPedido"));
-                mesa = md.ObtenerMesasId(rs.getInt("idMesa"));
-                ped.setMesa(mesa);
-                mozo = mozoDat.ObtenerMozoId(rs.getInt("idMozo"));
-                ped.setMozo(mozo);
+                ped.setIdPedido(rs.getInt("idPedido"));  
+                ped.setMesa(md.ObtenerMesasId(rs.getInt("idMesa")));          
+                ped.setMozo(mozoDat.ObtenerMozoId(rs.getInt("idMozo")));
                 ped.setFechaHora(rs.getTimestamp("fechaHora").toLocalDateTime());
                 ped.setCobrada(rs.getBoolean("cobrada"));
                 ped.setEstado(rs.getString("estado"));
@@ -515,11 +501,9 @@ public class PedidoData {
             while (rs.next()) {
 
                 Pedido ped = new Pedido();
-                ped.setIdPedido(rs.getInt("idPedido"));
-                mesa = md.ObtenerMesasId(rs.getInt("idMesa"));
-                ped.setMesa(mesa);
-                mozo = mozoDat.ObtenerMozoId(rs.getInt("idMozo"));
-                ped.setMozo(mozo);
+                ped.setIdPedido(rs.getInt("idPedido"));  
+                ped.setMesa(md.ObtenerMesasId(rs.getInt("idMesa")));          
+                ped.setMozo(mozoDat.ObtenerMozoId(rs.getInt("idMozo")));
                 ped.setFechaHora(rs.getTimestamp("fechaHora").toLocalDateTime());
                 ped.setCobrada(rs.getBoolean("cobrada"));
                 ped.setEstado(rs.getString("estado"));
@@ -546,17 +530,16 @@ public class PedidoData {
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
-                Pedido pedi = new Pedido();
-                pedi.setIdPedido(rs.getInt("idPedido"));
-                mesa = md.ObtenerMesasId(rs.getInt("idMesa"));
-                pedi.setMesa(mesa);
-                mozo = mozoDat.ObtenerMozoId(rs.getInt("idMozo"));
-                pedi.setMozo(mozo);
-                pedi.setFechaHora(rs.getTimestamp("fechaHora").toLocalDateTime());
-                pedi.setCobrada(rs.getBoolean("cobrada"));
-                pedi.setImporte(rs.getDouble("importe"));
-                pedi.setEstado(rs.getString("estado"));
-                pedidos.add(pedi);
+                
+                Pedido ped = new Pedido();
+                ped.setIdPedido(rs.getInt("idPedido"));  
+                ped.setMesa(md.ObtenerMesasId(rs.getInt("idMesa")));          
+                ped.setMozo(mozoDat.ObtenerMozoId(rs.getInt("idMozo")));
+                ped.setFechaHora(rs.getTimestamp("fechaHora").toLocalDateTime());
+                ped.setCobrada(rs.getBoolean("cobrada"));
+                ped.setImporte(rs.getDouble("importe"));
+                ped.setEstado(rs.getString("estado"));
+                pedidos.add(ped);
 
             }
 
