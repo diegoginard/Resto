@@ -31,6 +31,7 @@ public class Conexion {
         File archivoConfig = new File(filePath);
 
         if (!archivoConfig.exists()) {
+            
             try (FileOutputStream fos = new FileOutputStream(archivoConfig)) {
                 for (String key : keys) {
                     properties.setProperty(key, "");
@@ -40,7 +41,9 @@ public class Conexion {
             } catch (IOException e) {
                 Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, "Error al crear archivo: " + filePath, e);
             }
+            
         } else {
+            
             try (FileInputStream fis = new FileInputStream(archivoConfig)) {
                 properties.load(fis);
                 propertyConsumer.accept(properties);
