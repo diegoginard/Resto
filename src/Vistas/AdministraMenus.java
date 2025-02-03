@@ -289,18 +289,18 @@ public class AdministraMenus extends JInternalFrame {
         jLabel8.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Categoria");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, -1, -1));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 130, -1, -1));
 
         jcCategoria.setBackground(new java.awt.Color(51, 51, 51));
         jcCategoria.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
         jcCategoria.setForeground(new java.awt.Color(255, 255, 255));
         jcCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { ".............", "COMIDA", "BEBIDA", "POSTRE" }));
-        getContentPane().add(jcCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 170, -1, -1));
+        getContentPane().add(jcCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 130, -1, -1));
 
         jcCategoria2.setBackground(new java.awt.Color(51, 51, 51));
         jcCategoria2.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
         jcCategoria2.setForeground(new java.awt.Color(255, 255, 255));
-        jcCategoria2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "..........", "COMIDA", "BEBIDA", "POSTRE" }));
+        jcCategoria2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "COMIDA", "BEBIDA", "POSTRE" }));
         jcCategoria2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jcCategoria2ActionPerformed(evt);
@@ -330,112 +330,64 @@ public class AdministraMenus extends JInternalFrame {
     }//GEN-LAST:event_jbModificarActionPerformed
 
     private void jtBuscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtBuscarKeyReleased
-        
+
         modelo.setRowCount(0);
         String buscar = jtBuscar.getText();
         int indice = jcBuscar.getSelectedIndex();
-        int indice1 = jcCategoria2.getSelectedIndex();
-         
+
         switch (indice) {
 
             case 1:
-                
-                 List<Producto> buscarNombre = pd.BuscarProductosNombre(buscar);
 
-                for (Producto pro : buscarNombre) {
+                List<Producto> buscarNombre = pd.BuscarProductosNombre(buscar);
 
-                    modelo.addRow(new Object[]{pro.getIdProducto(),
-                        pro.getNombre(), pro.getPrecio(), pro.getStock(), pro.getCategoria()});
-                }
-                
+                cargarTablaMenu(buscarNombre);
                 break;
-                        
+
             case 2:
-                
-                 List<Producto> buscarPrecio = pd.BuscarProductosPrecio(buscar);
 
-                for (Producto pro : buscarPrecio) {
+                List<Producto> buscarPrecio = pd.BuscarProductosPrecio(buscar);
 
-                    modelo.addRow(new Object[]{pro.getIdProducto(),
-                        pro.getNombre(), pro.getPrecio(), pro.getStock(), pro.getCategoria()});
-                }
-                
+                cargarTablaMenu(buscarPrecio);
+
                 break;
-    
+
             case 3:
-                
-                 List<Producto> buscarStock = pd.BuscarProductoStock(buscar);
 
-                for (Producto pro : buscarStock) {
+                List<Producto> buscarStock = pd.BuscarProductoStock(buscar);
 
-                    modelo.addRow(new Object[]{pro.getIdProducto(),
-                        pro.getNombre(), pro.getPrecio(), pro.getStock(), pro.getCategoria()});
-                }
-                
+               cargarTablaMenu(buscarStock);
+
                 break;
-           
+
             case 4:
-  
-                if (indice1 == 1) {
 
-                    modelo.setRowCount(0);
-                    List<Producto> buscarCategoria = pd.BuscarCategComida(buscar);
-
-                    for (Producto pro : buscarCategoria) {
-
-                        modelo.addRow(new Object[]{pro.getIdProducto(),
-                            pro.getNombre(), pro.getPrecio(), pro.getStock(), pro.getCategoria()});
-                    }
-
-                } else if (indice1 == 2) {
-
-                    modelo.setRowCount(0);
-                    List<Producto> buscarCategoria = pd.BuscarCategBebida(buscar);
-
-                    for (Producto pro : buscarCategoria) {
-
-                        modelo.addRow(new Object[]{pro.getIdProducto(),
-                            pro.getNombre(), pro.getPrecio(), pro.getStock(), pro.getCategoria()});
-
-                    }
-
-                } else if (indice1 == 3) {
-
-                    modelo.setRowCount(0);
-                    List<Producto> buscarCategoria = pd.BuscarCategPostre(buscar);
-
-                    for (Producto pro : buscarCategoria) {
-
-                        modelo.addRow(new Object[]{pro.getIdProducto(),
-                            pro.getNombre(), pro.getPrecio(), pro.getCategoria()});
-
-                    }
-                }
+                cargarListaCategoria();
         }
     }//GEN-LAST:event_jtBuscarKeyReleased
 
     private void jbCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCrearActionPerformed
-        
+
         try {
-            
+
             produ.setNombre(jtNombre.getText());
             produ.setPrecio(Double.parseDouble(jtPrecio.getText()));
             produ.setStock(Integer.parseInt(jtStock.getText()));
- 
+
             int categ = jcCategoria.getSelectedIndex();
-            if (categ == 0){
-            
-                 JOptionPane.showMessageDialog(rootPane, "Seleccione una categoria");
-                 
-            }else{
+            if (categ == 0) {
+
+                JOptionPane.showMessageDialog(rootPane, "Seleccione una categoria");
+
+            } else {
                 produ.setCategoria(jcCategoria.getSelectedItem() + "");
                 pd.guardarProducto(produ);
                 cargarLista();
             }
 
-        } catch (NumberFormatException  ex) {
-            
-            JOptionPane.showMessageDialog(rootPane, "Debe rellenar todos los campos " );            
+        } catch (NumberFormatException ex) {
+
+            JOptionPane.showMessageDialog(rootPane, "Debe rellenar todos los campos ");
         }
     }//GEN-LAST:event_jbCrearActionPerformed
 
@@ -455,40 +407,40 @@ public class AdministraMenus extends JInternalFrame {
     }//GEN-LAST:event_jtPrecioKeyTyped
 
     private void jbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirActionPerformed
-        
-        dispose();       
+
+        dispose();
     }//GEN-LAST:event_jbSalirActionPerformed
 
     private void jbActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbActualizarActionPerformed
-        
-        cargarLista();   
+
+        cargarLista();
     }//GEN-LAST:event_jbActualizarActionPerformed
 
     private void jtListaMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtListaMenuMouseClicked
-        
+
         int fila = jtListaMenu.getSelectedRow();
-        
+
         jbBorrar.setEnabled(true);
         jbModificar.setEnabled(true);
         jbCrear.setEnabled(false);
-        jtId.setText(jtListaMenu.getValueAt(fila, 0)+"");
-        jtNombre.setText(jtListaMenu.getValueAt(fila, 1)+"");
-        jtPrecio.setText(jtListaMenu.getValueAt(fila, 2)+"");
-        jtStock.setText(jtListaMenu.getValueAt(fila, 3)+"");   
-        jcCategoria.setSelectedItem(jtListaMenu.getValueAt(fila, 4)+"");
-            
+        jtId.setText(jtListaMenu.getValueAt(fila, 0) + "");
+        jtNombre.setText(jtListaMenu.getValueAt(fila, 1) + "");
+        jtPrecio.setText(jtListaMenu.getValueAt(fila, 2) + "");
+        jtStock.setText(jtListaMenu.getValueAt(fila, 3) + "");
+        jcCategoria.setSelectedItem(jtListaMenu.getValueAt(fila, 4) + "");
+
     }//GEN-LAST:event_jtListaMenuMouseClicked
 
     private void jbLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbLimpiarActionPerformed
-  
-        limpiar();        
+
+        limpiar();
     }//GEN-LAST:event_jbLimpiarActionPerformed
 
     private void jbBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBorrarActionPerformed
-      
-        try{
-            
-            int id = Integer.parseInt(jtId.getText());       
+
+        try {
+
+            int id = Integer.parseInt(jtId.getText());
             pd.eliminarProducto(id);
            
         }catch(NumberFormatException ex){
@@ -509,6 +461,7 @@ public class AdministraMenus extends JInternalFrame {
         if (index == 4){
             
             jcCategoria2.setEnabled(true);
+            cargarListaCategoria();
             
         }else{
         
@@ -533,43 +486,7 @@ public class AdministraMenus extends JInternalFrame {
 
     private void jcCategoria2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcCategoria2ActionPerformed
 
-        int indice = jcCategoria2.getSelectedIndex();     
-        
-        if (indice == 1) {
-            
-            modelo.setRowCount(0);
-            List<Producto> buscarCategoria = pd.listarProdCateg(indice);
-
-            for (Producto pro : buscarCategoria) {
-
-                modelo.addRow(new Object[]{pro.getIdProducto(),
-                    pro.getNombre(), pro.getPrecio(), pro.getStock(), pro.getCategoria()});
-            }
-
-        } else if (indice == 2) {
-            
-            modelo.setRowCount(0);
-            List<Producto> buscarCategoria = pd.listarProdCateg(indice);
-
-            for (Producto pro : buscarCategoria) {
-
-                modelo.addRow(new Object[]{pro.getIdProducto(),
-                    pro.getNombre(), pro.getPrecio(), pro.getStock(), pro.getCategoria()});
-
-            }
-
-        } else if (indice == 3) {
-            
-            modelo.setRowCount(0);
-            List<Producto> buscarCategoria = pd.listarProdCateg(indice);
-
-            for (Producto pro : buscarCategoria) {
-
-                modelo.addRow(new Object[]{pro.getIdProducto(),
-                    pro.getNombre(), pro.getPrecio(), pro.getStock(), pro.getCategoria()});
-
-            }
-        }
+        cargarListaCategoria();
     }//GEN-LAST:event_jcCategoria2ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -605,11 +522,7 @@ public class AdministraMenus extends JInternalFrame {
         List<Producto> menus = pd.listarProductos();
         modelo.setRowCount(0);
 
-        for (Producto pro : menus) {
-
-            modelo.addRow(new Object[]{pro.getIdProducto(),
-                pro.getNombre(), pro.getPrecio(),pro.getStock(), pro.getCategoria()});
-        }
+        cargarTablaMenu(menus);
     }
     
     private void armarCabecera() {
@@ -620,7 +533,6 @@ public class AdministraMenus extends JInternalFrame {
         modelo.addColumn("Stock");
         modelo.addColumn("Categoria");
         jtListaMenu.setModel(modelo);
-
     }
     
     private void soloNumeros(KeyEvent evt){
@@ -632,13 +544,12 @@ public class AdministraMenus extends JInternalFrame {
             getToolkit().beep();
             evt.consume();
             
-            JOptionPane.showMessageDialog(rootPane, "Ingrese solo numeros");
-            
+            JOptionPane.showMessageDialog(rootPane, "Ingrese solo numeros");           
         }
     }
 
-    private void limpiar(){
-    
+    private void limpiar() {
+
         jbCrear.setEnabled(true);
         jbBorrar.setEnabled(false);
         jbModificar.setEnabled(false);
@@ -650,6 +561,44 @@ public class AdministraMenus extends JInternalFrame {
         jcBuscar.setSelectedIndex(0);
         jcCategoria.setSelectedIndex(0);
         jcCategoria2.setSelectedIndex(0);
+    }
+
+    private void cargarTablaMenu(List<Producto> lista) {
+        for (Producto pro : lista) {
+            modelo.addRow(new Object[]{
+                pro.getIdProducto(),
+                pro.getNombre(),
+                pro.getPrecio(),
+                pro.getStock(),
+                pro.getCategoria()
+            });
+        }
+    }
+    
+    private void cargarListaCategoria(){
         
+        int indice = jcCategoria2.getSelectedIndex();     
+        
+        if (indice == 0) {
+            
+            modelo.setRowCount(0);
+            List<Producto> buscarCategoria = pd.listarProdCateg(indice + 1);
+
+            cargarTablaMenu(buscarCategoria);
+
+        } else if (indice == 1) {
+            
+            modelo.setRowCount(0);
+            List<Producto> buscarCategoria = pd.listarProdCateg(indice + 1);
+
+            cargarTablaMenu(buscarCategoria);
+
+        } else if (indice == 2) {
+            
+            modelo.setRowCount(0);
+            List<Producto> buscarCategoria = pd.listarProdCateg(indice + 1);
+
+            cargarTablaMenu(buscarCategoria);
+        }
     }
 }
