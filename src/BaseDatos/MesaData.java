@@ -38,13 +38,13 @@ public class MesaData {
         }
     }
 
-    public void eliminarMesa(int id) {
+    public void eliminarMesa(int numero) {
         
-        String sql = "DELETE FROM mesa WHERE idMesa = ?";
+        String sql = "DELETE FROM mesa WHERE numero = ?";
 
         try {
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setInt(1, id);
+            ps.setInt(1, numero);
             int exito = ps.executeUpdate();
 
             if (exito >= 1) {

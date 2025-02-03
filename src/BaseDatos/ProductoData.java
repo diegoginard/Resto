@@ -10,7 +10,7 @@ public class ProductoData {
     private Connection con = null;
 
     public ProductoData() {
-        
+
         con = Conexion.getConexion();
     }
 
@@ -30,7 +30,7 @@ public class ProductoData {
             ResultSet rs = ps.getGeneratedKeys();
 
             if (rs.next()) {
-                
+
                 pro.setIdProducto(rs.getInt(1));
                 Utilidades.mostrarDialogoTemporal("Base de datos", "Producto Guardado", 2000);
             }
@@ -38,37 +38,54 @@ public class ProductoData {
             ps.close();
 
         } catch (SQLException ex) {
-            
+
             Utilidades.mostrarDialogoTemporal("Base de datos", "Error al acceder a la tabla producto " + ex.getMessage(), 2000);
         }
     }
 
-    public void eliminarProducto(int id) {
-        
+    public int eliminarProducto(int id) {
         String sql = "DELETE FROM producto WHERE idProducto = ?";
+        PreparedStatement ps = null;
 
         try {
-            PreparedStatement ps = con.prepareStatement(sql);
+            
+            ps = con.prepareStatement(sql);
             ps.setInt(1, id);
             int exito = ps.executeUpdate();
 
             if (exito >= 1) {
-//                Utilidades.mostrarDialogoTemporal("Base de datos", "Producto Eliminado", 2000);
+                return 1;
+                
+                
             } else {
                 
                 Utilidades.mostrarDialogoTemporal("Base de datos", "No se encontró el producto", 2000);
+                return 0;
             }
-
-            ps.close();
-
+            
         } catch (SQLException ex) {
             
             Utilidades.mostrarDialogoTemporal("Base de datos", "Error al Eliminar el producto " + ex.getMessage(), 2000);
+            
+        } finally {
+            
+            if (ps != null) {
+                
+                try {
+                    
+                    ps.close();
+                    
+                } catch (SQLException ex) {
+                    
+                    Utilidades.mostrarDialogoTemporal("Base de datos", "Error al cerrar el PreparedStatement " + ex.getMessage(), 2000);
+                }
+            }
         }
+        return 2;
     }
 
     public void ModificarProducto(Producto produ) {
-        
+
         String sql = "UPDATE producto SET idProducto= ?, nombreProducto = ?, precio = ?, stock = ?, categoria = ? WHERE idProducto = ?";
 
         try {
@@ -89,7 +106,7 @@ public class ProductoData {
             }
 
         } catch (SQLException ex) {
-            
+
             Utilidades.mostrarDialogoTemporal("Base de datos", "Error al acceder a la tabla" + ex.getMessage(), 2000);
         }
     }
@@ -120,7 +137,7 @@ public class ProductoData {
             ps.close();
 
         } catch (SQLException ex) {
-            
+
             Utilidades.mostrarDialogoTemporal("Base de datos", "Error al acceder a la tabla Productos" + ex.getMessage(), 2000);
         }
 
@@ -152,13 +169,13 @@ public class ProductoData {
             ps.close();
 
         } catch (SQLException ex) {
-            
+
             Utilidades.mostrarDialogoTemporal("Base de datos", "Error al acceder a la tabla Productos" + ex.getMessage(), 2000);
         }
 
         return productos;
     }
-    
+
     public List<Producto> BuscarProductosXidPedido(int id) {
 
         List<Producto> productos = new ArrayList<>();
@@ -168,23 +185,23 @@ public class ProductoData {
             String sql = "SELECT p.nombreProducto, p.precio FROM producto p JOIN pedidoproducto pp "
                     + "ON p.idProducto = pp.idProducto WHERE pp.idPedido = ?;";
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setInt(1,id); // Configura el primer parámetro con el valor de búsqueda
+            ps.setInt(1, id); // Configura el primer parámetro con el valor de búsqueda
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
 
                 Producto prod = new Producto();
-                
+
                 prod.setNombre(rs.getString("nombreProducto"));
                 prod.setPrecio(rs.getDouble("precio"));
-                
+
                 productos.add(prod);
             }
 
             ps.close();
 
         } catch (SQLException ex) {
-            
+
             Utilidades.mostrarDialogoTemporal("Base de datos", "Error al acceder a la tabla Productos" + ex.getMessage(), 2000);
         }
 
@@ -216,7 +233,7 @@ public class ProductoData {
             ps.close();
 
         } catch (SQLException ex) {
-            
+
             Utilidades.mostrarDialogoTemporal("Base de datos", "Error al acceder a la tabla Productos" + ex.getMessage(), 2000);
         }
 
@@ -248,7 +265,7 @@ public class ProductoData {
             ps.close();
 
         } catch (SQLException ex) {
-            
+
             Utilidades.mostrarDialogoTemporal("Base de datos", "Error al acceder a la tabla Productos" + ex.getMessage(), 2000);
         }
 
@@ -279,7 +296,7 @@ public class ProductoData {
             ps.close();
 
         } catch (SQLException ex) {
-            
+
             Utilidades.mostrarDialogoTemporal("Base de datos", "Error al acceder a la tabla producto" + ex.getMessage(), 2000);
         }
 
@@ -311,7 +328,7 @@ public class ProductoData {
             ps.close();
 
         } catch (SQLException ex) {
-            
+
             Utilidades.mostrarDialogoTemporal("Base de datos", "Error al acceder a la tabla Productos" + ex.getMessage(), 2000);
         }
 
@@ -343,7 +360,7 @@ public class ProductoData {
             ps.close();
 
         } catch (SQLException ex) {
-            
+
             Utilidades.mostrarDialogoTemporal("Base de datos", "Error al acceder a la tabla Productos" + ex.getMessage(), 2000);
         }
 
@@ -418,7 +435,7 @@ public class ProductoData {
     public Producto ObtenerPrductoId(int id) {
 
         Producto produ = new Producto();
-        
+
         try {
 
             String sql = "SELECT * FROM producto WHERE idProducto = ?";

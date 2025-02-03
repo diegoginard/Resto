@@ -26,6 +26,7 @@ public class AdministraMenus extends JInternalFrame {
         jbModificar.setEnabled(false);
         jtBuscar.setEnabled(false);
         jcCategoria2.setEnabled(false);
+        jtId.setEnabled(false);
         
     }
 
@@ -349,19 +350,19 @@ public class AdministraMenus extends JInternalFrame {
                 List<Producto> buscarPrecio = pd.BuscarProductosPrecio(buscar);
 
                 cargarTablaMenu(buscarPrecio);
-
+                
                 break;
-
+            
             case 3:
-
+                
                 List<Producto> buscarStock = pd.BuscarProductoStock(buscar);
-
-               cargarTablaMenu(buscarStock);
-
+                
+                cargarTablaMenu(buscarStock);
+                
                 break;
-
+            
             case 4:
-
+                
                 cargarListaCategoria();
         }
     }//GEN-LAST:event_jtBuscarKeyReleased
@@ -441,17 +442,25 @@ public class AdministraMenus extends JInternalFrame {
         try {
 
             int id = Integer.parseInt(jtId.getText());
-            pd.eliminarProducto(id);
-           
-        }catch(NumberFormatException ex){
             
-            JOptionPane.showMessageDialog(rootPane, "Ingrese un numero de ID");           
+            if (pd.eliminarProducto(id) == 1){
+                
+                JOptionPane.showMessageDialog(rootPane, "Menu eliminado"); 
+                limpiar();
+            }
+            
+            cargarLista();
+            
+
+        } catch (NumberFormatException ex) {
+
+            JOptionPane.showMessageDialog(rootPane, "Ingrese un numero de ID");
         }
     }//GEN-LAST:event_jbBorrarActionPerformed
 
     private void jtIdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtIdMouseClicked
-        
-        jbBorrar.setEnabled(true);       
+
+        jbBorrar.setEnabled(true);
     }//GEN-LAST:event_jtIdMouseClicked
 
     private void jcBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcBuscarActionPerformed
