@@ -943,7 +943,6 @@ public class restoView extends javax.swing.JInternalFrame {
         jtID.setText(idPedido + "");
         jLmozo.setText(mozo.toString());
         cargarPedidoProducto(idPedido);
-
     }//GEN-LAST:event_jbACrearPedidoActionPerformed
 
     private void jbInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbInicioActionPerformed
@@ -978,6 +977,7 @@ public class restoView extends javax.swing.JInternalFrame {
             cargarPedidoEntregado(idMesa);
 
         } else {
+            
             Utilidades.mostrarDialogoTemporal("Error", "Debe seleccionar un pedido", 2000);
         }
     }//GEN-LAST:event_jbCobrarActionPerformed
@@ -986,8 +986,7 @@ public class restoView extends javax.swing.JInternalFrame {
         
         jcMesasPedido.removeAllItems();
         cargarSpinerMesasConPedidos(jcMesasPedido);
-        ventanas.setSelectedIndex(3);
-        
+        ventanas.setSelectedIndex(3);    
     }//GEN-LAST:event_jbCobrarMesaActionPerformed
 
     private void jBgestionarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBgestionarPedidoActionPerformed

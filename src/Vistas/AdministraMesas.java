@@ -458,14 +458,10 @@ public class AdministraMesas extends JInternalFrame {
 
     private void cargarLista() {
 
-        List<Mesa> mesas = md.listarTodasLasMesas();
+        List<Mesa> mesa = md.listarTodasLasMesas();
         modelo.setRowCount(0);
 
-        for (Mesa me : mesas) {
-
-            modelo.addRow(new Object[]{me.getIdMesa(),
-                me.getNumero(), me.getEstadoMesa(), me.getCapacidad(), me.isActivo()});
-        }
+        cargarTablaMesa(mesa);
     }
     
     private void armarCabecera() {
@@ -509,11 +505,7 @@ public class AdministraMesas extends JInternalFrame {
         modelo.setRowCount(0);
         List<Mesa> mesa = md.BuscarMesasId(buscar);
 
-        for (Mesa me : mesa) {
-
-            modelo.addRow(new Object[]{me.getIdMesa(), me.getNumero(),
-                me.getEstadoMesa(), me.getCapacidad(), me.isActivo() });
-        }
+        cargarTablaMesa(mesa);
     }
     
     private void mesasxNumero(String buscar){
@@ -521,11 +513,7 @@ public class AdministraMesas extends JInternalFrame {
         modelo.setRowCount(0);
         List<Mesa> mesa = md.BuscarMesasNumero(buscar);
 
-        for (Mesa me : mesa) {
-
-            modelo.addRow(new Object[]{me.getIdMesa(), me.getNumero(),
-                me.getEstadoMesa(), me.getCapacidad(), me.isActivo() });
-        }
+        cargarTablaMesa(mesa);
     }
     
     private void mesasxSillas(String buscar){
@@ -533,11 +521,7 @@ public class AdministraMesas extends JInternalFrame {
         modelo.setRowCount(0);
         List<Mesa> mesa = md.BuscarMesasCapacidad(buscar);
 
-        for (Mesa me : mesa) {
-
-            modelo.addRow(new Object[]{me.getIdMesa(), me.getNumero(),
-                me.getEstadoMesa(), me.getCapacidad(), me.isActivo() });
-        }
+        cargarTablaMesa(mesa);
     }
     
      private void mesasxEstado(String buscar){
@@ -545,11 +529,7 @@ public class AdministraMesas extends JInternalFrame {
         modelo.setRowCount(0);
         List<Mesa> mesa = md.BuscarMesasEstado(buscar);
 
-        for (Mesa me : mesa) {
-
-            modelo.addRow(new Object[]{me.getIdMesa(), me.getNumero(),
-                me.getEstadoMesa(), me.getCapacidad(), me.isActivo() });
-        }
+        cargarTablaMesa(mesa);
     }
      
     private void mesasActivas(String buscar){
@@ -557,11 +537,7 @@ public class AdministraMesas extends JInternalFrame {
         modelo.setRowCount(0);
         List<Mesa> mesa = md.BuscarMesasActivo(buscar);
 
-        for (Mesa me : mesa) {
-
-            modelo.addRow(new Object[]{me.getIdMesa(), me.getNumero(),
-                me.getEstadoMesa(), me.getCapacidad(), me.isActivo() });
-        }
+        cargarTablaMesa(mesa);
     }
     
     private Mesa obtenerMesaDelForm() {
@@ -588,5 +564,14 @@ public class AdministraMesas extends JInternalFrame {
         }
         
         return null;
+    }
+    
+     private void cargarTablaMesa(List<Mesa> mesa) {
+        
+         for (Mesa me : mesa) {
+
+            modelo.addRow(new Object[]{me.getIdMesa(), me.getNumero(),
+                me.getEstadoMesa(), me.getCapacidad(), me.isActivo() });
+        }      
     }
 }

@@ -38,6 +38,7 @@ public class ProductoData {
             ps.close();
 
         } catch (SQLException ex) {
+            
             Utilidades.mostrarDialogoTemporal("Base de datos", "Error al acceder a la tabla producto " + ex.getMessage(), 2000);
         }
     }
@@ -88,6 +89,7 @@ public class ProductoData {
             }
 
         } catch (SQLException ex) {
+            
             Utilidades.mostrarDialogoTemporal("Base de datos", "Error al acceder a la tabla" + ex.getMessage(), 2000);
         }
     }
@@ -123,7 +125,6 @@ public class ProductoData {
         }
 
         return productos;
-
     }
 
     public List<Producto> BuscarProductosId(String buscar) {
@@ -146,12 +147,12 @@ public class ProductoData {
                 prod.setStock(rs.getInt("stock"));
                 prod.setCategoria(rs.getString("categoria"));
                 productos.add(prod);
-
             }
 
             ps.close();
 
         } catch (SQLException ex) {
+            
             Utilidades.mostrarDialogoTemporal("Base de datos", "Error al acceder a la tabla Productos" + ex.getMessage(), 2000);
         }
 
@@ -210,7 +211,6 @@ public class ProductoData {
                 prod.setStock(rs.getInt("stock"));
                 prod.setCategoria(rs.getString("categoria"));
                 productos.add(prod);
-
             }
 
             ps.close();
@@ -243,7 +243,6 @@ public class ProductoData {
                 prod.setStock(rs.getInt("stock"));
                 prod.setCategoria(rs.getString("categoria"));
                 productos.add(prod);
-
             }
 
             ps.close();
@@ -307,7 +306,6 @@ public class ProductoData {
                 prod.setStock(rs.getInt("stock"));
                 prod.setCategoria(rs.getString("categoria"));
                 productos.add(prod);
-
             }
 
             ps.close();
@@ -340,12 +338,12 @@ public class ProductoData {
                 prod.setStock(rs.getInt("stock"));
                 prod.setCategoria(rs.getString("categoria"));
                 productos.add(prod);
-
             }
 
             ps.close();
 
         } catch (SQLException ex) {
+            
             Utilidades.mostrarDialogoTemporal("Base de datos", "Error al acceder a la tabla Productos" + ex.getMessage(), 2000);
         }
 
@@ -372,7 +370,6 @@ public class ProductoData {
                 prod.setStock(rs.getInt("stock"));
                 prod.setCategoria(rs.getString("categoria"));
                 productos.add(prod);
-
             }
 
             ps.close();
