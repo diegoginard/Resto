@@ -25,21 +25,18 @@ public class AdministraMesas extends JInternalFrame {
         jTbuscar.setEnabled(false);
         jTid.setEnabled(false);
         jBmodificar.setEnabled(false);
-        jBeliminar.setEnabled(false);
-        
+        jBeliminar.setEnabled(false);   
     }
 
     private DefaultTableModel modelo = new DefaultTableModel(){
         
         @Override
         public boolean isCellEditable(int rowIndex, int columnIndex) {
-        return false;
-        
+        return false;  
         }
     };
     
     MesaData md = new MesaData();
-    Mesa mesa = new Mesa();
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -71,11 +68,6 @@ public class AdministraMesas extends JInternalFrame {
 
         setBorder(null);
         setTitle("Administra Salon");
-        addContainerListener(new java.awt.event.ContainerAdapter() {
-            public void componentAdded(java.awt.event.ContainerEvent evt) {
-                formComponentAdded(evt);
-            }
-        });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jtListaMesas.setModel(new javax.swing.table.DefaultTableModel(
@@ -305,14 +297,9 @@ public class AdministraMesas extends JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void formComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_formComponentAdded
-        // TODO add your handling code here:
-    }//GEN-LAST:event_formComponentAdded
-
     private void jBsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBsalirActionPerformed
         
-        dispose();
-        
+        dispose();    
     }//GEN-LAST:event_jBsalirActionPerformed
 
     private void jBeliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBeliminarActionPerformed
@@ -328,22 +315,22 @@ public class AdministraMesas extends JInternalFrame {
 
         // Verifica la respuesta del usuario
         if (confirmacion == JOptionPane.YES_OPTION) {
-            // Código para eliminar el usuario
+            
+            // Código para eliminar la mesa
              md.eliminarMesa(Integer.parseInt(jTid.getText()));
            
             Utilidades.mostrarDialogoTemporal("Base de datos", "Operacion completada.",2000);
-            limpiarForm();
-            
+            limpiarForm();         
         }
     }//GEN-LAST:event_jBeliminarActionPerformed
 
     private void jBcrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBcrearActionPerformed
 
         if(obtenerMesaDelForm() != null){
+            
             md.crearMesa(obtenerMesaDelForm());
             cargarLista();
-            limpiarForm();
-            
+            limpiarForm();        
         }
     }//GEN-LAST:event_jBcrearActionPerformed
 
@@ -359,25 +346,21 @@ public class AdministraMesas extends JInternalFrame {
         jBcrear.setEnabled(false);
         jBmodificar.setEnabled(true);
         jBeliminar.setEnabled(true);
-
     }//GEN-LAST:event_jtListaMesasMouseClicked
 
     private void jTidKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTidKeyTyped
        
-        soloNumeros(evt);
-        
+        soloNumeros(evt);       
     }//GEN-LAST:event_jTidKeyTyped
 
     private void jTcapacidadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTcapacidadKeyTyped
         
-        soloNumeros(evt);
-        
+        soloNumeros(evt);       
     }//GEN-LAST:event_jTcapacidadKeyTyped
 
     private void jTnumeroKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTnumeroKeyTyped
         
-        soloNumeros(evt);
-        
+        soloNumeros(evt);        
     }//GEN-LAST:event_jTnumeroKeyTyped
 
     private void jBmodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBmodificarActionPerformed
@@ -385,8 +368,7 @@ public class AdministraMesas extends JInternalFrame {
         md.modificarMesa(obtenerMesaDelForm());
       
         limpiarForm();
-        cargarLista();
-        
+        cargarLista();       
     }//GEN-LAST:event_jBmodificarActionPerformed
 
     private void jTbuscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTbuscarKeyReleased
@@ -398,38 +380,32 @@ public class AdministraMesas extends JInternalFrame {
         
             case "idMesa":
                 
-//                modelo.setRowCount(0);
                 mesasxId(buscar);
                 break;
             
             case "Numero":
                 
-//                modelo.setRowCount(0);
                 mesasxNumero(buscar);
                 break;
             
             case "Sillas":
                 
-//                modelo.setRowCount(0);
                 mesasxSillas(buscar);
                 break;
                 
             case "Activas":
                 
-//                modelo.setRowCount(0);
                 mesasActivas(buscar);
                 break;
                 
             case "Estado":
                 
-//                modelo.setRowCount(0);
                 mesasxEstado(buscar);
                 break;
                 
             default:
                 
                 cargarLista();
-        
         }
     }//GEN-LAST:event_jTbuscarKeyReleased
 
@@ -437,23 +413,22 @@ public class AdministraMesas extends JInternalFrame {
         
         if(jCelegir.getSelectedIndex()!= 0){
             
-            jTbuscar.setEnabled(true);
+            jTbuscar.setEnabled(true);  
             
         }else{
+            
             jTbuscar.setEnabled(false);
         }
     }//GEN-LAST:event_jCelegirItemStateChanged
 
     private void jBrefrescarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBrefrescarActionPerformed
         
-        cargarLista();
-        
+        cargarLista();    
     }//GEN-LAST:event_jBrefrescarActionPerformed
 
     private void jBlimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBlimpiarActionPerformed
         
-        limpiarForm();
-                
+        limpiarForm();              
     }//GEN-LAST:event_jBlimpiarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -490,7 +465,6 @@ public class AdministraMesas extends JInternalFrame {
 
             modelo.addRow(new Object[]{me.getIdMesa(),
                 me.getNumero(), me.getEstadoMesa(), me.getCapacidad(), me.isActivo()});
-
         }
     }
     
@@ -515,7 +489,6 @@ public class AdministraMesas extends JInternalFrame {
             evt.consume();
 
             JOptionPane.showMessageDialog(rootPane, "Ingrese solo numeros");
-
         }
     }
 
@@ -541,7 +514,6 @@ public class AdministraMesas extends JInternalFrame {
 
             modelo.addRow(new Object[]{me.getIdMesa(), me.getNumero(),
                 me.getEstadoMesa(), me.getCapacidad(), me.isActivo() });
-
         }
     }
     
@@ -554,7 +526,6 @@ public class AdministraMesas extends JInternalFrame {
 
             modelo.addRow(new Object[]{me.getIdMesa(), me.getNumero(),
                 me.getEstadoMesa(), me.getCapacidad(), me.isActivo() });
-
         }
     }
     
@@ -567,7 +538,6 @@ public class AdministraMesas extends JInternalFrame {
 
             modelo.addRow(new Object[]{me.getIdMesa(), me.getNumero(),
                 me.getEstadoMesa(), me.getCapacidad(), me.isActivo() });
-
         }
     }
     
@@ -580,7 +550,6 @@ public class AdministraMesas extends JInternalFrame {
 
             modelo.addRow(new Object[]{me.getIdMesa(), me.getNumero(),
                 me.getEstadoMesa(), me.getCapacidad(), me.isActivo() });
-
         }
     }
      
@@ -593,7 +562,6 @@ public class AdministraMesas extends JInternalFrame {
 
             modelo.addRow(new Object[]{me.getIdMesa(), me.getNumero(),
                 me.getEstadoMesa(), me.getCapacidad(), me.isActivo() });
-
         }
     }
     
@@ -605,6 +573,7 @@ public class AdministraMesas extends JInternalFrame {
 
             // Todos los campos están llenos y no son nulos, entonces crea y asigna los valores a 'usu'.
             if(!jTid.getText().isEmpty()){
+                
                 mesa.setIdMesa(Integer.parseInt(jTid.getText()));
             }
             mesa.setCapacidad(Integer.parseInt(jTcapacidad.getText()));
@@ -615,8 +584,10 @@ public class AdministraMesas extends JInternalFrame {
             return mesa;
 
         } else {
+            
             Utilidades.mostrarDialogoTemporal("Administrador de Mesas", "Se deben rellenar todos los campos", 2000);
         }
+        
         return null;
     }
 }
