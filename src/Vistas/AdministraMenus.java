@@ -9,6 +9,7 @@ import javax.swing.*;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 import javax.swing.table.*;
 
+
 public class AdministraMenus extends JInternalFrame {
 
     public AdministraMenus() {
@@ -28,14 +29,12 @@ public class AdministraMenus extends JInternalFrame {
         
     }
 
-    
     private DefaultTableModel modelo = new DefaultTableModel(){
         
         @Override
         public boolean isCellEditable(int fila, int columna) {
             
-            return false;
-        
+            return false;      
         }
     };
     
@@ -60,10 +59,8 @@ public class AdministraMenus extends JInternalFrame {
         jLabel3 = new javax.swing.JLabel();
         jbModificar = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jtBuscar = new javax.swing.JTextField();
-        jrEstado = new javax.swing.JRadioButton();
         jbBorrar = new javax.swing.JButton();
         jbSalir = new javax.swing.JButton();
         jbLimpiar = new javax.swing.JButton();
@@ -200,11 +197,6 @@ public class AdministraMenus extends JInternalFrame {
         jLabel4.setText("Stock");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 50, -1, -1));
 
-        jLabel5.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Estado");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 130, -1, -1));
-
         jLabel7.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Buscar");
@@ -219,12 +211,6 @@ public class AdministraMenus extends JInternalFrame {
             }
         });
         getContentPane().add(jtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 270, 111, -1));
-
-        jrEstado.setBackground(new java.awt.Color(102, 102, 102));
-        jrEstado.setForeground(new java.awt.Color(255, 255, 255));
-        jrEstado.setBorder(null);
-        jrEstado.setContentAreaFilled(false);
-        getContentPane().add(jrEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 130, -1, -1));
 
         jbBorrar.setBackground(new java.awt.Color(51, 51, 51));
         jbBorrar.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
@@ -287,7 +273,7 @@ public class AdministraMenus extends JInternalFrame {
         jcBuscar.setBackground(new java.awt.Color(51, 51, 51));
         jcBuscar.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
         jcBuscar.setForeground(new java.awt.Color(255, 255, 255));
-        jcBuscar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "...........", "idProducto", "Nombre", "Precio", "Stock", "Estado", "Categoria" }));
+        jcBuscar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "...........", "Nombre", "Precio", "Stock", "Categoria" }));
         jcBuscar.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 jcBuscarItemStateChanged(evt);
@@ -335,7 +321,6 @@ public class AdministraMenus extends JInternalFrame {
         produ.setNombre(jtNombre.getText());
         produ.setPrecio(Double.parseDouble(jtPrecio.getText()));
         produ.setStock(Integer.parseInt(jtStock.getText()));
-        produ.setEstado(jrEstado.isSelected());
         produ.setCategoria(jcCategoria.getSelectedItem()+"");
 
         pd.ModificarProducto(produ);
@@ -355,71 +340,42 @@ public class AdministraMenus extends JInternalFrame {
 
             case 1:
                 
-                List<Producto> buscarId = pd.BuscarProductosId(buscar);
-
-                for (Producto pro : buscarId) {
-
-                    modelo.addRow(new Object[]{pro.getIdProducto(),
-                        pro.getNombre(), pro.getPrecio(), pro.getStock(), pro.isEstado(), pro.getCategoria()});
-
-                }
-                
-                break; 
-
-            case 2:
-                
-                List<Producto> buscarNombre = pd.BuscarProductosNombre(buscar);
+                 List<Producto> buscarNombre = pd.BuscarProductosNombre(buscar);
 
                 for (Producto pro : buscarNombre) {
 
                     modelo.addRow(new Object[]{pro.getIdProducto(),
-                        pro.getNombre(), pro.getPrecio(), pro.getStock(), pro.isEstado(), pro.getCategoria()});
-
+                        pro.getNombre(), pro.getPrecio(), pro.getStock(), pro.getCategoria()});
                 }
                 
                 break;
-
-            case 3:
+                        
+            case 2:
                 
-                List<Producto> buscarPrecio = pd.BuscarProductosPrecio(buscar);
+                 List<Producto> buscarPrecio = pd.BuscarProductosPrecio(buscar);
 
                 for (Producto pro : buscarPrecio) {
 
                     modelo.addRow(new Object[]{pro.getIdProducto(),
-                        pro.getNombre(), pro.getPrecio(), pro.getStock(), pro.isEstado(), pro.getCategoria()});
-
+                        pro.getNombre(), pro.getPrecio(), pro.getStock(), pro.getCategoria()});
                 }
                 
                 break;
-
-            case 4:
+    
+            case 3:
                 
-                List<Producto> buscarStock = pd.BuscarProductoStock(buscar);
+                 List<Producto> buscarStock = pd.BuscarProductoStock(buscar);
 
                 for (Producto pro : buscarStock) {
 
                     modelo.addRow(new Object[]{pro.getIdProducto(),
-                        pro.getNombre(), pro.getPrecio(), pro.getStock(), pro.isEstado(), pro.getCategoria()});
-
+                        pro.getNombre(), pro.getPrecio(), pro.getStock(), pro.getCategoria()});
                 }
                 
                 break;
-            
-            case 5:
-                
-                List<Producto> buscarEstado = pd.BuscarProductoEstado(buscar);
-
-                for (Producto pro : buscarEstado) {
-
-                    modelo.addRow(new Object[]{pro.getIdProducto(),
-                        pro.getNombre(), pro.getPrecio(), pro.getStock(), pro.isEstado(), pro.getCategoria()});
-
-                }
-                
-                break;
-            
-            case 6:
-
+           
+            case 4:
+  
                 if (indice1 == 1) {
 
                     modelo.setRowCount(0);
@@ -428,8 +384,7 @@ public class AdministraMenus extends JInternalFrame {
                     for (Producto pro : buscarCategoria) {
 
                         modelo.addRow(new Object[]{pro.getIdProducto(),
-                            pro.getNombre(), pro.getPrecio(), pro.getStock(), pro.isEstado(), pro.getCategoria()});
-
+                            pro.getNombre(), pro.getPrecio(), pro.getStock(), pro.getCategoria()});
                     }
 
                 } else if (indice1 == 2) {
@@ -440,7 +395,7 @@ public class AdministraMenus extends JInternalFrame {
                     for (Producto pro : buscarCategoria) {
 
                         modelo.addRow(new Object[]{pro.getIdProducto(),
-                            pro.getNombre(), pro.getPrecio(), pro.getStock(), pro.isEstado(), pro.getCategoria()});
+                            pro.getNombre(), pro.getPrecio(), pro.getStock(), pro.getCategoria()});
 
                     }
 
@@ -452,7 +407,7 @@ public class AdministraMenus extends JInternalFrame {
                     for (Producto pro : buscarCategoria) {
 
                         modelo.addRow(new Object[]{pro.getIdProducto(),
-                            pro.getNombre(), pro.getPrecio(), pro.getStock(), pro.isEstado(), pro.getCategoria()});
+                            pro.getNombre(), pro.getPrecio(), pro.getCategoria()});
 
                     }
                 }
@@ -473,46 +428,40 @@ public class AdministraMenus extends JInternalFrame {
                  JOptionPane.showMessageDialog(rootPane, "Seleccione una categoria");
                  
             }else{
-                produ.setCategoria(jcCategoria.getSelectedItem()+"");
+                produ.setCategoria(jcCategoria.getSelectedItem() + "");
                 pd.guardarProducto(produ);
                 cargarLista();
             }
 
         } catch (NumberFormatException  ex) {
             
-            JOptionPane.showMessageDialog(rootPane, "Debe rellenar todos los campos " );
-            
+            JOptionPane.showMessageDialog(rootPane, "Debe rellenar todos los campos " );            
         }
     }//GEN-LAST:event_jbCrearActionPerformed
 
     private void jtIdKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtIdKeyTyped
 
         soloNumeros(evt);
-
     }//GEN-LAST:event_jtIdKeyTyped
 
     private void jtStockKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtStockKeyTyped
 
         soloNumeros(evt);
-
     }//GEN-LAST:event_jtStockKeyTyped
 
     private void jtPrecioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtPrecioKeyTyped
 
         soloNumeros(evt);
-
     }//GEN-LAST:event_jtPrecioKeyTyped
 
     private void jbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirActionPerformed
         
-        dispose();
-        
+        dispose();       
     }//GEN-LAST:event_jbSalirActionPerformed
 
     private void jbActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbActualizarActionPerformed
         
-        cargarLista();
-        
+        cargarLista();   
     }//GEN-LAST:event_jbActualizarActionPerformed
 
     private void jtListaMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtListaMenuMouseClicked
@@ -525,16 +474,14 @@ public class AdministraMenus extends JInternalFrame {
         jtId.setText(jtListaMenu.getValueAt(fila, 0)+"");
         jtNombre.setText(jtListaMenu.getValueAt(fila, 1)+"");
         jtPrecio.setText(jtListaMenu.getValueAt(fila, 2)+"");
-        jtStock.setText(jtListaMenu.getValueAt(fila, 3)+"");
-        jrEstado.setSelected((boolean) jtListaMenu.getValueAt(fila, 4));
-        jcCategoria.setSelectedItem(jtListaMenu.getValueAt(fila, 5)+"");
+        jtStock.setText(jtListaMenu.getValueAt(fila, 3)+"");   
+        jcCategoria.setSelectedItem(jtListaMenu.getValueAt(fila, 4)+"");
             
     }//GEN-LAST:event_jtListaMenuMouseClicked
 
     private void jbLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbLimpiarActionPerformed
   
-        limpiar();
-        
+        limpiar();        
     }//GEN-LAST:event_jbLimpiarActionPerformed
 
     private void jbBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBorrarActionPerformed
@@ -546,29 +493,26 @@ public class AdministraMenus extends JInternalFrame {
            
         }catch(NumberFormatException ex){
             
-            JOptionPane.showMessageDialog(rootPane, "Ingrese un numero de ID");
-            
+            JOptionPane.showMessageDialog(rootPane, "Ingrese un numero de ID");           
         }
     }//GEN-LAST:event_jbBorrarActionPerformed
 
     private void jtIdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtIdMouseClicked
         
-        jbBorrar.setEnabled(true);
-        
+        jbBorrar.setEnabled(true);       
     }//GEN-LAST:event_jtIdMouseClicked
 
     private void jcBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcBuscarActionPerformed
         
         int index = jcBuscar.getSelectedIndex();
         
-        if (index == 6){
+        if (index == 4){
             
             jcCategoria2.setEnabled(true);
             
         }else{
         
-            jcCategoria2.setEnabled(false);
-        
+            jcCategoria2.setEnabled(false);        
         }
     }//GEN-LAST:event_jcBuscarActionPerformed
 
@@ -583,8 +527,7 @@ public class AdministraMenus extends JInternalFrame {
             
         }else{
         
-            jtBuscar.setEnabled(false);
-        
+            jtBuscar.setEnabled(false);        
         }     
     }//GEN-LAST:event_jcBuscarItemStateChanged
 
@@ -600,8 +543,7 @@ public class AdministraMenus extends JInternalFrame {
             for (Producto pro : buscarCategoria) {
 
                 modelo.addRow(new Object[]{pro.getIdProducto(),
-                    pro.getNombre(), pro.getPrecio(), pro.getStock(), pro.isEstado(), pro.getCategoria()});
-
+                    pro.getNombre(), pro.getPrecio(), pro.getStock(), pro.getCategoria()});
             }
 
         } else if (indice == 2) {
@@ -612,7 +554,7 @@ public class AdministraMenus extends JInternalFrame {
             for (Producto pro : buscarCategoria) {
 
                 modelo.addRow(new Object[]{pro.getIdProducto(),
-                    pro.getNombre(), pro.getPrecio(), pro.getStock(), pro.isEstado(), pro.getCategoria()});
+                    pro.getNombre(), pro.getPrecio(), pro.getStock(), pro.getCategoria()});
 
             }
 
@@ -624,7 +566,7 @@ public class AdministraMenus extends JInternalFrame {
             for (Producto pro : buscarCategoria) {
 
                 modelo.addRow(new Object[]{pro.getIdProducto(),
-                    pro.getNombre(), pro.getPrecio(), pro.getStock(), pro.isEstado(), pro.getCategoria()});
+                    pro.getNombre(), pro.getPrecio(), pro.getStock(), pro.getCategoria()});
 
             }
         }
@@ -636,7 +578,6 @@ public class AdministraMenus extends JInternalFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -651,7 +592,6 @@ public class AdministraMenus extends JInternalFrame {
     private javax.swing.JComboBox<String> jcBuscar;
     private javax.swing.JComboBox<String> jcCategoria;
     private javax.swing.JComboBox<String> jcCategoria2;
-    private javax.swing.JRadioButton jrEstado;
     private javax.swing.JTextField jtBuscar;
     private javax.swing.JTextField jtId;
     private javax.swing.JTable jtListaMenu;
@@ -662,14 +602,13 @@ public class AdministraMenus extends JInternalFrame {
 
  private void cargarLista() {
 
-        List<Producto> menus = pd.listarTodosLosProductos();
+        List<Producto> menus = pd.listarProductos();
         modelo.setRowCount(0);
 
         for (Producto pro : menus) {
 
             modelo.addRow(new Object[]{pro.getIdProducto(),
-                pro.getNombre(), pro.getPrecio(),pro.getStock(),pro.isEstado(), pro.getCategoria()});
-
+                pro.getNombre(), pro.getPrecio(),pro.getStock(), pro.getCategoria()});
         }
     }
     
@@ -679,7 +618,6 @@ public class AdministraMenus extends JInternalFrame {
         modelo.addColumn("Nombre");
         modelo.addColumn("Precio");
         modelo.addColumn("Stock");
-        modelo.addColumn("Estado");
         modelo.addColumn("Categoria");
         jtListaMenu.setModel(modelo);
 
@@ -708,7 +646,6 @@ public class AdministraMenus extends JInternalFrame {
         jtNombre.setText("");
         jtPrecio.setText("");
         jtStock.setText("");
-        jrEstado.setSelected(false);
         jtBuscar.setText("");
         jcBuscar.setSelectedIndex(0);
         jcCategoria.setSelectedIndex(0);

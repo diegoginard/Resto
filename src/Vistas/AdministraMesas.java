@@ -476,7 +476,6 @@ public class AdministraMesas extends JInternalFrame {
         modelo.addColumn("Capacidad");
         modelo.addColumn("Activo");
         jtListaMesas.setModel(modelo);
-
     }
 
     private void soloNumeros(KeyEvent evt) {

@@ -797,6 +797,7 @@ public class restoView extends javax.swing.JInternalFrame {
            cargarPedidoPediente();
 
         } else {
+            
             JOptionPane.showMessageDialog(rootPane, "Debe seleccionar un pedido de la tabla");
         }
     }//GEN-LAST:event_jbCancelarActionPerformed
@@ -814,6 +815,7 @@ public class restoView extends javax.swing.JInternalFrame {
             cargarPedidoPediente();
             
         } else {
+            
             JOptionPane.showMessageDialog(rootPane, "Debe seleccionar un pedido de la tabla");
         }        
     }//GEN-LAST:event_jbEntregarActionPerformed
@@ -839,7 +841,7 @@ public class restoView extends javax.swing.JInternalFrame {
         for (Producto pro : buscarNombre) {
 
             modelo3.addRow(new Object[]{pro.getIdProducto(),
-                pro.getNombre(), pro.getPrecio(), pro.getStock(), pro.isEstado(), pro.getCategoria()});
+                pro.getNombre(), pro.getPrecio(), pro.getStock(), pro.getCategoria()});
         }
     }//GEN-LAST:event_jtBProductoKeyPressed
 
@@ -885,9 +887,12 @@ public class restoView extends javax.swing.JInternalFrame {
                 cargarPedido(nMesa);
 
             } else {
+                
                 JOptionPane.showMessageDialog(rootPane, "No hay stock del producto");
             }
+            
         } catch (Exception ex) {
+            
             JOptionPane.showMessageDialog(rootPane, "Debe seleccionar un producto");
         }
     }//GEN-LAST:event_jtProductoMouseClicked

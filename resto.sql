@@ -56,7 +56,6 @@ CREATE TABLE `producto` (
   `nombreProducto` varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `precio` double NOT NULL,
   `stock` int NOT NULL,
-  `estadoProducto` tinyint(1) NOT NULL,
   `categoria` enum('COMIDA','BEBIDA','POSTRE') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`idProducto`)
 ) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;

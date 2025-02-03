@@ -16,7 +16,7 @@ public class ProductoData {
 
     public void guardarProducto(Producto pro) {
 
-        String sql = "INSERT INTO producto(nombreProducto, precio, stock, estadoProducto,categoria) VALUE(?,?,?,?,?)";
+        String sql = "INSERT INTO producto(nombreProducto, precio, stock, categoria) VALUE(?,?,?,?)";
 
         try {
 
@@ -25,12 +25,12 @@ public class ProductoData {
             ps.setString(1, pro.getNombre());
             ps.setDouble(2, pro.getPrecio());
             ps.setInt(3, pro.getStock());
-            ps.setBoolean(4, true);
-            ps.setString(5, pro.getCategoria());
+            ps.setString(4, pro.getCategoria());
             ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
 
             if (rs.next()) {
+                
                 pro.setIdProducto(rs.getInt(1));
                 Utilidades.mostrarDialogoTemporal("Base de datos", "Producto Guardado", 2000);
             }
@@ -43,6 +43,7 @@ public class ProductoData {
     }
 
     public void eliminarProducto(int id) {
+        
         String sql = "DELETE FROM producto WHERE idProducto = ?";
 
         try {
@@ -53,19 +54,21 @@ public class ProductoData {
             if (exito >= 1) {
 //                Utilidades.mostrarDialogoTemporal("Base de datos", "Producto Eliminado", 2000);
             } else {
+                
                 Utilidades.mostrarDialogoTemporal("Base de datos", "No se encontró el producto", 2000);
             }
 
             ps.close();
 
         } catch (SQLException ex) {
+            
             Utilidades.mostrarDialogoTemporal("Base de datos", "Error al Eliminar el producto " + ex.getMessage(), 2000);
         }
     }
 
     public void ModificarProducto(Producto produ) {
         
-        String sql = "UPDATE producto SET idProducto= ?, nombreProducto = ?, precio = ?, stock = ?, estadoProducto = ?, categoria = ? WHERE idProducto = ?";
+        String sql = "UPDATE producto SET idProducto= ?, nombreProducto = ?, precio = ?, stock = ?, categoria = ? WHERE idProducto = ?";
 
         try {
 
@@ -75,9 +78,8 @@ public class ProductoData {
             ps.setString(2, produ.getNombre());
             ps.setDouble(3, produ.getPrecio());
             ps.setInt(4, produ.getStock());
-            ps.setBoolean(5, produ.isEstado());
-            ps.setString(6, produ.getCategoria());
-            ps.setInt(7, produ.getIdProducto());
+            ps.setString(5, produ.getCategoria());
+            ps.setInt(6, produ.getIdProducto());
 
             int exito = ps.executeUpdate();
 
@@ -108,7 +110,6 @@ public class ProductoData {
                 prod.setNombre(rs.getString("nombreProducto"));
                 prod.setPrecio(rs.getDouble("precio"));
                 prod.setStock(rs.getInt("stock"));
-                prod.setEstado(rs.getBoolean("estadoProducto"));
                 prod.setCategoria(rs.getString("categoria"));
                 productos.add(prod);
 
@@ -117,6 +118,7 @@ public class ProductoData {
             ps.close();
 
         } catch (SQLException ex) {
+            
             Utilidades.mostrarDialogoTemporal("Base de datos", "Error al acceder a la tabla Productos" + ex.getMessage(), 2000);
         }
 
@@ -142,7 +144,6 @@ public class ProductoData {
                 prod.setNombre(rs.getString("nombreProducto"));
                 prod.setPrecio(rs.getDouble("precio"));
                 prod.setStock(rs.getInt("stock"));
-                prod.setEstado(rs.getBoolean("estadoProducto"));
                 prod.setCategoria(rs.getString("categoria"));
                 productos.add(prod);
 
@@ -177,17 +178,16 @@ public class ProductoData {
                 prod.setPrecio(rs.getDouble("precio"));
                 
                 productos.add(prod);
-
             }
 
             ps.close();
 
         } catch (SQLException ex) {
+            
             Utilidades.mostrarDialogoTemporal("Base de datos", "Error al acceder a la tabla Productos" + ex.getMessage(), 2000);
         }
 
         return productos;
-
     }
 
     public List<Producto> BuscarProductosPrecio(String buscar) {
@@ -208,7 +208,6 @@ public class ProductoData {
                 prod.setNombre(rs.getString("nombreProducto"));
                 prod.setPrecio(rs.getDouble("precio"));
                 prod.setStock(rs.getInt("stock"));
-                prod.setEstado(rs.getBoolean("estadoProducto"));
                 prod.setCategoria(rs.getString("categoria"));
                 productos.add(prod);
 
@@ -217,11 +216,11 @@ public class ProductoData {
             ps.close();
 
         } catch (SQLException ex) {
+            
             Utilidades.mostrarDialogoTemporal("Base de datos", "Error al acceder a la tabla Productos" + ex.getMessage(), 2000);
         }
 
         return productos;
-
     }
 
     public List<Producto> BuscarProductoStock(String buscar) {
@@ -242,7 +241,6 @@ public class ProductoData {
                 prod.setNombre(rs.getString("nombreProducto"));
                 prod.setPrecio(rs.getDouble("precio"));
                 prod.setStock(rs.getInt("stock"));
-                prod.setEstado(rs.getBoolean("estadoProducto"));
                 prod.setCategoria(rs.getString("categoria"));
                 productos.add(prod);
 
@@ -251,39 +249,7 @@ public class ProductoData {
             ps.close();
 
         } catch (SQLException ex) {
-            Utilidades.mostrarDialogoTemporal("Base de datos", "Error al acceder a la tabla Productos" + ex.getMessage(), 2000);
-        }
-
-        return productos;
-    }
-
-    public List<Producto> BuscarProductoEstado(String buscar) {
-
-        List<Producto> productos = new ArrayList<>();
-
-        try {
-
-            String sql = "SELECT * FROM Producto WHERE estadoProducto LIKE ?";
-            PreparedStatement ps = con.prepareStatement(sql);
-            ps.setString(1, buscar + "%"); // Configura el primer parámetro con el valor de búsqueda
-            ResultSet rs = ps.executeQuery();
-
-            while (rs.next()) {
-
-                Producto prod = new Producto();
-                prod.setIdProducto(rs.getInt("idProducto"));
-                prod.setNombre(rs.getString("nombreProducto"));
-                prod.setPrecio(rs.getDouble("precio"));
-                prod.setStock(rs.getInt("stock"));
-                prod.setEstado(rs.getBoolean("estadoProducto"));
-                prod.setCategoria(rs.getString("categoria"));
-                productos.add(prod);
-
-            }
-
-            ps.close();
-
-        } catch (SQLException ex) {
+            
             Utilidades.mostrarDialogoTemporal("Base de datos", "Error al acceder a la tabla Productos" + ex.getMessage(), 2000);
         }
 
@@ -291,38 +257,6 @@ public class ProductoData {
     }
 
     public List<Producto> listarProductos() {
-
-        List<Producto> productos = new ArrayList<>();
-
-        try {
-
-            String sql = "SELECT * FROM producto WHERE estadoProducto = 1 ";
-            PreparedStatement ps = con.prepareStatement(sql);
-            ResultSet rs = ps.executeQuery();
-
-            while (rs.next()) {
-
-                Producto prod = new Producto();
-                prod.setIdProducto(rs.getInt("idProducto"));
-                prod.setNombre(rs.getString("nombreProducto"));
-                prod.setPrecio(rs.getDouble("precio"));
-                prod.setStock(rs.getInt("stock"));
-                prod.setEstado(rs.getBoolean("estadoProducto"));
-                prod.setCategoria(rs.getString("categoria"));
-                productos.add(prod);
-
-            }
-
-            ps.close();
-
-        } catch (SQLException ex) {
-            Utilidades.mostrarDialogoTemporal("Base de datos", "Error al acceder a la tabla producto" + ex.getMessage(), 2000);
-        }
-
-        return productos;
-    }
-
-    public List<Producto> listarTodosLosProductos() {
 
         List<Producto> productos = new ArrayList<>();
 
@@ -339,15 +273,14 @@ public class ProductoData {
                 prod.setNombre(rs.getString("nombreProducto"));
                 prod.setPrecio(rs.getDouble("precio"));
                 prod.setStock(rs.getInt("stock"));
-                prod.setEstado(rs.getBoolean("estadoProducto"));
                 prod.setCategoria(rs.getString("categoria"));
                 productos.add(prod);
-
             }
 
             ps.close();
 
         } catch (SQLException ex) {
+            
             Utilidades.mostrarDialogoTemporal("Base de datos", "Error al acceder a la tabla producto" + ex.getMessage(), 2000);
         }
 
@@ -372,7 +305,6 @@ public class ProductoData {
                 prod.setNombre(rs.getString("nombreProducto"));
                 prod.setPrecio(rs.getDouble("precio"));
                 prod.setStock(rs.getInt("stock"));
-                prod.setEstado(rs.getBoolean("estadoProducto"));
                 prod.setCategoria(rs.getString("categoria"));
                 productos.add(prod);
 
@@ -381,6 +313,7 @@ public class ProductoData {
             ps.close();
 
         } catch (SQLException ex) {
+            
             Utilidades.mostrarDialogoTemporal("Base de datos", "Error al acceder a la tabla Productos" + ex.getMessage(), 2000);
         }
 
@@ -405,7 +338,6 @@ public class ProductoData {
                 prod.setNombre(rs.getString("nombreProducto"));
                 prod.setPrecio(rs.getDouble("precio"));
                 prod.setStock(rs.getInt("stock"));
-                prod.setEstado(rs.getBoolean("estadoProducto"));
                 prod.setCategoria(rs.getString("categoria"));
                 productos.add(prod);
 
@@ -438,7 +370,6 @@ public class ProductoData {
                 prod.setNombre(rs.getString("nombreProducto"));
                 prod.setPrecio(rs.getDouble("precio"));
                 prod.setStock(rs.getInt("stock"));
-                prod.setEstado(rs.getBoolean("estadoProducto"));
                 prod.setCategoria(rs.getString("categoria"));
                 productos.add(prod);
 
@@ -449,7 +380,6 @@ public class ProductoData {
         } catch (SQLException ex) {
 
             Utilidades.mostrarDialogoTemporal("Base de datos", "Error al acceder a la tabla Producto" + ex.getMessage(), 2000);
-
         }
 
         return productos;
@@ -473,7 +403,6 @@ public class ProductoData {
                 prod.setNombre(rs.getString("nombreProducto"));
                 prod.setPrecio(rs.getDouble("precio"));
                 prod.setStock(rs.getInt("stock"));
-                prod.setEstado(rs.getBoolean("estadoProducto"));
                 prod.setCategoria(rs.getString("categoria"));
                 productos.add(prod);
 
@@ -484,7 +413,6 @@ public class ProductoData {
         } catch (SQLException ex) {
 
             Utilidades.mostrarDialogoTemporal("Base de datos", "Error al acceder a la tabla producto" + ex.getMessage(), 2000);
-
         }
 
         return productos;
@@ -493,6 +421,7 @@ public class ProductoData {
     public Producto ObtenerPrductoId(int id) {
 
         Producto produ = new Producto();
+        
         try {
 
             String sql = "SELECT * FROM producto WHERE idProducto = ?";
@@ -506,9 +435,7 @@ public class ProductoData {
                 produ.setNombre(rs.getString("nombreProducto"));
                 produ.setPrecio(rs.getDouble("precio"));
                 produ.setStock(rs.getInt("stock"));
-                produ.setEstado(rs.getBoolean("estadoProducto"));
                 produ.setCategoria(rs.getString("categoria"));
-
             }
 
             ps.close();
@@ -516,7 +443,6 @@ public class ProductoData {
         } catch (SQLException ex) {
 
             Utilidades.mostrarDialogoTemporal("Base de datos", "Error al acceder a la tabla Producto" + ex.getMessage(), 2000);
-
         }
 
         return produ;
