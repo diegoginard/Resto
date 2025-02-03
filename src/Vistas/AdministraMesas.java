@@ -61,7 +61,7 @@ public class AdministraMesas extends JInternalFrame {
         jLabel2 = new javax.swing.JLabel();
         jTbuscar = new javax.swing.JTextField();
         jLbuscar = new javax.swing.JLabel();
-        jcElegir = new javax.swing.JComboBox<>();
+        jCelegir = new javax.swing.JComboBox<>();
         jBmodificar = new javax.swing.JButton();
         jBeliminar = new javax.swing.JButton();
         jBcrear = new javax.swing.JButton();
@@ -201,6 +201,7 @@ public class AdministraMesas extends JInternalFrame {
         jTbuscar.setForeground(new java.awt.Color(255, 255, 255));
         jTbuscar.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         jTbuscar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jTbuscar.setCaretColor(new java.awt.Color(255, 255, 255));
         jTbuscar.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTbuscarKeyReleased(evt);
@@ -214,16 +215,16 @@ public class AdministraMesas extends JInternalFrame {
         jLbuscar.setText("Buscar");
         getContentPane().add(jLbuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 270, 60, 20));
 
-        jcElegir.setBackground(new java.awt.Color(51, 51, 51));
-        jcElegir.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
-        jcElegir.setForeground(new java.awt.Color(255, 255, 255));
-        jcElegir.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "...........", "idMesa", "Numero", "Estado", "Sillas", "Activas", " " }));
-        jcElegir.addItemListener(new java.awt.event.ItemListener() {
+        jCelegir.setBackground(new java.awt.Color(51, 51, 51));
+        jCelegir.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
+        jCelegir.setForeground(new java.awt.Color(255, 255, 255));
+        jCelegir.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "...........", "idMesa", "Numero", "Estado", "Sillas", "Activas", " " }));
+        jCelegir.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                jcElegirItemStateChanged(evt);
+                jCelegirItemStateChanged(evt);
             }
         });
-        getContentPane().add(jcElegir, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 270, -1, -1));
+        getContentPane().add(jCelegir, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 270, -1, -1));
 
         jBmodificar.setBackground(new java.awt.Color(51, 51, 51));
         jBmodificar.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
@@ -299,7 +300,7 @@ public class AdministraMesas extends JInternalFrame {
         jLfondo.setForeground(new java.awt.Color(255, 255, 255));
         jLfondo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLfondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/AdministrarMesas.jpg"))); // NOI18N
-        getContentPane().add(jLfondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 510, 550));
+        getContentPane().add(jLfondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 510, 550));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -390,7 +391,7 @@ public class AdministraMesas extends JInternalFrame {
 
     private void jTbuscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTbuscarKeyReleased
 
-        String elegir = jcElegir.getSelectedItem() + "";
+        String elegir = jCelegir.getSelectedItem() + "";
         String buscar = jTbuscar.getText();
         
         switch(elegir){
@@ -432,16 +433,16 @@ public class AdministraMesas extends JInternalFrame {
         }
     }//GEN-LAST:event_jTbuscarKeyReleased
 
-    private void jcElegirItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jcElegirItemStateChanged
+    private void jCelegirItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCelegirItemStateChanged
         
-        if(jCestado.getSelectedIndex()!= 0){
+        if(jCelegir.getSelectedIndex()!= 0){
             
             jTbuscar.setEnabled(true);
             
         }else{
             jTbuscar.setEnabled(false);
         }
-    }//GEN-LAST:event_jcElegirItemStateChanged
+    }//GEN-LAST:event_jCelegirItemStateChanged
 
     private void jBrefrescarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBrefrescarActionPerformed
         
@@ -461,6 +462,7 @@ public class AdministraMesas extends JInternalFrame {
     private javax.swing.JButton jBlimpiar;
     private javax.swing.JButton jBmodificar;
     private javax.swing.JButton jBsalir;
+    private javax.swing.JComboBox<String> jCelegir;
     private javax.swing.JComboBox<String> jCestado;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -476,7 +478,6 @@ public class AdministraMesas extends JInternalFrame {
     private javax.swing.JTextField jTcapacidad;
     private javax.swing.JTextField jTid;
     private javax.swing.JTextField jTnumero;
-    private javax.swing.JComboBox<String> jcElegir;
     private javax.swing.JTable jtListaMesas;
     // End of variables declaration//GEN-END:variables
 
