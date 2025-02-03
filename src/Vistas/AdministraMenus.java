@@ -11,13 +11,13 @@ import javax.swing.table.*;
 
 
 public class AdministraMenus extends JInternalFrame {
-
+    
     public AdministraMenus() {
         
         initComponents();
         armarCabecera();
         cargarLista();
-  
+            
         // Desactiva la barra de título del JInternalFrame
         BasicInternalFrameUI ui = (BasicInternalFrameUI) getUI();
         ui.setNorthPane(null);
@@ -457,7 +457,7 @@ public class AdministraMenus extends JInternalFrame {
     private void jcBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcBuscarActionPerformed
         
         int index = jcBuscar.getSelectedIndex();
-        
+
         if (index == 4){
             
             jcCategoria2.setEnabled(true);
@@ -474,7 +474,7 @@ public class AdministraMenus extends JInternalFrame {
         cargarLista();
         int indice = jcBuscar.getSelectedIndex();
         
-        if(indice != 0){
+        if(indice != 0 && indice != 4){
             
             jtBuscar.setEnabled(true);
             
