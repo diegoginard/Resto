@@ -28,7 +28,7 @@ public class AdministraMenus extends JInternalFrame {
         jcCategoria2.setEnabled(false);
         jtId.setEnabled(false);
     }
-
+   
     private DefaultTableModel modelo = new DefaultTableModel(){
         
         @Override
@@ -314,8 +314,8 @@ public class AdministraMenus extends JInternalFrame {
         produ.setCategoria(jcCategoria.getSelectedItem()+"");
 
         pd.ModificarProducto(produ);
-        cargarLista();
-//        limpiar();       
+        limpiar();
+        cargarLista();           
     }//GEN-LAST:event_jbModificarActionPerformed
 
     private void jtBuscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtBuscarKeyReleased
@@ -346,7 +346,7 @@ public class AdministraMenus extends JInternalFrame {
             
             case 4:
                 
-                cargarListaCategoria();
+                cargarListaCategoria(buscar);
         }
     }//GEN-LAST:event_jtBuscarKeyReleased
 
@@ -440,11 +440,12 @@ public class AdministraMenus extends JInternalFrame {
     private void jcBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcBuscarActionPerformed
         
         int index = jcBuscar.getSelectedIndex();
-
+        String buscar = jtBuscar.getText();
+        
         if (index == 4){
             
             jcCategoria2.setEnabled(true);
-            cargarListaCategoria();
+            cargarListaCategoria(buscar);
             
         }else{
         
@@ -457,7 +458,7 @@ public class AdministraMenus extends JInternalFrame {
         cargarLista();
         int indice = jcBuscar.getSelectedIndex();
         
-        if(indice != 0 && indice != 4){
+        if(indice != 0){
             
             jtBuscar.setEnabled(true);
             
@@ -468,8 +469,9 @@ public class AdministraMenus extends JInternalFrame {
     }//GEN-LAST:event_jcBuscarItemStateChanged
 
     private void jcCategoria2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcCategoria2ActionPerformed
-
-        cargarListaCategoria();
+        
+        String buscar = jtBuscar.getText();
+        cargarListaCategoria(buscar);
     }//GEN-LAST:event_jcCategoria2ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -549,38 +551,33 @@ public class AdministraMenus extends JInternalFrame {
     private void cargarTablaMenu(List<Producto> lista) {
         
         for (Producto pro : lista) {
-            modelo.addRow(new Object[]{
-                pro.getIdProducto(),
-                pro.getNombre(),
-                pro.getPrecio(),
-                pro.getStock(),
-                pro.getCategoria()
-            });
+            modelo.addRow(new Object[]{pro.getIdProducto(), pro.getNombre(), pro.getPrecio(),
+                pro.getStock(), pro.getCategoria()});
         }
     }
     
-    private void cargarListaCategoria(){
+    private void cargarListaCategoria(String buscar){
         
-        int indice = jcCategoria2.getSelectedIndex();     
+        int indice = jcCategoria2.getSelectedIndex();
         
         if (indice == 0) {
             
             modelo.setRowCount(0);
-            List<Producto> buscarCategoria = pd.listarProdCateg(indice + 1);
+            List<Producto> buscarCategoria = pd.listarProdCategYnombre(indice + 1,buscar);
 
             cargarTablaMenu(buscarCategoria);
 
         } else if (indice == 1) {
             
             modelo.setRowCount(0);
-            List<Producto> buscarCategoria = pd.listarProdCateg(indice + 1);
+            List<Producto> buscarCategoria = pd.listarProdCategYnombre(indice + 1,buscar);
 
             cargarTablaMenu(buscarCategoria);
 
         } else if (indice == 2) {
             
             modelo.setRowCount(0);
-            List<Producto> buscarCategoria = pd.listarProdCateg(indice + 1);
+            List<Producto> buscarCategoria = pd.listarProdCategYnombre(indice + 1,buscar);
 
             cargarTablaMenu(buscarCategoria);
         }

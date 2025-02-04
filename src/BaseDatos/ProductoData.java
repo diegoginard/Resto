@@ -302,109 +302,13 @@ public class ProductoData {
         return productos;
     }
 
-    public List<Producto> BuscarCategComida(String buscar) {
-
-        List<Producto> productos = new ArrayList<>();
-
-        try {
-
-            String sql = "SELECT * FROM Producto WHERE categoria = 1 AND nombreProducto LIKE ?";
-            PreparedStatement ps = con.prepareStatement(sql);
-            ps.setString(1, buscar + "%"); // Configura el primer parámetro con el valor de búsqueda
-            ResultSet rs = ps.executeQuery();
-
-            while (rs.next()) {
-
-                Producto prod = new Producto();
-                prod.setIdProducto(rs.getInt("idProducto"));
-                prod.setNombre(rs.getString("nombreProducto"));
-                prod.setPrecio(rs.getDouble("precio"));
-                prod.setStock(rs.getInt("stock"));
-                prod.setCategoria(rs.getString("categoria"));
-                productos.add(prod);
-            }
-
-            ps.close();
-
-        } catch (SQLException ex) {
-
-            Utilidades.mostrarDialogoTemporal("Base de datos", "Error al acceder a la tabla Productos" + ex.getMessage(), 2000);
-        }
-
-        return productos;
-    }
-
-    public List<Producto> BuscarCategBebida(String buscar) {
-
-        List<Producto> productos = new ArrayList<>();
-
-        try {
-
-            String sql = "SELECT * FROM Producto WHERE categoria = 2 AND nombreProducto LIKE ?";
-            PreparedStatement ps = con.prepareStatement(sql);
-            ps.setString(1, buscar + "%"); // Configura el primer parámetro con el valor de búsqueda
-            ResultSet rs = ps.executeQuery();
-
-            while (rs.next()) {
-
-                Producto prod = new Producto();
-                prod.setIdProducto(rs.getInt("idProducto"));
-                prod.setNombre(rs.getString("nombreProducto"));
-                prod.setPrecio(rs.getDouble("precio"));
-                prod.setStock(rs.getInt("stock"));
-                prod.setCategoria(rs.getString("categoria"));
-                productos.add(prod);
-            }
-
-            ps.close();
-
-        } catch (SQLException ex) {
-
-            Utilidades.mostrarDialogoTemporal("Base de datos", "Error al acceder a la tabla Productos" + ex.getMessage(), 2000);
-        }
-
-        return productos;
-    }
-
-    public List<Producto> BuscarCategPostre(String buscar) {
-
-        List<Producto> productos = new ArrayList<>();
-
-        try {
-
-            String sql = "SELECT * FROM Producto WHERE categoria = 3 AND nombreProducto LIKE ?";
-            PreparedStatement ps = con.prepareStatement(sql);
-            ps.setString(1, buscar + "%"); // Configura el primer parámetro con el valor de búsqueda
-            ResultSet rs = ps.executeQuery();
-
-            while (rs.next()) {
-
-                Producto prod = new Producto();
-                prod.setIdProducto(rs.getInt("idProducto"));
-                prod.setNombre(rs.getString("nombreProducto"));
-                prod.setPrecio(rs.getDouble("precio"));
-                prod.setStock(rs.getInt("stock"));
-                prod.setCategoria(rs.getString("categoria"));
-                productos.add(prod);
-            }
-
-            ps.close();
-
-        } catch (SQLException ex) {
-
-            Utilidades.mostrarDialogoTemporal("Base de datos", "Error al acceder a la tabla Producto" + ex.getMessage(), 2000);
-        }
-
-        return productos;
-    }
-
     public List<Producto> listarProdCateg(int buscar) {
 
         List<Producto> productos = new ArrayList<>();
 
         try {
 
-            String sql = "SELECT * FROM producto WHERE categoria = ? ";
+            String sql = "SELECT * FROM producto WHERE categoria = ?";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, buscar); // Configura el primer parámetro con el valor de búsqueda
             ResultSet rs = ps.executeQuery();
@@ -418,7 +322,6 @@ public class ProductoData {
                 prod.setStock(rs.getInt("stock"));
                 prod.setCategoria(rs.getString("categoria"));
                 productos.add(prod);
-
             }
 
             ps.close();
@@ -430,6 +333,40 @@ public class ProductoData {
 
         return productos;
     }
+    
+    public List<Producto> listarProdCategYnombre(int id, String buscar) {
+
+        List<Producto> productos = new ArrayList<>();
+
+        try {
+
+            String sql = "SELECT * FROM producto WHERE categoria = ? AND nombreProducto LIKE ?";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, id); // Configura el primer parámetro con el valor de búsqueda
+            ps.setString(2, buscar + "%");
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+
+                Producto prod = new Producto();
+                prod.setIdProducto(rs.getInt("idProducto"));
+                prod.setNombre(rs.getString("nombreProducto"));
+                prod.setPrecio(rs.getDouble("precio"));
+                prod.setStock(rs.getInt("stock"));
+                prod.setCategoria(rs.getString("categoria"));
+                productos.add(prod);
+            }
+
+            ps.close();
+
+        } catch (SQLException ex) {
+
+            Utilidades.mostrarDialogoTemporal("Base de datos", "Error al acceder a la tabla producto" + ex.getMessage(), 2000);
+        }
+
+        return productos;
+    }
+
 
     public Producto ObtenerPrductoId(int id) {
 

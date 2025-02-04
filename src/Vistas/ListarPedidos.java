@@ -532,6 +532,7 @@ public class ListarPedidos extends JInternalFrame {
     }
     
      // Agregar cada objeto Mozo al JComboBox
+    @SuppressWarnings("unchecked")
     private void cargarSpinerMozos(JComboBox jCombo) {
 
         List <Mozo> mozos = mozoDat.listarMozos();

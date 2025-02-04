@@ -1219,39 +1219,38 @@ public class restoView extends javax.swing.JInternalFrame {
         modelo4.addColumn("Estado");
         jtEstadoMesas.setModel(modelo4);
     }
-    
+
     private void cargarMesas() {
 
-        jcMesas.removeAllItems();
-        List<Mesa> cblistarMesas = md.listarMesasLibres();
-        jcMesas.setRenderer(renderer);
-        
-        for (int i = 0; i < cblistarMesas.size(); i++) {
+        jcMesas.removeAllItems(); // Limpiar los elementos actuales del combo box
+        List<Mesa> mesas = md.listarMesasLibres(); // Obtener la lista de mesas libres
+        jcMesas.setRenderer(renderer); // Establecer el renderer personalizado
 
-            jcMesas.addItem(new Mesa(cblistarMesas.get(i).getIdMesa(), cblistarMesas.get(i).getNumero(), cblistarMesas.get(i).getEstadoMesa(), cblistarMesas.get(i).getCapacidad(),
-                    cblistarMesas.get(i).isActivo()));
-
+        // Iterar sobre la lista de mesas y agregar cada una al combo box
+        for (Mesa mesa : mesas) {
+            jcMesas.addItem(new Mesa(mesa.getIdMesa(), mesa.getNumero(), mesa.getEstadoMesa(),
+                    mesa.getCapacidad(), mesa.isActivo()));
         }
     }
 
     private void cargarProducto() {
 
         modelo3.setRowCount(0);
-        List<Producto> producto = proDat.listarProductos();
+        List<Producto> productos = proDat.listarProductos();
 
-        for (Producto pro : producto) {
+        for (Producto pro : productos) {
 
-            modelo3.addRow(new Object[]{pro.getIdProducto(),pro.getNombre(), pro.getPrecio(), pro.getCategoria(), pro.getStock()});
-
+            modelo3.addRow(new Object[]{pro.getIdProducto(),pro.getNombre(), pro.getPrecio(),
+                pro.getCategoria(), pro.getStock()});
         }
     }
     
     private void cargarProductoAcobrar(int id){
         
         modelo6.setRowCount(0);
-        List<Producto> producto = proDat.BuscarProductosXidPedido(id);
+        List<Producto> productos = proDat.BuscarProductosXidPedido(id);
 
-        for (Producto pro : producto) {
+        for (Producto pro : productos) {
 
             modelo6.addRow(new Object[]{pro.getNombre(), pro.getPrecio()});
         }
@@ -1290,20 +1289,6 @@ public class restoView extends javax.swing.JInternalFrame {
 
         modelo1.setRowCount(0);
         List<Pedido> pedido = pedidoDat.listarPedidosEstadoPendiente();
-
-        for (Pedido pe : pedido) {
-
-            modelo1.addRow(new Object[]{pe.getIdPedido(), pe.getMesa().getNumero(),
-                pe.getMozo(), pe.getFechaHora(),pe.isCobrada(),pe.getImporte(), pe.getEstado()});
-
-        }   
-    }
-    
-     private void cargarPedidoPedienteId(int id) {
-
-        modelo1.setRowCount(0);
-        
-        List<Pedido> pedido = pedidoDat.listarPedidosMesaPendientes(id);
 
         for (Pedido pe : pedido) {
 
@@ -1415,6 +1400,7 @@ public class restoView extends javax.swing.JInternalFrame {
         }
     }
 
+    @SuppressWarnings("unchecked")
     private void cargarSpinerMozos(JComboBox jCombo) {
 
         List<Mozo> mozos = mozoDat.listarMozos();
@@ -1424,6 +1410,7 @@ public class restoView extends javax.swing.JInternalFrame {
         }
     }
     
+    @SuppressWarnings("unchecked")
     private void cargarSpinerMesasConPedidos(JComboBox jCombo) {
         
         List<Mesa> mesas = md.listarMesasConPedidoEntregado();  
