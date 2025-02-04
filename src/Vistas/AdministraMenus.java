@@ -315,7 +315,7 @@ public class AdministraMenus extends JInternalFrame {
 
         pd.ModificarProducto(produ);
         cargarLista();
-        limpiar();       
+//        limpiar();       
     }//GEN-LAST:event_jbModificarActionPerformed
 
     private void jtBuscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtBuscarKeyReleased
@@ -329,24 +329,19 @@ public class AdministraMenus extends JInternalFrame {
             case 1:
 
                 List<Producto> buscarNombre = pd.BuscarProductosNombre(buscar);
-
                 cargarTablaMenu(buscarNombre);
                 break;
 
             case 2:
 
                 List<Producto> buscarPrecio = pd.BuscarProductosPrecio(buscar);
-
                 cargarTablaMenu(buscarPrecio);
-                
                 break;
             
             case 3:
                 
                 List<Producto> buscarStock = pd.BuscarProductoStock(buscar);
-                
                 cargarTablaMenu(buscarStock);
-                
                 break;
             
             case 4:
@@ -364,6 +359,7 @@ public class AdministraMenus extends JInternalFrame {
             produ.setStock(Integer.parseInt(jtStock.getText()));
 
             int categ = jcCategoria.getSelectedIndex();
+            
             if (categ == 0) {
 
                 Utilidades.mostrarDialogoTemporal("Menus", "Seleccione una categoria", 2000);
@@ -551,6 +547,7 @@ public class AdministraMenus extends JInternalFrame {
     }
 
     private void cargarTablaMenu(List<Producto> lista) {
+        
         for (Producto pro : lista) {
             modelo.addRow(new Object[]{
                 pro.getIdProducto(),
