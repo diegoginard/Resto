@@ -61,17 +61,17 @@ public class MesaData {
 
     public void modificarMesa(Mesa mesa) {
         
-        String sql = "UPDATE mesa SET idMesa = ?, numero = ?, estadoMesa = ?, capacidad = ?, activo = ? WHERE idMesa = ?";
+        String sql = "UPDATE mesa SET numero = ?, estadoMesa = ?, capacidad = ?, activo = ? WHERE idMesa = ?";
 
         try {
             PreparedStatement ps = con.prepareStatement(sql);
 
-            ps.setInt(1, mesa.getIdMesa());
-            ps.setInt(2, mesa.getNumero());
-            ps.setString(3, mesa.getEstadoMesa());
-            ps.setInt(4, mesa.getCapacidad());
-            ps.setBoolean(5, mesa.isActivo());
-            ps.setInt(6, mesa.getIdMesa());
+            
+            ps.setInt(1, mesa.getNumero());
+            ps.setString(2, mesa.getEstadoMesa());
+            ps.setInt(3, mesa.getCapacidad());
+            ps.setBoolean(4, mesa.isActivo());
+            ps.setInt(5, mesa.getIdMesa());
 
             int exito = ps.executeUpdate();
 
@@ -426,6 +426,7 @@ public class MesaData {
             ps.close();
             
         } catch (SQLException ex) {
+            
             Utilidades.mostrarDialogoTemporal("Base de datos", "Error al buscar mesas por activo: " + ex.getMessage(), 2000);
         }
 

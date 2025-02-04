@@ -4,8 +4,8 @@ package Vistas;
 import BaseDatos.ProductoData;
 import Entidades.Producto;
 import java.awt.event.KeyEvent;
-import java.util.*;
-import javax.swing.*;
+import java.util.List;
+import javax.swing.JInternalFrame;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 import javax.swing.table.*;
 
@@ -27,7 +27,6 @@ public class AdministraMenus extends JInternalFrame {
         jtBuscar.setEnabled(false);
         jcCategoria2.setEnabled(false);
         jtId.setEnabled(false);
-        
     }
 
     private DefaultTableModel modelo = new DefaultTableModel(){
@@ -79,16 +78,6 @@ public class AdministraMenus extends JInternalFrame {
         jtId.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
         jtId.setForeground(new java.awt.Color(255, 255, 255));
         jtId.setCaretColor(new java.awt.Color(255, 255, 255));
-        jtId.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jtIdMouseClicked(evt);
-            }
-        });
-        jtId.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jtIdKeyTyped(evt);
-            }
-        });
         getContentPane().add(jtId, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 50, 38, -1));
 
         jLabel6.setFont(new java.awt.Font("Roboto Medium", 1, 18)); // NOI18N
@@ -326,8 +315,7 @@ public class AdministraMenus extends JInternalFrame {
 
         pd.ModificarProducto(produ);
         cargarLista();
-        limpiar();
-        
+        limpiar();       
     }//GEN-LAST:event_jbModificarActionPerformed
 
     private void jtBuscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtBuscarKeyReleased
@@ -378,7 +366,7 @@ public class AdministraMenus extends JInternalFrame {
             int categ = jcCategoria.getSelectedIndex();
             if (categ == 0) {
 
-                JOptionPane.showMessageDialog(rootPane, "Seleccione una categoria");
+                Utilidades.mostrarDialogoTemporal("Menus", "Seleccione una categoria", 2000);
 
             } else {
                 produ.setCategoria(jcCategoria.getSelectedItem() + "");
@@ -388,14 +376,9 @@ public class AdministraMenus extends JInternalFrame {
 
         } catch (NumberFormatException ex) {
 
-            JOptionPane.showMessageDialog(rootPane, "Debe rellenar todos los campos ");
+            Utilidades.mostrarDialogoTemporal("Menus", "Debe rellenar todos los campos ", 2000);
         }
     }//GEN-LAST:event_jbCrearActionPerformed
-
-    private void jtIdKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtIdKeyTyped
-
-        soloNumeros(evt);
-    }//GEN-LAST:event_jtIdKeyTyped
 
     private void jtStockKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtStockKeyTyped
 
@@ -445,7 +428,7 @@ public class AdministraMenus extends JInternalFrame {
             
             if (pd.eliminarProducto(id) == 1){
                 
-                JOptionPane.showMessageDialog(rootPane, "Menu eliminado"); 
+                Utilidades.mostrarDialogoTemporal("Menus", "Menu eliminado", 2000); 
                 limpiar();
             }
             
@@ -454,14 +437,9 @@ public class AdministraMenus extends JInternalFrame {
 
         } catch (NumberFormatException ex) {
 
-            JOptionPane.showMessageDialog(rootPane, "Ingrese un numero de ID");
+            Utilidades.mostrarDialogoTemporal("Menus", "Ingrese un numero de ID", 2000);
         }
     }//GEN-LAST:event_jbBorrarActionPerformed
-
-    private void jtIdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtIdMouseClicked
-
-        jbBorrar.setEnabled(true);
-    }//GEN-LAST:event_jtIdMouseClicked
 
     private void jcBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcBuscarActionPerformed
         
@@ -553,7 +531,7 @@ public class AdministraMenus extends JInternalFrame {
             getToolkit().beep();
             evt.consume();
             
-            JOptionPane.showMessageDialog(rootPane, "Ingrese solo numeros");           
+            Utilidades.mostrarDialogoTemporal("Menus", "Ingrese solo numeros", 2000);           
         }
     }
 

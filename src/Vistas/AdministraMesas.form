@@ -345,7 +345,7 @@
             <StringItem index="1" value="Numero"/>
             <StringItem index="2" value="Estado"/>
             <StringItem index="3" value="Sillas"/>
-            <StringItem index="4" value="Activas"/>
+            <StringItem index="4" value=" "/>
             <StringItem index="5" value=" "/>
           </StringArray>
         </Property>
@@ -386,7 +386,7 @@
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="150" y="220" width="90" height="30"/>
+          <AbsoluteConstraints x="150" y="210" width="90" height="30"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -417,7 +417,7 @@
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="260" y="220" width="90" height="30"/>
+          <AbsoluteConstraints x="260" y="210" width="90" height="30"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -448,7 +448,7 @@
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="40" y="220" width="90" height="30"/>
+          <AbsoluteConstraints x="40" y="210" width="90" height="30"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -514,7 +514,7 @@
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="370" y="220" width="90" height="30"/>
+          <AbsoluteConstraints x="370" y="210" width="90" height="30"/>
         </Constraint>
       </Constraints>
     </Component>

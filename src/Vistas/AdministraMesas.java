@@ -188,7 +188,7 @@ public class AdministraMesas extends JInternalFrame {
         jCelegir.setBackground(new java.awt.Color(51, 51, 51));
         jCelegir.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
         jCelegir.setForeground(new java.awt.Color(255, 255, 255));
-        jCelegir.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "...........", "Numero", "Estado", "Sillas", "Activas", " " }));
+        jCelegir.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "...........", "Numero", "Estado", "Sillas", " ", " " }));
         jCelegir.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 jCelegirItemStateChanged(evt);
@@ -207,7 +207,7 @@ public class AdministraMesas extends JInternalFrame {
                 jBmodificarActionPerformed(evt);
             }
         });
-        getContentPane().add(jBmodificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 220, 90, 30));
+        getContentPane().add(jBmodificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 210, 90, 30));
 
         jBeliminar.setBackground(new java.awt.Color(51, 51, 51));
         jBeliminar.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
@@ -221,7 +221,7 @@ public class AdministraMesas extends JInternalFrame {
                 jBeliminarActionPerformed(evt);
             }
         });
-        getContentPane().add(jBeliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 220, 90, 30));
+        getContentPane().add(jBeliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 210, 90, 30));
 
         jBcrear.setBackground(new java.awt.Color(51, 51, 51));
         jBcrear.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
@@ -235,7 +235,7 @@ public class AdministraMesas extends JInternalFrame {
                 jBcrearActionPerformed(evt);
             }
         });
-        getContentPane().add(jBcrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 90, 30));
+        getContentPane().add(jBcrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 90, 30));
 
         jBrefrescar.setBackground(new java.awt.Color(51, 51, 51));
         jBrefrescar.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
@@ -263,7 +263,7 @@ public class AdministraMesas extends JInternalFrame {
                 jBlimpiarActionPerformed(evt);
             }
         });
-        getContentPane().add(jBlimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 220, 90, 30));
+        getContentPane().add(jBlimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 210, 90, 30));
 
         jLfondo.setBackground(new java.awt.Color(51, 51, 51));
         jLfondo.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
@@ -317,10 +317,10 @@ public class AdministraMesas extends JInternalFrame {
 
         int fila = jtListaMesas.getSelectedRow();
 
-        jTnumero.setText(jtListaMesas.getValueAt(fila, 0)+"");
-        jCestado.setSelectedItem(jtListaMesas.getValueAt(fila, 1));
-        jTcapacidad.setText(jtListaMesas.getValueAt(fila, 2)+"");
-        jRactivo.setSelected((boolean) jtListaMesas.getValueAt(fila, 3));
+        jTnumero.setText(jtListaMesas.getValueAt(fila, 1)+"");
+        jCestado.setSelectedItem(jtListaMesas.getValueAt(fila, 2));
+        jTcapacidad.setText(jtListaMesas.getValueAt(fila, 3)+"");
+        jRactivo.setSelected((boolean) jtListaMesas.getValueAt(fila, 4));
         
         jBcrear.setEnabled(false);
         jBmodificar.setEnabled(true);
@@ -360,11 +360,6 @@ public class AdministraMesas extends JInternalFrame {
             case "Sillas":
                 
                 mesasxSillas(buscar);
-                break;
-                
-            case "Activas":
-                
-                mesasActivas(buscar);
                 break;
                 
             case "Estado":
@@ -432,7 +427,7 @@ public class AdministraMesas extends JInternalFrame {
     }
     
     private void armarCabecera() {
-
+        modelo.addColumn("idMesa");
         modelo.addColumn("Numero");
         modelo.addColumn("EstadoMesa");
         modelo.addColumn("Capacidad");
@@ -454,8 +449,7 @@ public class AdministraMesas extends JInternalFrame {
     }
 
     private void limpiarForm() {
-
-        
+   
         jTnumero.setText(null);
         jCestado.setSelectedIndex(0);
         jTcapacidad.setText(null);
@@ -489,20 +483,15 @@ public class AdministraMesas extends JInternalFrame {
         cargarTablaMesa(mesa);
     }
 
-    private void mesasActivas(String buscar) {
-
-        modelo.setRowCount(0);
-        List<Mesa> mesa = md.BuscarMesasActivo(buscar);
-
-        cargarTablaMesa(mesa);
-    }
-
     private Mesa obtenerMesaDelForm() {
 
         Mesa mesa = new Mesa();
 
         if (!jTcapacidad.getText().isEmpty() && !jTnumero.getText().isEmpty() && jCestado.getSelectedIndex() != 0) {
-
+            
+            int fila = jtListaMesas.getSelectedRow();
+            int id = (int) jtListaMesas.getValueAt(fila, 0);
+            mesa.setIdMesa(id);
             mesa.setCapacidad(Integer.parseInt(jTcapacidad.getText()));
             mesa.setNumero(Integer.parseInt(jTnumero.getText()));
             mesa.setEstadoMesa(jCestado.getSelectedIndex() + "");
@@ -522,7 +511,7 @@ public class AdministraMesas extends JInternalFrame {
 
         for (Mesa me : mesa) {
 
-            modelo.addRow(new Object[]{me.getNumero(),
+            modelo.addRow(new Object[]{me.getIdMesa(), me.getNumero(),
                 me.getEstadoMesa(), me.getCapacidad(), me.isActivo()});
         }
     }
