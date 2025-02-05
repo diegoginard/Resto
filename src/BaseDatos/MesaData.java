@@ -11,6 +11,7 @@ public class MesaData {
     private Connection con = null;
 
     public MesaData() {
+        
         con = Conexion.getConexion();
     }
 
