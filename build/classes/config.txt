@@ -1,7 +1,0 @@
-#Configuración de la conexión a la base de datos
-#Wed Jan 01 00:47:07 ART 2025
-PASSWORD=admin
-DRIVER=com.mysql.cj.jdbc.Driver
-URL=jdbc\:mysql\://localhost\:3306/
-DB=resto
-USUARIO=root

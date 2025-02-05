@@ -20,6 +20,7 @@ public class MesaData {
         String sql = "INSERT INTO mesa(numero, estadoMesa, capacidad,activo) VALUES (?,?,?,?)";
 
         try {
+            
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             ps.setInt(1, mesa.getNumero());
             ps.setString(2, mesa.getEstadoMesa());
