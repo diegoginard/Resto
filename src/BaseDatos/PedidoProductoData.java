@@ -21,7 +21,6 @@ public class PedidoProductoData {
     public PedidoProductoData(){
     
         con = Conexion.getConexion();
-    
     }
 
     public void crearPedProd(PedidoProducto pedprod) {
@@ -47,16 +46,19 @@ public class PedidoProductoData {
             ResultSet rs = ps.getGeneratedKeys();
             
              if (rs.next()) {
+                 
                 pedprod.setIdPedidoProducto(rs.getInt(1));
             }
 
             ps.close();
 
             } else {
+                
                 Utilidades.mostrarDialogoTemporal("Base de datos", "Pedido cobrado, debe generar uno nuevo", 2000);   
             }
 
         } catch (SQLException ex) {
+            
             Utilidades.mostrarDialogoTemporal("Base de datos", "Error al acceder a la tabla PedidoProducto " + ex.getMessage(), 2000);
         }
     }
@@ -82,18 +84,18 @@ public class PedidoProductoData {
                 pedpro.setImporte(rs.getDouble("importe"));
                 pedpro.setEstado(rs.getBoolean("estado"));
                 Pedidos.add(pedpro);
-            
             }
             
             ps.close();
 
         }catch (SQLException ex) {
+            
             Utilidades.mostrarDialogoTemporal("Base de datos", "Error al acceder a la tabla PedidoProducto " + ex.getMessage(), 2000);
         }
 
-        return Pedidos;
-        
+        return Pedidos;       
     }
+    
     public void eliminarPedidoProducto(int id) {
 
         String sql = "DELETE FROM pedidoproducto WHERE idPedidoProducto = ?";
@@ -106,15 +108,17 @@ public class PedidoProductoData {
             
             if(exito >= 1){
                 
-                Utilidades.mostrarDialogoTemporal("Base de datos", "Producto Eliminado", 2000);
+//                Utilidades.mostrarDialogoTemporal("Base de datos", "Producto Eliminado", 2000);
             
-            }else{              
+            }else{   
+                
                 Utilidades.mostrarDialogoTemporal("Base de datos", "No se encontro el producto", 2000);
             }
             
             ps.close();
             
-        } catch (SQLException ex) {           
+        } catch (SQLException ex) {       
+            
             Utilidades.mostrarDialogoTemporal("Base de datos", "Error al acceder a la tabla PedidoProducto " + ex.getMessage(), 2000);
         }
     }
