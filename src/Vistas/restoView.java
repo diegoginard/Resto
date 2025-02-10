@@ -48,6 +48,8 @@ public class restoView extends javax.swing.JInternalFrame {
         cargarSpinerMozos(jCmozo);
         jbCobrar.setEnabled(false);
         jIFproductosDelPedido.setVisible(false);
+        jbEntregar.setEnabled(false);
+        jbCancelar.setEnabled(false);
 
         // Desactiva la barra de título del JInternalFrame
         BasicInternalFrameUI ui = (BasicInternalFrameUI) getUI();
@@ -896,7 +898,6 @@ public class restoView extends javax.swing.JInternalFrame {
                 proDat.ModificarProducto(producto);
                 cargarPedidoProducto(idPedido);
                 pedido.setImporte(Double.parseDouble(jtTotal.getText()));
-                System.out.println(pedido);
                 pedidoDat.modificarImportePedido(pedido);
                 cargarProducto();
                 int nMesa = Integer.parseInt(jlMesa.getText());
@@ -1036,7 +1037,9 @@ public class restoView extends javax.swing.JInternalFrame {
     private void jtPedidosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtPedidosMouseClicked
 
         clickCount += 1;
-
+        jbEntregar.setEnabled(true);
+        jbCancelar.setEnabled(true);
+        
         if (clickCount > 1) {
 
             ventanas.setSelectedIndex(2);
@@ -1307,7 +1310,6 @@ public class restoView extends javax.swing.JInternalFrame {
 
             modelo1.addRow(new Object[]{pe.getIdPedido(), pe.getMesa().getNumero(),
                 pe.getMozo(), pe.getFechaHora(), pe.isCobrada(), pe.getImporte(), pe.getEstado()});
-
         }
     }
 
@@ -1320,6 +1322,38 @@ public class restoView extends javax.swing.JInternalFrame {
 
             modelo5.addRow(new Object[]{pe.getIdPedido(), pe.getMesa().getNumero(),
                 pe.getMozo(), pe.getFechaHora(), pe.isCobrada(), pe.getImporte(), pe.getEstado()});
+        }
+    }
+    
+     private void CargarEstadoMesas() {
+
+        modelo4.setRowCount(0);
+        List<Mesa> mesas = md.listarTodasLasMesas();
+
+        for (Mesa me : mesas) {
+            
+            modelo4.addRow(new Object[]{me.getNumero(), me.getEstadoMesa()});
+        }
+
+        for (int i = 0; i < modelo4.getColumnCount(); i++) {
+            
+            jtEstadoMesas.getColumnModel().getColumn(i).setCellRenderer(new ajustarCeldas());
+        }
+    }
+
+    private void CargarMesasConPedido() {
+
+        modelo4.setRowCount(0);
+        List<Mesa> mesas = md.listarMesasConPedido();
+
+        for (Mesa me : mesas) {
+            
+            modelo4.addRow(new Object[]{me.getNumero(), me.getEstadoMesa()});
+        }
+
+        for (int i = 0; i < modelo4.getColumnCount(); i++) {
+            
+            jtEstadoMesas.getColumnModel().getColumn(i).setCellRenderer(new ajustarCeldas());
         }
     }
 
@@ -1372,44 +1406,18 @@ public class restoView extends javax.swing.JInternalFrame {
 
             // Si el estado de la mesa es "OCUPADO", cambia el fondo a rojo y el texto a blanco.
             if ("OCUPADO".equals(Estado)) {
+                
                 c.setBackground(Color.RED);
                 c.setForeground(Color.WHITE);
             } // Si el estado no es "OCUPADO", establece el fondo a verde y el texto a blanco.
             else {
+                
                 c.setBackground(Color.GREEN);
                 c.setForeground(Color.BLACK);
             }
 
             // Devuelve el componente con los cambios aplicados.
             return c;
-        }
-    }
-
-    private void CargarEstadoMesas() {
-
-        modelo4.setRowCount(0);
-        List<Mesa> mesas = md.listarTodasLasMesas();
-
-        for (Mesa me : mesas) {
-            modelo4.addRow(new Object[]{me.getNumero(), me.getEstadoMesa()});
-        }
-
-        for (int i = 0; i < modelo4.getColumnCount(); i++) {
-            jtEstadoMesas.getColumnModel().getColumn(i).setCellRenderer(new ajustarCeldas());
-        }
-    }
-
-    private void CargarMesasConPedido() {
-
-        modelo4.setRowCount(0);
-        List<Mesa> mesas = md.listarMesasConPedido();
-
-        for (Mesa me : mesas) {
-            modelo4.addRow(new Object[]{me.getNumero(), me.getEstadoMesa()});
-        }
-
-        for (int i = 0; i < modelo4.getColumnCount(); i++) {
-            jtEstadoMesas.getColumnModel().getColumn(i).setCellRenderer(new ajustarCeldas());
         }
     }
 
@@ -1427,9 +1435,10 @@ public class restoView extends javax.swing.JInternalFrame {
     private void cargarSpinerMesasConPedidos(JComboBox jCombo) {
 
         List<Mesa> mesas = md.listarMesasConPedidoEntregado();
-
         jCombo.removeAllItems();
+        
         for (Mesa mesa : mesas) {
+            
             jCombo.addItem(mesa);
         }
     }
