@@ -1,6 +1,5 @@
 package BaseDatos;
 
-import Entidades.Mozo;
 import Entidades.Pedido;
 import Vistas.Utilidades;
 import java.sql.*;
@@ -75,6 +74,7 @@ public class PedidoData {
             ps.close();
 
         } catch (SQLException ex) {
+            
             Utilidades.mostrarDialogoTemporal("Base de datos", "Error al guardar el Pedido" + ex.getMessage(), 2000);
         }
     }
@@ -92,6 +92,7 @@ public class PedidoData {
             ps.close();
 
         } catch (SQLException ex) {
+            
             Utilidades.mostrarDialogoTemporal("Base de datos", "Error al eliminar el Pedido" + ex.getMessage(), 2000);
         }
     }
@@ -172,7 +173,6 @@ public class PedidoData {
                 ped.setCobrada(rs.getBoolean("cobrada"));
                 ped.setImporte(rs.getDouble("importe"));
                 ped.setEstado(rs.getString("Estado"));
-
             }
 
             ps.close();
@@ -271,12 +271,6 @@ public class PedidoData {
         String sql = "SELECT * FROM Pedido WHERE idMozo LIKE ?";
         return buscarPedidos(sql, idMozo);
     }
-
-//    public List<Pedido> listarPedidoFecha(LocalDate fecha) {
-//
-//        String sql = "SELECT * FROM Pedido WHERE fechaHora= ? ";
-//        return buscarPedidos(sql, fecha);
-//    }
 
     public List<Pedido> listarPedidoFechaDia(LocalDateTime fechad) {
 
