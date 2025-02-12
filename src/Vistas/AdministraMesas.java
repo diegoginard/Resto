@@ -102,7 +102,7 @@ public class AdministraMesas extends JInternalFrame {
 
         jCestado.setBackground(new java.awt.Color(51, 51, 51));
         jCestado.setForeground(new java.awt.Color(255, 255, 255));
-        jCestado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "..........", "LIBRE", "OCUPADO", " " }));
+        jCestado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "..........", "LIBRE", "OCUPADO", "" }));
         getContentPane().add(jCestado, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 120, 91, -1));
 
         jLabel1.setBackground(new java.awt.Color(0, 0, 0));
@@ -338,11 +338,15 @@ public class AdministraMesas extends JInternalFrame {
     }//GEN-LAST:event_jTnumeroKeyTyped
 
     private void jBmodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBmodificarActionPerformed
+
+        Mesa mesa = obtenerMesaDelForm();
         
-        md.modificarMesa(obtenerMesaDelForm());
-      
-        limpiarForm();
-        cargarLista();       
+        if (mesa != null) {
+            
+            md.modificarMesa(mesa);
+            limpiarForm();
+            cargarLista();
+        }
     }//GEN-LAST:event_jBmodificarActionPerformed
 
     private void jTbuscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTbuscarKeyReleased
@@ -425,14 +429,22 @@ public class AdministraMesas extends JInternalFrame {
 
         cargarTablaMesa(mesa);
     }
-    
+   
     private void armarCabecera() {
+        
         modelo.addColumn("idMesa");
         modelo.addColumn("Numero");
         modelo.addColumn("EstadoMesa");
         modelo.addColumn("Capacidad");
         modelo.addColumn("Activo");
         jtListaMesas.setModel(modelo);
+
+        // Ocultar la columna "idMesa" (índice 0)
+        TableColumn column = jtListaMesas.getColumnModel().getColumn(0);
+        column.setMinWidth(0);
+        column.setMaxWidth(0);
+        column.setWidth(0);
+        column.setResizable(false);
     }
 
     private void soloNumeros(KeyEvent evt) {
@@ -509,10 +521,17 @@ public class AdministraMesas extends JInternalFrame {
 
     private void cargarTablaMesa(List<Mesa> mesa) {
 
-        for (Mesa me : mesa) {
+        if (mesa != null) {
 
-            modelo.addRow(new Object[]{me.getIdMesa(), me.getNumero(),
-                me.getEstadoMesa(), me.getCapacidad(), me.isActivo()});
+            for (Mesa me : mesa) {
+
+                modelo.addRow(new Object[]{me.getIdMesa(), me.getNumero(),
+                    me.getEstadoMesa(), me.getCapacidad(), me.isActivo()});
+            }
+
+        } else {
+
+            Utilidades.mostrarDialogoTemporal("Administrador de Mesas", "No se encontraron mesas", 2000);
         }
     }
 }

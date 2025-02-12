@@ -97,7 +97,7 @@
             <StringItem index="0" value=".........."/>
             <StringItem index="1" value="LIBRE"/>
             <StringItem index="2" value="OCUPADO"/>
-            <StringItem index="3" value=" "/>
+            <StringItem index="3" value=""/>
           </StringArray>
         </Property>
       </Properties>

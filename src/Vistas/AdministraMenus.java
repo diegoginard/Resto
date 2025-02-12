@@ -509,7 +509,7 @@ public class AdministraMenus extends JInternalFrame {
 
         cargarTablaMenu(menus);
     }
-    
+
     private void armarCabecera() {
 
         modelo.addColumn("IProducto");
@@ -518,12 +518,19 @@ public class AdministraMenus extends JInternalFrame {
         modelo.addColumn("Stock");
         modelo.addColumn("Categoria");
         jtListaMenu.setModel(modelo);
+
+        // Ocultar la columna "idMesa" (índice 0)
+        TableColumn column = jtListaMenu.getColumnModel().getColumn(0);
+        column.setMinWidth(0);
+        column.setMaxWidth(0);
+        column.setWidth(0);
+        column.setResizable(false);
     }
-    
-    private void soloNumeros(KeyEvent evt){
-        
+
+    private void soloNumeros(KeyEvent evt) {
+
         char validar = evt.getKeyChar();
-        
+
         if(Character.isLetter(validar)){
             
             getToolkit().beep();
