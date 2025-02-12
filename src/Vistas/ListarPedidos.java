@@ -21,6 +21,7 @@ import javax.swing.JSpinner;
 import javax.swing.SpinnerDateModel;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumn;
 
 public class ListarPedidos extends JInternalFrame {
 
@@ -314,7 +315,8 @@ public class ListarPedidos extends JInternalFrame {
 
             LocalDate fecha = jdMDia.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
             Mozo mozo = (Mozo) jCmozoXdia.getSelectedItem();
-            pedidoMeseroDia(mozo, fecha);
+            int idMozo = mozo.getIdMozo();
+            pedidoMeseroDia(idMozo, fecha);
         }
     }//GEN-LAST:event_jbBuscarActionPerformed
 
@@ -390,7 +392,8 @@ public class ListarPedidos extends JInternalFrame {
 
     // Configura las columnas del modelo de la tabla 'jtPedido'.
     private void armarCabecera() {
-
+        
+        modelo.addColumn("idPedido");
         modelo.addColumn("NºMesa");
         modelo.addColumn("Mozo");
         modelo.addColumn("FechaHora");
@@ -398,6 +401,12 @@ public class ListarPedidos extends JInternalFrame {
         modelo.addColumn("Importe");
         modelo.addColumn("Estado");
         jtPedido.setModel(modelo);
+        
+        TableColumn column = jtPedido.getColumnModel().getColumn(0);
+        column.setMinWidth(0);
+        column.setMaxWidth(0);
+        column.setWidth(0);
+        column.setResizable(false);
     }
     
     // Carga todos los pedidos en la tabla desde la base de datos y calcula el ingreso total.
@@ -409,7 +418,7 @@ public class ListarPedidos extends JInternalFrame {
 
         for (Pedido pe : pedidos) {
 
-            modelo.addRow(new Object[]{pe.getMesa().getNumero(),pe.getMozo(), pe.getFechaHora(), 
+            modelo.addRow(new Object[]{pe.getIdPedido(), pe.getMesa().getNumero(), pe.getMozo(), pe.getFechaHora(), 
                 pe.isCobrada(), pe.getImporte(), pe.getEstado()});
         }
     }
@@ -423,7 +432,7 @@ public class ListarPedidos extends JInternalFrame {
         List<Pedido> pedidos = pd.listarPedidoMesero(idMozo);
         for (Pedido pe : pedidos) {
 
-            modelo.addRow(new Object[]{pe.getMesa().getNumero(),
+            modelo.addRow(new Object[]{pe.getIdPedido(), pe.getMesa().getNumero(),
                 pe.getMozo(), pe.getFechaHora(), pe.isCobrada(), pe.getImporte(), pe.getEstado()});
             total += pe.getImporte();
         }
@@ -449,11 +458,12 @@ public class ListarPedidos extends JInternalFrame {
     }
     
     // Filtra y muestra los pedidos realizados por un mesero en un día específico, y calcula el ingreso total.
-    private void pedidoMeseroDia(Mozo mozo, LocalDate fecha) {
+    private void pedidoMeseroDia(int idMozo, LocalDate fecha) {
 
         double total = 0.0;
         modelo.setRowCount(0);
-        List<Pedido> pedido = pd.listarPedidosCobradosPorMeseroEnElDia(mozo, fecha);
+
+        List<Pedido> pedido = pd.listarPedidosCobradosPorMeseroEnElDia(idMozo, fecha);
 
         for (Pedido pe : pedido) {
 

@@ -14,7 +14,7 @@ public class PedidoData {
     private Connection con = null;
     private MozoData mozoDat = new MozoData();
     private MesaData md = new MesaData();
-    
+
     public PedidoData() {
 
         con = Conexion.getConexion();
@@ -44,7 +44,7 @@ public class PedidoData {
             }
 
         } catch (Exception ex) {
-            
+
             Utilidades.mostrarDialogoTemporal("Base de datos", "Error al guardar el PedidoId " + ex.getMessage(), 2000);
             System.out.println(ex.getMessage());
         }
@@ -57,7 +57,7 @@ public class PedidoData {
         String sql = "INSERT INTO pedido (idMozo, IdMesa, fechaHora , cobrada , importe, estado) VALUES (?,?,?,?,?,?)";
 
         try {
-            
+
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             ps.setInt(1, ped.getMozo().getIdMozo());
             ps.setInt(2, ped.getMesa().getIdMesa());
@@ -82,7 +82,7 @@ public class PedidoData {
     public void eliminarPedido(int idPedido) {
 
         String sql = "DELETE FROM pedido WHERE idPedido = ?";
-        
+
         try {
 
             PreparedStatement ps = con.prepareStatement(sql);
@@ -110,105 +110,6 @@ public class PedidoData {
         } catch (SQLException ex) {
             Utilidades.mostrarDialogoTemporal("Base de datos", "Error al modificar el Pedido " + ex.getMessage(), 2000);
         }
-    }
-
-    public List<Pedido> listarPedidos() {
-
-        List<Pedido> pedidos = new ArrayList<>();
-        
-        try {
-
-            String sql = "SELECT * FROM Pedido";
-            PreparedStatement ps = con.prepareStatement(sql);
-            ResultSet rs = ps.executeQuery();
-
-            while (rs.next()) {
-                
-                Pedido pedi = new Pedido();
-                pedi.setIdPedido(rs.getInt("idPedido"));  
-                pedi.setMesa(md.ObtenerMesasId(rs.getInt("idMesa")));          
-                pedi.setMozo(mozoDat.ObtenerMozoId(rs.getInt("idMozo")));
-                pedi.setFechaHora(rs.getTimestamp("fechaHora").toLocalDateTime());
-                pedi.setCobrada(rs.getBoolean("cobrada"));
-                pedi.setImporte(rs.getDouble("importe"));
-                pedi.setEstado(rs.getString("estado"));
-                pedidos.add(pedi);
-            }
-            
-            ps.close();
-
-        } catch (SQLException ex) {
-            Utilidades.mostrarDialogoTemporal("Base de datos", "Error al al listar los Pedidos " + ex.getMessage(), 2000);
-        }
-         
-        return pedidos;
-    }
-
-    public List<Pedido> listarPedidosMesa(int id) {
-
-        List<Pedido> Pedidos = new ArrayList<>();
-
-        try {
-
-            String sql = "SELECT * FROM Pedido WHERE idMesa = ? AND cobrada = false";
-            PreparedStatement ps = con.prepareStatement(sql);
-            ps.setInt(1, id);
-            ResultSet rs = ps.executeQuery();
-
-            while (rs.next()) {
-                
-                Pedido ped = new Pedido();
-                ped.setIdPedido(rs.getInt("idPedido"));  
-                ped.setMesa(md.ObtenerMesasId(rs.getInt("idMesa")));          
-                ped.setMozo(mozoDat.ObtenerMozoId(rs.getInt("idMozo")));
-                ped.setFechaHora(rs.getTimestamp("fechaHora").toLocalDateTime());
-                ped.setCobrada(rs.getBoolean("cobrada"));
-                ped.setImporte(rs.getDouble("importe"));
-                ped.setEstado(rs.getString("estado"));
-                Pedidos.add(ped);
-
-            }
-
-            ps.close();
-
-        } catch (SQLException ex) {
-            Utilidades.mostrarDialogoTemporal("Base de datos", "Error al listar los pedidos por mesa " + ex.getMessage(), 2000);
-        }
-
-        return Pedidos;
-    }
-
-    public List<Pedido> listarMesasPedidosEntregados(int id) {
-
-        List<Pedido> Pedidos = new ArrayList<>();
-
-        try {
-
-            String sql = "SELECT * FROM Pedido WHERE idMesa = ? AND cobrada = false AND estado = 'ENTREGADO'";
-            PreparedStatement ps = con.prepareStatement(sql);
-            ps.setInt(1, id);
-            ResultSet rs = ps.executeQuery();
-
-            while (rs.next()) {
-
-                Pedido ped = new Pedido();
-                ped.setIdPedido(rs.getInt("idPedido"));  
-                ped.setMesa(md.ObtenerMesasId(rs.getInt("idMesa")));          
-                ped.setMozo(mozoDat.ObtenerMozoId(rs.getInt("idMozo")));
-                ped.setFechaHora(rs.getTimestamp("fechaHora").toLocalDateTime());
-                ped.setCobrada(rs.getBoolean("cobrada"));
-                ped.setImporte(rs.getDouble("importe"));
-                ped.setEstado(rs.getString("estado"));
-                Pedidos.add(ped);
-            }
-
-            ps.close();
-
-        } catch (SQLException ex) {
-            Utilidades.mostrarDialogoTemporal("Base de datos", "Error al listar los pedidos por mesa cobradas " + ex.getMessage(), 2000);
-        }
-
-        return Pedidos;
     }
 
     public void modificarEstadoPedido(String estado, int idPedido) {
@@ -252,9 +153,9 @@ public class PedidoData {
     }
 
     public Pedido obtenerPedidoId(int id) {
-       
+
         Pedido ped = new Pedido();
-        
+
         try {
 
             String sql = "SELECT * FROM pedido WHERE idPedido = ?";
@@ -284,9 +185,9 @@ public class PedidoData {
     }
 
     public Pedido obtenerPedidoIdXmesa(int id) {
-        
+
         Pedido ped = new Pedido();
-        
+
         try {
 
             String sql = "SELECT * FROM pedido p JOIN mesa m ON p.idMesa = m.idMesa WHERE p.estado != 'CANCELADO' AND p.cobrada = 0 AND p.idMesa = ?;";
@@ -295,8 +196,8 @@ public class PedidoData {
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
-                
-                ped.setIdPedido(rs.getInt("idPedido"));  
+
+                ped.setIdPedido(rs.getInt("idPedido"));
                 ped.setMesa(md.ObtenerMesasId(rs.getInt("idMesa")));
                 ped.setMozo(mozoDat.ObtenerMozoId(rs.getInt("idMozo")));
                 ped.setFechaHora(rs.getTimestamp("fechaHora").toLocalDateTime());
@@ -314,219 +215,99 @@ public class PedidoData {
         return ped;
     }
 
-    public List<Pedido> listarPedidoMesero(int idMozo) {
-
-        List<Pedido> mesero = new ArrayList<>();
-
-        try {
-
-            String sql = "SELECT * FROM Pedido WHERE idMozo LIKE ?";
-            PreparedStatement ps = con.prepareStatement(sql);
-            ps.setInt(1, idMozo); // Configura el primer parámetro con el valor de búsqueda
-            ResultSet rs = ps.executeQuery();
-
-            while (rs.next()) {
-                
-                Pedido ped = new Pedido();
-                ped.setIdPedido(rs.getInt("idPedido"));  
-                ped.setMesa(md.ObtenerMesasId(rs.getInt("idMesa")));          
-                ped.setMozo(mozoDat.ObtenerMozoId(rs.getInt("idMozo")));
-                ped.setFechaHora(rs.getTimestamp("fechaHora").toLocalDateTime());
-                ped.setImporte(rs.getDouble("importe"));
-                ped.setCobrada(rs.getBoolean("cobrada"));
-                ped.setEstado(rs.getString("estado"));
-                mesero.add(ped);
-
-            }
-
-            ps.close();
-
-        } catch (SQLException ex) {
-            Utilidades.mostrarDialogoTemporal("Base de datos", "Error generar la lista de Pedidos " + ex.getMessage(), 2000);
-        }
-
-        return mesero;
-    }
-
-    public List<Pedido> listarPedidoFecha(LocalDate fecha) {
-
-        List<Pedido> listaFecha = new ArrayList<>();
-
-        try {
-
-            String sql = "SELECT * FROM Pedido WHERE fechaHora= ? ";
-            PreparedStatement ps = con.prepareStatement(sql);
-            ResultSet rs = ps.executeQuery();
-
-            while (rs.next()) {
-                
-                Pedido ped = new Pedido();
-                ped.setIdPedido(rs.getInt("idPedido"));  
-                ped.setMesa(md.ObtenerMesasId(rs.getInt("idMesa")));          
-                ped.setMozo(mozoDat.ObtenerMozoId(rs.getInt("idMozo")));
-                ped.setFechaHora(rs.getTimestamp("fechaHora").toLocalDateTime());
-                ped.setCobrada(rs.getBoolean("cobrada"));
-                ped.setEstado(rs.getString("estado"));
-                listaFecha.add(ped);
-
-            }
-
-            ps.close();
-
-        } catch (SQLException ex) {
-
-            Utilidades.mostrarDialogoTemporal("Base de datos", "Error al generar la lista por fecha de los Pedidos" + ex.getMessage(), 2000);
-
-        }
-
-        return listaFecha;
-
-    }
-
-    public List<Pedido> listarPedidoFechaDia(LocalDateTime fechad) {
-
-        List<Pedido> listaFechaD = new ArrayList<>();
-
-        try {
-
-            String sql = "SELECT * FROM Pedido WHERE DATE(fechaHora) = ? ";
-            PreparedStatement ps = con.prepareStatement(sql);
-            ps.setTimestamp(1, Timestamp.valueOf(fechad));
-            ResultSet rs = ps.executeQuery();
-
-            while (rs.next()) {
-                
-                Pedido ped = new Pedido();
-                ped.setIdPedido(rs.getInt("idPedido"));  
-                ped.setMesa(md.ObtenerMesasId(rs.getInt("idMesa")));          
-                ped.setMozo(mozoDat.ObtenerMozoId(rs.getInt("idMozo")));
-                ped.setFechaHora(rs.getTimestamp("fechaHora").toLocalDateTime());
-                ped.setImporte(rs.getDouble("importe"));
-                ped.setCobrada(rs.getBoolean("cobrada"));
-                ped.setEstado(rs.getString("estado"));
-                listaFechaD.add(ped);
-
-            }
-
-            ps.close();
-
-        } catch (SQLException ex) {
-
-            Utilidades.mostrarDialogoTemporal("Base de datos", "Error al listar pedidos por fecha y dia" + ex.getMessage(), 2000);
-
-        }
-
-        return listaFechaD;
-
-    }
-
-    public List<Pedido> listarPedidosCobradosPorMeseroEnElDia(Mozo mozo, LocalDate fecha) {
+    private List<Pedido> buscarPedidos(String sql, Object... parametros) {
 
         List<Pedido> pedidos = new ArrayList<>();
 
-        try {
-            String sql = "SELECT * FROM Pedido WHERE idMozo = ? AND DATE(fechaHora) = ? AND cobrada = true";
-            PreparedStatement ps = con.prepareStatement(sql);
-            ps.setInt(1, mozo.getIdMozo());
-            ps.setDate(2, Date.valueOf(fecha));
+        try (PreparedStatement ps = con.prepareStatement(sql)) {
+
+            for (int i = 0; i < parametros.length; i++) {
+                ps.setObject(i + 1, parametros[i]);
+            }
+
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
-                
+
                 Pedido ped = new Pedido();
-                ped.setIdPedido(rs.getInt("idPedido"));  
-                ped.setMesa(md.ObtenerMesasId(rs.getInt("idMesa")));          
+                ped.setIdPedido(rs.getInt("idPedido"));
+                ped.setMesa(md.ObtenerMesasId(rs.getInt("idMesa")));
                 ped.setMozo(mozoDat.ObtenerMozoId(rs.getInt("idMozo")));
                 ped.setFechaHora(rs.getTimestamp("fechaHora").toLocalDateTime());
                 ped.setCobrada(rs.getBoolean("cobrada"));
+                ped.setImporte(rs.getDouble("importe"));
                 ped.setEstado(rs.getString("estado"));
                 pedidos.add(ped);
             }
 
-            ps.close();
         } catch (SQLException ex) {
-            Utilidades.mostrarDialogoTemporal("Base de datos", "Error al listar pedidos por mesero b" + ex.getMessage(), 2000);
+
+            Utilidades.mostrarDialogoTemporal("Base de datos", "Error al buscar pedidos: " + ex.getMessage(), 2000);
         }
 
         return pedidos;
+    }
+
+    public List<Pedido> listarPedidos() {
+
+        String sql = "SELECT * FROM Pedido";
+        return buscarPedidos(sql);
+    }
+
+    public List<Pedido> listarPedidosMesa(int id) {
+
+        String sql = "SELECT * FROM Pedido WHERE idMesa = ? AND cobrada = false";
+        return buscarPedidos(sql, id);
+    }
+
+    public List<Pedido> listarMesasPedidosEntregados(int id) {
+
+        String sql = "SELECT * FROM Pedido WHERE idMesa = ? AND cobrada = false AND estado = 'ENTREGADO'";
+        return buscarPedidos(sql, id);
+    }
+
+    public List<Pedido> listarPedidoMesero(int idMozo) {
+
+        String sql = "SELECT * FROM Pedido WHERE idMozo LIKE ?";
+        return buscarPedidos(sql, idMozo);
+    }
+
+//    public List<Pedido> listarPedidoFecha(LocalDate fecha) {
+//
+//        String sql = "SELECT * FROM Pedido WHERE fechaHora= ? ";
+//        return buscarPedidos(sql, fecha);
+//    }
+
+    public List<Pedido> listarPedidoFechaDia(LocalDateTime fechad) {
+
+        String sql = "SELECT * FROM Pedido WHERE DATE(fechaHora) = ? ";
+        return buscarPedidos(sql, fechad);
+    }
+
+    public List<Pedido> listarPedidosCobradosPorMeseroEnElDia(int idMozo, LocalDate fecha) {
+
+        String sql = "SELECT * FROM Pedido WHERE idMozo = ? AND DATE(fechaHora) = ?";
+        return buscarPedidos(sql, idMozo, fecha);
     }
 
     public List<Pedido> listarPedidosDeMesaEnFechaYRangoHorario(int idMesa, LocalDate fecha, LocalDateTime horaInicio, LocalDateTime horaFin) {
 
-        List<Pedido> pedidos = new ArrayList<>();
-
-        try {
-
-            String sql = "SELECT * FROM Pedido WHERE idMesa = ? AND DATE(fechaHora) = ? AND TIME(fechaHora) BETWEEN ? AND ?";
-            PreparedStatement ps = con.prepareStatement(sql);
-            ps.setInt(1, idMesa);
-            ps.setDate(2, Date.valueOf(fecha));
-            ps.setTimestamp(3, Timestamp.valueOf(horaInicio));
-            ps.setTimestamp(4, Timestamp.valueOf(horaFin));
-            ResultSet rs = ps.executeQuery();
-
-            while (rs.next()) {
-
-                Pedido ped = new Pedido();
-                ped.setIdPedido(rs.getInt("idPedido"));  
-                ped.setMesa(md.ObtenerMesasId(rs.getInt("idMesa")));          
-                ped.setMozo(mozoDat.ObtenerMozoId(rs.getInt("idMozo")));
-                ped.setFechaHora(rs.getTimestamp("fechaHora").toLocalDateTime());
-                ped.setCobrada(rs.getBoolean("cobrada"));
-                ped.setEstado(rs.getString("estado"));
-                pedidos.add(ped);
-            }
-
-            ps.close();
-
-        } catch (SQLException ex) {
-            Utilidades.mostrarDialogoTemporal("Base de datos", "Error al listar pedidos de mesa por hora " + ex.getMessage(), 2000);
-        }
-
-        return pedidos;
+        String sql = "SELECT * FROM Pedido WHERE idMesa = ? AND DATE(fechaHora) = ? AND TIME(fechaHora) BETWEEN ? AND ?";
+        return buscarPedidos(sql, idMesa, fecha, horaInicio, horaFin);
     }
 
     public List<Pedido> listarPedidosEstadoPendiente() {
 
-        List<Pedido> pedidos = new ArrayList<>();
-
-        try {
-
-            String sql = "SELECT * FROM pedido WHERE estado = 'PENDIENTE'";
-            PreparedStatement ps = con.prepareStatement(sql);
-            ResultSet rs = ps.executeQuery();
-
-            while (rs.next()) {
-                
-                Pedido ped = new Pedido();
-                ped.setIdPedido(rs.getInt("idPedido"));  
-                ped.setMesa(md.ObtenerMesasId(rs.getInt("idMesa")));          
-                ped.setMozo(mozoDat.ObtenerMozoId(rs.getInt("idMozo")));
-                ped.setFechaHora(rs.getTimestamp("fechaHora").toLocalDateTime());
-                ped.setCobrada(rs.getBoolean("cobrada"));
-                ped.setImporte(rs.getDouble("importe"));
-                ped.setEstado(rs.getString("estado"));
-                pedidos.add(ped);
-
-            }
-
-            ps.close();
-
-        } catch (SQLException ex) {
-            Utilidades.mostrarDialogoTemporal("Base de datos", "Error al al listar los Pedidos e nestado PENDIENTE " + ex.getMessage(), 2000);
-        }
-
-        return pedidos;
+        String sql = "SELECT * FROM pedido WHERE estado = 'PENDIENTE'";
+        return buscarPedidos(sql);
     }
 
-    ;
-    
     public boolean mesaTieneMasDeUnPedidoNoCobrado(int idMesa) {
-       
+
         boolean tieneMasDeUnPedidoNoCobrado = false;
 
         try {
-            
+
             String sql = "SELECT COUNT(p.idPedido) AS pedidosNoCobrados "
                     + "FROM pedido p "
                     + "WHERE p.idMesa = ? AND p.estado != 'CANCELADO' AND p.cobrada = 0";
@@ -540,7 +321,9 @@ public class PedidoData {
             }
 
             ps.close();
+
         } catch (SQLException ex) {
+
             Utilidades.mostrarDialogoTemporal("Base de datos", "Error al verificar pedidos no cobrados para la mesa " + ex.getMessage(), 2000);
         }
 
