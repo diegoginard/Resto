@@ -386,11 +386,19 @@ public class ListarPedidos extends JInternalFrame {
     private void jBticketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBticketActionPerformed
         
         int fila = jtPedido.getSelectedRow();
-        int idPedido = (int) jtPedido.getValueAt(fila, 0);
-        LocalDateTime diaHora = (LocalDateTime) jtPedido.getValueAt(fila, 3);
-        String texto = idPedido + "";
-        Ticket newframe = new Ticket(texto, diaHora);
-        newframe.setVisible(true);
+        
+        if(fila > -1){
+            
+            int idPedido = (int) jtPedido.getValueAt(fila, 0);
+            LocalDateTime diaHora = (LocalDateTime) jtPedido.getValueAt(fila, 3);
+            String texto = idPedido + "";
+            Ticket newframe = new Ticket(texto, diaHora);
+            newframe.setVisible(true);
+            
+        }else{
+            
+            Utilidades.mostrarDialogoTemporal("Error", "Debe seleccinar un pedido", 2000);
+        }    
     }//GEN-LAST:event_jBticketActionPerformed
 
     private void jtPedidoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtPedidoMouseClicked
@@ -472,6 +480,7 @@ public class ListarPedidos extends JInternalFrame {
         modelo.setRowCount(0);
         int idMozo = mozo.getIdMozo();
         List<Pedido> pedidos = pd.listarPedidoMesero(idMozo);
+        
         for (Pedido pe : pedidos) {
 
             modelo.addRow(new Object[]{pe.getIdPedido(), pe.getMesa().getNumero(),

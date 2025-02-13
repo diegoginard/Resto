@@ -19,6 +19,7 @@ import java.util.List;
 import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableModel;
 
+
 public class Ticket extends javax.swing.JFrame {
 
     private PedidoProductoData ppd = new PedidoProductoData();
@@ -59,6 +60,7 @@ public class Ticket extends javax.swing.JFrame {
             
             if(diaYhora == null){
                 
+                // Asegurar que la UI se renderice completamente antes de generar el PDF
                 SwingUtilities.invokeLater(() -> generarPDF());
             }  
         }    
@@ -227,6 +229,7 @@ public class Ticket extends javax.swing.JFrame {
                 
                 job.print(); // Imprimir
                 Utilidades.mostrarDialogoTemporal("Éxito", "Impresión completada.", 2000);
+                
             } catch (PrinterException ex) {
                 
                 Utilidades.mostrarDialogoTemporal("Error", "Error al imprimir: " + ex.getMessage(), 2000);
