@@ -33,7 +33,7 @@ public class restoView extends javax.swing.JInternalFrame {
     private PedidoData pedidoDat = new PedidoData();
     private MesaData md = new MesaData();
     private MozoData mozoDat = new MozoData();
-
+    private boolean estadoMesas = false;
     public restoView() {
 
         initComponents();
@@ -1030,6 +1030,7 @@ public class restoView extends javax.swing.JInternalFrame {
     private void jbInicio1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbInicio1ActionPerformed
 
         ventanas.setSelectedIndex(0);
+        estadoMesas = false;
     }//GEN-LAST:event_jbInicio1ActionPerformed
 
     int clickCount = 0; // variable par acontar los clicks del mouse
@@ -1069,11 +1070,14 @@ public class restoView extends javax.swing.JInternalFrame {
     private void jcMesasPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcMesasPedidoActionPerformed
 
         try {
+            
             Mesa mesa = (Mesa) jcMesasPedido.getSelectedItem();
             int idMesa = mesa.getIdMesa();
             cargarPedidoEntregado(idMesa);
             jbCobrar.setEnabled(false);
+            
         } catch (NullPointerException e) {
+            
 //            Vistas.Utilidades.mostrarDialogoTemporal("Error", e.getMessage(), 2000);
         }
     }//GEN-LAST:event_jcMesasPedidoActionPerformed
@@ -1083,6 +1087,7 @@ public class restoView extends javax.swing.JInternalFrame {
         clickCount += 1;
         int fila = jTcobrarPedidos.getSelectedRow();
         int idPedido = (int) jTcobrarPedidos.getValueAt(fila, 0);
+        System.out.println(idPedido);
         jbCobrar.setEnabled(true);
 
         if (clickCount > 2) {
@@ -1097,29 +1102,33 @@ public class restoView extends javax.swing.JInternalFrame {
     private void jBagregarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBagregarPedidoActionPerformed
 
         ventanas.setSelectedIndex(4);
+        estadoMesas = true;
         jLestadoMesas.setText("Agregar Pedido");
         CargarMesasConPedido();
     }//GEN-LAST:event_jBagregarPedidoActionPerformed
 
     private void jtEstadoMesasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtEstadoMesasMouseClicked
 
-        ventanas.setSelectedIndex(2);
+        if (estadoMesas == true) {
 
-        int fila = jtEstadoMesas.getSelectedRow();
-        int numMesa = (int) jtEstadoMesas.getValueAt(fila, 0);
+            ventanas.setSelectedIndex(2);
 
-        Mesa mesa = md.ObtenerIdMesasXnumMesa(numMesa);
-        Pedido pedido = pedidoDat.obtenerPedidoIdXmesa(mesa.getIdMesa());
-        Mozo mozo = pedido.getMozo();
-        Pedido ped = new Pedido();
-        ped.setMesa(mesa);
-        ped.setMozo(mozo);
+            int fila = jtEstadoMesas.getSelectedRow();
+            int numMesa = (int) jtEstadoMesas.getValueAt(fila, 0);
 
-        int idPedido = pedidoDat.GuardarPedidoID(ped);
-        cargarPedidoProducto(idPedido);
-        jlMesa.setText(mesa.getNumero() + "");
-        jtID.setText(idPedido + "");
-        jLmozo.setText(mozo.toString());
+            Mesa mesa = md.ObtenerIdMesasXnumMesa(numMesa);
+            Pedido pedido = pedidoDat.obtenerPedidoIdXmesa(mesa.getIdMesa());
+            Mozo mozo = pedido.getMozo();
+            Pedido ped = new Pedido();
+            ped.setMesa(mesa);
+            ped.setMozo(mozo);
+
+            int idPedido = pedidoDat.GuardarPedidoID(ped);
+            cargarPedidoProducto(idPedido);
+            jlMesa.setText(mesa.getNumero() + "");
+            jtID.setText(idPedido + "");
+            jLmozo.setText(mozo.toString());
+        }
     }//GEN-LAST:event_jtEstadoMesasMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1201,6 +1210,12 @@ public class restoView extends javax.swing.JInternalFrame {
         modelo.addColumn("Importe");
         modelo.addColumn("Estado");
         table.setModel(modelo);
+        
+        TableColumn column = table.getColumnModel().getColumn(0);
+        column.setMinWidth(0);
+        column.setMaxWidth(0);
+        column.setWidth(0);
+        column.setResizable(false);
     }
 
     private void armarCabeceraProd() {
@@ -1211,6 +1226,13 @@ public class restoView extends javax.swing.JInternalFrame {
         modelo3.addColumn("Categoria");
         modelo3.addColumn("Stock");
         jtProducto.setModel(modelo3);
+        
+        // Ocultar la columna "idPedido" (índice 0)
+        TableColumn column = jtProducto.getColumnModel().getColumn(0);
+        column.setMinWidth(0);
+        column.setMaxWidth(0);
+        column.setWidth(0);
+        column.setResizable(false);
     }
 
     private void armarCabeceraProdAcobrar() {
@@ -1266,11 +1288,12 @@ public class restoView extends javax.swing.JInternalFrame {
     private void cargarProductoAcobrar(int id) {
 
         modelo6.setRowCount(0);
-        List<Producto> productos = proDat.BuscarProductosXidPedido(id);
+        System.out.println(id + "caragar producto a cobrar");
+        List<PedidoProducto> pedidoP = ppDat.BuscarProductosxIdPedido(id);
 
-        for (Producto pro : productos) {
+        for (PedidoProducto pp : pedidoP) {
 
-            modelo6.addRow(new Object[]{pro.getNombre(), pro.getPrecio()});
+            modelo6.addRow(new Object[]{pp.getProducto().getNombre(), pp.getImporte()});
         }
     }
 

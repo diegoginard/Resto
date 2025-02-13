@@ -68,9 +68,11 @@ public class PedidoData {
             ResultSet rs = ps.getGeneratedKeys();
 
             if (rs.next()) {
+                
                 ped.setIdPedido(rs.getInt(1));
                 Utilidades.mostrarDialogoTemporal("Base de datos", "Pedido Guardado", 2000);
             }
+            
             ps.close();
 
         } catch (SQLException ex) {

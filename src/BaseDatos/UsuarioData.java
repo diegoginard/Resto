@@ -19,7 +19,6 @@ public class UsuarioData {
     public UsuarioData() {
 
         con = Conexion.getConexion();
-
     }
 
     public void crearUsuario(Usuario user) {
@@ -48,7 +47,6 @@ public class UsuarioData {
                 user.setIdUsuario(rs.getInt(1));
 
                 Utilidades.mostrarDialogoTemporal("Base de datos", "Usuario creado", 2000);
-
             }
 
             ps.close();
@@ -56,11 +54,11 @@ public class UsuarioData {
         } catch (SQLException ex) {
 
             Vistas.Utilidades.mostrarDialogoTemporal("Error al acceder a la tabla usuario ", ex.getMessage(), 2000);
-
         }
     }
     
     public void eliminarUsuario(int id) {
+        
         String sql = "DELETE FROM usuario WHERE idUsuario = ?";
 
         try {
@@ -69,14 +67,18 @@ public class UsuarioData {
             int exito = ps.executeUpdate();
 
             if (exito >= 1) {
+                
                 Utilidades.mostrarDialogoTemporal("Base de datos", "Usuario Eliminada", 2000);
+                
             } else {
+                
                 Utilidades.mostrarDialogoTemporal("Base de datos", "No se encontró el usuario", 2000);
             }
 
             ps.close();
             
         } catch (SQLException ex) {
+            
             Utilidades.mostrarDialogoTemporal("Base de datos", "Error, no se pudo eliminar al usuario de la tabla " + ex.getMessage(), 2000);
         }
     }
@@ -104,9 +106,12 @@ public class UsuarioData {
             int exito = ps.executeUpdate();
 
             if (exito == 1) {
+                
                 Utilidades.mostrarDialogoTemporal("Base de datos", "Usuario Modificado", 2000);
             }
+            
         } catch (SQLException ex) {
+            
             Utilidades.mostrarDialogoTemporal("Base de datos", "Error al modificar el usuario" + ex.getMessage(), 2000);
         }
     }
@@ -137,7 +142,9 @@ public class UsuarioData {
             }
 
             ps.close();
+            
         } catch (SQLException ex) {
+            
             Vistas.Utilidades.mostrarDialogoTemporal("Error al acceder a la tabla usuario: ", ex.getMessage(), 2000);
         }
 
@@ -176,6 +183,7 @@ public class UsuarioData {
             ps.close();
 
         } catch (SQLException ex) {
+            
             Vistas.Utilidades.mostrarDialogoTemporal("Error al buscar usuario en la base de datos", ex.getMessage(), 2000);
         }
 

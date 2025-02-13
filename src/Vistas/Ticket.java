@@ -1,22 +1,23 @@
-
 package Vistas;
 
 import BaseDatos.PedidoProductoData;
 import Entidades.PedidoProducto;
+import java.io.File;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
 public class Ticket extends javax.swing.JFrame {
-    
-    PedidoProductoData ppd = new PedidoProductoData();
-    LocalTime horaActual = LocalTime.now();
-    DateTimeFormatter formato = DateTimeFormatter.ofPattern("HH:mm"); // Formato de hora sin segundos
-    
+
+    private PedidoProductoData ppd = new PedidoProductoData();
+    private LocalTime horaActual = LocalTime.now();
+    private DateTimeFormatter formato = DateTimeFormatter.ofPattern("HH:mm"); // Formato de hora sin segundos
     private String idRecibida;
-    
+
     public Ticket() {
 
     }
@@ -27,16 +28,16 @@ public class Ticket extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         armarCabeceraProdPed();
-        jtFecha.setText(LocalDate.now()+"");
+        jtFecha.setText(LocalDate.now() + "");
         jtHora.setText(horaActual.format(formato));
-        
+
         if (idRecibida != null) {
-            
+
             int idP = Integer.parseInt(idRecibida);
             cargarPedido(idP);
         }
     }
-    
+
     private DefaultTableModel modelo = new DefaultTableModel() {
 
         @Override
@@ -45,11 +46,13 @@ public class Ticket extends javax.swing.JFrame {
             return false;
         }
     };
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jInternalFrame1 = new javax.swing.JInternalFrame();
+        javax.swing.JButton jBpdf = new javax.swing.JButton();
         jDesktopPane1 = new javax.swing.JDesktopPane();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -69,17 +72,35 @@ public class Ticket extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
+        jInternalFrame1.setBorder(null);
+        jInternalFrame1.setVisible(true);
+        jInternalFrame1.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jBpdf.setText("GenerarPDF");
+        jBpdf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBpdfActionPerformed(evt);
+            }
+        });
+        jInternalFrame1.getContentPane().add(jBpdf, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 100, 20));
+
+        jDesktopPane1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         jLabel1.setFont(new java.awt.Font("Segoe UI Semibold", 1, 36)); // NOI18N
         jLabel1.setText("RESTO");
+        jDesktopPane1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 40, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         jLabel2.setText("Direccion :    Bulnes 556");
+        jDesktopPane1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 90, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         jLabel3.setText("Localidad :    San Isidro Buenos Aires");
+        jDesktopPane1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 120, -1, 20));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel4.setText("FACTURA 0000");
+        jDesktopPane1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(417, 13, -1, -1));
 
         jtTicket.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -94,153 +115,62 @@ public class Ticket extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jtTicket);
 
+        jDesktopPane1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, -1, 368));
+        jDesktopPane1.add(jtTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 550, 78, -1));
+
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mesa60.png"))); // NOI18N
         jButton1.setContentAreaFilled(false);
+        jDesktopPane1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 40, 62, 89));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         jLabel5.setText("Telefono :    45282658");
+        jDesktopPane1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 140, -1, 20));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         jLabel6.setText("Fecha");
+        jDesktopPane1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, -1));
+        jDesktopPane1.add(jtFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 90, -1));
 
         jLabel7.setText("TOTAL A PAGAR");
+        jDesktopPane1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 550, -1, -1));
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel8.setText("GRACIAS POR SU VISITA");
+        jDesktopPane1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 600, -1, -1));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         jLabel9.setText("Hora");
-
-        jtHora.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtHoraActionPerformed(evt);
-            }
-        });
-
-        jDesktopPane1.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(jLabel3, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(jLabel4, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(jtTotal, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(jButton1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(jLabel5, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(jLabel6, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(jtFecha, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(jLabel7, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(jLabel8, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(jLabel9, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(jtHora, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
-        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
-        jDesktopPane1.setLayout(jDesktopPane1Layout);
-        jDesktopPane1Layout.setHorizontalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
-                .addGap(0, 36, Short.MAX_VALUE)
-                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel1))
-                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                                .addGap(165, 165, 165)
-                                .addComponent(jLabel4)
-                                .addGap(50, 50, 50))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(67, 67, 67))))
-                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel9)
-                            .addComponent(jLabel6))
-                        .addGap(26, 26, 26)
-                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jtHora, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
-                            .addComponent(jtFecha))
-                        .addGap(67, 67, 67))))
-            .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                        .addGap(296, 296, 296)
-                        .addComponent(jLabel7)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                        .addGap(49, 49, 49)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addComponent(jLabel8)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jDesktopPane1Layout.setVerticalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                .addGap(13, 13, 13)
-                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(3, 3, 3)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(32, 32, 32))
-                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addGap(1, 1, 1)
-                        .addComponent(jLabel9))
-                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addGap(34, 34, 34)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
-                                .addComponent(jtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(23, 23, 23))
-                            .addComponent(jtHora, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7))
-                .addGap(18, 18, 18)
-                .addComponent(jLabel8)
-                .addContainerGap(21, Short.MAX_VALUE))
-        );
+        jDesktopPane1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, -1));
+        jDesktopPane1.add(jtHora, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 90, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jDesktopPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 544, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(222, 222, 222)
+                .addComponent(jInternalFrame1, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(jInternalFrame1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jtHoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtHoraActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtHoraActionPerformed
-
+    private void jBpdfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBpdfActionPerformed
+        
+        generarPDF();
+    }//GEN-LAST:event_jBpdfActionPerformed
 
     public static void main(String args[]) {
-        
+
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
@@ -269,12 +199,13 @@ public class Ticket extends javax.swing.JFrame {
                 new Ticket().setVisible(true);
             }
         });
-        
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JDesktopPane jDesktopPane1;
+    private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -291,30 +222,57 @@ public class Ticket extends javax.swing.JFrame {
     private javax.swing.JTextField jtTotal;
     // End of variables declaration//GEN-END:variables
 
+    private void armarCabeceraProdPed() {
 
- private void armarCabeceraProdPed() {
-        
-        modelo.addColumn("DESRIPCION");
+        modelo.addColumn("DESCRIPCION");
         modelo.addColumn("CANTIDAD");
         modelo.addColumn("IMPORTE");
-        jtTicket.setModel(modelo);
-
+        jtTicket.setModel(modelo); 
     }
- 
- private void cargarPedido(int id){
-     
-     double total = 0.0;
-     List<PedidoProducto> pedidoP = ppd.BuscarProductosxIdPedido(id);
+
+    private void cargarPedido(int id) {
+
+        double total = 0.0;
+        List<PedidoProducto> pedidoP = ppd.BuscarProductosxIdPedido(id);
 
         for (PedidoProducto pp : pedidoP) {
 
             modelo.addRow(new Object[]{pp.getProducto().getNombre(), pp.getCantidad(), pp.getImporte()});
             total += pp.getImporte();
-            
         }
-        
+
         jtTotal.setText(total + "");
+    }
+
+    private void generarPDF() {
+
+        // Obtener la fecha y hora actual
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy_hh.mma");
+        String fechaHoraActual = dateFormat.format(new Date());
+
+        // Crear el nombre del archivo con la fecha y hora actual
+        String filePath = "Tikets/ticket_" + fechaHoraActual + ".pdf"; // Ruta donde se guardará el PDF
+
+        // Verificar si la carpeta "Tikets" existe, y si no, crearla
+        File carpetaTikets = new File("Tikets");
         
+        if (!carpetaTikets.exists()) {
+            
+            if (carpetaTikets.mkdir()) {
+                
+                Utilidades.mostrarDialogoTemporal("Error","Carpeta 'Tikets' creada correctamente.",2000);
+                
+            } else {
+                
+                Utilidades.mostrarDialogoTemporal("Error","No se pudo crear la carpeta 'Tikets'.",2000);
+                return; // Salir del método si no se puede crear la carpeta
+            }
+        }
+
+        // Generar el PDF
+        Pdf.generarPdfDesktopPane(jDesktopPane1, filePath);
+        System.out.println("PDF generado en: " + filePath);
+
+        dispose(); //cierra el Frame
     }
 }
-
