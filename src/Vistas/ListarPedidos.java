@@ -387,15 +387,18 @@ public class ListarPedidos extends JInternalFrame {
         
         int fila = jtPedido.getSelectedRow();
         int idPedido = (int) jtPedido.getValueAt(fila, 0);
+        LocalDateTime diaHora = (LocalDateTime) jtPedido.getValueAt(fila, 3);
         String texto = idPedido + "";
-        Ticket newframe = new Ticket(texto, null);
+        Ticket newframe = new Ticket(texto, diaHora);
         newframe.setVisible(true);
     }//GEN-LAST:event_jBticketActionPerformed
 
     private void jtPedidoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtPedidoMouseClicked
         
         int fila = jtPedido.getSelectedRow();
+        
         if(fila >= 0){
+            
             jBticket.setEnabled(true);
         }
     }//GEN-LAST:event_jtPedidoMouseClicked

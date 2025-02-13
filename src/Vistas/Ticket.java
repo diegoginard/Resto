@@ -24,7 +24,7 @@ public class Ticket extends javax.swing.JFrame {
     private PedidoProductoData ppd = new PedidoProductoData();
     private LocalTime horaActual = LocalTime.now();
     private DateTimeFormatter formato = DateTimeFormatter.ofPattern("HH:mm"); // Formato de hora sin segundos
-    private DateTimeFormatter formato1 = DateTimeFormatter.ofPattern("dd-mm-yyyy");
+    private DateTimeFormatter formato1 = DateTimeFormatter.ofPattern("dd-MM-yyyy");
     private String idRecibida;
     private LocalDateTime diaYhora; 
 
@@ -36,6 +36,7 @@ public class Ticket extends javax.swing.JFrame {
 
         this.idRecibida = idPed;
         this.diaYhora = diaHora;
+        System.out.println(diaYhora);
         initComponents();
         this.setLocationRelativeTo(null);
         armarCabeceraProdPed();
@@ -54,8 +55,12 @@ public class Ticket extends javax.swing.JFrame {
         if (idRecibida != null) {
 
             int idP = Integer.parseInt(idRecibida);
-            cargarPedido(idP);   
-            SwingUtilities.invokeLater(() -> generarPDF());
+            cargarPedido(idP);  
+            
+            if(diaYhora == null){
+                
+                SwingUtilities.invokeLater(() -> generarPDF());
+            }  
         }    
     }
 
