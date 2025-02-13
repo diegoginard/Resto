@@ -812,7 +812,8 @@ public class restoView extends javax.swing.JInternalFrame {
             int idPedido = (int) jtPedidos.getValueAt(fila, 0);
             String cancelado = "CANCELADO";
             pedidoDat.modificarEstadoPedido(cancelado, idPedido);
-
+            jbEntregar.setEnabled(false);
+            jbCancelar.setEnabled(false);
             cargarPedidoPediente();
 
         } else {
@@ -830,7 +831,10 @@ public class restoView extends javax.swing.JInternalFrame {
             int idPedido = (int) jtPedidos.getValueAt(fila, 0);
             String entregado = "ENTREGADO";
             pedidoDat.modificarEstadoPedido(entregado, idPedido);
+            jbEntregar.setEnabled(false);
+            jbCancelar.setEnabled(false);
             cargarPedidoPediente();
+            
 
         } else {
 
@@ -1054,6 +1058,8 @@ public class restoView extends javax.swing.JInternalFrame {
             jLmozo.setText(mozo.toString());
             cargarPedidoProducto(idPedido);
             clickCount = 0;
+            jbEntregar.setEnabled(false);
+            jbCancelar.setEnabled(false);
         }
     }//GEN-LAST:event_jtPedidosMouseClicked
 

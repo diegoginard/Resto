@@ -2,6 +2,12 @@ package Vistas;
 
 import BaseDatos.PedidoProductoData;
 import Entidades.PedidoProducto;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.print.PageFormat;
+import java.awt.print.Printable;
+import java.awt.print.PrinterException;
+import java.awt.print.PrinterJob;
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -9,6 +15,7 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.List;
+import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableModel;
 
 public class Ticket extends javax.swing.JFrame {
@@ -19,7 +26,7 @@ public class Ticket extends javax.swing.JFrame {
     private String idRecibida;
 
     public Ticket() {
-
+             
     }
 
     public Ticket(String idPed) {
@@ -34,8 +41,10 @@ public class Ticket extends javax.swing.JFrame {
         if (idRecibida != null) {
 
             int idP = Integer.parseInt(idRecibida);
-            cargarPedido(idP);
+            cargarPedido(idP);   
         }
+        
+        SwingUtilities.invokeLater(() -> generarPDF());
     }
 
     private DefaultTableModel modelo = new DefaultTableModel() {
@@ -52,7 +61,7 @@ public class Ticket extends javax.swing.JFrame {
     private void initComponents() {
 
         jInternalFrame1 = new javax.swing.JInternalFrame();
-        javax.swing.JButton jBpdf = new javax.swing.JButton();
+        javax.swing.JButton jBimprimir = new javax.swing.JButton();
         jDesktopPane1 = new javax.swing.JDesktopPane();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -76,13 +85,13 @@ public class Ticket extends javax.swing.JFrame {
         jInternalFrame1.setVisible(true);
         jInternalFrame1.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jBpdf.setText("GenerarPDF");
-        jBpdf.addActionListener(new java.awt.event.ActionListener() {
+        jBimprimir.setText("Imprimir");
+        jBimprimir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBpdfActionPerformed(evt);
+                jBimprimirActionPerformed(evt);
             }
         });
-        jInternalFrame1.getContentPane().add(jBpdf, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 100, 20));
+        jInternalFrame1.getContentPane().add(jBimprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 100, 20));
 
         jDesktopPane1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -164,42 +173,59 @@ public class Ticket extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jBpdfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBpdfActionPerformed
-        
-        generarPDF();
-    }//GEN-LAST:event_jBpdfActionPerformed
+    private void jBimprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBimprimirActionPerformed
 
-    public static void main(String args[]) {
+        // Crear un trabajo de impresión
+        PrinterJob job = PrinterJob.getPrinterJob();
 
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
+        // Configurar el Printable para imprimir el JDesktopPane
+        job.setPrintable(new Printable() {
+            
+            @Override
+            public int print(Graphics graphics, PageFormat pageFormat, int pageIndex) throws PrinterException {
+                
+                if (pageIndex > 0) {
+                    
+                    return Printable.NO_SUCH_PAGE; // Solo imprimir una página
                 }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Ticket.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Ticket.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Ticket.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Ticket.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Ticket().setVisible(true);
+                // Escalar el contenido para que quepa en la página
+                Graphics2D g2d = (Graphics2D) graphics;
+                double scaleX = pageFormat.getImageableWidth() / jDesktopPane1.getWidth();
+                double scaleY = pageFormat.getImageableHeight() / jDesktopPane1.getHeight();
+                double scale = Math.min(scaleX, scaleY);
+                g2d.translate(pageFormat.getImageableX(), pageFormat.getImageableY());
+                g2d.scale(scale, scale);
+
+                // Dibujar el contenido del JDesktopPane
+                jDesktopPane1.printAll(g2d);
+                return Printable.PAGE_EXISTS;
             }
         });
 
+        // Mostrar el diálogo de impresión
+        if (job.printDialog()) {
+            
+            try {
+                
+                job.print(); // Imprimir
+                Utilidades.mostrarDialogoTemporal("Éxito", "Impresión completada.", 2000);
+            } catch (PrinterException ex) {
+                
+                Utilidades.mostrarDialogoTemporal("Error", "Error al imprimir: " + ex.getMessage(), 2000);
+            }
+        }
+    }//GEN-LAST:event_jBimprimirActionPerformed
+
+    public static void main(String args[]) {
+
+        /* Crea y muetra el form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            
+            public void run() {
+                new Ticket().setVisible(true);      
+            }
+        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -271,8 +297,6 @@ public class Ticket extends javax.swing.JFrame {
 
         // Generar el PDF
         Pdf.generarPdfDesktopPane(jDesktopPane1, filePath);
-        System.out.println("PDF generado en: " + filePath);
-
-        dispose(); //cierra el Frame
+        Utilidades.mostrarDialogoTemporal("Error","PDF generado en: " + filePath,2000);
     }
 }
