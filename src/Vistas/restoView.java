@@ -985,12 +985,13 @@ public class restoView extends javax.swing.JInternalFrame {
             pedidoDat.modificarPedidoCobrado(cobrada, idPedido);
 
             if (pedidoDat.mesaTieneMasDeUnPedidoNoCobrado(idMesa)) {
+                
                 System.out.println("Mesa libre");
                 md.modificarMesaEstado(idMesa, 1);
             }
 
             String texto = idPedido + "";
-            Ticket newframe = new Ticket(texto);
+            Ticket newframe = new Ticket(texto, null);
             newframe.setVisible(true);
 
             jcMesasPedido.removeAllItems();

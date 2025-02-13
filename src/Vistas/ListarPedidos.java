@@ -23,10 +23,11 @@ import javax.swing.plaf.basic.BasicInternalFrameUI;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 
+
 public class ListarPedidos extends JInternalFrame {
 
-    PedidoData pd = new PedidoData();
-    MozoData mozoDat = new MozoData();
+    private PedidoData pd = new PedidoData();
+    private MozoData mozoDat = new MozoData();  
 
     public ListarPedidos() {
         
@@ -44,6 +45,7 @@ public class ListarPedidos extends JInternalFrame {
 
         formatoHora(jsHoraInicio);
         formatoHora(jsHoraFin);
+        jBticket.setEnabled(false);
         cargarPedidos();
     }
     
@@ -73,6 +75,7 @@ public class ListarPedidos extends JInternalFrame {
         jdMDia = new com.toedter.calendar.JDateChooser();
         jbBuscar = new javax.swing.JButton();
         jbBuscar1 = new javax.swing.JButton();
+        jBticket = new javax.swing.JButton();
         jsHoraFin = new javax.swing.JSpinner();
         jLabel9 = new javax.swing.JLabel();
         jsHoraInicio = new javax.swing.JSpinner();
@@ -154,7 +157,7 @@ public class ListarPedidos extends JInternalFrame {
                 jbBuscarActionPerformed(evt);
             }
         });
-        getContentPane().add(jbBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 190, 60, 30));
+        getContentPane().add(jbBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 200, 60, 30));
 
         jbBuscar1.setBackground(new java.awt.Color(51, 51, 51));
         jbBuscar1.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
@@ -168,6 +171,19 @@ public class ListarPedidos extends JInternalFrame {
             }
         });
         getContentPane().add(jbBuscar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 270, 60, 30));
+
+        jBticket.setBackground(new java.awt.Color(51, 51, 51));
+        jBticket.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
+        jBticket.setForeground(new java.awt.Color(255, 255, 255));
+        jBticket.setText("Tiket");
+        jBticket.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jBticket.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jBticket.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBticketActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jBticket, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 510, 80, 30));
         getContentPane().add(jsHoraFin, new org.netbeans.lib.awtextra.AbsoluteConstraints(401, 275, 81, -1));
 
         jLabel9.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N
@@ -226,7 +242,7 @@ public class ListarPedidos extends JInternalFrame {
                 jBsalirActionPerformed(evt);
             }
         });
-        getContentPane().add(jBsalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 510, 71, 30));
+        getContentPane().add(jBsalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 510, 71, 30));
 
         jLingresosTotales.setBackground(new java.awt.Color(51, 51, 51));
         jLingresosTotales.setFont(new java.awt.Font("Roboto Medium", 1, 18)); // NOI18N
@@ -257,6 +273,11 @@ public class ListarPedidos extends JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jtPedido.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jtPedidoMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jtPedido);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 335, 524, 162));
@@ -362,8 +383,26 @@ public class ListarPedidos extends JInternalFrame {
         pedidoMesero((Mozo) jCidMozo.getSelectedItem());
     }//GEN-LAST:event_jCidMozoItemStateChanged
 
+    private void jBticketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBticketActionPerformed
+        
+        int fila = jtPedido.getSelectedRow();
+        int idPedido = (int) jtPedido.getValueAt(fila, 0);
+        String texto = idPedido + "";
+        Ticket newframe = new Ticket(texto, null);
+        newframe.setVisible(true);
+    }//GEN-LAST:event_jBticketActionPerformed
+
+    private void jtPedidoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtPedidoMouseClicked
+        
+        int fila = jtPedido.getSelectedRow();
+        if(fila >= 0){
+            jBticket.setEnabled(true);
+        }
+    }//GEN-LAST:event_jtPedidoMouseClicked
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBsalir;
+    private javax.swing.JButton jBticket;
     private javax.swing.JComboBox<Mozo> jCidMozo;
     private javax.swing.JComboBox<Mozo> jCmozoXdia;
     private javax.swing.JLabel jLabel1;

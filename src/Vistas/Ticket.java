@@ -11,6 +11,7 @@ import java.awt.print.PrinterJob;
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
@@ -23,28 +24,39 @@ public class Ticket extends javax.swing.JFrame {
     private PedidoProductoData ppd = new PedidoProductoData();
     private LocalTime horaActual = LocalTime.now();
     private DateTimeFormatter formato = DateTimeFormatter.ofPattern("HH:mm"); // Formato de hora sin segundos
+    private DateTimeFormatter formato1 = DateTimeFormatter.ofPattern("dd-mm-yyyy");
     private String idRecibida;
+    private LocalDateTime diaYhora; 
 
     public Ticket() {
              
     }
 
-    public Ticket(String idPed) {
+    public Ticket(String idPed, LocalDateTime diaHora) {
 
         this.idRecibida = idPed;
+        this.diaYhora = diaHora;
         initComponents();
         this.setLocationRelativeTo(null);
         armarCabeceraProdPed();
-        jtFecha.setText(LocalDate.now() + "");
-        jtHora.setText(horaActual.format(formato));
+        
+        if(diaYhora == null){
+            
+            jtFecha.setText(LocalDate.now() + "");
+            jtHora.setText(horaActual.format(formato));
+            
+        }else{
+            
+            jtFecha.setText(diaYhora.format(formato1));
+            jtHora.setText(diaYhora.format(formato));
+        }
 
         if (idRecibida != null) {
 
             int idP = Integer.parseInt(idRecibida);
             cargarPedido(idP);   
-        }
-        
-        SwingUtilities.invokeLater(() -> generarPDF());
+            SwingUtilities.invokeLater(() -> generarPDF());
+        }    
     }
 
     private DefaultTableModel modelo = new DefaultTableModel() {
