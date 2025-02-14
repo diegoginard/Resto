@@ -18,8 +18,8 @@ public class Resto {
 
     public static void main(String[] args) {
 
-       ProductoData pd = new ProductoData();
-       System.out.println(pd.BuscarProductosXidPedido(121));
+//       ProductoData pd = new ProductoData();
+//       System.out.println(pd.BuscarProductosXidPedido(121));
 //       Producto pro1 = new Producto(12,"empanadas salteñas picantes"
 //               , 4000.000 ,5, true,"COMIDA");
 //       Producto pro = new Producto(1);
