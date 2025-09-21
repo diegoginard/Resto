@@ -63,6 +63,9 @@ public class IniciarSalon extends javax.swing.JFrame {
         jMgestpers = new javax.swing.JMenu();
         jMmozos = new javax.swing.JMenuItem();
         jMusuarios = new javax.swing.JMenuItem();
+        jMenu1 = new javax.swing.JMenu();
+        jMconexion = new javax.swing.JMenuItem();
+        jMempresa = new javax.swing.JMenuItem();
         jmSalir = new javax.swing.JMenu();
         jMusuario = new javax.swing.JMenu();
 
@@ -167,6 +170,21 @@ public class IniciarSalon extends javax.swing.JFrame {
 
         jMenuBar1.add(jMgestpers);
 
+        jMenu1.setText("Configuracion");
+
+        jMconexion.setText("Conexion");
+        jMconexion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMconexionActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMconexion);
+
+        jMempresa.setText("Empresa");
+        jMenu1.add(jMempresa);
+
+        jMenuBar1.add(jMenu1);
+
         jmSalir.setText("Salir");
         jmSalir.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -255,6 +273,12 @@ public class IniciarSalon extends javax.swing.JFrame {
         escritorio.moveToFront(admMozo);
     }//GEN-LAST:event_jMmozosActionPerformed
 
+    private void jMconexionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMconexionActionPerformed
+        
+        AdministrarConexion adConexion = new AdministrarConexion();
+        adConexion.setVisible(true);
+    }//GEN-LAST:event_jMconexionActionPerformed
+
     public static void main(String args[]) {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -267,6 +291,9 @@ public class IniciarSalon extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane escritorio;
+    private javax.swing.JMenuItem jMconexion;
+    private javax.swing.JMenuItem jMempresa;
+    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu jMgestpers;
     private javax.swing.JMenu jMgestsal;

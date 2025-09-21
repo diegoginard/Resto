@@ -1,0 +1,31 @@
+# Configuración de Deepwiki
+
+project: "Mi Proyecto"
+description: "Documentación en español generada automáticamente con Deepwiki."
+language: "es"
+
+# Opcional: incluir/excluir carpetas o archivos
+include:
+  - src/
+  - README.md
+exclude:
+  - node_modules/
+  - dist/
+
+# Opcional: estructura de la documentación
+sections:
+  - title: "Introducción"
+    files:
+      - README.md
+  - title: "Guía de Uso"
+    files:
+      - src/
+  - title: "Referencia Técnica"
+    files:
+      - docs/
+
+# Opcional: estilo de la documentación
+style:
+  theme: "default"
+  toc: true
+  code_highlighting: true

@@ -18,9 +18,11 @@ public class Conexion {
     private static String URL1;
     private static String USUARIO1;
     private static String PASSWORD1;
+    private static String DB_PATH = "Resto_Sqlite3.db";     // Ruta al archivo .db, ej: C:/miProyecto/resto.db
     private static String sqlFilePath = "resto.sql";
     private static String sqlconfigPath = "configSql.txt";
     private static String ConexconfigPath = "config.txt";
+    private static String configSqlitePath = "configSqlite.txt"; //Ruta a tu archivo de config (ej: configSqlite.txt)
     private static Connection connection;
 
     private Conexion() {
@@ -33,21 +35,29 @@ public class Conexion {
         if (!archivoConfig.exists()) {
             
             try (FileOutputStream fos = new FileOutputStream(archivoConfig)) {
+                
                 for (String key : keys) {
+                    
                     properties.setProperty(key, "");
                 }
+                
                 properties.store(fos, "Archivo de configuración generado automáticamente.");
                 Utilidades.mostrarDialogoTemporal("Archivo Creado", "Archivo " + filePath + " creado con valores predeterminados.", 2000);
+                
             } catch (IOException e) {
+                
                 Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, "Error al crear archivo: " + filePath, e);
             }
             
         } else {
             
             try (FileInputStream fis = new FileInputStream(archivoConfig)) {
+                
                 properties.load(fis);
                 propertyConsumer.accept(properties);
+                
             } catch (IOException e) {
+                
                 Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, "Error al cargar archivo: " + filePath, e);
                 Utilidades.mostrarDialogoTemporal("Error", "No se pudo cargar el archivo " + filePath, 4000);
             }
@@ -55,6 +65,7 @@ public class Conexion {
     }
 
     private static void cargarConfiguracion() {
+        
         cargarArchivoConfiguracion(ConexconfigPath, new String[]{"DRIVER", "URL", "DB", "USUARIO", "PASSWORD"}, props -> {
             DRIVER = props.getProperty("DRIVER");
             URL = props.getProperty("URL");
@@ -65,6 +76,7 @@ public class Conexion {
     }
 
     private static void cargarConfiguracionSql() {
+        
         cargarArchivoConfiguracion(sqlconfigPath, new String[]{"URL", "USUARIO", "PASSWORD"}, props -> {
             URL1 = props.getProperty("URL");
             USUARIO1 = props.getProperty("USUARIO");
@@ -72,8 +84,22 @@ public class Conexion {
         });
     }
 
+    private static void cargarConfiguracionSqlite() {
+        
+        // Suponiendo que tu archivo de configSqlite.txt tenga las propiedades:
+        DRIVER = "org.sqlite.JDBC";
+        
+        
+        cargarArchivoConfiguracion(configSqlitePath, new String[]{"DRIVER", "DB_PATH"}, props -> {
+            DRIVER = props.getProperty("DRIVER");
+            DB_PATH = props.getProperty("DB_PATH");
+        });
+    }
+
     public static Connection getConexion() {
+        
         if (connection == null) {
+            
             cargarConfiguracion(); // Cargar configuración al inicializar
 
             try {
@@ -99,25 +125,34 @@ public class Conexion {
                 Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+        
         return connection;
     }
 
     public static void cerrarConexion() {
+        
         if (connection != null) {
+            
             try {
+                
                 connection.close();
                 connection = null; // Reiniciar el objeto para futuras conexiones
                 Utilidades.mostrarDialogoTemporal("Desconexión Exitosa", "Se desconectó correctamente de la base de datos.", 2000);
+                
             } catch (SQLException ex) {
+                
                 Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, "Error al cerrar la conexión", ex);
                 Utilidades.mostrarDialogoTemporal("Error", "Error al cerrar la conexión: " + ex.getMessage(), 3000);
             }
+            
         } else {
+            
             Utilidades.mostrarDialogoTemporal("Info", "No hay conexión activa para cerrar.", 2000);
         }
     }
 
     public static void crearBD() {
+        
         cargarConfiguracionSql(); // Asegurarse de que la configuración esté cargada
 
         try (Connection connection = DriverManager.getConnection(URL1, USUARIO1, PASSWORD1); Statement statement = connection.createStatement(); BufferedReader reader = new BufferedReader(new FileReader(sqlFilePath))) {
@@ -138,16 +173,20 @@ public class Conexion {
             Utilidades.mostrarDialogoTemporal("Operación Exitosa", "Base de datos creada exitosamente.", 2000);
 
         } catch (SQLException e) {
+            
             Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, "Error al ejecutar el script SQL", e);
             Utilidades.mostrarDialogoTemporal("Error", "SQLException..." + e.getMessage(), 4000);
             eliminarBaseDeDatosCompleta();
+            
         } catch (IOException e) {
+            
             Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, "Error al leer el archivo SQL", e);
             Utilidades.mostrarDialogoTemporal("Error", "Error al leer el archivo SQL: " + e.getMessage(), 8000);
         }
     }
 
     public static void eliminarBaseDeDatosCompleta() {
+        
         cargarConfiguracionSql(); // Asegurarse de que la configuración esté cargada
 
         try (Connection connection = DriverManager.getConnection(URL1, USUARIO1, PASSWORD1); Statement statement = connection.createStatement()) {
@@ -159,6 +198,7 @@ public class Conexion {
             Utilidades.mostrarDialogoTemporal("Operación Exitosa", "Base de datos eliminada exitosamente: " + DB, 2000);
 
         } catch (SQLException e) {
+            
             Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, "Error al eliminar la base de datos", e);
             Utilidades.mostrarDialogoTemporal("Error", "SQLException: " + e.getMessage(), 4000);
         }

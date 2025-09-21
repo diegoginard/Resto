@@ -1,15 +1,7 @@
 package Vistas;
 
-import BaseDatos.MesaData;
-import BaseDatos.MozoData;
-import BaseDatos.PedidoData;
-import BaseDatos.PedidoProductoData;
-import BaseDatos.ProductoData;
-import Entidades.Mesa;
-import Entidades.Mozo;
-import Entidades.Pedido;
-import Entidades.PedidoProducto;
-import Entidades.Producto;
+import BaseDatos.*;
+import Entidades.*;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Graphics;
@@ -34,6 +26,7 @@ public class restoView extends javax.swing.JInternalFrame {
     private MesaData md = new MesaData();
     private MozoData mozoDat = new MozoData();
     private boolean estadoMesas = false;
+    
     public restoView() {
 
         initComponents();
