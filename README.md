@@ -2,6 +2,8 @@
 
 Este software ha sido desarrollado utilizando NetBeans como entorno de desarrollo integrado (IDE) y JDK 17 como plataforma Java. Está diseñado específicamente para la gestión integral de bares, facilitando la administración de operaciones diarias, inventarios, pedidos y otros procesos clave. Este proyecto final fue presentado en la Universidad de La Punta (ULP) como parte del trayecto de un curso de Full Stack en Java.
 
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/diegoginard/Resto)
+
 ### Tecnologías utilizadas:
 
 - **Java (JDK 17): Lenguaje de programación principal.
